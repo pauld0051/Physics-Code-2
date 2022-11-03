@@ -1,7 +1,14 @@
 /* Fonts */
 
 
-/* Text-Wrapping */
-div.b {
-  word-wrap: break-word;
+/* Header Background */
+.p_code {
+  background-color: #c3effd;
+  opacity: 0.95;
+}
+
+/* Standard Width and Height of Card Icons */
+.sw_h {
+    width: 200px;
+    height: 200px;
 }

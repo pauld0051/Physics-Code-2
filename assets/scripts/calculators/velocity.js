@@ -75,3 +75,35 @@ function dConvert() {
   document.getElementById("ft").innerHTML =
     (dResult * 3.28084).toFixed(2) + "<span> ft</span>";
 }
+
+//convert time into s regardless of choice of unit
+tElement = document.getElementById("inputTime");
+tSecondElement = document.getElementById("unitsTime");
+tElement.addEventListener("keyup", tConvert);
+tSecondElement.addEventListener("click", tConvert);
+function tConvert() {
+  let ti = parseFloat(tElement.value);
+  let tUnit = document.getElementById("unitsTime").value;
+  let tResult;
+  if (tUnit === "s") {
+    tResult = ti;
+  }
+  if (tUnit === "min") {
+    tResult = ti * 60;
+  }
+  if (tUnit === "hr") {
+    tResult = ti * 3600;
+  }
+  if (tUnit === "days") {
+    tResult = ti * 86400;
+  }
+  if (isNaN(tResult)) tResult = 0;
+  document.getElementById("s").innerHTML =
+    tResult.toFixed(2) + "<span> s<span>";
+  document.getElementById("min").innerHTML =
+    (tResult / 60).toFixed(2) + "<span> min</span>";
+  document.getElementById("hr").innerHTML =
+    (tResult / 3600).toFixed(2) + "<span> hr</span>";
+  document.getElementById("days").innerHTML =
+    (tResult / 86400).toFixed(2) + "<span> days</span>";
+}

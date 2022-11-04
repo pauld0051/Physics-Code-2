@@ -100,14 +100,15 @@
                         <p class="card-text"></p>
                         <br>
                         <label for="time">Time</label><br>
-                        <input type="number" name="inputTime" id="time" class="reset_form checkVelocity"
+                        <input type="number" name="inputTime" id="inputTime" class="reset_form checkVelocity"
                             value="" min="0.0001" step="0.0001" autocomplete="off"
                             aria-label="input value for time in seconds, minutes, or hours"><br>
                         <label for="unitsTime">Units</label><br>
                         <select name="unitsTime" id="unitsTime" style="width:60px;">
-                            <option value="seconds" selected>s</option>
-                            <option value="minutes">min</option>
-                            <option value="hours">hr</option>
+                            <option value="s" selected>s</option>
+                            <option value="min">min</option>
+                            <option value="hr">hr</option>
+                            <option value="days">days</option>
                         </select>
                     </div>
                 </div>
@@ -130,22 +131,22 @@
                 <tr>
                     <td id="ms">ms<sup>-1</sup></td>
                     <td id="m">m</td>
-                    <td>s</td>
+                    <td id="s">s</td>
                 </tr>
                 <tr>
                     <td id="kmh">kmh<sup>-1</sup></td>
                     <td id="km">km</td>
-                    <td>min</td>
+                    <td id="min">min</td>
                 </tr>
                 <tr>
                     <td id="mph">mph</td>
                     <td id="yd">yd</td>
-                    <td>hr</td>
+                    <td id="hr">hr</td>
                 </tr>
                 <tr>
                     <td id="fts">fts<sup>-1</sup></td>
                     <td id="mi">mi</td>
-                    <td></td>
+                    <td id="days">days</td>
                 </tr>
                 <tr>
                     <td></td>

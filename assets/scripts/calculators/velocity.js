@@ -131,6 +131,6 @@ function siAnswer() {
   }
   if (document.getElementById("si_s").checked) {
     document.getElementById("si_velocity_answer").innerHTML =
-      (distance * velocity).toFixed(3) + "<span> s</span>";
+      (distance / velocity).toFixed(3) + "<span> s</span>";
   }
 }

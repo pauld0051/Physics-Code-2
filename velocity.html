@@ -75,7 +75,7 @@
                             </a></h4>
                         <p class="card-text"></p>
                         <label for="distance">Distance</label><br>
-                        <input type="number" name="inputDistance" id="distance" class="reset_form checkVelocity"
+                        <input type="number" name="inputDistance" id="inputDistance" class="reset_form checkVelocity"
                             value="" min="0.01" step="0.01" autocomplete="off"
                             aria-label="input value for distance in metres, kilometers, or miles"><br>
                         <label for="unitsDistance">Units</label><br>
@@ -84,7 +84,7 @@
                             <option value="km">km</option>
                             <option value="yd">yd</option>
                             <option value="mi">miles</option>
-                            <option value="ft">miles</option>
+                            <option value="ft">feet</option>
                         </select>
                     </div>
                 </div>
@@ -129,27 +129,27 @@
             <tbody>
                 <tr>
                     <td id="ms">ms<sup>-1</sup></td>
-                    <td>m</td>
+                    <td id="m">m</td>
                     <td>s</td>
                 </tr>
                 <tr>
                     <td id="kmh">kmh<sup>-1</sup></td>
-                    <td>km</td>
+                    <td id="km">km</td>
                     <td>min</td>
                 </tr>
                 <tr>
                     <td id="mph">mph</td>
-                    <td>yd</td>
+                    <td id="yd">yd</td>
                     <td>hr</td>
                 </tr>
                 <tr>
                     <td id="fts">fts<sup>-1</sup></td>
-                    <td>mi</td>
+                    <td id="mi">mi</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>ft</td>
+                    <td id="ft">ft</td>
                     <td></td>
                 </tr>
             </tbody>

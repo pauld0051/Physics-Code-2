@@ -56,7 +56,7 @@ function dConvert() {
     dResult = di * 1000;
   }
   if (dUnit === "yd") {
-    dResult = di * 0.44704;
+    dResult = di / 1.09361;
   }
   if (dUnit === "mi") {
     dResult = di / 0.000621371;

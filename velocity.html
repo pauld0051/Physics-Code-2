@@ -74,7 +74,7 @@
                                 <i class="far fa-question-circle fa-2x"></i>
                             </a></h4>
                         <p class="card-text"></p>
-                        <label for="distance">Distance</label><br>
+                        <label for="inputDistance">Distance</label><br>
                         <input type="number" name="inputDistance" id="inputDistance" class="reset_form checkVelocity"
                             value="" min="0.01" step="0.01" autocomplete="off"
                             aria-label="input value for distance in metres, kilometers, or miles"><br>
@@ -99,7 +99,7 @@
                             </a></h4>
                         <p class="card-text"></p>
                         <br>
-                        <label for="time">Time</label><br>
+                        <label for="inputTime">Time</label><br>
                         <input type="number" name="inputTime" id="inputTime" class="reset_form checkVelocity"
                             value="" min="0.0001" step="0.0001" autocomplete="off"
                             aria-label="input value for time in seconds, minutes, or hours"><br>
@@ -116,9 +116,34 @@
             <!-- row close -->
         </form>
     </section>
+    <!-- Select Output SI-Units -->
+    <section class="container border border-success mt-1 mb-2">
+        <h5>Table 1: Results in SI units</h5>
+        <form name="si_velocity_calc" id="si_velocity_calc">
+            <h6>Select the SI unit you are solving for:</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="si_unit" id="si_ms"
+                    value="si_ms">
+                <label class="form-check-label" for="si_ms">ms<sup>-1</sup></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="si_unit" id="si_m"
+                    value="si_m">
+                <label class="form-check-label" for="si_m">m</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="si_unit" id="si_s"
+                value="si_s">
+                <label class="form-check-label" for="si_s">s</label>
+            </div>
+        </form>
+        <p id="si_velocity_answer">Answer =</p>
+        <br>
+        <p><em>Table 1 provides the SI unit for either ms<sup>-1</sup>, m, or s. You can change the output accordingly and see the common unit conversions in Table 2.</em></p>
+    </section>
     <!-- Results Table -->
     <section class="container border border-success mt-1 mb-2">
-        <h5>Table 1: Results with common units displayed</h5>
+        <h5>Table 2: Results with common units displayed</h5>
         <table class="table table-sm">
             <thead>
                 <tr>
@@ -155,15 +180,8 @@
                 </tr>
             </tbody>
         </table>
-        <p><em>Table 1 shows the results of all the calculations and various units available with all conversions completed. For a more comprehensive list of units, select your output in Table 2.</em>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions completed. For a more comprehensive list of units, select your output in Table 2.</em>
         </p>
-    </section>
-    <!-- Select Output Units -->
-    <section class="container border border-success mt-1 mb-2">
-        <h5>Table 2: Results via selected units</h5>
-        <p>This will be the area where you can select your unit you would like the output in.</p>
-        <p>There will be a form here with a radio box.</p>
-        <p>This might not be worth it... let's see</p>
     </section>
     <footer>
         <div class="footer"></div>

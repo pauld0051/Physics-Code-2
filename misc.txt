@@ -1,0 +1,6 @@
+const velocityAnswer = document.getElementById("si_velocity_answer");
+function siAnswer(evt) {
+  if (event.target.id === "si_m") { // event.target is the changed element
+    velocityAnswer.textContent = (distance / time).toFixed(3);
+  }
+}

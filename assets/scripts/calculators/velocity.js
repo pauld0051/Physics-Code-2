@@ -37,6 +37,7 @@ function convert() {
     (result / 0.44704).toFixed(2) + "<span> mph</span>";
   document.getElementById("fts").innerHTML =
     (result * 3.28084).toFixed(2) + "<span> fts<sup>-1</sup></span>";
+  velocity = result;
 }
 
 //convert distances into m regardless of choice of unit
@@ -74,6 +75,7 @@ function dConvert() {
     (dResult * 0.000621371).toFixed(2) + "<span> mi</span>";
   document.getElementById("ft").innerHTML =
     (dResult * 3.28084).toFixed(2) + "<span> ft</span>";
+  distance = dResult;
 }
 
 //convert time into s regardless of choice of unit
@@ -106,4 +108,29 @@ function tConvert() {
     (tResult / 3600).toFixed(2) + "<span> hr</span>";
   document.getElementById("days").innerHTML =
     (tResult / 86400).toFixed(2) + "<span> days</span>";
+  time = tResult
+}
+
+//supply answer in SI units
+const form = document.querySelector("#si_velocity_calc");
+form.addEventListener("change", siAnswer);
+element.addEventListener("keyup", siAnswer);
+secondElement.addEventListener("click", siAnswer);
+dElement.addEventListener("keyup", siAnswer);
+dSecondElement.addEventListener("click", siAnswer);
+tElement.addEventListener("keyup", siAnswer);
+tSecondElement.addEventListener("click", siAnswer);
+function siAnswer() {
+  if (document.getElementById("si_ms").checked) {
+    document.getElementById("si_velocity_answer").innerHTML =
+      (distance / time).toFixed(3) + "<span> ms<sup>-1</sup></span>";
+  }
+  if (document.getElementById("si_m").checked) {
+    document.getElementById("si_velocity_answer").innerHTML =
+      (velocity * time).toFixed(3) + "<span> m</span>";
+  }
+  if (document.getElementById("si_s").checked) {
+    document.getElementById("si_velocity_answer").innerHTML =
+      (distance * velocity).toFixed(3) + "<span> s</span>";
+  }
 }

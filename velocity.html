@@ -26,7 +26,7 @@
             </div>
         </div>
     </section>
-    <section class="container">
+    <section class="container border border-primary">
         <form name="velocity_calc" id="velocity_calc">
             <!-- Velocity Card -->
             <div class="row d-flex justify-content-center">
@@ -71,6 +71,7 @@
                         <select name="unitsDistance" id="unitsDistance" style="width:60px;">
                             <option value="m" selected>m</option>
                             <option value="km">km</option>
+                            <option value="yd">yd</option>
                             <option value="mi">miles</option>
                         </select>
                     </div>
@@ -82,9 +83,10 @@
                         <h4 class="text-center">Time <a tabindex="0" class="btn btn-link" role="button"
                                 data-toggle="popover" data-trigger="focus" title="Time (s, minutes, hours)"
                                 data-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
-                                <i class="far fa-question-circle fa-2x"></i>
+                                <i class="far fa-question-circle fa-2x mb-2"></i>
                             </a></h4>
                         <p class="card-text"></p>
+                        <br>
                         <label for="time">Time</label><br>
                         <input type="number" name="inputTime" id="time" class="reset_form checkVelocity"
                             value="" min="0.0001" step="0.0001" autocomplete="off"
@@ -98,8 +100,45 @@
                     </div>
                 </div>
             </div>
-            <!--row close-->
+            <!-- row close -->
         </form>
+    </section>
+    <!-- Results Table -->
+    <section class="container border border-success mt-1 mb-2">
+        <h5>Table 1: Results with all units displayed</h3>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Velocity</th>
+                    <th scope="col">Distance</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ms<sup>-1</sup></td>
+                    <td>m</td>
+                    <td>s</td>
+                </tr>
+                <tr>
+                    <td>kmh<sup>-1</sup></td>
+                    <td>km</td>
+                    <td>min</td>
+                </tr>
+                <tr>
+                    <td>mph</td>
+                    <td>yd</td>
+                    <td>hr</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>mi</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 1 shows the results of all the calculations and various units available with all conversions completed.</em>
+        </p>
     </section>
     <footer>
         <div class="footer"></div>

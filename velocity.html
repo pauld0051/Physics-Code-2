@@ -41,14 +41,25 @@
                             </a></h4>
                         <p class="card-text"></p>
                         <label for="inputVelocity">Velocity</label><br>
-                        <input type="number" name="inputVelocity" id="inputVelocity" class="reset_form checkVelocity"
-                            value="" min="0.01" max="299792458" step="0.01" autocomplete="off"
-                            aria-label="input value for velocity in metres per second, kilometers per hour or miles per hour"><br>
-                        <label for="units">Units</label><br>
-                        <select name="units" id="units" style="width:60px;">
+                        <input
+                        type="number"
+                        name="inputVelocity"
+                        id="inputVelocity"
+                        class="reset_form checkVelocity"
+                        value=""
+                        min="0.01"
+                        max="299792458"
+                        step="0.01"
+                        autocomplete="off"
+                        aria-label="input value for velocity in metres per second, kilometers per hour or miles per hour">
+                        <br>
+                        <label for="units">Units</label>
+                        <br>
+                        <select name="units" id="units" style="width:67px;">
                             <option value="kmh">kmh&#x207b;&sup1;</option>
                             <option value="ms" selected>ms&#x207b;&sup1;</option>
                             <option value="mph">mph</option>
+                            <option value="fts">fts&#x207b;&sup1;</option>
                         </select>
                     </div>
                 </div>
@@ -73,6 +84,7 @@
                             <option value="km">km</option>
                             <option value="yd">yd</option>
                             <option value="mi">miles</option>
+                            <option value="ft">miles</option>
                         </select>
                     </div>
                 </div>
@@ -105,7 +117,7 @@
     </section>
     <!-- Results Table -->
     <section class="container border border-success mt-1 mb-2">
-        <h5>Table 1: Results with all units displayed</h3>
+        <h5>Table 1: Results with common units displayed</h5>
         <table class="table table-sm">
             <thead>
                 <tr>
@@ -116,29 +128,41 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>ms<sup>-1</sup></td>
+                    <td id="ms">ms<sup>-1</sup></td>
                     <td>m</td>
                     <td>s</td>
                 </tr>
                 <tr>
-                    <td>kmh<sup>-1</sup></td>
+                    <td id="kmh">kmh<sup>-1</sup></td>
                     <td>km</td>
                     <td>min</td>
                 </tr>
                 <tr>
-                    <td>mph</td>
+                    <td id="mph">mph</td>
                     <td>yd</td>
                     <td>hr</td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td id="fts">fts<sup>-1</sup></td>
                     <td>mi</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>ft</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-        <p><em>Table 1 shows the results of all the calculations and various units available with all conversions completed.</em>
+        <p><em>Table 1 shows the results of all the calculations and various units available with all conversions completed. For a more comprehensive list of units, select your output in Table 2.</em>
         </p>
+    </section>
+    <!-- Select Output Units -->
+    <section class="container border border-success mt-1 mb-2">
+        <h5>Table 2: Results via selected units</h5>
+        <p>This will be the area where you can select your unit you would like the output in.</p>
+        <p>There will be a form here with a radio box.</p>
+        <p>This might not be worth it... let's see</p>
     </section>
     <footer>
         <div class="footer"></div>
@@ -147,6 +171,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="assets/scripts/bootstrap.min.js"></script>
     <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/velocity.js"></script>
 </body>
 
 </html>

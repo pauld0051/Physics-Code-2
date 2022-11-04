@@ -28,6 +28,7 @@
     </section>
     <section class="container">
         <form name="velocity_calc" id="velocity_calc">
+            <!-- Velocity Card -->
             <div class="row d-flex justify-content-center">
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                     <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
@@ -35,14 +36,14 @@
                         <h4 class="text-center">Velocity or Speed <a tabindex="0" class="btn btn-link" role="button"
                                 data-toggle="popover" data-trigger="focus"
                                 title="Initial Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup> or mph)"
-                                data-content="Enter the initial velocity the vehicle is travelling. Don't forget to check the units!">
+                                data-content="Leave blank or enter the velocity the object is travelling. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa-2x"></i>
                             </a></h4>
                         <p class="card-text"></p>
-                        <label for="initialVelocity">Velocity</label><br>
+                        <label for="velocity">Velocity</label><br>
                         <input type="number" name="inputVelocity" id="initialVelocity" class="reset_form checkVelocity"
-                            value="10" min="0.01" max="299792458" step="0.01" autocomplete="off"
-                            aria-label="input value for velocity"><br>
+                            value="" min="0.01" max="299792458" step="0.01" autocomplete="off"
+                            aria-label="input value for velocity in metres per second, kilometers per hour or miles per hour"><br>
                         <label for="units">Units</label><br>
                         <select name="units" id="units" style="width:60px;">
                             <option value="kmh">kmh&#x207b;&sup1;</option>
@@ -51,18 +52,49 @@
                         </select>
                     </div>
                 </div>
+                <!-- Distance Card -->
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                     <i class="fa-solid fa-ruler-horizontal fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Distance or Displacement</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 class="text-center">Distance or Displacement <a tabindex="0" class="btn btn-link"
+                                role="button" data-toggle="popover" data-trigger="focus"
+                                title="Distance (m, km, mi)"
+                                data-content="Leave blank or enter the distance the object travelled. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa-2x"></i>
+                            </a></h4>
+                        <p class="card-text"></p>
+                        <label for="distance">Distance</label><br>
+                        <input type="number" name="inputDistance" id="distance" class="reset_form checkVelocity"
+                            value="" min="0.01" step="0.01" autocomplete="off"
+                            aria-label="input value for distance in metres, kilometers, or miles"><br>
+                        <label for="unitsDistance">Units</label><br>
+                        <select name="unitsDistance" id="unitsDistance" style="width:60px;">
+                            <option value="m" selected>m</option>
+                            <option value="km">km</option>
+                            <option value="mi">miles</option>
+                        </select>
                     </div>
                 </div>
+                <!-- Time Card -->
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                     <i class="fa-solid fa-stopwatch fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Time</h4>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h4 class="text-center">Time <a tabindex="0" class="btn btn-link" role="button"
+                                data-toggle="popover" data-trigger="focus" title="Time (s, minutes, hours)"
+                                data-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa-2x"></i>
+                            </a></h4>
+                        <p class="card-text"></p>
+                        <label for="time">Time</label><br>
+                        <input type="number" name="inputTime" id="time" class="reset_form checkVelocity"
+                            value="" min="0.0001" step="0.0001" autocomplete="off"
+                            aria-label="input value for time in seconds, minutes, or hours"><br>
+                        <label for="unitsTime">Units</label><br>
+                        <select name="unitsDistance" id="unitsDistance" style="width:60px;">
+                            <option value="seconds" selected>s</option>
+                            <option value="minutes">min</option>
+                            <option value="hours">hr</option>
+                        </select>
                     </div>
                 </div>
             </div>

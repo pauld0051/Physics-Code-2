@@ -8,6 +8,9 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="assets\css\bootstrap.min.css">
     <link rel="stylesheet" href="assets\css\style.css" type="text/css" />
+    <link rel="stylesheet" href="assets\css\fontawesome.css" />
+    <link rel="stylesheet" href="assets\fontawesome\css\brands.css" />
+    <link rel="stylesheet" href="assets\fontawesome\css\solid.css" />
 </head>
 
 <body class="bg-light">
@@ -27,27 +30,38 @@
         <form name="velocity_calc" id="velocity_calc">
             <div class="row d-flex justify-content-center">
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <img class="img-thumbnail rounded mx-auto d-block mt-1 shadow-sm p-3 sw_h"
-                        src="assets\images\velocity\speedo.png"
-                        alt="speedometer">
+                    <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
+                        <h4 class="text-center">Velocity or Speed <a tabindex="0" class="btn btn-link" role="button"
+                                data-toggle="popover" data-trigger="focus"
+                                title="Initial Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup> or mph)"
+                                data-content="Enter the initial velocity the vehicle is travelling. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa-2x"></i>
+                            </a></h4>
+                        <p class="card-text"></p>
+                        <label for="initialVelocity">Velocity</label><br>
+                        <input type="number" name="inputVelocity" id="initialVelocity" class="reset_form checkVelocity"
+                            value="10" min="0.01" max="300" step="0.01" autocomplete="off"
+                            aria-label="input value for velocity"><br>
+                        <label for="units">Units</label><br>
+                        <select name="units" id="units" style="width:60px;">
+                            <option value="kmh">kmh&#x207b;&sup1;</option>
+                            <option value="ms" selected>ms&#x207b;&sup1;</option>
+                            <option value="mph">mph</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-ruler-horizontal fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Distance or Displacement</h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <img class="img-thumbnail rounded mx-auto d-block mt-1 shadow-sm p-3 sw_h"
-                        src="assets\images\velocity\ruler.png"
-                        alt="ruler">
+                    <i class="fa-solid fa-stopwatch fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <img class="img-thumbnail img-fluid rounded mx-auto d-block mt-1 shadow-sm p-3" width="172"
-                        height="172"
-                        src="assets\images\velocity\timer.png"
-                        alt="timer">
-                    <div class="card-body">
+                        <h4 class="text-center">Time</h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>

@@ -25,7 +25,10 @@ function convert() {
   if (unit === "mph") {
     result = vi * 0.44704;
   }
-  if (isNaN(vi)) vi = 0;
+  if (unit === "fts") {
+    result = vi / 3.28084;
+  }
+  if (isNaN(result)) result = 0;
   document.getElementById("ms").innerHTML =
     result.toFixed(2) + "<span> ms<sup>-1</sup></span>";
   document.getElementById("kmh").innerHTML =

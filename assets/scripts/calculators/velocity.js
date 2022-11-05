@@ -132,7 +132,7 @@ function siAnswer() {
     document.getElementById("units").selectedIndex = "1";
     convert();
     document.getElementById("si_velocity_equation").innerHTML =
-      "<span>d / t</span>" +
+      "<span>v = d / t</span>" +
       "<br>" +
       "<span>distance (d) = </span>" +
       distance.toFixed(3) +
@@ -155,7 +155,7 @@ function siAnswer() {
     document.getElementById("unitsDistance").selectedIndex = "0";
     dConvert();
     document.getElementById("si_velocity_equation").innerHTML =
-      "<span>v * t</span>" +
+      "<span>d = v * t</span>" +
       "<br>" +
       "<span>velocity (v) = </span>" +
       velocity.toFixed(3) +
@@ -178,7 +178,7 @@ function siAnswer() {
     document.getElementById("unitsTime").selectedIndex = "0";
     tConvert();
     document.getElementById("si_velocity_equation").innerHTML =
-      "<span>d / v</span>" +
+      "<span>t = d / v</span>" +
       "<br>" +
       "<span>distance (d) = </span>" +
       distance.toFixed(3) +

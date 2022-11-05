@@ -31,3 +31,8 @@
 .equation_color {
   color: green;
 }
+
+/* 3 column table set widths */
+.w33 {
+  width: 33%;
+}

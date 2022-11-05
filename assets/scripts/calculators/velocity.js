@@ -190,7 +190,12 @@ function siAnswer() {
       velocity +
       " s";
   }
-  velocityInput = (distance / time)
-  distanceInput = (velocity * time)
-  timeInput = (distance / velocity)
+}
+
+//reset the form for new entry
+resetForm = document.getElementById("resetButton");
+resetForm.addEventListener("click", resetForms);
+function resetForms() {
+  document.getElementById("velocity_calc").reset();
+  document.getElementById("si_velocity_calc").reset();
 }

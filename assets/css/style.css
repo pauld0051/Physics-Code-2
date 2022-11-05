@@ -12,3 +12,12 @@
     width: 200px;
     height: 200px;
 }
+
+/* Color of h6 element for equation and answers */
+.answer_color {
+  color: red;
+}
+
+.equation_color {
+  color: green;
+}

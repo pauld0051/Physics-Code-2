@@ -123,14 +123,25 @@ tSecondElement.addEventListener("click", siAnswer);
 function siAnswer() {
   if (document.getElementById("si_ms").checked) {
     document.getElementById("si_velocity_answer").innerHTML =
-      (distance / time).toFixed(3) + "<span> ms<sup>-1</sup></span>";
+      "<span>Answer =</span>" + (distance / time).toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("inputVelocity").value = (distance / time).toFixed(3);
+    document.getElementById("units").selectedIndex = "1";
+    convert();
   }
   if (document.getElementById("si_m").checked) {
-    document.getElementById("si_velocity_answer").innerHTML =
-      (velocity * time).toFixed(3) + "<span> m</span>";
+    document.getElementById("si_velocity_answer").innerHTML = "<span>Answer =</span>" + (velocity * time).toFixed(3) + "<span> m</span>";
+    document.getElementById("inputDistance").value = (velocity * time).toFixed(3);
+    document.getElementById("unitsDistance").selectedIndex = "0";
+    dConvert();
   }
   if (document.getElementById("si_s").checked) {
     document.getElementById("si_velocity_answer").innerHTML =
-      (distance / velocity).toFixed(3) + "<span> s</span>";
+      "<span>Answer =</span>" + (distance / velocity).toFixed(3) + "<span> s</span>";
+    document.getElementById("inputTime").value = (distance / velocity).toFixed(3);
+    document.getElementById("unitsTime").selectedIndex = "0";
+    tConvert();
   }
+  velocityInput = (distance / time)
+  distanceInput = (velocity * time)
+  timeInput = (distance / velocity)
 }

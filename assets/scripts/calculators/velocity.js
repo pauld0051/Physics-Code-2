@@ -132,17 +132,20 @@ function siAnswer() {
     document.getElementById("units").selectedIndex = "1";
     convert();
     document.getElementById("si_velocity_equation").innerHTML =
-      "<span>d / t</span>" + "<br>" +
+      "<span>d / t</span>" +
+      "<br>" +
       "<span>distance (d) = </span>" +
-      distance + " m" + "<br>" +
+      distance.toFixed(3) +
+      " m" +
+      "<br>" +
       "<span>time (t) = </span>" +
-      time +
+      time.toFixed(3) +
       " s" +
       "<br>" +
       "<span>distance (d) / time (t) = </span>" +
-      distance +
+      distance.toFixed(3) +
       " / " +
-      time +
+      time.toFixed(3) +
       " ms<sup>-1</sup>";
   }
   if (document.getElementById("si_m").checked) {
@@ -155,17 +158,17 @@ function siAnswer() {
       "<span>v * t</span>" +
       "<br>" +
       "<span>velocity (v) = </span>" +
-      velocity +
+      velocity.toFixed(3) +
       " ms<sup>-1</sup>" +
       "<br>" +
       "<span>time (t) = </span>" +
-      time +
+      time.toFixed(3) +
       " s" +
       "<br>" +
       "<span>velocity (v) * time (t) = </span>" +
-      velocity +
+      velocity.toFixed(3) +
       " * " +
-      time +
+      time.toFixed(3) +
       " m";
   }
   if (document.getElementById("si_s").checked) {
@@ -178,17 +181,17 @@ function siAnswer() {
       "<span>d / v</span>" +
       "<br>" +
       "<span>distance (d) = </span>" +
-      distance +
+      distance.toFixed(3) +
       " m" +
       "<br>" +
       "<span>velocity (v) = </span>" +
-      velocity +
+      velocity.toFixed(3) +
       " ms<sup>-1</sup>" +
       "<br>" +
       "<span>distance (d) / velocity (v) = </span>" +
-      distance +
+      distance.toFixed(3) +
       " / " +
-      velocity +
+      velocity.toFixed(3) +
       " s";
   }
 }

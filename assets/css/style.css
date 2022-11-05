@@ -1,10 +1,20 @@
 /* Fonts */
 
 
+/* Body background */
+.bg-pcode {
+  background-color: #f1c3a1;
+}
+
 /* Header Background */
 .p_code {
   background-color: #c3effd;
   opacity: 0.95;
+}
+
+/* Container Background */
+.bg_cont {
+  background-color: #fcf3ec;
 }
 
 /* Standard Width and Height of Card Icons */

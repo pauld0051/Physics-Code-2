@@ -1,11 +1,11 @@
 //prevent the browser from showing default error bubble / hint
-document.querySelector("form").addEventListener(
-    "invalid",
-    function(event) {
-        event.preventDefault();
-    },
-    true
-);
+//document.querySelector("form").addEventListener(
+//    "invalid",
+//    function(event) {
+//        event.preventDefault();
+//    },
+//    true
+//);
 
 //convert velocities into m/s regardless of choice of unit
 element = document.getElementById("inputVelocity");

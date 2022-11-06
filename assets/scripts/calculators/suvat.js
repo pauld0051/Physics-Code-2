@@ -11,7 +11,7 @@ $checkboxes.on("change", function () {
         $submitButton.prop("disabled", true);
     } else {
         $submitButton.prop("disabled", false);
-}
+    }
 });
 
 //enable inputs based on checked box (up to 4 possible)

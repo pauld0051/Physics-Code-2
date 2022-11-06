@@ -32,7 +32,17 @@
   color: green;
 }
 
+/* 2 column table set widths */
+.w50 {
+  width: 50%;
+}
+
 /* 3 column table set widths */
 .w33 {
   width: 33%;
+}
+
+/* 5 column table set widths */
+.w20 {
+  width: 20%;
 }

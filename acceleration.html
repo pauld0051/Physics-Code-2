@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Velocity</title>
+    <title>Acceleration</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -34,17 +34,17 @@
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                     <i class="fa-solid fa-forward fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Acceleration <a tabindex="0" class="btn btn-link" role="button"
+                        <h4 class="text-center">Acceleration (a) <a tabindex="0" class="btn btn-link" role="button"
                                 data-toggle="popover" data-trigger="focus"
                                 title="Acceleration (ms<sup>-2</sup>"
                                 data-content="Leave blank or enter the acceleration of the object. This is only in SI units!">
                                 <i class="far fa-question-circle fa"></i>
                             </a></h4>
                         <p class="card-text"></p>
-                        <label for="inputAcceleration">Acceleration</label><br>
+                        <label for="inputAcceleration">Acceleration (a)</label><br>
                         <input type="number" name="inputAcceleration" id="inputAcceleration"
                             class="reset_form checkAcceleration"
-                            value="" min="0.0001" max="" step="0.0001" autocomplete="off"
+                            value="" min="0.0001" step="0.0001" autocomplete="off"
                             aria-label="input value for acceleration in metres per second squared.">
                         <br>
                         <label for="aUnits">Units</label>
@@ -55,22 +55,22 @@
                     </div>
                 </div>
                 <!-- Velocity Card -->
-                <div class="row d-flex justify-content-center">
                     <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                         <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                         <div class="card-body">
-                            <h4 class="text-center">&#x394Velocity <a tabindex="0" class="btn btn-link" role="button"
+                            <h4 class="text-center">&#x394;Velocity (&#x394;v) <a tabindex="0" class="btn btn-link"
+                                    role="button"
                                     data-toggle="popover" data-trigger="focus"
-                                    title="&#x394Velocity (<em>final<sub>v</sub> -
+                                    title="&#x394;Velocity (<em>final<sub>v</sub> -
                                         initial<sub>v</sub></em>)<br>(ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or
                                     fts<sup>-1</sup>)"
-                                    data-content="Leave blank or enter the change in velocity (&#x394v)
+                                    data-content="Leave blank or enter the change in velocity (&#x394;v)
                                     (<em>final<sub>v</sub> -
                                     initial<sub>v</sub></em>) for the object. Don't forget to check the units!">
                                     <i class="far fa-question-circle fa"></i>
                                 </a></h4>
                             <p class="card-text"></p>
-                            <label for="inputVelocity">&#x394Velocity</label><br>
+                            <label for="inputVelocity">&#x394;Velocity (&#x394;v)</label><br>
                             <input type="number" name="inputVelocity" id="inputVelocity"
                                 class="reset_form checkVelocity" value="" min="0.01" max="299792458" step="0.01"
                                 autocomplete="off"
@@ -90,13 +90,13 @@
                     <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
                         <i class="fa-solid fa-stopwatch fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                         <div class="card-body">
-                            <h4 class="text-center">Time <a tabindex="0" class="btn btn-link" role="button"
+                            <h4 class="text-center">Time (t) <a tabindex="0" class="btn btn-link" role="button"
                                     data-toggle="popover" data-trigger="focus" title="Time (s, min, hr, days)"
                                     data-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
                                     <i class="far fa-question-circle fa mb-1"></i>
                                 </a></h4>
                             <p class="card-text"></p>
-                            <label for="inputTime">Time</label><br>
+                            <label for="inputTime">Time (t)</label><br>
                             <input type="number" name="inputTime" id="inputTime" class="reset_form checkVelocity"
                                 value="" min="0.0001" step="0.0001" autocomplete="off"
                                 aria-label="input value for time in seconds, minutes, hours or days"><br>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="si_unit" id="si_ms" value="si_ms">
-                                <label class="form-check-label" for="si_m">&#x394Velocity (ms<sup>-1</sup>)</label>
+                                <label class="form-check-label" for="si_ms">&#x394;Velocity (ms<sup>-1</sup>)</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="si_unit" id="si_s" value="si_s">
@@ -141,7 +141,7 @@
                             <i class="far fa-question-circle fa mb-2"></i>
                         </a>
                         <br>
-                        <p><em>Table 1 provides the SI unit for either ms<sup>-2</sup>, &#x394ms<sup>-1</sup>, or s. You
+                        <p><em>Table 1 provides the SI unit for either ms<sup>-2</sup>, &#x394;ms<sup>-1</sup>, or s. You
                                 can change the
                                 output accordingly and see the common unit conversions in Table 2.</em></p>
                     </section>
@@ -152,7 +152,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="w33">Acceleration</th>
-                                    <th scope="col" class="w33">&#x394Velocity</th>
+                                    <th scope="col" class="w33">&#x394;Velocity</th>
                                     <th scope="col" class="w33">Time</th>
                                 </tr>
                             </thead>

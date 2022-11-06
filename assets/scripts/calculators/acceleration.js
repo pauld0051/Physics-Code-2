@@ -136,7 +136,7 @@ function siAnswer() {
           "<span>&#x394v = a * t</span>" +
           "<br>" +
           "<span>acceleration (a) = </span>" +
-          velocity.toFixed(3) +
+          acceleration.toFixed(3) +
           " ms<sup>-2</sup>" +
           "<br>" +
           "<span>time (t) = </span>" +
@@ -144,7 +144,7 @@ function siAnswer() {
           " s" +
           "<br>" +
           "<span>acceleration (a) * time (t) = </span>" +
-          velocity.toFixed(3) +
+          acceleration.toFixed(3) +
           " * " +
           time.toFixed(3) +
           " ms<sup>-1</sup>";
@@ -174,4 +174,12 @@ function siAnswer() {
           acceleration.toFixed(3) +
           " s";
     }
+}
+
+//reset the form for new entry
+resetForm = document.getElementById("resetButton");
+resetForm.addEventListener("click", resetForms);
+function resetForms() {
+  document.getElementById("acceleration_calc").reset();
+  document.getElementById("si_acceleration_calc").reset();
 }

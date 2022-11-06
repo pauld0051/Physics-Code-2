@@ -42,7 +42,8 @@
                         <td>\begin{gather}
                             v\ =\ u+at\\
                             \notag
-                            \end{gather}</td>
+                            \end{gather}
+                        </td>
                         <td>\begin{gather}
                             s\ =\ ut\ +\ \frac{1}{2} \ at^{2}\\
                             \notag
@@ -73,6 +74,41 @@
             </table>
         </div>
     </section>
+    <section class="container border border-primary bg_cont mb-1">
+        <h4>Select the things you know:</h4>
+        <p>Select the three or four variables that you know. You can change this selection later if you want.</p>
+        <p>This will help you become familiar with the processes of calculating suvat equations.</p>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="displacement" id="displacemement">
+            <label class="form-check-label" for="displacement">
+                Displacement (s)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="initial_velocity">
+            <label class="form-check-label" for="initial_velocity">
+                Initial Velocity (u)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="initial_velocity" id="final_velocity">
+            <label class="form-check-label" for="final_velocity">
+                Final Velocity (v)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="acceleration" id="acceleration">
+            <label class="form-check-label" for="acceleration">
+                Acceleration (a)
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="time" id="time">
+            <label class="form-check-label" for="time">
+                Time (t)
+            </label>
+        </div>
+    </section>
     <section class="container border border-primary bg_cont">
     <form name="suvat_calc" id="suvat_calc">
     <div class="row d-flex justify-content-center">
@@ -80,7 +116,7 @@
         <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
             <i class="fa-solid fa-ruler-horizontal fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
             <div class="card-body">
-                <h4 class="text-center">Displacement (s) <a tabindex="0" class="btn btn-link" role="button"
+                <h4 class="text-center">Displacement (s)<br><a tabindex="0" class="btn btn-link" role="button"
                         data-toggle="popover" data-trigger="focus" title="Displacement (m, km, yd, mi, ft)"
                         data-content="Leave blank or enter the displacement the object travelled. Don't forget to check the units!">
                         <i class="far fa-question-circle fa"></i>
@@ -89,7 +125,7 @@
                 <label for="inputDistance">Displacement (s)</label><br>
                 <input type="number" name="inputDistance" id="inputDistance" class="reset_form checkVelocity" value=""
                     min="0.01" step="0.01" autocomplete="off"
-                    aria-label="input value for distance in metres, kilometers, yards or miles"><br>
+                    aria-label="input value for distance in metres, kilometers, yards or miles" disabled><br>
                 <label for="unitsDistance">Units</label><br>
                 <select name="unitsDistance" id="unitsDistance" style="width:60px;">
                     <option value="m" selected>m</option>
@@ -104,7 +140,7 @@
         <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
             <i class="fa-solid fa-gauge fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
             <div class="card-body">
-                <h4 class="text-center">Initial Velocity (u) <a tabindex="0" class="btn btn-link" role="button"
+                <h4 class="text-center">Initial Velocity (u)<br><a tabindex="0" class="btn btn-link" role="button"
                         data-toggle="popover" data-trigger="focus"
                         title="Initial Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)"
                         data-content="Leave blank or enter the initial velocity the object is travelling. Don't forget to check the units!">
@@ -114,7 +150,8 @@
                 <label for="inputVi">Velocity (u)</label><br>
                 <input type="number" name="inputVi" id="inputVi" class="reset_form checkVelocity" value=""
                     min="0.01" max="299792458" step="0.01" autocomplete="off"
-                    aria-label="input value for the initial velocity in metres per second, kilometers per hour, miles per hour or feet per second.">
+                    aria-label="input value for the initial velocity in metres per second, kilometers per hour, miles
+                    per hour or feet per second." disabled>
                 <br>
                 <label for="unitsVi">Units</label>
                 <br>
@@ -128,9 +165,9 @@
         </div>
         <!-- Final Velocity -->
         <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-            <i class="fa-solid fa-gauge fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+            <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
             <div class="card-body">
-                <h4 class="text-center">Final Velocity (v) <a tabindex="0" class="btn btn-link" role="button"
+                <h4 class="text-center">Final Velocity (v)<br><a tabindex="0" class="btn btn-link" role="button"
                         data-toggle="popover" data-trigger="focus"
                         title="Final Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)"
                         data-content="Leave blank or enter the final velocity the object is travelling. Don't forget to check the units!">
@@ -140,7 +177,8 @@
                 <label for="inputVf">Final Velocity (v)</label><br>
                 <input type="number" name="inputVf" id="inputVf" class="reset_form checkVelocity" value="" min="0.01"
                     max="299792458" step="0.01" autocomplete="off"
-                    aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per hour or feet per second.">
+                    aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per
+                    hour or feet per second." disabled>
                 <br>
                 <label for="unitsVf">Units</label>
                 <br>
@@ -158,7 +196,7 @@
         <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
             <i class="fa-solid fa-forward fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
             <div class="card-body">
-                <h4 class="text-center">Acceleration (a) <a tabindex="0" class="btn btn-link" role="button"
+                <h4 class="text-center">Acceleration (a)<br><a tabindex="0" class="btn btn-link" role="button"
                         data-toggle="popover" data-trigger="focus" title="Acceleration (ms<sup>-2</sup>"
                         data-content="Leave blank or enter the acceleration of the object. You can choose gravity as the acceleration.">
                         <i class="far fa-question-circle fa"></i>
@@ -167,7 +205,7 @@
                 <label for="inputAcceleration">Acceleration (a)</label><br>
                 <input type="number" name="inputAcceleration" id="inputAcceleration"
                     class="reset_form checkAcceleration" value="" min="0.0001" step="0.0001" autocomplete="off"
-                    aria-label="input value for acceleration in metres per second squared or select g.">
+                    aria-label="input value for acceleration in metres per second squared or select g." disabled>
                 <br>
                 <label for="aUnits">Units</label>
                 <br>
@@ -181,7 +219,7 @@
         <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
             <i class="fa-solid fa-stopwatch fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
             <div class="card-body">
-                <h4 class="text-center">Time (t) <a tabindex="0" class="btn btn-link" role="button"
+                <h4 class="text-center">Time (t)<br><a tabindex="0" class="btn btn-link" role="button"
                         data-toggle="popover" data-trigger="focus" title="Time (s, min, hr, days)"
                         data-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
                         <i class="far fa-question-circle fa mb-1"></i>
@@ -190,7 +228,7 @@
                 <label for="inputTime">Time (t)</label><br>
                 <input type="number" name="inputTime" id="inputTime" class="reset_form checkVelocity" value=""
                     min="0.0001" step="0.0001" autocomplete="off"
-                    aria-label="input value for time in seconds, minutes, hours or days"><br>
+                    aria-label="input value for time in seconds, minutes, hours or days" disabled><br>
                 <label for="unitsTime">Units</label><br>
                 <select name="unitsTime" id="unitsTime" style="width:60px;">
                     <option value="s" selected>s</option>
@@ -202,6 +240,14 @@
         </div>
     </div>
     </form>
+    <div class="col text-center">
+    <button type="button" class="btn-sm btn-outline-success mb-2" id="submitButton">Calculate</button>
+    <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Calculate"
+        data-content="Once you have added three or four variables, submit the calculation for evaluation.">
+        <i class="far fa-question-circle fa mb-2"></i>
+    </a>
+    </div>
+    <br>
     </section>
     <!-- Table 1 Select Output SI-Units -->
     <section class="container border border-success mt-1 mb-1 bg_cont">
@@ -209,19 +255,29 @@
         <table class="table table-sm">
             <thead>
                 <tr>
-                    <th scope="col" class="w20"><small><strong>Displacement<br>(s)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Initial Velocity<br>(u)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Final Velocity<br>(v)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Acceleration<br>(a)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Time<br>(t)</strong></small></th>
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>Displacement (s)</td>
                     <td id="s">m</td>
+                </tr>
+                <tr>
+                    <td>Initial Velocity (u)</td>
                     <td id="u">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td>Final Velocity (v)</td>
                     <td id="v">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td>Acceleration (a)</td>
                     <td id="a">ms<sup>-2</sup></td>
+                </tr>
+                <tr>
+                    <td>Time (t)</td>
                     <td id="t">s</td>
                 </tr>
             </tbody>
@@ -242,54 +298,88 @@
         <h5>Table 2: Results with common units displayed</h5>
         <table class="table table-sm">
             <thead>
-                <tr>
-                    <th scope="col" class="w20"><small><strong>Displacement<br>(s)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Initial Velocity<br>(u)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Final Velocity<br>(v)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Acceleration<br>(a)</strong></small></th>
-                    <th scope="col" class="w20"><small><strong>Time<br>(t)</strong></small></th>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>Displacement (s)</td>
                     <td id="sx">m</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s1x">km</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s2x">mi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s3x">yd</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="s4x">ft</td>
+                </tr>
+                <tr>
+                    <td>Initial Velocity (u)</td>
                     <td id="ux">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="u1x">kmh<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="u2x">mph</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="u3x">ft<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td>Final Velocity (v)</td>
                     <td id="vx">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v1x">kmh<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v2x">mph</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="v3x">ft<sup>-1</sup></td>
+                </tr>
+                <tr class="t_line">
+                    <td>Acceleration (a)</td>
                     <td id="ax">ms<sup>-2</sup></td>
+                </tr>
+                <tr>
+                    <td>Time (t)</td>
                     <td id="tx">s</td>
                 </tr>
                 <tr>
-                    <td id="s1x">km</td>
-                    <td id="u1x">kmh<sup>-1</sup></td>
-                    <td id="v1x">kmh<sup>-1</sup></td>
                     <td></td>
                     <td id="t1x">min</td>
                 </tr>
                 <tr>
-                    <td id="s2x">mi</td>
-                    <td id="u2x">mph</td>
-                    <td id="v2x">mph</td>
                     <td></td>
                     <td id="t2x">hr</td>
                 </tr>
-                <tr>
-                    <td id="s3x">yd</td>
-                    <td id="u3x">fts<sup>-1</sup></td>
-                    <td id="v3x">fts<sup>-1</sup></td>
+                <tr class="t_line">
                     <td></td>
-                    <td id="days">days</td>
-                </tr>
-                <tr>
-                    <td id="s4x">ft</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td id="t3x">days</td>
                 </tr>
             </tbody>
         </table>
         <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
-                completed. For a more comprehensive list of units, select your output in Table 2.</em>
+                completed.</em>
         </p>
     </section>
     <footer>

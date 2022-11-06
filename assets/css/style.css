@@ -46,3 +46,9 @@
 .w20 {
   width: 20%;
 }
+
+/* Thick line break for tables */
+.t_line {
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+}

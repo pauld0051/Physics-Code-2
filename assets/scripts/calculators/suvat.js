@@ -85,12 +85,13 @@ function calculateMe() {
   ) {
     //Equation 1 s only
     result = u * t + 0.5 * a * (Math.pow(t,2));
-    document.getElementById("inputDistance").value = result;
+    document.getElementById("inputDistance").value = result.toFixed(3);
     document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
+    document.getElementById("si_suvat_equation").innerHTML = "\begin{gather} s = ut + \frac{1}{2}  at^{2}\\ \\notag end{gather}</span>";
   } else if (
     !s1.checked &&
     !u1.checked &&
@@ -101,8 +102,8 @@ function calculateMe() {
     //equation 2 s and u only
     result = v - a * t;
     result2 = result * t + 0.5 * a * (Math.pow(t,2));
-    document.getElementById("inputVi").value = result;
-    document.getElementById("inputDistance").value = result2;
+    document.getElementById("inputVi").value = result.toFixed(3);
+    document.getElementById("inputDistance").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -118,8 +119,8 @@ function calculateMe() {
     //equation 3 s and v only
     result = u + a * t;
     result2 = u * t + 0.5 * a * Math.pow(t, 2);
-    document.getElementById("inputVf").value = result;
-    document.getElementById("inputDistance").value = result2;
+    document.getElementById("inputVf").value = result.toFixed(3);
+    document.getElementById("inputDistance").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
@@ -135,8 +136,8 @@ function calculateMe() {
     //equation 4 s and a only
     result = (v - u) / t;
     result2 = u * t + 0.5 * result * Math.pow(t, 2);
-    document.getElementById("inputAcceleration").value = result;
-    document.getElementById("inputDistance").value = result2;
+    document.getElementById("inputAcceleration").value = result.toFixed(3);
+    document.getElementById("inputDistance").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -152,8 +153,8 @@ function calculateMe() {
     //equation 5 s and t only
     result = (v - u) / a;
     result2 = u * result + 0.5 * a * Math.pow(result, 2);
-    document.getElementById("inputTime").value = result;
-    document.getElementById("inputDistance").value = result2;
+    document.getElementById("inputTime").value = result.toFixed(3);
+    document.getElementById("inputDistance").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -168,7 +169,7 @@ function calculateMe() {
   ) {
     //equation 6 u only
     result = v - a * t;
-    document.getElementById("inputVi").value = result;
+    document.getElementById("inputVi").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -184,8 +185,8 @@ function calculateMe() {
     //equation 7 u and v only
     result = s / t - a * t / 2;
     result2 = result + a * t;
-    document.getElementById("inputVi").value = result;
-    document.getElementById("inputVf").value = result2;
+    document.getElementById("inputVi").value = result.toFixed(3);
+    document.getElementById("inputVf").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
@@ -201,8 +202,8 @@ function calculateMe() {
     //equation 8 u and a only
     result = (2 * s / t) - v;
     result2 = (v - result) / t;
-    document.getElementById("inputVi").value = result;
-    document.getElementById("inputAcceleration").value = result2;
+    document.getElementById("inputVi").value = result.toFixed(3);
+    document.getElementById("inputAcceleration").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -216,15 +217,15 @@ function calculateMe() {
     !t1.checked
   ) {
     //equation 9 u and t only
-    result = Math.sqrt(Math.pow(v, 2) - 2 * a * s);
-    result2 = (v - result) / a;
-    document.getElementById("inputVi").value = result;
-    document.getElementById("inputTime").value = result2;
+    result = (v - Math.sqrt(Math.pow(v, 2) - 2 * a * s)) / a;
+    result2 = (v - a * result);
+    document.getElementById("inputVi").value = result2.toFixed(3);
+    document.getElementById("inputTime").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result2.toFixed(3) + "<span> s</span>";
+    document.getElementById("t").innerHTML = result.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -234,7 +235,7 @@ function calculateMe() {
   ) {
     //equation 10 v only
     result = u + a * t;
-    document.getElementById("inputVf").value = result;
+    document.getElementById("inputVf").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
@@ -250,8 +251,8 @@ function calculateMe() {
     //equation 11 v and a only
     result = (2 * s / t) - u;
     result2 = (result - u) / t;
-    document.getElementById("inputVf").value = result;
-    document.getElementById("inputAcceleration").value = result2;
+    document.getElementById("inputVf").value = result.toFixed(3);
+    document.getElementById("inputAcceleration").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
@@ -267,8 +268,8 @@ function calculateMe() {
     //equation 12 v and t only
     result = Math.sqrt(Math.pow(u, 2) + 2 * a * s);
     result2 = (result - u) / a;
-    document.getElementById("inputVf").value = result;
-    document.getElementById("inputTime").value = result2;
+    document.getElementById("inputVf").value = result.toFixed(3);
+    document.getElementById("inputTime").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
@@ -283,7 +284,7 @@ function calculateMe() {
   ) {
     //equation 13 a only
     result = (v - u) / t;
-    document.getElementById("inputAcceleration").value = result;
+    document.getElementById("inputAcceleration").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -299,8 +300,8 @@ function calculateMe() {
     //equation 14 a and t only
     result = (v - u) * (v + u) / (2 * s);
     result2 = (v - u) / result;
-    document.getElementById("inputAcceleration").value = result;
-    document.getElementById("inputTime").value = result2;
+    document.getElementById("inputAcceleration").value = result.toFixed(3);
+    document.getElementById("inputTime").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
@@ -315,7 +316,7 @@ function calculateMe() {
   ) {
     //equation 15 t only
     result = (v - u) / a;
-    document.getElementById("inputTime").value = result;
+    document.getElementById("inputTime").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";

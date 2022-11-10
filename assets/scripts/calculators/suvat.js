@@ -13,7 +13,6 @@ $checkboxes.on("change", function () {
     } else {
         $submitButton.prop("disabled", false);
   }
-
   if ($accelerationSelect.prop(":checked")) {
     $("#aUnits").prop("disabled", false);
   }
@@ -87,7 +86,7 @@ function calculateMe() {
     //Equation 1 s only
     result = u * t + 0.5 * a * (Math.pow(t,2));
     document.getElementById("inputDistance").value = result;
-    document.getElementById("s").innerHTML = result + "<span> m</span>";
+    document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
@@ -104,8 +103,8 @@ function calculateMe() {
     result2 = result * t + 0.5 * a * (Math.pow(t,2));
     document.getElementById("inputVi").value = result;
     document.getElementById("inputDistance").value = result2;
-    document.getElementById("s").innerHTML = result + "<span> m</span>";
-    document.getElementById("u").innerHTML = result2 + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
+    document.getElementById("u").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
@@ -121,9 +120,9 @@ function calculateMe() {
     result2 = u * t + 0.5 * a * Math.pow(t, 2);
     document.getElementById("inputVf").value = result;
     document.getElementById("inputDistance").value = result2;
-    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
@@ -138,10 +137,10 @@ function calculateMe() {
     result2 = u * t + 0.5 * result * Math.pow(t, 2);
     document.getElementById("inputAcceleration").value = result;
     document.getElementById("inputDistance").value = result2;
-    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("a").innerHTML = result.toFixed(3) + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     !s1.checked &&
@@ -155,11 +154,11 @@ function calculateMe() {
     result2 = u * result + 0.5 * a * Math.pow(result, 2);
     document.getElementById("inputTime").value = result;
     document.getElementById("inputDistance").value = result2;
-    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result + "<span> s</span>";
+    document.getElementById("t").innerHTML = result.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     !u1.checked &&
@@ -171,7 +170,7 @@ function calculateMe() {
     result = v - a * t;
     document.getElementById("inputVi").value = result;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
@@ -188,8 +187,8 @@ function calculateMe() {
     document.getElementById("inputVi").value = result;
     document.getElementById("inputVf").value = result2;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("v").innerHTML = result2 + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
@@ -205,9 +204,9 @@ function calculateMe() {
     document.getElementById("inputVi").value = result;
     document.getElementById("inputAcceleration").value = result2;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("a").innerHTML = result2 + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("a").innerHTML = result2.toFixed(3) + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
@@ -222,10 +221,10 @@ function calculateMe() {
     document.getElementById("inputVi").value = result;
     document.getElementById("inputTime").value = result2;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
+    document.getElementById("t").innerHTML = result2.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -238,7 +237,7 @@ function calculateMe() {
     document.getElementById("inputVf").value = result;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
@@ -255,8 +254,8 @@ function calculateMe() {
     document.getElementById("inputAcceleration").value = result2;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("a").innerHTML = result2 + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result2.toFixed(3) + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
@@ -272,9 +271,9 @@ function calculateMe() {
     document.getElementById("inputTime").value = result2;
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
+    document.getElementById("t").innerHTML = result2.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -288,7 +287,7 @@ function calculateMe() {
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("a").innerHTML = result.toFixed(3) + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
@@ -305,8 +304,8 @@ function calculateMe() {
     document.getElementById("s").innerHTML = s + "<span> m</span>";
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
-    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
+    document.getElementById("a").innerHTML = result.toFixed(3) + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result2.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -321,7 +320,7 @@ function calculateMe() {
     document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result + "<span> s</span>";
+    document.getElementById("t").innerHTML = result.toFixed(3) + "<span> s</span>";
   }
 }
 

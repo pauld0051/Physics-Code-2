@@ -84,9 +84,14 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //Equation 1
+    //Equation 1 s only
     result = u * t + 0.5 * a * (Math.pow(t,2));
-    document.getElementById("trial").innerHTML = result;
+    document.getElementById("inputDistance").value = result;
+    document.getElementById("s").innerHTML = result + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     !s1.checked &&
     !u1.checked &&
@@ -94,11 +99,16 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 2
+    //equation 2 s and u only
     result = v - a * t;
     result2 = result * t + 0.5 * a * (Math.pow(t,2));
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVi").value = result;
+    document.getElementById("inputDistance").value = result2;
+    document.getElementById("s").innerHTML = result + "<span> m</span>";
+    document.getElementById("u").innerHTML = result2 + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     !s1.checked &&
     u1.checked &&
@@ -106,11 +116,16 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 3
+    //equation 3 s and v only
     result = u + a * t;
     result2 = u * t + 0.5 * a * Math.pow(t, 2);
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVf").value = result;
+    document.getElementById("inputDistance").value = result2;
+    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     !s1.checked &&
     u1.checked &&
@@ -118,11 +133,16 @@ function calculateMe() {
     !a1.checked &&
     t1.checked
   ) {
-    //equation 4
+    //equation 4 s and a only
     result = (v - u) / t;
     result2 = u * t + 0.5 * result * Math.pow(t, 2);
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputAcceleration").value = result;
+    document.getElementById("inputDistance").value = result2;
+    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     !s1.checked &&
     u1.checked &&
@@ -130,11 +150,16 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 5
+    //equation 5 s and t only
     result = (v - u) / a;
     result2 = u * result + 0.5 * a * Math.pow(result, 2);
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputTime").value = result;
+    document.getElementById("inputDistance").value = result2;
+    document.getElementById("s").innerHTML = result2 + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result + "<span> s</span>";
   } else if (
     s1.checked &&
     !u1.checked &&
@@ -142,9 +167,14 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 6
+    //equation 6 u only
     result = v - a * t;
-    document.getElementById("trial").innerHTML = result;
+    document.getElementById("inputVi").value = result;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     !u1.checked &&
@@ -152,11 +182,16 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 7
+    //equation 7 u and v only
     result = s / t - a * t / 2;
     result2 = result + a * t;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVi").value = result;
+    document.getElementById("inputVf").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result2 + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     !u1.checked &&
@@ -164,11 +199,16 @@ function calculateMe() {
     !a1.checked &&
     t1.checked
   ) {
-    //equation 8
+    //equation 8 u and a only
     result = (2 * s / t) - v;
     result2 = (v - result) / t;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVi").value = result;
+    document.getElementById("inputAcceleration").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result2 + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     !u1.checked &&
@@ -176,11 +216,16 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 9
+    //equation 9 u and t only
     result = Math.sqrt(Math.pow(v, 2) - 2 * a * s);
     result2 = (v - result) / a;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVi").value = result;
+    document.getElementById("inputTime").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -188,9 +233,14 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 10
+    //equation 10 v only
     result = u + a * t;
-    document.getElementById("trial").innerHTML = result;
+    document.getElementById("inputVf").value = result;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -198,11 +248,16 @@ function calculateMe() {
     !a1.checked &&
     t1.checked
   ) {
-    //equation 11
+    //equation 11 v and a only
     result = (2 * s / t) - u;
     result2 = (result - u) / t;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVf").value = result;
+    document.getElementById("inputAcceleration").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result2 + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -210,11 +265,16 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 12
+    //equation 12 v and t only
     result = Math.sqrt(Math.pow(u, 2) + 2 * a * s);
     result2 = (result - u) / a;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputVf").value = result;
+    document.getElementById("inputTime").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = result + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -222,9 +282,14 @@ function calculateMe() {
     !a1.checked &&
     t1.checked
   ) {
-    //equation 13
+    //equation 13 a only
     result = (v - u) / t;
-    document.getElementById("trial").innerHTML = result;
+    document.getElementById("inputAcceleration").value = result;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = t + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -232,11 +297,16 @@ function calculateMe() {
     !a1.checked &&
     !t1.checked
   ) {
-    //equation 14
+    //equation 14 a and t only
     result = (v - u) * (v + u) / (2 * s);
     result2 = (v - u) / result;
-    document.getElementById("trial").innerHTML = result;
-    document.getElementById("trial2").innerHTML = result2;
+    document.getElementById("inputAcceleration").value = result;
+    document.getElementById("inputTime").value = result2;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = result + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result2 + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&
@@ -244,8 +314,21 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 15
+    //equation 15 t only
     result = (v - u) / a;
-    document.getElementById("trial").innerHTML = result;
+    document.getElementById("inputTime").value = result;
+    document.getElementById("s").innerHTML = s + "<span> m</span>";
+    document.getElementById("u").innerHTML = u + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
+    document.getElementById("t").innerHTML = result + "<span> s</span>";
   }
+}
+
+//Reset the sheet
+//reset the form for new entry
+document.getElementById("resetButton").addEventListener("click", resetForms);
+function resetForms() {
+  document.getElementById("kinematicCheckBox").reset();
+  document.getElementById("suvat_calc").reset();
 }

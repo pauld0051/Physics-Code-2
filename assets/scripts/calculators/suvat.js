@@ -56,6 +56,7 @@ unitsSelect.addEventListener("change", (evt) => {
   }
 });
 
+
 //Equation Variables
 //Checkbox selection
 const s1 = document.querySelector("#displacement");
@@ -63,6 +64,21 @@ const u1 = document.querySelector("#initial_velocity");
 const v1 = document.querySelector("#final_velocity");
 const a1 = document.querySelector("#acceleration");
 const t1 = document.querySelector("#time");
+//if vf is 0 then a must be a negative ** Still needs work
+document.getElementById("inputVf").addEventListener("keyup", negativeAcceleration);
+document.getElementById("inputVf").addEventListener("click", negativeAcceleration);
+document.getElementById("inputVf").addEventListener("change", negativeAcceleration);
+document.getElementById("inputAcceleration").addEventListener("keyup", negativeAcceleration);
+document.getElementById("inputAcceleration").addEventListener("click", negativeAcceleration);
+document.getElementById("inputAcceleration").addEventListener("change", negativeAcceleration);
+function negativeAcceleration() {
+  const v = parseFloat(document.getElementById("inputVf").value);
+  const a = parseFloat(document.getElementById("inputAcceleration").value);
+  if (v1.checked && a1.checked && v === 0 && a > 0) {
+    document.getElementById("submitButton").disabled = true;
+    alert("If Final Velocity is 0 then acceleration must be negative. Adjust that to calculate.")
+  }
+}
 //Determine the equation and evaluate
 //s.checked === false, et al. can be reduced to !s.checked and
 //u.checked === true can be reduced to u.checked
@@ -91,7 +107,10 @@ function calculateMe() {
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
-    document.getElementById("si_suvat_equation").innerHTML = "\begin{gather} s = ut + \frac{1}{2}  at^{2}\\ \\notag end{gather}</span>";
+    document.getElementById(
+      "si_suvat_equation"
+    ).innerHTML = String.raw`<span>$$\begin{gather} s = ut + \frac{1}{2}  at^{2}\\ \notag \end{gather}$$</span>`;
+    MathJax.typeset();
   } else if (
     !s1.checked &&
     !u1.checked &&
@@ -216,16 +235,16 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 9 u and t only
-    result = (v - Math.sqrt(Math.pow(v, 2) - 2 * a * s)) / a;
-    result2 = (v - a * result);
-    document.getElementById("inputVi").value = result2.toFixed(3);
-    document.getElementById("inputTime").value = result.toFixed(3);
+    //equation 9 u and t only - if this outputs negative, this is a massive issue!
+    result = Math.sqrt(Math.pow(v, 2) - 2 * a * s);
+    result2 = (v - result) / a;
+    document.getElementById("inputVi").value = result.toFixed(3);
+    document.getElementById("inputTime").value = result2.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
-    document.getElementById("u").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
-    document.getElementById("t").innerHTML = result.toFixed(3) + "<span> s</span>";
+    document.getElementById("t").innerHTML = result2.toFixed(3) + "<span> s</span>";
   } else if (
     s1.checked &&
     u1.checked &&

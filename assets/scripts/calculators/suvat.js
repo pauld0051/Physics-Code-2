@@ -74,9 +74,15 @@ document.getElementById("inputAcceleration").addEventListener("change", negative
 function negativeAcceleration() {
   const v = parseFloat(document.getElementById("inputVf").value);
   const a = parseFloat(document.getElementById("inputAcceleration").value);
-  if (v1.checked && a1.checked && v === 0 && a > 0) {
+  const s = parseFloat(document.getElementById("inputDistance").value);
+  if (
+    (v1.checked && a1.checked && v === 0 && a > 0 ||
+    s1.checked && v1.checked && a1.checked && Math.pow(v,2) < (2 * a * s))
+  ) {
     document.getElementById("submitButton").disabled = true;
-    alert("If Final Velocity is 0 then acceleration must be negative. Adjust that to calculate.")
+    alert(
+      "If Final Velocity is 0 then acceleration must be negative. Adjust that to calculate."
+    );
   }
 }
 //Determine the equation and evaluate

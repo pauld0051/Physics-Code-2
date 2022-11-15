@@ -59,7 +59,6 @@ unitsSelect.addEventListener("change", (evt) => {
   }
 });
 
-
 //Equation Variables
 //Checkbox selection
 const s1 = document.querySelector("#displacement");
@@ -80,7 +79,7 @@ function negativeAcceleration() {
   const s = parseFloat(document.getElementById("inputDistance").value);
   if (
     (v1.checked && a1.checked && v === 0 && a > 0 ||
-    s1.checked && v1.checked && a1.checked && Math.pow(v,2) < (2 * a * s))
+     v1.checked && a1.checked && Math.pow(v,2) < (2 * a * s) && a > 0)
   ) {
     document.getElementById("submitButton").disabled = true;
     alert(
@@ -132,8 +131,8 @@ function calculateMe() {
     result2 = result * t + 0.5 * a * (Math.pow(t,2));
     document.getElementById("inputVi").value = result.toFixed(3);
     document.getElementById("inputDistance").value = result2.toFixed(3);
-    document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
-    document.getElementById("u").innerHTML = result2.toFixed(3) + "<span> ms<sup>-1</sup></span>";
+    document.getElementById("s").innerHTML = result2.toFixed(3) + "<span> m</span>";
+    document.getElementById("u").innerHTML = result.toFixed(3) + "<span> ms<sup>-1</sup></span>";
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";

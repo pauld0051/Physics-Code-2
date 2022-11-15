@@ -4,3 +4,11 @@ function siAnswer(evt) {
     velocityAnswer.textContent = (distance / time).toFixed(3);
   }
 }
+
+const form = document.querySelector("form");
+document.getElementById("resetButton").addEventListener("reset", resetForms);
+function resetForms() {
+  document.getElementById("kinematicCheckBox").reset();
+  document.getElementById("suvat_calc").reset();
+  form.lastElementChild.disabled = false;
+}

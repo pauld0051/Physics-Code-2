@@ -360,10 +360,11 @@ function calculateMe() {
   }
 }
 
-//Reset the sheet
-//reset the form for new entry
-document.getElementById("resetButton").addEventListener("click", resetForms);
-function resetForms() {
-  document.getElementById("kinematicCheckBox").reset();
-  document.getElementById("suvat_calc").reset();
-}
+//reset the form including checkboxes for new entry
+const form = document.querySelector("form");
+form.addEventListener("reset", e => {
+  form.lastElementChild.disabled = false;
+  form
+    .querySelectorAll("[type=checkbox]:disabled")
+    .forEach((cb) => (cb.disabled = false));
+});

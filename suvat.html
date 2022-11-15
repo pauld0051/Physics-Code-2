@@ -23,7 +23,7 @@
                 <h1 class="display-4 text-center text-wrap">Kinematics Calculator</h1>
                 <p class="lead">Calculate from any of the four kinematic equations (suvat) to determine displacement, initial velocity, final velocity, acceleration or time.
                 </p>
-                <p>Start by adding three or four of the known variables to calculate any of the remaining.</p>
+                <p>Start by adding three of the known variables to calculate any of the remaining unknowns.</p>
                 <p id="trial"></p>
                 <p id="trial2"></p>
             </div>
@@ -79,7 +79,7 @@
                 <small><i class="far fa-question-circle fa"></i></small>
             </a>
         </h4>
-        <p>Select the three or four variables that you know. You can change this selection later if you want.</p>
+        <p>Select the three variables that you know. You can change this selection later if you want.</p>
         <p>This will help you become familiar with the processes of calculating <em>suvat</em> equations.</p>
         <form id="kinematicCheckBox">
         <div class="suvat-check">
@@ -209,6 +209,7 @@
                         <select name="aUnits" id="aUnits" style="width:115px;">
                     <option value="mss" selected>ms&#x207b;&sup2;</option>
                     <option id="gOnly" value="g" disabled>(g) 9.81 ms&#x207b;&sup2;</option>
+                    <option id="-gOnly" value="-g" disabled>(g) -9.81 ms&#x207b;&sup2;</option>
                 </select>
                     </div>
                 </div>
@@ -278,6 +279,7 @@
         </table>
         <h6 class="equation_color">Equation(s) Used:</h6>
         <p id="si_suvat_equation"></p>
+        <p id="si_suvat_equation2"></p>
         <button type="button" class="btn-sm btn-outline-danger mb-2" id="resetButton">Reset</button>
         <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Reset Form" data-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
             <i class="far fa-question-circle fa mb-2"></i>

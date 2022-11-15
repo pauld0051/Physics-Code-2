@@ -3,7 +3,7 @@ var $checkboxes = $(".suvat-check input[type=checkbox]");
 var $submitButton = $("#submitButton");
 var $accelerationSelect = $("#acceleration").prop("checked");
 $checkboxes.on("change", function () {
-  if ($checkboxes.filter(":checked").length >= 4) {
+  if ($checkboxes.filter(":checked").length >= 3) {
     $checkboxes.filter(":not(:checked)").prop("disabled", true);
   } else {
     $checkboxes.prop("disabled", false);
@@ -40,6 +40,7 @@ document.querySelector("#acceleration").addEventListener("change", gravSelect);
 function gravSelect() {
   if (document.getElementById("acceleration").checked) {
     document.getElementById("gOnly").disabled = false;
+    document.getElementById("-gOnly").disabled = false;
   }
 }
 
@@ -51,6 +52,8 @@ unitsSelect.addEventListener("change", (evt) => {
   const unitSelected = unitsSelect.value;
   if (unitSelected === "g") {
     gravityInput.value = "9.81";
+  } else if (unitSelected === "-g") {
+    gravityInput.value = "-9.81";
   } else {
     gravityInput.value = "";
   }
@@ -105,7 +108,7 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //Equation 1 s only
+    //Equation 1 s only - not used
     result = u * t + 0.5 * a * (Math.pow(t,2));
     document.getElementById("inputDistance").value = result.toFixed(3);
     document.getElementById("s").innerHTML = result.toFixed(3) + "<span> m</span>";
@@ -134,6 +137,14 @@ function calculateMe() {
     document.getElementById("v").innerHTML = v + "<span> ms<sup>-1</sup></span>";
     document.getElementById("a").innerHTML = a + "<span> ms<sup>-2</sup></span>";
     document.getElementById("t").innerHTML = t + "<span> s</span>";
+    document.getElementById(
+      "si_suvat_equation"
+    ).innerHTML = String.raw`<span>$$\begin{gather} v\ =\ u+at\\ \notag \end{gather}$$</span>`;
+    MathJax.typeset();
+    document.getElementById(
+      "si_suvat_equation2"
+    ).innerHTML = String.raw`<span>$$\begin{gather} s\ =\ ut\ +\ \frac{1}{2} \ at^{2}\\ \notag \end{gather}$$</span>`;
+    MathJax.typeset();
   } else if (
     !s1.checked &&
     u1.checked &&
@@ -192,7 +203,7 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 6 u only
+    //equation 6 u only - not used
     result = v - a * t;
     document.getElementById("inputVi").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
@@ -258,7 +269,7 @@ function calculateMe() {
     a1.checked &&
     t1.checked
   ) {
-    //equation 10 v only
+    //equation 10 v only - not used
     result = u + a * t;
     document.getElementById("inputVf").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
@@ -307,7 +318,7 @@ function calculateMe() {
     !a1.checked &&
     t1.checked
   ) {
-    //equation 13 a only
+    //equation 13 a only - not used
     result = (v - u) / t;
     document.getElementById("inputAcceleration").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";
@@ -339,7 +350,7 @@ function calculateMe() {
     a1.checked &&
     !t1.checked
   ) {
-    //equation 15 t only
+    //equation 15 t only - not used
     result = (v - u) / a;
     document.getElementById("inputTime").value = result.toFixed(3);
     document.getElementById("s").innerHTML = s + "<span> m</span>";

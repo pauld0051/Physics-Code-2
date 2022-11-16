@@ -1,7 +1,7 @@
 //disable checkboxes when a max 3 have been selected
 var $checkboxes = $(".suvat-check input[type=checkbox]");
 var $submitButton = $("#submitButton");
-var $accelerationSelect = $("#acceleration").prop("checked");
+var $accelerationSelect = $("#acceleration");
 $checkboxes.on("change", function () {
   if ($checkboxes.filter(":checked").length >= 3) {
     $checkboxes.filter(":not(:checked)").prop("disabled", true);
@@ -530,7 +530,6 @@ function calculateMe() {
 const form = document.querySelector("form");
 form.addEventListener("reset", (e) => {
   form.lastElementChild.disabled = false;
-  form
-    .querySelectorAll("[type=checkbox]:disabled")
-    .forEach((cb) => (cb.disabled = false));
+  form.querySelectorAll("input").forEach((inp) => (inp.disabled = true));
+  form.querySelectorAll("[type=checkbox]:disabled").forEach((cb) => (cb.disabled = false));
 });

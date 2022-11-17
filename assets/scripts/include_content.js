@@ -25,10 +25,6 @@ function includeHTML(fileName, destination) {
 // element to populate with the contents
 includeHTML("header.html", document.querySelector(".header"));
 includeHTML("footer.html", document.querySelector(".footer"));
-includeHTML("suvat1.html", document.querySelector(".suvat1"));
-includeHTML("suvat2.html", document.querySelector(".suvat2"));
-includeHTML("suvat3.html", document.querySelector(".suvat3"));
-includeHTML("suvat4.html", document.querySelector(".suvat4"));
 
 // Popovers (Bootstrap)
 $(function() {

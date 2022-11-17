@@ -6,9 +6,9 @@
 
 - [Description](#description)
 
--- [Goals](#site-goals)
+  - [Goals](#site-goals)
 
---- [Notes](#notes)
+    - [Notes](#notes)
 
 ## DESCRIPTION
 
@@ -24,5 +24,6 @@ The current site is under construction and will remain so for at least until mid
 
 ### NOTES
 
-Local Server with console alt+b
+Local Server with console alt+b or use Go Live and the Browser.
 In-editor display F1 "show..."
+<https://www.markdownguide.org/basic-syntax/>

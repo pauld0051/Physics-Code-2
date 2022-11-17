@@ -1,12 +1,3 @@
-//prevent the browser from showing default error bubble / hint
-document.querySelector("form").addEventListener(
-    "invalid",
-    function(event) {
-        event.preventDefault();
-    },
-    true
-);
-
 //disable checkboxes when a max 3 have been selected
 var $checkboxes = $(".suvat-check input[type=checkbox]");
 var $submitButton = $("#submitButton");
@@ -29,19 +20,24 @@ $checkboxes.on("change", function() {
 
 //enable inputs based on checked box (up to 3 possible)
 document.getElementById("displacement").onchange = function() {
-    document.getElementById("inputDistance").disabled = !this.checked;
+  document.getElementById("inputDistance").disabled = !this.checked;
+  document.getElementById("inputDistance").required = this.checked;
 };
 document.getElementById("initial_velocity").onchange = function() {
-    document.getElementById("inputVi").disabled = !this.checked;
+  document.getElementById("inputVi").disabled = !this.checked;
+  document.getElementById("inputVi").required = this.checked;
 };
 document.getElementById("final_velocity").onchange = function() {
-    document.getElementById("inputVf").disabled = !this.checked;
+  document.getElementById("inputVf").disabled = !this.checked;
+  document.getElementById("inputVf").required = this.checked;
 };
 document.getElementById("acceleration").onchange = function() {
-    document.getElementById("inputAcceleration").disabled = !this.checked;
+  document.getElementById("inputAcceleration").disabled = !this.checked;
+  document.getElementById("inputAcceleration").required = this.checked;
 };
 document.getElementById("time").onchange = function() {
-    document.getElementById("inputTime").disabled = !this.checked;
+  document.getElementById("inputTime").disabled = !this.checked;
+  document.getElementById("inputTime").required = this.checked;
 };
 
 //Enable or disable selection of gravity based on user variable selection.
@@ -110,6 +106,7 @@ function negativeAcceleration() {
         );
     }
 }
+
 //Determine the equation and evaluate
 //s.checked === false, et al. can be reduced to !s.checked and
 //u.checked === true can be reduced to u.checked
@@ -197,7 +194,12 @@ function calculateMe() {
         t = t * 86400;
     }
     if (isNaN(t)) t = 0;
-    if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {
+  if (!s1.checked &&
+      u1.checked &&
+      v1.checked &&
+      a1.checked &&
+      t1.checked)
+    {
         //**************//
         // Calculations //
         //**************//

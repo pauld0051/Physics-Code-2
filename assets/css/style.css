@@ -52,3 +52,27 @@
   border-bottom-style: solid;
   border-bottom-width: medium;
 }
+
+/* Form Validation */
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+.showError {
+  display: none;
+  font-size: 0.8em;
+}
+
+.showError.visible {
+  display: block;
+}
+
+

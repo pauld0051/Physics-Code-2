@@ -122,78 +122,118 @@ function vfSelect() {
 }
 
 // Limit maximum number based on the input's maximum
+// Listen for displacement changes
 sE.addEventListener("input", (e) => {
   let reportS = sE.reportValidity();
   let reportU = uE.reportValidity();
   let reportV = vE.reportValidity();
   let reportA = aE.reportValidity();
   let reportT = tE.reportValidity();
+  let selector = '[type="number"]:disabled';
+  let disabled = document.querySelectorAll(selector);
   if (
     reportS === false ||
     reportU === false ||
     reportV === false ||
     reportA === false ||
-    reportT === false
+    reportT === false ||
+    disabled.length > 2
   ) {
     e.preventDefault();
     calcButton.disabled = true;
   } else {
     calcButton.disabled = false;
   }
+  console.log("from final s", reportS, reportU, reportV, reportA, reportT, disabled.length);
 });
-
+// Listen for initial velocity changes
 uE.addEventListener("input", (e) => {
    let reportS = sE.reportValidity();
    let reportU = uE.reportValidity();
    let reportV = vE.reportValidity();
    let reportA = aE.reportValidity();
    let reportT = tE.reportValidity();
-  if (
-    reportS === false ||
-    reportU === false ||
-    reportV === false ||
-    reportA === false ||
-    reportT === false
-  ) {
-    e.preventDefault();
-    calcButton.disabled = true;
-  } else {
-    calcButton.disabled = false;
-  }
+   let selector = '[type="number"]:disabled';
+   let disabled = document.querySelectorAll(selector);
+   if (
+     reportS === false ||
+     reportU === false ||
+     reportV === false ||
+     reportA === false ||
+     reportT === false ||
+     disabled.length > 2
+   ) {
+     e.preventDefault();
+     calcButton.disabled = true;
+   } else {
+     calcButton.disabled = false;
+   }
 });
-
+// Listen for final velocity changes
 vE.addEventListener("input", (e) => {
    let reportS = sE.reportValidity();
    let reportU = uE.reportValidity();
    let reportV = vE.reportValidity();
    let reportA = aE.reportValidity();
    let reportT = tE.reportValidity();
-  if (
-    reportS === false ||
-    reportU === false ||
-    reportV === false ||
-    reportA === false ||
-    reportT === false
-  ) {
-    e.preventDefault();
-    calcButton.disabled = true;
-  } else {
-    calcButton.disabled = false;
-  }
+   let selector = '[type="number"]:disabled';
+   let disabled = document.querySelectorAll(selector);
+   if (
+     reportS === false ||
+     reportU === false ||
+     reportV === false ||
+     reportA === false ||
+     reportT === false ||
+     disabled.length > 2
+   ) {
+     e.preventDefault();
+     calcButton.disabled = true;
+   } else {
+     calcButton.disabled = false;
+   }
+  console.log("from final V", reportS, reportU, reportV, reportA, reportT)
 });
-
+// Listen for selection changes for gravity
+selectA.addEventListener("change", (e) => {
+  let reportS = sE.reportValidity();
+  let reportU = uE.reportValidity();
+  let reportV = vE.reportValidity();
+  let reportA = aE.reportValidity();
+  let reportT = tE.reportValidity();
+  let selector = '[type="number"]:disabled';
+  let disabled = document.querySelectorAll(selector);
+  console.log(aE.value, reportS, reportU, reportV, reportA, reportT)
+if (
+  reportS === false ||
+  reportU === false ||
+  reportV === false ||
+  reportA === false ||
+  reportT === false ||
+  aE.value === 0 ||
+  disabled.length > 2
+) {
+  e.preventDefault();
+  calcButton.disabled = true;
+} else {
+  calcButton.disabled = false;
+}
+});
+// Listen for acceleration changes
 aE.addEventListener("input", (e) => {
-   let reportS = sE.reportValidity();
-   let reportU = uE.reportValidity();
-   let reportV = vE.reportValidity();
-   let reportA = aE.reportValidity();
-   let reportT = tE.reportValidity();
+  let reportS = sE.reportValidity();
+  let reportU = uE.reportValidity();
+  let reportV = vE.reportValidity();
+  let reportA = aE.reportValidity();
+  let reportT = tE.reportValidity();
+  let selector = '[type="number"]:disabled';
+  let disabled = document.querySelectorAll(selector);
   if (
     reportS === false ||
     reportU === false ||
     reportV === false ||
     reportA === false ||
-    reportT === false
+    reportT === false ||
+    disabled.length > 2
   ) {
     e.preventDefault();
     calcButton.disabled = true;
@@ -201,19 +241,22 @@ aE.addEventListener("input", (e) => {
     calcButton.disabled = false;
   }
 });
-
+// Listen for time changes
 tE.addEventListener("input", (e) => {
    let reportS = sE.reportValidity();
    let reportU = uE.reportValidity();
    let reportV = vE.reportValidity();
    let reportA = aE.reportValidity();
    let reportT = tE.reportValidity();
-  if (
-    reportS === false ||
-    reportU === false ||
-    reportV === false ||
-    reportA === false ||
-    reportT === false
+   let selector = '[type="number"]:disabled';
+   let disabled = document.querySelectorAll(selector);
+   if (
+     reportS === false ||
+     reportU === false ||
+     reportV === false ||
+     reportA === false ||
+     reportT === false ||
+     disabled.length > 2
   ) {
     e.preventDefault();
     calcButton.disabled = true;

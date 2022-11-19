@@ -1,0 +1,111 @@
+document.querySelector("#inputDistance").addEventListener("input", (e) => {
+  if (e.target.valueAsNumber >= Number(e.target.max)) e.preventDefault()
+  calcButton.disabled = true;
+  if (e.target.valueAsNumber <= Number(e.target.min)) e.preventDefault()
+  calcButton.disabled = true;
+  if (Number.isNaN(e.target.valueAsNumber)) {
+  calcButton.disabled = true;
+  }
+});
+document.querySelector("#inputVi").addEventListener("input", (e) => {
+  if (e.target.valueAsNumber >= Number(e.target.max)) e.preventDefault()
+  calcButton.disabled = true;
+  if (e.target.valueAsNumber <= Number(e.target.min)) e.preventDefault()
+  calcButton.disabled = true;
+  if (Number.isNaN(e.target.valueAsNumber)) {
+  calcButton.disabled = true;
+  }
+});
+document.querySelector("#inputVf").addEventListener("input", (e) => {
+  if (e.target.valueAsNumber >= Number(e.target.max)) e.preventDefault()
+  calcButton.disabled = true;
+  if (e.target.valueAsNumber <= Number(e.target.min)) e.preventDefault()
+  calcButton.disabled = true;
+  if (Number.isNaN(e.target.valueAsNumber)) {
+  calcButton.disabled = true;
+  }
+});
+document.querySelector("#inputAcceleration").addEventListener("input", (e) => {
+  if (e.target.valueAsNumber >= Number(e.target.max)) e.preventDefault()
+  calcButton.disabled = true;
+  if (e.target.valueAsNumber <= Number(e.target.min)) e.preventDefault()
+  { calcButton.disabled = true };
+  if (Number.isNaN(e.target.valueAsNumber)) {
+  calcButton.disabled = true
+  };
+});
+document.querySelector("#inputTime").addEventListener("input", (e) => {
+  if (e.target.valueAsNumber >= Number(e.target.max)) e.preventDefault()
+  calcButton.disabled = true;
+  if (e.target.valueAsNumber <= Number(e.target.min)) e.preventDefault() {
+    calcButton.disabled = true
+  };
+  if (Number.isNaN(e.target.valueAsNumber)) {
+  calcButton.disabled = true;
+  }
+});
+
+sE.addEventListener("input", (e) => {
+  if (
+    Number.isNaN(e.target.valueAsNumber) ||
+    sE.valueAsNumber >= Number(sE.max) ||
+    sE.valueAsNumber <= Number(sE.min)
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+uE.addEventListener("input", (e) => {
+  if (
+    Number.isNaN(e.target.valueAsNumber) ||
+    uE.valueAsNumber >= Number(uE.max) ||
+    uE.valueAsNumber <= Number(uE.min)
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+vE.addEventListener("input", (e) => {
+  if (
+    Number.isNaN(e.target.valueAsNumber) ||
+    vE.valueAsNumber >= Number(vE.max) ||
+    vE.valueAsNumber <= Number(vE.min)
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+aE.addEventListener("input", (e) => {
+  if (
+    Number.isNaN(e.target.valueAsNumber) ||
+    aE.valueAsNumber >= Number(aE.max) ||
+    aE.valueAsNumber <= Number(aE.min)
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+tE.addEventListener("input", (e) => {
+  if (
+    Number.isNaN(e.target.valueAsNumber) ||
+    tE.valueAsNumber >= Number(tE.max) ||
+    tE.valueAsNumber <= Number(tE.min)
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});

@@ -1,0 +1,71 @@
+sE.addEventListener("input", (e) => {
+  let reportS = aE.reportValidity();
+  if (
+    reportS === false
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+uE.addEventListener("input", (e) => {
+  let reportU = aE.reportValidity();
+  if (
+    reportU === false
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+vE.addEventListener("input", (e) => {
+  let reportV = aE.reportValidity();
+  if (
+    reportV === false
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+aE.addEventListener("input", (e) => {
+  let reportA = aE.reportValidity();
+  if (
+    reportA === false
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+tE.addEventListener("input", (e) => {
+  let reportT = tE.reportValidity()
+  console.log(reportT);
+  if (
+    reportT === false
+  ) {
+    e.preventDefault();
+    calcButton.disabled = true;
+  } else {
+    calcButton.disabled = false;
+  }
+});
+
+const formValid = document.getElementById("SubmissionForm");
+document.getElementById("submitButton").addEventListener("click", validateMe);
+function validateMe () {
+  let formReport = formValid.reportValidity();
+  if (formReport === false) {
+    document.getElementById("submitButton").disabled = true;
+  }
+  if (formReport === true) {
+    calculateMe();
+  }

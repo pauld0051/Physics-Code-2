@@ -130,18 +130,8 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputDistance">Displacement (s)</label><br>
-                        <input
-                        type="number"
-                        name="inputDistance"
-                        id="inputDistance"
-                        class="reset_form checkDisplacement formCheck maxAllow"
-                        value=""
-                        min="0.001"
-                        max="99999999999999"
-                        step="0.001"
-                        autocomplete="off"
-                        aria-label="input value for distance in metres, kilometers, yards or miles"
-                        disabled>
+                        <input type="number" name="inputDistance" id="inputDistance" class="reset_form checkDisplacement formCheck maxAllow" value="" min="0" max="99999999999999" step="0.001" autocomplete="off" aria-label="input value for distance in metres, kilometers, yards or miles"
+                            disabled>
                         <br>
                         <label for="unitsDistance">Units</label><br>
                         <select name="unitsDistance" id="unitsDistance" style="width:60px;" disabled>
@@ -165,17 +155,8 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputVi">Velocity (u)</label><br>
-                        <input
-                        type="number"
-                        name="inputVi"
-                        id="inputVi"
-                        class="reset_form checkVelocity maxAllow"
-                        value=""
-                        min="0.01"
-                        step="0.01"
-                        autocomplete="off"
-                        aria-label="input value for the initial velocity in metres per second, kilometers per hour, miles per hour or feet per second."
-                        disabled>
+                        <input type="number" name="inputVi" id="inputVi" class="reset_form checkVelocity maxAllow" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the initial velocity in metres per second, kilometers per hour, miles per hour or feet per second."
+                            disabled>
                         <br>
                         <label for="unitsVi">Units</label>
                         <br>
@@ -199,17 +180,8 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputVf">Final Velocity (v)</label><br>
-                        <input
-                        type="number"
-                        name="inputVf"
-                        id="inputVf"
-                        class="reset_form checkVelocity maxAllow"
-                        value=""
-                        min="0.01"
-                        step="0.01"
-                        autocomplete="off"
-                        aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per hour or feet per second." 
-                        disabled>
+                        <input type="number" name="inputVf" id="inputVf" class="reset_form checkVelocity maxAllow" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per hour or feet per second."
+                            disabled>
                         <br>
                         <label for="unitsVf">Units</label>
                         <br>
@@ -234,22 +206,12 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputAcceleration">Acceleration (a)</label><br>
-                        <input
-                        type="number"
-                        name="inputAcceleration"
-                        id="inputAcceleration"
-                        class="reset_form checkAcceleration maxAllow"
-                        value=""
-                        min="0.0001"
-                        step="0.0001"
-                        max="99999999999999"
-                        autocomplete="off"
-                        aria-label="input value for acceleration in metres per second squared or select g."
-                        disabled>
+                        <input type="number" name="inputAcceleration" id="inputAcceleration" class="reset_form checkAcceleration maxAllow" value="" min="-9999" step="0.0001" max="99999999999999" autocomplete="off" aria-label="input value for acceleration in metres per second squared or select g."
+                            disabled>
                         <br>
-                        <label for="aUnits">Units</label>
+                        <label for="unitsAcceleration">Units</label>
                         <br>
-                        <select name="aUnits" id="aUnits" style="width:115px;" disabled>
+                        <select name="unitsAcceleration" id="unitsAcceleration" style="width:115px;" disabled>
                             <option value="mss" selected>ms&#x207b;&sup2;</option>
                             <option id="gOnly" value="g">(g) 9.81 ms&#x207b;&sup2;</option>
                             <option id="-gOnly" value="-g">(g) -9.81 ms&#x207b;&sup2;</option>
@@ -267,18 +229,7 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputTime">Time (t)</label><br>
-                        <input
-                        type="number"
-                        name="inputTime"
-                        id="inputTime"
-                        class="reset_form checkTime maxAllow"
-                        value=""
-                        min="0.0001"
-                        max="99999999999999"
-                        step="0.0001"
-                        autocomplete="off"
-                        aria-label="input value for time in seconds, minutes, hours or days"
-                        disabled>
+                        <input type="number" name="inputTime" id="inputTime" class="reset_form checkTime maxAllow" value="" min="0" max="99999999999999" step="0.0001" autocomplete="off" aria-label="input value for time in seconds, minutes, hours or days" disabled>
                         <br>
                         <label for="unitsTime">Units</label><br>
                         <select name="unitsTime" id="unitsTime" style="width:60px;" disabled>
@@ -442,7 +393,7 @@
     <script src="assets/scripts/bootstrap.min.js"></script>
     <script src="assets/scripts/include_content.js"></script>
     <script src="assets/scripts/calculators/suvat.js"></script>
-    <script src="assets/scripts/form.js"></script>
+    <script src="assets/scripts/calculators/suvat_validity.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>

@@ -50,3 +50,4 @@ $('form').on('focus', 'input[type=number]', function(e) {
 $('form').on('blur', 'input[type=number]', function(e) {
   $(this).off('wheel.disableScroll');
 })
+

@@ -171,7 +171,7 @@ function calculateMe() {
             $(this).popover("show");
             return false;
         } else if
-            (u === v) {
+            (u === v && uUnit === vUnit) {
             $(this).popover("dispose");
             $(this).popover({
                 placement: "bottom",

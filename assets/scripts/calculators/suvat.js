@@ -157,38 +157,34 @@ function calculateMe() {
   if (isNaN(t)) t = 0;
 
   // ************* If Acceleration = 0 (user input) ************** //
-  if (a === 0 ) {
-    $(this).popover({
-      placement: "bottom",
-      content: '<textarea class="popover-textarea"></textarea>',
-      template:
-        '<div class="popover"><div class="arrow"></div>' +
-        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-        '</i></div><div class="popover-content col-9">Acceleration has to be greater than 0 ms<sup>-2</sup>.' +
-        "</div></div>",
-    });
-    $(this).popover("show");
-    $(this).click(function () {
-      $(this).popover("hide");
-    });
-    return false;
-  } else if
-      (u === v ) {
-    $(this).popover({
-      placement: "bottom",
-      content: '<textarea class="popover-textarea"></textarea>',
-      template:
-        '<div class="popover"><div class="arrow"></div>' +
-        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-        '</i></div><div class="popover-content col-9">Your final and initial velocity are the same. Change either your initial or final velocity.' +
-        "</div></div>",
-    });
-    $(this).popover("show");
-    $(this).click(function () {
-      $(this).popover("hide");
-    });
-    return false;
-  }
+        if (a === 0) {
+            $(this).popover("dispose");
+            $(this).popover({
+                placement: "bottom",
+                content: '<textarea class="popover-textarea"></textarea>',
+                template:
+                    '<div class="popover"><div class="arrow"></div>' +
+                    '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
+                    '</i></div><div class="popover-content col-9">Acceleration has to be greater than 0 ms<sup>-2</sup>.' +
+                    "</div></div>",
+            });
+            $(this).popover("show");
+            return false;
+        } else if
+            (u === v) {
+            $(this).popover("dispose");
+            $(this).popover({
+                placement: "bottom",
+                content: '<textarea class="popover-textarea"></textarea>',
+                template:
+                    '<div class="popover"><div class="arrow"></div>' +
+                    '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
+                    '</i></div><div class="popover-content col-9">Your final and initial velocity are the same. Change either your initial or final velocity.' +
+                    "</div></div>",
+            });
+            $(this).popover("show");
+            return false;
+        }
 
   if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {
     //**************//

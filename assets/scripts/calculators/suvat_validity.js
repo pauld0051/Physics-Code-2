@@ -144,7 +144,6 @@ sE.addEventListener("input", (e) => {
   } else {
     calcButton.disabled = false;
   }
-  console.log("from final s", reportS, reportU, reportV, reportA, reportT, disabled.length);
 });
 // Listen for initial velocity changes
 uE.addEventListener("input", (e) => {
@@ -191,7 +190,6 @@ vE.addEventListener("input", (e) => {
    } else {
      calcButton.disabled = false;
    }
-  console.log("from final V", reportS, reportU, reportV, reportA, reportT)
 });
 // Listen for selection changes for gravity
 selectA.addEventListener("change", (e) => {
@@ -202,7 +200,6 @@ selectA.addEventListener("change", (e) => {
   let reportT = tE.reportValidity();
   let selector = '[type="number"]:disabled';
   let disabled = document.querySelectorAll(selector);
-  console.log(aE.value, reportS, reportU, reportV, reportA, reportT)
 if (
   reportS === false ||
   reportU === false ||

@@ -1,3 +1,19 @@
+// Prevent more than 3 checkboxes being checked
+
+const $checkboxes = $(".suvat-check input[type=checkbox]");
+const $submitButton = $("#submitButton");
+const $accelerationSelect = $("#acceleration");
+$checkboxes.on("change", function () {
+    if ($checkboxes.filter(":checked").length >= 3) {
+        $checkboxes.filter(":not(:checked)").prop("disabled", true);
+    } else {
+        $checkboxes.prop("disabled", false);
+    }
+    if ($checkboxes.filter(":checked").length <= 2) {
+        $submitButton.prop("disabled", true);
+    }
+})
+
 //If Acceleration is chosen and gravity is the chosen acceleration update the input
 //to reflect this.
 const unitsSelect = document.getElementById("unitsAcceleration"),

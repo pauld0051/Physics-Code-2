@@ -157,7 +157,7 @@ function calculateMe() {
   if (isNaN(t)) t = 0;
 
   // ************* If Acceleration = 0 (user input) ************** //
-  if (a === 0) {
+  if (a === 0 ) {
     $(this).popover({
       placement: "bottom",
       content: '<textarea class="popover-textarea"></textarea>',
@@ -171,11 +171,9 @@ function calculateMe() {
     $(this).click(function () {
       $(this).popover("hide");
     });
-    return;
-  }
-
-  // ************* If u and v are equal ************** //
-  if (u === v) {
+    return false;
+  } else if
+      (u === v ) {
     $(this).popover({
       placement: "bottom",
       content: '<textarea class="popover-textarea"></textarea>',
@@ -189,7 +187,7 @@ function calculateMe() {
     $(this).click(function () {
       $(this).popover("hide");
     });
-    return;
+    return false;
   }
 
   if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {

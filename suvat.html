@@ -18,7 +18,7 @@
         <div class="header"></div>
     </header>
     <section class="container">
-        <div class="jumbotron jumbotron-fluid mt-1 shadow p-3">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
             <div class="container">
                 <h1 class="display-4 text-center text-wrap">Kinematics Calculator</h1>
                 <p class="lead">Calculate from any of the four kinematic equations (suvat) to determine displacement, initial velocity, final velocity, acceleration or time.
@@ -74,11 +74,11 @@
                 </em></p>
         </div>
     </section>
-    <form id="SubmissionForm">
+    <form id="SubmissionForm" class="needs-validation" novalidate>
         <!-- Equation Selection -->
         <section class="container border border-primary bg_cont mb-1">
             <h4>Select the things you know:
-                <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Select known variables" data-content="By getting you to select the known variables you can start to become more familiar with the four equations. You can select up to four variables, but a minimum of three is required.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the four equations. You can select up to four variables, but a minimum of three is required.">
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
@@ -124,7 +124,7 @@
                     <i class="fa-solid fa-ruler-horizontal fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Displacement (s)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Displacement (m, km, yd, mi, ft)" data-content="Leave blank or enter the displacement the object travelled. Don't forget to check the units!">
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-title="Displacement (m, km, yd, mi, ft):" data-bs-content="Leave blank or enter the displacement the object travelled. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
@@ -149,7 +149,7 @@
                     <i class="fa-solid fa-gauge fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Initial Velocity (u)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Initial Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)" data-content="Leave blank or enter the initial velocity the object is travelling. Don't forget to check the units!">
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Initial Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)" data-bs-content="Leave blank or enter the initial velocity the object is travelling. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
@@ -174,7 +174,7 @@
                     <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Final Velocity (v)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Final Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)" data-content="Leave blank or enter the final velocity the object is travelling. Don't forget to check the units!">
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Final Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph or fts<sup>-1</sup>)" data-bs-content="Leave blank or enter the final velocity the object is travelling. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
@@ -200,7 +200,7 @@
                     <i class="fa-solid fa-forward fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Acceleration (a)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Acceleration (ms<sup>-2</sup>" data-content="Leave blank or enter the acceleration of the object. You can choose gravity as the acceleration.">
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Acceleration (ms<sup>-2</sup>)" data-bs-content="Leave blank or enter the acceleration of the object. You can choose gravity as the acceleration.">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
@@ -223,7 +223,7 @@
                     <i class="fa-solid fa-stopwatch fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Time (t)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Time (s, min, hr, days)" data-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Time (s, min, hr, days)" data-bs-content="Leave blank or enter the time the object has travelled for. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa mb-1"></i>
                             </a>
                         </h4>
@@ -243,7 +243,7 @@
             </div>
             <div class="col text-center">
                 <button type="button" class="btn-sm btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Calculate" data-content="Once you have added three or four variables, submit the calculation for evaluation.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three or four variables, submit the calculation for evaluation.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
                 <div id="error"></div>
@@ -287,7 +287,7 @@
             <p id="si_suvat_equation"></p>
             <p id="si_suvat_equation2"></p>
             <button type="reset" class="btn-sm btn-outline-danger mb-2" id="resetButton">Reset</button>
-            <a tabindex="0" class="btn btn-link" role="button" data-toggle="popover" data-trigger="focus" title="Reset Form" data-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
                 <i class="far fa-question-circle fa mb-2"></i>
             </a>
             <br>

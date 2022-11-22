@@ -157,34 +157,62 @@ function calculateMe() {
   if (isNaN(t)) t = 0;
 
   // ************* If Acceleration = 0 (user input) ************** //
-        if (a === 0) {
-            $(this).popover("dispose");
-            $(this).popover({
-                placement: "bottom",
-                content: '<textarea class="popover-textarea"></textarea>',
-                template:
-                    '<div class="popover"><div class="arrow"></div>' +
-                    '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-                    '</i></div><div class="popover-content col-9">Acceleration has to be greater than 0 ms<sup>-2</sup>.' +
-                    "</div></div>",
-            });
-            $(this).popover("show");
-            return false;
-        } else if
-            (u === v && uUnit === vUnit) {
-            $(this).popover("dispose");
-            $(this).popover({
-                placement: "bottom",
-                content: '<textarea class="popover-textarea"></textarea>',
-                template:
-                    '<div class="popover"><div class="arrow"></div>' +
-                    '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-                    '</i></div><div class="popover-content col-9">Your final and initial velocity are the same. Change either your initial or final velocity.' +
-                    "</div></div>",
-            });
-            $(this).popover("show");
-            return false;
-        }
+  // Check this for validation https://codepen.io/cristinaconacel/pen/aRrQVN
+  if (a === 0) {
+    $(this).popover("dispose");
+    $(this).popover({
+      placement: "bottom",
+      content: '<textarea class="popover-textarea"></textarea>',
+      template:
+        '<div class="popover"><div class="arrow"></div>' +
+        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
+        '</i></div><div class="popover-content col-9">Acceleration has to  non-zero. It can be negative or positive.' +
+        "</div></div>",
+    });
+    $(this).popover("show");
+    return false;
+    // ************* If vi =  vf (user input) ************** //
+  } else if (u === v && uUnit === vUnit) {
+    $(this).popover("dispose");
+    $(this).popover({
+      placement: "bottom",
+      content: '<textarea class="popover-textarea"></textarea>',
+      template:
+        '<div class="popover"><div class="arrow"></div>' +
+        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
+        '</i></div><div class="popover-content col-9">Your final and initial velocity are the same. Change either your initial or final velocity.' +
+        "</div></div>",
+    });
+    $(this).popover("show");
+    return false;
+  } else if (
+    (v < u && uUnit === vUnit && a > 0) ||
+    (uUnit === "ms" && vUnit === "kmh" && v / 3.6 < u) ||
+    (uUnit === "ms" && vUnit === "mph" && v / 2.2369362920544 < u) ||
+    (uUnit === "ms" && vUnit === "fts" && v / 3.2808398950131 < u) ||
+    (uUnit === "kmh" && vUnit === "ms" && v * 3.6 < u) ||
+    (uUnit === "kmh" && vUnit === "mph" && v * 1.6093438712525 < u) ||
+    (uUnit === "kmh" && vUnit === "fts" && v * 1.0972799122176 < u) ||
+    (uUnit === "mph" && vUnit === "ms" && v / 0.44704 < u) ||
+    (uUnit === "mph" && vUnit === "kmh" && v / 1.6093438712525 < u) ||
+    (uUnit === "mph" && vUnit === "fts" && v / 1.4666666666667 < u) ||
+    (uUnit === "fts" && vUnit === "kmh" && v / 1.0972799122176 < u) ||
+    (uUnit === "fts" && vUnit === "ms" && v * 3.2808398950131 < u) ||
+    (uUnit === "fts" && vUnit === "mph" && v * 1.4666666666667 < u)
+  ) {
+    $(this).popover("dispose");
+    $(this).popover({
+      placement: "bottom",
+      content: '<textarea class="popover-textarea"></textarea>',
+      template:
+        '<div class="popover"><div class="arrow"></div>' +
+        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
+        '</i></div><div class="popover-content col-9">If your final velocity is less than the initial velocity you should be using negative acceleration.' +
+        "</div></div>",
+    });
+    $(this).popover("show");
+    return false;
+  }
 
   if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {
     //**************//

@@ -17,6 +17,11 @@
   background-color: #fcf3ec;
 }
 
+/* Jumbotron Background */
+.jumbo-bg {
+  background-color: #ADD8E6;
+}
+
 /* Standard Width and Height of Card Icons */
 .sw_h {
     width: 200px;
@@ -59,7 +64,7 @@ input:invalid {
 }
 
 input:invalid:required {
-  background-image: linear-gradient(to right, pink, lightgreen);
+  background-image: linear-gradient(to right, #ffb09c, #fbd9d3);
 }
 
 input:valid {

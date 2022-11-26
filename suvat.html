@@ -24,8 +24,6 @@
                 <p class="lead">Calculate from any of the four kinematic equations (suvat) to determine displacement, initial velocity, final velocity, acceleration or time.
                 </p>
                 <p>Start by adding three of the known variables to calculate any of the remaining unknowns.</p>
-                <p id="trial"></p>
-                <p id="trial2"></p>
             </div>
         </div>
     </section>
@@ -124,7 +122,7 @@
                     <i class="fa-solid fa-ruler-horizontal fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Displacement (s)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-title="Displacement (m, km, yd, mi, ft):" data-bs-content="Leave blank or enter the displacement the object travelled. Don't forget to check the units!">
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Displacement (m, km, yd, mi, ft):" data-bs-content="Leave blank or enter the displacement the object travelled. Don't forget to check the units!">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
@@ -182,6 +180,16 @@
                         <label for="inputVf">Final Velocity (v)</label><br>
                         <input type="number" name="inputVf" id="inputVf" class="reset_form checkVelocity maxAllow" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per hour or feet per second."
                             disabled>
+                            <!-- Error Message 1-->
+                            <!-- Bootstrap Popover Method -->
+                            <span id="sameV" data-bs-container="body" data-bs-toggle="popover"
+                                data-bs-trigger="manual" data-bs-title="Final and Initial Velocities can not be the same"
+                                data-bs-content="Change either your initial or your final velocities, they can not be the same number."></span>
+                            <!-- Error Message 2-->
+                            <!-- Bootstrap Popover Method -->
+                            <span id="lowerV" data-bs-container="body" data-bs-toggle="popover"
+                                data-bs-trigger="manual" data-bs-title="Your final velocity is less than your initial velocity"
+                                data-bs-content="Change your acceleration so that it is negative for this to work."></span>
                         <br>
                         <label for="unitsVf">Units</label>
                         <br>
@@ -206,8 +214,13 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputAcceleration">Acceleration (a)</label><br>
+                        <!-- User Input -->
                         <input type="number" name="inputAcceleration" id="inputAcceleration" class="reset_form checkAcceleration maxAllow" value="" min="-9999" step="0.0001" max="99999999999999" autocomplete="off" aria-label="input value for acceleration in metres per second squared or select g."
                             disabled>
+                        <!-- Bootstrap Popover Method -->
+                        <span id="zeroAccel" data-bs-container="body" data-bs-toggle="popover"
+                            data-bs-trigger="manual" data-bs-title="Acceleration must be non-zero"
+                            data-bs-content="Change your acceleration from zero to a positive or negative number."></span>
                         <br>
                         <label for="unitsAcceleration">Units</label>
                         <br>
@@ -242,7 +255,7 @@
                 </div>
             </div>
             <div class="col text-center">
-                <button type="button" class="btn-sm btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
                 <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three or four variables, submit the calculation for evaluation.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
@@ -286,7 +299,7 @@
             <h6 class="equation_color">Equation(s) Used:</h6>
             <p id="si_suvat_equation"></p>
             <p id="si_suvat_equation2"></p>
-            <button type="reset" class="btn-sm btn-outline-danger mb-2" id="resetButton">Reset</button>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton">Reset</button>
             <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
                 <i class="far fa-question-circle fa mb-2"></i>
             </a>
@@ -389,7 +402,6 @@
         <div class="footer"></div>
     </footer>
     <script src="assets/scripts/jquery-3.6.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="assets/scripts/bootstrap.bundle.js"></script>
     <script src="assets/scripts/include_content.js"></script>
     <script src="assets/scripts/calculators/suvat.js"></script>

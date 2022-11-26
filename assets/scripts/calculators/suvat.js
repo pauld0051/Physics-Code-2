@@ -36,44 +36,11 @@ const u1 = document.querySelector("#initial_velocity");
 const v1 = document.querySelector("#final_velocity");
 const a1 = document.querySelector("#acceleration");
 const t1 = document.querySelector("#time");
-//if vf is 0 then a must be a negative ***** this section can be included in all the calculations ****** ~~~~ DELETE ~~~~
-document
-  .getElementById("inputVf")
-  .addEventListener("keyup", negativeAcceleration);
-document
-  .getElementById("inputVf")
-  .addEventListener("click", negativeAcceleration);
-document
-  .getElementById("inputVf")
-  .addEventListener("change", negativeAcceleration);
-document
-  .getElementById("inputAcceleration")
-  .addEventListener("keyup", negativeAcceleration);
-document
-  .getElementById("inputAcceleration")
-  .addEventListener("click", negativeAcceleration);
-document
-  .getElementById("inputAcceleration")
-  .addEventListener("change", negativeAcceleration);
-
-function negativeAcceleration() {
-  const v = parseFloat(document.getElementById("inputVf").value);
-  const a = parseFloat(document.getElementById("inputAcceleration").value);
-  const s = parseFloat(document.getElementById("inputDistance").value);
-  if (
-    (v1.checked && a1.checked && v === 0 && a > 0) ||
-    (v1.checked && a1.checked && Math.pow(v, 2) < 2 * a * s && a > 0)
-  ) {
-    document.getElementById("submitButton").disabled = true;
-    alert(
-      "If Final Velocity is 0 then acceleration must be negative. Adjust that to calculate."
-    );
-  }
-}
 
 //Determine the equation and evaluate
 document.getElementById("submitButton").addEventListener("click", calculateMe);
-function calculateMe() {
+function calculateMe(event) {
+  event.stopPropagation();
   //User input values
   let s = parseFloat(document.getElementById("inputDistance").value);
   let u = parseFloat(document.getElementById("inputVi").value);
@@ -157,34 +124,20 @@ function calculateMe() {
   if (isNaN(t)) t = 0;
 
   // ************* If Acceleration = 0 (user input) ************** //
-  // Check this for validation https://codepen.io/cristinaconacel/pen/aRrQVN
+
+  const zeroAccel = bootstrap.Popover.getOrCreateInstance("#zeroAccel");
+  const sameV = bootstrap.Popover.getOrCreateInstance("#sameV");
+  const lowerV = bootstrap.Popover.getOrCreateInstance("#lowerV");
+  zeroAccel.hide();
+  sameV.hide();
+  lowerV.hide();
   if (a === 0) {
-    $(this).popover("dispose");
-    $(this).popover({
-      placement: "bottom",
-      content: '<textarea class="popover-textarea"></textarea>',
-      template:
-        '<div class="popover"><div class="arrow"></div>' +
-        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-        '</i></div><div class="popover-content col-9">Acceleration has to  non-zero. It can be negative or positive.' +
-        "</div></div>",
-    });
-    $(this).popover("show");
-    return false;
-    // ************* If vi =  vf (user input) ************** //
+    zeroAccel.show();
+    return;
+    // ************* If vi = vf (user input) ************** //
   } else if (u === v && uUnit === vUnit) {
-    $(this).popover("dispose");
-    $(this).popover({
-      placement: "bottom",
-      content: '<textarea class="popover-textarea"></textarea>',
-      template:
-        '<div class="popover"><div class="arrow"></div>' +
-        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-        '</i></div><div class="popover-content col-9">Your final and initial velocity are the same. Change either your initial or final velocity.' +
-        "</div></div>",
-    });
-    $(this).popover("show");
-    return false;
+    sameV.show();
+    return;
   } else if (
     (v < u && uUnit === vUnit && a > 0) ||
     (uUnit === "ms" && vUnit === "kmh" && v / 3.6 < u) ||
@@ -200,18 +153,8 @@ function calculateMe() {
     (uUnit === "fts" && vUnit === "ms" && v * 3.2808398950131 < u) ||
     (uUnit === "fts" && vUnit === "mph" && v * 1.4666666666667 < u)
   ) {
-    $(this).popover("dispose");
-    $(this).popover({
-      placement: "bottom",
-      content: '<textarea class="popover-textarea"></textarea>',
-      template:
-        '<div class="popover"><div class="arrow"></div>' +
-        '<div class="row"><div class="col-3 my-auto"><i class="fas fa-exclamation-triangle invalid-input">' +
-        '</i></div><div class="popover-content col-9">If your final velocity is less than the initial velocity you should be using negative acceleration.' +
-        "</div></div>",
-    });
-    $(this).popover("show");
-    return false;
+    lowerV.show();
+    return;
   }
 
   if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {
@@ -650,3 +593,5 @@ form.addEventListener("reset", (e) => {
     .querySelectorAll("[type=checkbox]:disabled")
     .forEach((cb) => (cb.disabled = false));
 });
+
+

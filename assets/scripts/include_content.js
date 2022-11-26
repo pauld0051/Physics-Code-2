@@ -28,10 +28,21 @@ includeHTML("footer.html", document.querySelector(".footer"));
 
 // Enable Popovers globally
 const popoverTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="popover"]')
+    document.querySelectorAll('[data-bs-toggle="popover"]')
 );
-const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl, { html: true });
+const popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, { html: true });
+});
+
+//Initiate popovers to be opened and closed
+window.addEventListener("click", (event) => {
+    const zeroAccel = bootstrap.Popover.getOrCreateInstance("#zeroAccel");
+    const sameV = bootstrap.Popover.getOrCreateInstance("#zeroAccel");
+    const lowerV = bootstrap.Popover.getOrCreateInstance("#zeroAccel");
+
+    zeroAccel.hide();
+    sameV.hide();
+    lowerV.hide();
 });
 
 // disable mousewheel on an input number field when in focus

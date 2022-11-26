@@ -17,15 +17,13 @@ $checkboxes.on("change", function() {
 //If Acceleration is chosen and gravity is the chosen acceleration update the input
 //to reflect this.
 const unitsSelect = document.getElementById("unitsAcceleration"),
-gravityInput = document.getElementById("inputAcceleration");
+    gravityInput = document.getElementById("inputAcceleration");
 unitsSelect.addEventListener("change", (evt) => {
     const unitSelected = unitsSelect.value;
-  if (unitSelected === "g") {
-    gravityInput.value = "9.81";
-  } else if (unitSelected === "-g") {
-    gravityInput.value = "-9.81";
-  } else if (unitSelected === "-a") {
-    gravityInput.value = -Math.abs(gravityInput.value);
+    if (unitSelected === "g") {
+        gravityInput.value = "9.81";
+    } else if (unitSelected === "-g") {
+        gravityInput.value = "-9.81";
     } else {
         gravityInput.value = "";
     }

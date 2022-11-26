@@ -9,6 +9,7 @@
   - [Goals](#site-goals)
 
     - [Notes](#notes)
+    - [Issues](#known-issues)
 
 ## DESCRIPTION
 
@@ -27,3 +28,7 @@ The current site is under construction and will remain so for at least until mid
 Local Server with console alt+b or use Go Live and the Browser.
 In-editor display F1 "show..."
 <https://www.markdownguide.org/basic-syntax/>
+
+### Known Issues
+
+Samsung Keyboard users can not enter in a negative number when using an input with the type "number". This leads to an impossible outcome for Samsung Keyboard users where a negative number could be essential. This occurs in numerous locations, but was first noticed with the [![suvat calculator](https://pauld0051.github.io/Physics-Code-2/suvat.html)] and corrected by allowing an input type "text" but limiting it with a pattern (-?[0-9]\d*(\.\d+)?).

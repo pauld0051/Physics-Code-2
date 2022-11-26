@@ -133,10 +133,12 @@ function calculateMe(event) {
   lowerV.hide();
   if (a === 0) {
     zeroAccel.show();
+    document.getElementById("inputAcceleration").focus({ focusVisible: true });
     return;
     // ************* If vi = vf (user input) ************** //
   } else if (u === v && uUnit === vUnit) {
     sameV.show();
+    document.getElementById("inputVf").focus({ focusVisible: true });
     return;
   } else if (
     (v < u && uUnit === vUnit && a > 0) ||
@@ -154,6 +156,7 @@ function calculateMe(event) {
     (uUnit === "fts" && vUnit === "mph" && v * 1.4666666666667 < u)
   ) {
     lowerV.show();
+    document.getElementById("inputVf").focus({ focusVisible: true });
     return;
   }
 

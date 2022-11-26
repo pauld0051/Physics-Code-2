@@ -180,16 +180,30 @@
                         <label for="inputVf">Final Velocity (v)</label><br>
                         <input type="number" name="inputVf" id="inputVf" class="reset_form checkVelocity maxAllow" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the final velocity in metres per second, kilometers per hour, miles per hour or feet per second."
                             disabled>
-                            <!-- Error Message 1-->
-                            <!-- Bootstrap Popover Method -->
-                            <span id="sameV" data-bs-container="body" data-bs-toggle="popover"
-                                data-bs-trigger="manual" data-bs-title="Final and Initial Velocities can not be the same"
-                                data-bs-content="Change either your initial or your final velocities, they can not be the same number."></span>
-                            <!-- Error Message 2-->
-                            <!-- Bootstrap Popover Method -->
-                            <span id="lowerV" data-bs-container="body" data-bs-toggle="popover"
-                                data-bs-trigger="manual" data-bs-title="Your final velocity is less than your initial velocity"
-                                data-bs-content="Change your acceleration so that it is negative for this to work."></span>
+                        <!-- Error Message 1-->
+                        <!-- Bootstrap Popover Method -->
+                        <span
+                        id="sameV"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="manual"
+                        data-bs-title="<i class='fa-solid fa-triangle-exclamation'></i> Final and Initial Velocities can
+                        not be the same"
+                        data-bs-content="Change either your initial or your final velocities, they can
+                        not be the same number.">
+                        </span>
+                        <!-- Error Message 2-->
+                        <!-- Bootstrap Popover Method -->
+                        <span
+                        id="lowerV"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="manual"
+                        data-bs-title="<i class='fa-solid fa-triangle-exclamation'></i> Your final velocity is less than
+                        your initial velocity"
+                        data-bs-content="Change your acceleration so that it is negative for this
+                        to work. For samsung users, use the 'select' option in the Acceleration input for the negative sign.">
+                        </span>
                         <br>
                         <label for="unitsVf">Units</label>
                         <br>
@@ -208,19 +222,34 @@
                     <i class="fa-solid fa-forward fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
                         <h4 class="text-center">Acceleration (a)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Acceleration (ms<sup>-2</sup>)" data-bs-content="Leave blank or enter the acceleration of the object. You can choose gravity as the acceleration.">
+                            <a tabindex="0"
+                            class="btn btn-link"
+                            role="button"
+                            data-bs-toggle="popover"
+                            data-bs-trigger="focus"
+                            data-bs-title="Acceleration (ms<sup>-2</sup>)" 
+                            data-bs-content="Leave blank or enter the acceleration of the object. You can choose gravity
+                            as the acceleration.">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputAcceleration">Acceleration (a)</label><br>
                         <!-- User Input -->
-                        <input type="number" name="inputAcceleration" id="inputAcceleration" class="reset_form checkAcceleration maxAllow" value="" min="-9999" step="0.0001" max="99999999999999" autocomplete="off" aria-label="input value for acceleration in metres per second squared or select g."
+                        <input type="text" pattern="-?[0-9]\d*(\.\d+)?" name=" inputAcceleration" id="inputAcceleration"
+                            class="reset_form checkAcceleration maxAllow" value="" min="-9999" step="0.0001"
+                            max="99999999999999" autocomplete="off"
+                            aria-label="input value for acceleration in metres per second squared or select g."
                             disabled>
                         <!-- Bootstrap Popover Method -->
-                        <span id="zeroAccel" data-bs-container="body" data-bs-toggle="popover"
-                            data-bs-trigger="manual" data-bs-title="Acceleration must be non-zero"
-                            data-bs-content="Change your acceleration from zero to a positive or negative number."></span>
+                        <span
+                        id="zeroAccel"
+                        data-bs-container="body"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="manual"
+                        data-bs-title="<i class='fa-solid fa-triangle-exclamation'></i> Acceleration must be non-zero" 
+                        data-bs-content="Change your acceleration from zero to a positive or negative number. For samsung users, use the 'select' option for the negative sign.">
+                        </span>
                         <br>
                         <label for="unitsAcceleration">Units</label>
                         <br>
@@ -228,6 +257,7 @@
                             <option value="mss" selected>ms&#x207b;&sup2;</option>
                             <option id="gOnly" value="g">(g) 9.81 ms&#x207b;&sup2;</option>
                             <option id="-gOnly" value="-g">(g) -9.81 ms&#x207b;&sup2;</option>
+                            <option id="-a" value="-a">(negative value) - ms&#x207b;&sup2;</option>
                         </select>
                     </div>
                 </div>

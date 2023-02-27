@@ -31,4 +31,4 @@ In-editor display F1 "show..."
 
 ### Known Issues
 
-Samsung Keyboard users can not enter in a negative number when using an input with the type "number". This leads to an impossible outcome for Samsung Keyboard users where a negative number could be essential. This occurs in numerous locations, but was first noticed with the [![suvat calculator](https://pauld0051.github.io/Physics-Code-2/suvat.html)] and corrected by allowing an input type "text" but limiting it with a pattern (-?[0-9]\d*(\.\d+)?).
+Samsung Keyboard users can not enter in a negative number when using an input with the type "number". This leads to an impossible outcome for Samsung Keyboard users where a negative number could be essential. This occurs in numerous locations, but was first noticed with the [suvat calculator](https://pauld0051.github.io/Physics-Code-2/suvat.html) and corrected by allowing an input type "text" but limiting it with a pattern (-?[0-9]\d*(\.\d+)?).

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ideal Gas Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">Ideal Gas Calculator</h1>
+                <p class="lead">Calculate the pressure, volume, number of moles or temperature of an ideal gas
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Equation Display -->
+    <section class="container border border-info bg_cont mb-1">
+        <div class="row">
+            <h3 class="d-flex justify-content-center">Equation</h3>
+        </div>
+        \begin{gather} pV\ =\ nRT\ \notag \end{gather}
+    </section>
+    <form id="SubmissionForm" class="needs-validation" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the four equations. You can select up to four variables, but a minimum of three is required.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>Select the three variables that you know. You can change this selection later if you want.</p>
+            <p>This will help you become familiar with the processes of calculating <em>ideal gas</em> equations.</p>
+            <div class="ideal-check">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="pressure" id="pressure" name="pressure">
+                    <label class="form-check-label" for="pressure">
+                        Pressure (p)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="volume" id="volume" name="volume">
+                    <label class="form-check-label" for="volume">
+                        Volume (V)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="moles" id="moles" name="moles">
+                    <label class="form-check-label" for="moles">
+                        Moles (n)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="temperature" id="temperature" name="temperature">
+                    <label class="form-check-label" for="temperature">
+                        Temperature (T)
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Pressure Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Pressure (p)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Pa, bar, atm, mmHg, PSI):" data-bs-content="Leave blank or enter the pressure of the ideal gas. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputPressure">Pressure (p)</label><br>
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="99999999999999" step="0.001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch"
+                            disabled>
+                        <br>
+                        <label for="unitsPressure">Units</label><br>
+                        <select name="unitsPressure" id="unitsPressure" style="width:60px;" data-input="pressure" disabled>
+                            <option value="pa" selected>Pa</option>
+                            <option value="bar">bar</option>
+                            <option value="atm">atm</option>
+                            <option value="mmHg">mmHg</option>
+                            <option value="psi">PSI</option>
+                        </select>
+                        <span role="alert" class="showError" aria-hidden="true"> Please enter a number </span>
+                    </div>
+                </div>
+                <!-- Volume -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-flask fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Volume (V)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Volume (m<sup>3</sup>, cm<sup>3</sup>, L or mL)" data-bs-content="Leave blank or enter the volume of the ideal gas. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputVolume">Volume (V)</label><br>
+                        <input type="number" name="inputVolume" id="inputVolume" class="reset_form checkVolume maxAllow" data-input="volume" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the volume of the ideal gas, metres cubed, centimeters cubed, litres, or milliliters."
+                            disabled>
+                        <br>
+                        <label for="unitsVolume">Units</label>
+                        <br>
+                        <select name="unitsVolume" id="unitsVolume" data-input="volume" style="width:67px;" disabled>
+                            <option value="m3" selected>m&sup3;</option>
+                            <option value="cm3">cm&sup3;</option>
+                            <option value="L">L</option>
+                            <option value="mL">mL</option>
+                        </select>
+                        <span role="alert" class="showError" aria-hidden="true"> Please enter a number </span>
+                    </div>
+                </div>
+                <!-- Moles -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-atom fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Moles (number of molecules)" data-bs-content="Leave blank or enter the number of molecules in the ideal gas.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="moles">Moles (v)</label><br>
+                        <input type="number" name="inputMole" id="inputMole" class="reset_form checkMole maxAllow" data-input="moles" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the number of moles in the ideal gas." disabled>
+                        <br>
+                        <label for="unitsMole">Units</label>
+                        <br>
+                        <select name="unitsMole" id="unitsMole" data-input="moles" style="width:67px;" disabled>
+                            <option value="mole" selected>mol</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <!-- Gas Constant -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-magnifying-glass fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Gas Constant (R)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Gas Constant" data-bs-content="You can not change this. It is 8.314462 m<sup>3</sup>⋅Pa⋅K<sup>−1</sup>⋅mol<sup>−1</sup>">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputGasConstant">Gas Constant (R)</label><br>
+                        <!-- User Input - note pattern and input type to allow for Samsung Keyboards -->
+                        <input type="number" name="inputGasConstant" id="inputGasConstant" class="reset_form checkGasConstant maxAllow" value="8.314462" autocomplete="off" aria-label="ideal gas constant 8.314462." disabled>
+                        <br>
+                        <label for="unitsGasConstant">Units</label>
+                        <br>
+                        <select name="unitsGasConstant" id="unitsGasConstant" style="width:165px;" disabled>
+                            <option value="R" selected>m&sup3;⋅Pa⋅K&#x207b;&sup1;⋅mol&#x207b;&sup1;</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Temperature Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-temperature-full fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Temperature (T)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Temperature (K, °C, °F)" data-bs-content="Leave blank or enter the temperature of the ideal gas. Don't forget to check the units!">
+                                <i class="far fa-question-circle fa mb-1"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputTemperature">Temperature (T)</label><br>
+                        <input type="number" name="inputTemperature" id="inputTemperature" class="reset_form checkTemperature maxAllow" data-input="temperature" value="" min="0" max="99999999999999" step="0.0001" autocomplete="off" aria-label="input value for time in kelvin, degrees celsius, degrees fahrenheit"
+                            disabled>
+                        <br>
+                        <label for="unitsTemperature">Units</label><br>
+                        <select name="unitsTemperature" id="unitsTemperature" data-input="temperature" style="width:60px;" disabled>
+                            <option value="k" selected>K</option>
+                            <option value="c">°C</option>
+                            <option value="f">°F</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <section class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Displacement (s)</td>
+                        <td id="p">m</td>
+                    </tr>
+                    <tr>
+                        <td>Initial Velocity (u)</td>
+                        <td id="v">ms<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Final Velocity (v)</td>
+                        <td id="n">ms<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Acceleration (a)</td>
+                        <td id="r">ms<sup>-2</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Time (t)</td>
+                        <td id="t">s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation(s) Used:</h6>
+            <p id="si_suvat_equation"></p>
+            <p id="si_suvat_equation2"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for either ms<sup>-1</sup>, m, or s. You can change the output
+                    accordingly
+                    and see the common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Displacement (s)</td>
+                    <td id="sx">m</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s1x">km</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s2x">mi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="s3x">yd</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="s4x">ft</td>
+                </tr>
+                <tr>
+                    <td>Initial Velocity (u)</td>
+                    <td id="ux">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="u1x">kmh<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="u2x">mph</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="u3x">fts<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td>Final Velocity (v)</td>
+                    <td id="vx">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v1x">kmh<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v2x">mph</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="v3x">fts<sup>-1</sup></td>
+                </tr>
+                <tr class="t_line">
+                    <td>Acceleration (a)</td>
+                    <td id="ax">ms<sup>-2</sup></td>
+                </tr>
+                <tr>
+                    <td>Time (t)</td>
+                    <td id="tx">s</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t1x">min</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t2x">hr</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="t3x">days</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
+                completed.</em>
+        </p>
+    </section>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/ideal_gas.js"></script>
+    <script src="assets/scripts/calculators/ideal_gas_validity.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

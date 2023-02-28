@@ -28,7 +28,36 @@ const v1 = document.querySelector("#volume");
 const n1 = document.querySelector("#moles");
 const t1 = document.querySelector("#temperature");
 
-document.getElementById("submitButton").addEventListener("click", calculateIdealGas);
+document.getElementById("submitButton").addEventListener("click", function () {
+  if (validateInputs()) {
+    calculateIdealGas();
+  }
+});
+
+function validateInputs() {
+  const inputs = document.querySelectorAll('.maxAllow');
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    if (input.disabled) {
+      continue;
+    }
+    const min = parseFloat(input.min);
+    const max = parseFloat(input.max);
+    const step = parseFloat(input.step);
+    const value = parseFloat(input.value);
+    const stepDecimalPlaces = input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
+    const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
+    if (!isNaN(step) && value < step || valueDecimalPlaces > stepDecimalPlaces) {
+      alert(`Invalid input for ${input.name}. Please enter a value that is greater than or equal to ${step}.`);
+      return false;
+    }
+    if (value < min || value > max) {
+      alert(`Invalid input for ${input.name}. Please enter a value between ${min} and ${max}.`);
+      return false;
+    }
+  }
+  return true;
+}
 
 function calculateIdealGas() {
   //User input values
@@ -205,6 +234,10 @@ function resetForm() {
     checkbox.checked = false;
     checkbox.disabled = false;
   });
+   document.querySelectorAll('.maxAllow').forEach((input) => {
+     input.value = '';
+     input.disabled = true;
+   });
 }
 
 // Set step, min and max for Pressure

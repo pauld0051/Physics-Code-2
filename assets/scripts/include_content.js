@@ -49,3 +49,19 @@ $("form").on("focus", "input[type=number]", function(e) {
 $("form").on("blur", "input[type=number]", function(e) {
     $(this).off("wheel.disableScroll");
 });
+
+// Show Alert Boxes
+function showAlert(message) {
+  const alertContainer = document.getElementById('alert-container');
+  const alertBox = document.getElementById('alert-box');
+  const alertMessage = document.getElementById('alert-message');
+  const alertClose = document.getElementById('alert-close');
+
+  alertMessage.innerText = message;
+  alertBox.setAttribute('aria-label', `Alert: ${message}`);
+  alertContainer.style.display = 'flex';
+
+  alertClose.addEventListener('click', () => {
+    alertContainer.style.display = 'none';
+  });
+}

@@ -160,7 +160,6 @@ function calculateMe(event) {
         document.getElementById("inputVf").focus({ focusVisible: true });
         return;
     }
-
     if (!s1.checked && u1.checked && v1.checked && a1.checked && t1.checked) {
         //**************//
         // Calculations //

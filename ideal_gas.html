@@ -83,11 +83,11 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputPressure">Pressure (p)</label><br>
-                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="99999999999999" step="0.001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch"
-                            disabled>
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="100000" step="0.0001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch"
+                            data-validate disabled>
                         <br>
                         <label for="unitsPressure">Units</label><br>
-                        <select name="unitsPressure" id="unitsPressure" style="width:60px;" data-input="pressure" disabled>
+                        <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
                             <option value="pa" selected>Pa</option>
                             <option value="bar">bar</option>
                             <option value="atm">atm</option>
@@ -112,8 +112,8 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputVolume">Volume (V)</label><br>
-                        <input type="number" name="inputVolume" id="inputVolume" class="reset_form checkVolume maxAllow" data-input="volume" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the volume of the ideal gas, metres cubed, centimeters cubed, litres, or milliliters."
-                            disabled>
+                        <input type="number" name="inputVolume" id="inputVolume" class="reset_form checkVolume maxAllow" data-input="volume" value="" min="0" max="1e11" step="0.001" autocomplete="off" aria-label="input value for the volume of the ideal gas, metres cubed, centimeters cubed, litres, or milliliters."
+                            data-validate disabled>
                         <br>
                         <label for="unitsVolume">Units</label>
                         <br>
@@ -136,8 +136,9 @@
                             </a>
                         </h4>
                         <p class="card-text"></p>
-                        <label for="moles">Moles (v)</label><br>
-                        <input type="number" name="inputMole" id="inputMole" class="reset_form checkMole maxAllow" data-input="moles" value="" min="0" step="0.01" autocomplete="off" aria-label="input value for the number of moles in the ideal gas." disabled>
+                        <label for="inputMole">Moles (v)</label><br>
+                        <input type="number" name="inputMole" id="inputMole" class="reset_form checkMole maxAllow" data-input="moles" value="" max="100000" min="0.00001" step="0.00001" autocomplete="off" aria-label="input value for the number of moles in the ideal gas." data-validate
+                            disabled>
                         <br>
                         <label for="unitsMole">Units</label>
                         <br>
@@ -183,8 +184,8 @@
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputTemperature">Temperature (T)</label><br>
-                        <input type="number" name="inputTemperature" id="inputTemperature" class="reset_form checkTemperature maxAllow" data-input="temperature" value="" min="0" max="99999999999999" step="0.0001" autocomplete="off" aria-label="input value for time in kelvin, degrees celsius, degrees fahrenheit"
-                            disabled>
+                        <input type="number" name="inputTemperature" id="inputTemperature" class="reset_form checkTemperature maxAllow" data-input="temperature" value="" min="0" max="5778" step="0.0001" autocomplete="off" aria-label="input value for time in kelvin, degrees celsius, degrees fahrenheit"
+                           data-validate disabled>
                         <br>
                         <label for="unitsTemperature">Units</label><br>
                         <select name="unitsTemperature" id="unitsTemperature" data-input="temperature" style="width:60px;" disabled>
@@ -356,7 +357,6 @@
     <script src="assets/scripts/bootstrap.bundle.js"></script>
     <script src="assets/scripts/include_content.js"></script>
     <script src="assets/scripts/calculators/ideal_gas.js"></script>
-    <script src="assets/scripts/calculators/ideal_gas_validity.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>

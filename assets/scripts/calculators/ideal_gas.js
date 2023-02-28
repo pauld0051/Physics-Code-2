@@ -206,3 +206,138 @@ function resetForm() {
     checkbox.disabled = false;
   });
 }
+
+// Set step, min and max for Pressure
+const inputPressure = document.getElementById('inputPressure');
+const unitsPressure = document.getElementById('unitsPressure');
+
+unitsPressure.addEventListener('change', function () {
+  const selectedValue = unitsPressure.value;
+  let max = 100000;
+
+  switch (selectedValue) {
+    case 'bar':
+      max = max * 10;
+      inputPressure.step = 0.0001;
+      break;
+    case 'atm':
+      max = max / 10;
+      inputPressure.step = 0.0001;
+      break;
+    case 'mmHg':
+      max = max / 7.5;
+      inputPressure.step = 0.0001;
+      break;
+    case 'psi':
+      max = max / 6.89475729;
+      inputPressure.step = 0.0001;
+      break;
+    case 'torr':
+      max = max / 133.322;
+      inputPressure.step = 0.0001;
+      break;
+    case 'hpa':
+      inputPressure.step = 0.0001;
+      break;
+    case 'kpa':
+      inputPressure.step = 0.0001;
+      break;
+    case 'mpa':
+      inputPressure.step = 0.0001;
+      break;
+    default:
+      inputPressure.step = 0.0001;
+      break;
+  }
+
+  inputPressure.min = 0.0001;
+  inputPressure.max = max;
+});
+
+// Set step, min and max for Volume
+const volumeInput = document.getElementById('inputVolume');
+const volumeUnits = document.getElementById('unitsVolume');
+
+volumeUnits.addEventListener('change', function () {
+  switch (volumeUnits.value) {
+    case 'm3':
+      volumeInput.setAttribute('step', '0.001');
+      volumeInput.setAttribute('min', '0');
+      volumeInput.setAttribute('max', '1e11');
+      break;
+    case 'cm3':
+      volumeInput.setAttribute('step', '0.000001');
+      volumeInput.setAttribute('min', '0');
+      volumeInput.setAttribute('max', '1e14');
+      break;
+    case 'L':
+      volumeInput.setAttribute('step', '0.001');
+      volumeInput.setAttribute('min', '0');
+      volumeInput.setAttribute('max', '1e8');
+      break;
+    case 'mL':
+      volumeInput.setAttribute('step', '0.000001');
+      volumeInput.setAttribute('min', '0');
+      volumeInput.setAttribute('max', '1e11');
+      break;
+    default:
+      console.error('Invalid volume unit');
+  }
+});
+
+// Set step, min and max for Moles
+const inputMoles = document.getElementById('inputMole');
+const moleUnits = document.getElementById('unitsMole');
+
+moleUnits.addEventListener('change', function () {
+  switch (moleUnits.value) {
+      case 'mole':
+          inputMoles.step = '1';
+          inputMoles.min = '0';
+          inputMoles.max = '1000000';
+          break;
+      case 'mmol':
+          inputMoles.step = '0.001';
+          inputMoles.min = '0';
+          inputMoles.max = '1000000000';
+          break;
+      case 'μmol':
+          inputMoles.step = '0.000001';
+          inputMoles.min = '0';
+          inputMoles.max = '1000000000000';
+          break;
+      case 'nmol':
+          inputMoles.step = '0.000000001';
+          inputMoles.min = '0';
+          inputMoles.max = '1000000000000000';
+          break;
+      default:
+          break;
+    }
+});
+
+// Set step, min and max for Temperature
+const inputTemperature = document.getElementById('inputTemperature');
+const unitsTemperature = document.getElementById('unitsTemperature');
+
+unitsTemperature.addEventListener('change', function () {
+  switch (unitsTemperature.value) {
+    case 'k':
+      inputTemperature.step = '0.0001';
+      inputTemperature.min = '0';
+      inputTemperature.max = '5778';
+      break;
+    case 'c':
+      inputTemperature.step = '0.0001';
+      inputTemperature.min = '-273.15';
+      inputTemperature.max = '5504.85';
+      break;
+    case 'f':
+      inputTemperature.step = '0.0001';
+      inputTemperature.min = '-459.67';
+      inputTemperature.max = '9940.33';
+      break;
+    default:
+      break;
+  }
+});

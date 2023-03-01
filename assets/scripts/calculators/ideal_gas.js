@@ -168,33 +168,33 @@ function calculateIdealGas() {
     //Equation 1 P unknown
     p = n * r * t / v;
     document.getElementById("inputPressure").value = p.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = p.toFixed(3) + "<span> Pa</span>";
-    document.getElementById("volumeOutput").innerHTML = v.toFixed(3) + "<span> m<sup>3</sup></span>";
-    document.getElementById("molOutput").innerHTML = n.toFixed(6) + "<span> mol</span>";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(2))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = t.toFixed(3) + "<span> K</span>";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(2))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} p=\frac{nRT}{V} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   } else if (p1.checked && v1.checked && !n1.checked && t1.checked) {
     // Equation 2 n unknown
     n = p * v / (r * t);
     document.getElementById("inputMole").value = n.toFixed(6);
-    document.getElementById("pressureOutput").innerHTML = p.toFixed(3) + "<span> Pa</span>";
-    document.getElementById("volumeOutput").innerHTML = v.toFixed(3) + "<span> m<sup>3</sup></span>";
-    document.getElementById("molOutput").innerHTML = n.toFixed(6) + "<span> mol</span>";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = t.toFixed(3) + "<span> K</span>";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} n=\frac{pV}{RT} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   } else if (p1.checked && !v1.checked && n1.checked && t1.checked) {
     // Equation 3 v unknown
     v = n * r * t / p;
     document.getElementById("inputVolume").value = v.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = p.toFixed(3) + "<span> Pa</span>";
-    document.getElementById("volumeOutput").innerHTML = v.toFixed(3) + "<span> m<sup>3</sup></span>";
-    document.getElementById("molOutput").innerHTML = n.toFixed(6) + "<span> mol</span>";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = t.toFixed(3) + "<span> K</span>";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} V=\frac{nRT}{p} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   }
@@ -202,11 +202,11 @@ function calculateIdealGas() {
   else if (p1.checked && v1.checked && n1.checked && !t1.checked) {
     t = p * v / (n * r);
     document.getElementById("inputTemperature").value = t.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = p.toFixed(3) + "<span> Pa</span>";
-    document.getElementById("volumeOutput").innerHTML = v.toFixed(3) + "<span> m<sup>3</sup></span>";
-    document.getElementById("molOutput").innerHTML = n.toFixed(6) + "<span> mol</span>";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = t.toFixed(3) + "<span> K</span>";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} T=\frac{pV}{nR} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   }

@@ -248,10 +248,10 @@ function resetForm() {
     checkbox.checked = false;
     checkbox.disabled = false;
   });
-   document.querySelectorAll('.maxAllow').forEach((input) => {
-     input.value = '';
-     input.disabled = true;
-   });
+  document.querySelectorAll('.maxAllow').forEach((input) => {
+    input.value = '';
+    input.disabled = true;
+  });
 }
 
 // Set step, min and max for Pressure
@@ -260,45 +260,65 @@ const unitsPressure = document.getElementById('unitsPressure');
 
 unitsPressure.addEventListener('change', function () {
   const selectedValue = unitsPressure.value;
-  let max = 100000;
-
+  let max = 10000000;
+  let step = 0.0001;
   switch (selectedValue) {
+    case 'pa':
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
+      break;
     case 'bar':
-      max = max * 10;
-      inputPressure.step = 0.0001;
+      max = max / 100000;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'atm':
-      max = max / 10;
-      inputPressure.step = 0.0001;
+      max = max / 100000;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'mmHg':
-      max = max / 7.5;
-      inputPressure.step = 0.0001;
-      break;
-    case 'psi':
-      max = max / 6.89475729;
-      inputPressure.step = 0.0001;
+      max = max / 133
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'torr':
-      max = max / 133.322;
-      inputPressure.step = 0.0001;
+      max = max / 130;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
+      break;
+    case 'psi':
+      max = max / 1450;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'hpa':
-      inputPressure.step = 0.0001;
+      max = max / 10;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'kpa':
-      inputPressure.step = 0.0001;
+      max = max / 1000;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     case 'mpa':
-      inputPressure.step = 0.0001;
+      max = max / 1000000;
+      inputPressure.setAttribute('max', max);
+      inputPressure.setAttribute('min', step);
+      inputPressure.setAttribute('step', step);
       break;
     default:
-      inputPressure.step = 0.0001;
-      break;
+      console.error('Invalid pressure unit');
   }
-
-  inputPressure.min = 0.0001;
-  inputPressure.max = max;
 });
 
 // Set step, min and max for Volume
@@ -338,29 +358,29 @@ const moleUnits = document.getElementById('unitsMole');
 
 moleUnits.addEventListener('change', function () {
   switch (moleUnits.value) {
-      case 'mole':
-          inputMoles.step = '1';
-          inputMoles.min = '0';
-          inputMoles.max = '1000000';
-          break;
-      case 'mmol':
-          inputMoles.step = '0.001';
-          inputMoles.min = '0';
-          inputMoles.max = '1000000000';
-          break;
-      case 'μmol':
-          inputMoles.step = '0.000001';
-          inputMoles.min = '0';
-          inputMoles.max = '1000000000000';
-          break;
-      case 'nmol':
-          inputMoles.step = '0.000000001';
-          inputMoles.min = '0';
-          inputMoles.max = '1000000000000000';
-          break;
-      default:
-          break;
-    }
+    case 'mole':
+      inputMoles.step = '1';
+      inputMoles.min = '0';
+      inputMoles.max = '1000000';
+      break;
+    case 'mmol':
+      inputMoles.step = '0.001';
+      inputMoles.min = '0';
+      inputMoles.max = '1000000000';
+      break;
+    case 'μmol':
+      inputMoles.step = '0.000001';
+      inputMoles.min = '0';
+      inputMoles.max = '1000000000000';
+      break;
+    case 'nmol':
+      inputMoles.step = '0.000000001';
+      inputMoles.min = '0';
+      inputMoles.max = '1000000000000000';
+      break;
+    default:
+      break;
+  }
 });
 
 // Set step, min and max for Temperature

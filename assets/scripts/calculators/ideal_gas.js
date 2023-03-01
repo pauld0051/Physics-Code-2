@@ -55,6 +55,7 @@ function validateInputs() {
       showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a value between ${min} and ${max}.`, input.id);
       return false;
     }
+    removeCardBorder();
   }
   return true;
 }

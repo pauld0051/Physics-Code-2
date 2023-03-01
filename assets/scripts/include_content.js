@@ -51,6 +51,8 @@ $("form").on("blur", "input[type=number]", function(e) {
 });
 
 // Show Alert Boxes
+let lastInvalidCard = null;
+
 function showAlert(message, inputId) {
   const alertContainer = document.getElementById('alert-container');
   const alertBox = document.getElementById('alert-box');
@@ -65,9 +67,24 @@ function showAlert(message, inputId) {
     alertContainer.style.display = 'none';
     if (inputId) {
       const inputField = document.getElementById(inputId);
-      document.getElementById(inputId).focus();
-      const card = inputField.closest('.card');
-      card.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
+      inputField.focus();
+      const newInvalidCard = inputField.closest('.card');
+      if (lastInvalidCard !== null) {
+        lastInvalidCard.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
+      }
+      newInvalidCard.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
+      lastInvalidCard = newInvalidCard;
     }
   });
 }
+
+
+// Remove any borders from cards
+function removeCardBorder() {
+  const cards = document.querySelectorAll('.card');
+  for (let i = 0; i < cards.length; i++) {
+    const card = cards[i];
+    card.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
+  }
+}
+

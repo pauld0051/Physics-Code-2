@@ -7,7 +7,6 @@
     background-color: #f1c3a1;
 }
 
-
 /* Header Background */
 
 .p_code {
@@ -28,13 +27,11 @@
     background-color: #fcf3ec;
 }
 
-
 /* Jumbotron Background */
 
 .jumbo-bg {
     background-color: #ADD8E6;
 }
-
 
 /* Standard Width and Height of Card Icons */
 
@@ -42,7 +39,6 @@
     width: 200px;
     height: 200px;
 }
-
 
 /* Color of h6 element for equation and answers */
 
@@ -53,7 +49,6 @@
 .equation_color {
     color: green;
 }
-
 
 /* 2 column table set widths */
 
@@ -75,14 +70,12 @@
     width: 20%;
 }
 
-
 /* Thick line break for tables */
 
 .t_line {
     border-bottom-style: solid;
     border-bottom-width: medium;
 }
-
 
 /* Form Validation */
 input:invalid {

@@ -41,37 +41,48 @@
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>Please note that this calculator converts all inputs into SI or metric units (Pa, m<sup>3</sup>, mol and K) and uses a universal gas constant (R) of 8.314462 m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup>. In an exam, you will need to ensure
-                that all units are converted to match the value of R that is being used. Select the three variables that you know and calculate for the fourth. You can change your selection later if you want. This will help you become familiar with the
-                processes of calculating ideal gas equations.</p>
+            <p>Please note that this calculator converts all inputs into SI or metric units (Pa, m<sup>3</sup>, mol and K) and uses
+                a universal gas constant (R) of <nobr>8.314462 m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></nobr>. In an exam,
+                you will need to ensure that all units are converted to match the value of R that is being used. Select the three
+                variables that you know and calculate for the fourth. You can change your selection later if you want. This will
+                help you become familiar with the processes of calculating ideal gas equations.</p>
             <p>For more information about the Ideal Gas Law, please visit our <a
                     href="https://example.com/ideal_gas_law" target="_blank" rel="noopener">Ideal Gas Law</a> page.
             </p>
-            <!-- CHECK BOXES -->
-            <div class="ideal-check">
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" value="pressure" id="pressure" name="pressure">
-                    <label class="form-check-label" for="pressure">
-                        Pressure (p)
-                    </label>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:</p>
                 </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" value="volume" id="volume" name="volume">
-                    <label class="form-check-label" for="volume">
-                        Volume (V)
-                    </label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" value="moles" id="moles" name="moles">
-                    <label class="form-check-label" for="moles">
-                        Moles (n)
-                    </label>
-                </div>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" value="temperature" id="temperature" name="temperature">
-                    <label class="form-check-label" for="temperature">
-                        Temperature (T)
-                    </label>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure"
+                                name="pressure">
+                            <label class="form-check-label" for="pressure">
+                                Pressure (p)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="volume" id="volume" name="volume">
+                            <label class="form-check-label" for="volume">
+                                Volume (V)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="moles" id="moles" name="moles">
+                            <label class="form-check-label" for="moles">
+                                Moles (n)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="temperature" id="temperature"
+                                name="temperature">
+                            <label class="form-check-label" for="temperature">
+                                Temperature (T)
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

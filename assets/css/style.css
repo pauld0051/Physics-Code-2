@@ -1,5 +1,22 @@
 /* Fonts */
+/* Import the Roboto font */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
+/* Set the default font family to Roboto */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+  font-family: 'Roboto', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.long-word {
+  word-wrap: break-word;
+}
 
 /* Body background */
 

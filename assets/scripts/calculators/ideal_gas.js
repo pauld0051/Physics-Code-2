@@ -20,7 +20,16 @@ $checkboxes.on("change", function () {
 
   // Disable submit button if less than 3 checkboxes are checked
   $submitButton.prop("disabled", $checkedCheckboxes.length < 3);
+
+  // Change colour of checkbox icon when valid
+  const $fontawesomeIcon = $(".fas.fa-check-square");
+  if ($checkedCheckboxes.length === 3) {
+    $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
+  } else {
+    $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
+  }
 });
+
 
 //Equation Variables
 //Checkbox selection
@@ -169,33 +178,33 @@ function calculateIdealGas() {
     //Equation 1 P unknown
     p = n * r * t / v;
     document.getElementById("inputPressure").value = p.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2))) + " Pa";
-    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(2))) + " m<sup>3</sup>";
-    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(2))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(2))) + " K";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(2))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} p=\frac{nRT}{V} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   } else if (p1.checked && v1.checked && !n1.checked && t1.checked) {
     // Equation 2 n unknown
     n = p * v / (r * t);
     document.getElementById("inputMole").value = n.toFixed(6);
-    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
-    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
-    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} n=\frac{pV}{RT} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   } else if (p1.checked && !v1.checked && n1.checked && t1.checked) {
     // Equation 3 v unknown
     v = n * r * t / p;
     document.getElementById("inputVolume").value = v.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
-    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
-    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} V=\frac{nRT}{p} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   }
@@ -203,11 +212,11 @@ function calculateIdealGas() {
   else if (p1.checked && v1.checked && n1.checked && !t1.checked) {
     t = p * v / (n * r);
     document.getElementById("inputTemperature").value = t.toFixed(3);
-    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
-    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
-    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
+    document.getElementById("pressureOutput").innerHTML = (p < 0.01 ? p.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(3))) + " Pa";
+    document.getElementById("volumeOutput").innerHTML = (v < 0.01 ? v.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(3))) + " m<sup>3</sup>";
+    document.getElementById("molOutput").innerHTML = (n < 0.01 ? n.toExponential(6).replace("e-", " x 10<sup>-") + "</sup>" : (n >= 10000 ? n.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(6))) + " mol";
     document.getElementById("gasConstOut").innerHTML = r.toFixed(3) + "<span> m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></span>";
-    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
+    document.getElementById("temperatureOutput").innerHTML = (t < 0.01 ? t.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (t >= 10000 ? t.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : t.toFixed(3))) + " K";
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} T=\frac{pV}{nR} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   }
@@ -215,35 +224,35 @@ function calculateIdealGas() {
   document.querySelector('#results_table_1').scrollIntoView({
     behavior: 'smooth',
     block: 'center'
-    });
+  });
   // Table 2 - results all converted
   // Update pressure values
-  document.getElementById("p1x").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2))) + " Pa";
-  document.getElementById("p2x").innerHTML = (p / 100000 < 0.01 ? (p / 100000).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 100000 >= 10000 ? (p / 100000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p / 100000).toFixed(2))) + " bar";
-  document.getElementById("p3x").innerHTML = (p / 101325 < 0.01 ? (p / 101325).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 101325 >= 10000 ? (p / 101325).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p / 101325).toFixed(2))) + " atm";
-  document.getElementById("p4x").innerHTML = (p / 133.322 < 0.01 ? (p / 133.322).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 133.322 >= 10000 ? (p / 133.322).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p / 133.322).toFixed(2))) + " mmHg";
-  document.getElementById("p5x").innerHTML = (p / 6894.76 < 0.01 ? (p / 6894.76).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 6894.76 >= 10000 ? (p / 6894.76).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p / 6894.76).toFixed(2))) + " PSI";
-  document.getElementById("p6x").innerHTML = (p / 133.322 < 0.01 ? (p / 133.322).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 133.322 >= 10000 ? (p / 133.322).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p / 133.322).toFixed(2))) + " Torr";
-  document.getElementById("p7x").innerHTML = (p / 100 < 0.01 ? (p / 100).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 100 >= 10000 ? (p / 100).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (p < 1 ? (p / 100).toFixed(2).replace("e-", " x 10<sup>-") : p.toFixed(2).replace("e+", " x 10<sup>")))) + " hPa";
-  document.getElementById("p8x").innerHTML = (p / 1000 < 0.01 ? (p / 1000).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 1000 >= 10000 ? (p / 1000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2).replace("e+", " x 10<sup>"))) + " kPa";
-  document.getElementById("p9x").innerHTML = (p / 1000000 < 0.01 ? (p / 1000000).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p / 1000000 >= 10000 ? (p / 1000000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2).replace("e+", " x 10<sup>"))) + " MPa";
+  document.getElementById("p1x").innerHTML = (p < 0.01 ? p.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(4))) + " Pa";
+  document.getElementById("p2x").innerHTML = (p / 100000 < 0.01 ? (p / 100000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 100000 >= 10000 ? (p / 100000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 100000).toFixed(4))) + " bar";
+  document.getElementById("p3x").innerHTML = (p / 101325 < 0.01 ? (p / 101325).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 101325 >= 10000 ? (p / 101325).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 101325).toFixed(4))) + " atm";
+  document.getElementById("p4x").innerHTML = (p / 133.322 < 0.01 ? (p / 133.322).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 133.322 >= 10000 ? (p / 133.322).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 133.322).toFixed(4))) + " mmHg";
+  document.getElementById("p5x").innerHTML = (p / 6894.76 < 0.01 ? (p / 6894.76).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 6894.76 >= 10000 ? (p / 6894.76).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 6894.76).toFixed(4))) + " PSI";
+  document.getElementById("p6x").innerHTML = (p / 133.322 < 0.01 ? (p / 133.322).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 133.322 >= 10000 ? (p / 133.322).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 133.322).toFixed(4))) + " Torr";
+  document.getElementById("p7x").innerHTML = (p / 100 < 0.01 ? (p / 100).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 100 >= 10000 ? (p / 100).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (p / 100).toFixed(4))) + " hPa";
+  document.getElementById("p8x").innerHTML = (p / 1000 < 0.01 ? (p / 1000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 1000 >= 10000 ? (p / 1000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(4).replace("e+", " x 10<sup>"))) + " kPa";
+  document.getElementById("p9x").innerHTML = (p / 1000000 < 0.01 ? (p / 1000000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (p / 1000000 >= 10000 ? (p / 1000000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(4).replace("e+", " x 10<sup>"))) + " MPa";
 
   // Update volume values
-  document.getElementById("v1x").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(2))) + " m³";
-  document.getElementById("v2x").innerHTML = (v * 1000000 < 0.01 ? (v * 1000000).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v * 1000000 >= 10000 ? (v * 1000000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000000).toFixed(2))) + " cm³";
-  document.getElementById("v3x").innerHTML = (v < 0.01 ? v.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000).toFixed(2))) + " L";
-  document.getElementById("v4x").innerHTML = (v * 1000000 < 0.01 ? (v * 1000000).toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (v * 1000000 >= 10000 ? (v * 1000000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000000).toFixed(2).replace("e+", " x 10<sup>"))) + " mL";
+  document.getElementById("v1x").innerHTML = (v < 0.01 ? v.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v >= 10000 ? v.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : v.toFixed(4))) + " m³";
+  document.getElementById("v2x").innerHTML = (v * 1000000 < 0.01 ? (v * 1000000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v * 1000000 >= 10000 ? (v * 1000000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000000).toFixed(4))) + " cm³";
+  document.getElementById("v3x").innerHTML = (v * 1000 < 0.01 ? (v * 1000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v * 1000 >= 10000 ? (v * 1000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000).toFixed(4))) + " L";
+  document.getElementById("v4x").innerHTML = (v * 1000000 < 0.01 ? (v * 1000000).toExponential(4).replace("e-", " x 10<sup>-") + "</sup>" : (v * 1000000 >= 10000 ? (v * 1000000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (v * 1000000).toFixed(4).replace("e+", " x 10<sup>"))) + " mL";
 
   // Update moles values
-  document.getElementById("n1x").innerHTML = (n < 0.01 ? n.toExponential(2).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n >= 10000 ? n.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(2))) + " mol";
-  document.getElementById("n2x").innerHTML = (n * 1000 < 0.01 ? (n * 1000).toExponential(2).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000 >= 10000 ? (n * 1000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000).toFixed(2).replace("e+", " x 10<sup>"))) + " mmol";
-  document.getElementById("n3x").innerHTML = (n * 1000000 < 0.01 ? (n * 1000000).toExponential(2).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000000 >= 10000 ? (n * 1000000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000000).toFixed(2).replace("e+", " x 10<sup>"))) + " μmol";
-  document.getElementById("n4x").innerHTML = (n * 1000000000 < 0.01 ? (n * 1000000000).toExponential(2).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000000000 >= 10000 ? (n * 1000000000).toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000000000).toFixed(2).replace("e+", " x 10<sup>"))) + " nmol";
+  document.getElementById("n1x").innerHTML = (n < 0.01 ? n.toExponential(4).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n >= 10000 ? n.toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : n.toFixed(4))) + " mol";
+  document.getElementById("n2x").innerHTML = (n * 1000 < 0.01 ? (n * 1000).toExponential(4).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000 >= 10000 ? (n * 1000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000).toFixed(4).replace("e+", " x 10<sup>"))) + " mmol";
+  document.getElementById("n3x").innerHTML = (n * 1000000 < 0.01 ? (n * 1000000).toExponential(4).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000000 >= 10000 ? (n * 1000000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000000).toFixed(4).replace("e+", " x 10<sup>"))) + " μmol";
+  document.getElementById("n4x").innerHTML = (n * 1000000000 < 0.01 ? (n * 1000000000).toExponential(4).replace("e-", " x 10<sup>&minus;") + "</sup>" : (n * 1000000000 >= 10000 ? (n * 1000000000).toExponential(4).replace("e+", " x 10<sup>") + "</sup>" : (n * 1000000000).toFixed(4).replace("e+", " x 10<sup>"))) + " nmol";
 
   // Update temperature values
-  document.getElementById("t1x").innerHTML = (t < 0.01 ? t.toExponential(2).replace("e", " x 10<sup>&minus;") + "</sup>" : t.toFixed(2)) + " K";
-  document.getElementById("t2x").innerHTML = ((t - 273.15) < 0.001 ? (t - 273.15).toFixed(2).replace("-", "−") : ((t - 273.15) < 0 ? (t - 273.15).toFixed(0).replace("-", "−") : (t - 273.15).toFixed(2))) + " °C";
-  document.getElementById("t3x").innerHTML = (((t - 273.15) * 9 / 5 + 32) < 0.001 ? ((t - 273.15) * 9 / 5 + 32).toFixed(2).replace("-", "−") : (((t - 273.15) * 9 / 5 + 32) < 0 ? ((t - 273.15) * 9 / 5 + 32).toFixed(0).replace("-", "−") : ((t - 273.15) * 9 / 5 + 32).toFixed(2))) + " °F";
+  document.getElementById("t1x").innerHTML = (t < 0.01 ? t.toExponential(4).replace("e", " x 10<sup>&minus;").replace("-", "") + "</sup>" : t.toFixed(4).replace("-", "−")) + " K";
+  document.getElementById("t2x").innerHTML = ((t - 273.15) < 0.001 ? (t - 273.15).toFixed(2).replace("-", "−") : ((t - 273.15) < 0 ? (t - 273.15).toFixed(0).replace("-", "−") : (t - 273.15).toFixed(4))) + " °C";
+  document.getElementById("t3x").innerHTML = (((t - 273.15) * 9 / 5 + 32) < 0.001 ? ((t - 273.15) * 9 / 5 + 32).toFixed(2).replace("-", "−") : (((t - 273.15) * 9 / 5 + 32) < 0 ? ((t - 273.15) * 9 / 5 + 32).toFixed(0).replace("-", "−") : ((t - 273.15) * 9 / 5 + 32).toFixed(4))) + " °F";
 }
 
 document.getElementById("resetButton1").addEventListener("click", resetForm);

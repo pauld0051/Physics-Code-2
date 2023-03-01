@@ -26,13 +26,26 @@ function includeHTML(fileName, destination) {
 includeHTML("header.html", document.querySelector(".header"));
 includeHTML("footer.html", document.querySelector(".footer"));
 
-document.addEventListener("DOMContentLoaded", function() {
+// Call popovers into action and close them on next click
+document.addEventListener("DOMContentLoaded", function () {
   try {
     const popoverTriggerList = [].slice.call(
       document.querySelectorAll('[data-bs-toggle="popover"]')
     );
-    const popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl, { html: true, trigger: 'click'});
+    const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      const popover = new bootstrap.Popover(popoverTriggerEl, {
+        html: true,
+        trigger: 'click'
+      });
+      popoverTriggerEl.addEventListener('shown.bs.popover', function () {
+        document.addEventListener('click', function onDocClick(event) {
+          if (!popoverTriggerEl.contains(event.target)) {
+            popover.hide();
+            document.removeEventListener('click', onDocClick);
+          }
+        });
+      });
+      return popover;
     });
   } catch (e) {
     console.error(e);
@@ -63,19 +76,24 @@ function showAlert(message, inputId) {
   alertBox.setAttribute('aria-label', `Alert: ${message}`);
   alertContainer.style.display = 'flex';
 
-  alertClose.addEventListener('click', () => {
-    alertContainer.style.display = 'none';
-    if (inputId) {
-      const inputField = document.getElementById(inputId);
-      inputField.focus();
-      const newInvalidCard = inputField.closest('.card');
-      if (lastInvalidCard !== null) {
-        lastInvalidCard.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
-      }
-      newInvalidCard.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
-      lastInvalidCard = newInvalidCard;
+alertClose.addEventListener('click', () => {
+  alertContainer.style.display = 'none';
+  if (inputId) {
+    const inputField = document.getElementById(inputId);
+    inputField.focus();
+    const newInvalidCard = inputField.closest('.card');
+    if (lastInvalidCard !== null) {
+      lastInvalidCard.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
     }
+    newInvalidCard.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
+    lastInvalidCard = newInvalidCard;
+  }
+  // Scroll to the invalid input field
+  const invalidInputField = document.getElementById(inputId);
+  invalidInputField.scrollIntoView({
+    behavior: 'smooth', block: 'center'
   });
+});
 }
 
 // Remove any borders from cards

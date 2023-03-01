@@ -1,3 +1,4 @@
+// Check the users are clicking the right number of checkboxes
 const $checkboxes = $(".ideal-check input[type=checkbox]");
 const $submitButton = $("#submitButton");
 
@@ -210,6 +211,11 @@ function calculateIdealGas() {
     document.getElementById("si_ideal_gas_equation").innerHTML = String.raw `<span>$$\begin{gather} T=\frac{pV}{nR} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
   }
+  // Scroll to the results section
+  document.querySelector('#results_table_1').scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+    });
   // Table 2 - results all converted
   // Update pressure values
   document.getElementById("p1x").innerHTML = (p < 0.01 ? p.toExponential(2).replace("e-", " x 10<sup>-") + "</sup>" : (p >= 10000 ? p.toExponential(0).replace("e+", " x 10<sup>") + "</sup>" : p.toFixed(2))) + " Pa";
@@ -330,22 +336,22 @@ volumeUnits.addEventListener('change', function () {
     case 'm3':
       volumeInput.setAttribute('step', '0.001');
       volumeInput.setAttribute('min', '0');
-      volumeInput.setAttribute('max', '1e11');
+      volumeInput.setAttribute('max', '1e9');
       break;
     case 'cm3':
       volumeInput.setAttribute('step', '0.000001');
       volumeInput.setAttribute('min', '0');
-      volumeInput.setAttribute('max', '1e14');
+      volumeInput.setAttribute('max', '1e15');
       break;
     case 'L':
       volumeInput.setAttribute('step', '0.001');
       volumeInput.setAttribute('min', '0');
-      volumeInput.setAttribute('max', '1e8');
+      volumeInput.setAttribute('max', '1e12');
       break;
     case 'mL':
       volumeInput.setAttribute('step', '0.000001');
       volumeInput.setAttribute('min', '0');
-      volumeInput.setAttribute('max', '1e11');
+      volumeInput.setAttribute('max', '1e15');
       break;
     default:
       console.error('Invalid volume unit');

@@ -48,11 +48,11 @@ function validateInputs() {
     const stepDecimalPlaces = input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
     const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
     if (!isNaN(step) && value < step || valueDecimalPlaces > stepDecimalPlaces) {
-      showAlert(`Invalid input for ${input.id.replace('input','').toLowerCase()}. Please enter a value that is greater than or equal to ${step}.`);
+      showAlert(`Invalid input for ${input.id.replace('input','').toLowerCase()}. Please enter a value that is greater than or equal to ${step}.`, input.id);
       return false;
     }
     if (value < min || value > max) {
-      showAlert(`Invalid input for ${input.name.replace('input','').toLowerCase()}. Please enter a value between ${min} and ${max}.`);
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a value between ${min} and ${max}.`, input.id);
       return false;
     }
   }

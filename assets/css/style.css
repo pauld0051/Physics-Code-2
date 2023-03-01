@@ -85,7 +85,6 @@
 
 
 /* Form Validation */
-
 input:invalid {
     border: 2px dashed red;
 }

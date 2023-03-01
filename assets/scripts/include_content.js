@@ -51,7 +51,7 @@ $("form").on("blur", "input[type=number]", function(e) {
 });
 
 // Show Alert Boxes
-function showAlert(message) {
+function showAlert(message, inputId) {
   const alertContainer = document.getElementById('alert-container');
   const alertBox = document.getElementById('alert-box');
   const alertMessage = document.getElementById('alert-message');
@@ -63,5 +63,11 @@ function showAlert(message) {
 
   alertClose.addEventListener('click', () => {
     alertContainer.style.display = 'none';
+    if (inputId) {
+      const inputField = document.getElementById(inputId);
+      document.getElementById(inputId).focus();
+      const card = inputField.closest('.card');
+      card.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
+    }
   });
 }

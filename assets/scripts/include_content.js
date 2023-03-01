@@ -78,7 +78,6 @@ function showAlert(message, inputId) {
   });
 }
 
-
 // Remove any borders from cards
 function removeCardBorder() {
   const cards = document.querySelectorAll('.card');

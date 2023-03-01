@@ -51,8 +51,21 @@ function validateInputs() {
       showAlert(`Invalid input for ${input.id.replace('input','').toLowerCase()}. Please enter a value that is greater than or equal to ${step}.`, input.id);
       return false;
     }
+    if (isNaN(value)) {
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
+      return false;
+    }
     if (value < min || value > max) {
       showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a value between ${min} and ${max}.`, input.id);
+      return false;
+    }
+    if (input.value.trim() === '') {
+      showAlert(`Please enter a value for ${input.name.replace('input', '').toLowerCase()}.`, input.id);
+      return false;
+    }
+    const regex = /^-?\d*\.?\d+(e[-+]?\d+)?$/i;
+    if (!regex.test(input.value)) {
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
       return false;
     }
     removeCardBorder();

@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<!-- TO FIX TEMPLATE SEARCH FOR [YOUR_ AND REPLACE ACCORDINGLY -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Specific Heat Capacity Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">Specific Heat Capacity Calculator</h1>
+                <p class="lead">Calculate the heat, mass, specific heat capacity or the temperature of a known substance
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Equation Display -->
+    <section class="container border border-info bg_cont mb-1">
+        <div class="row">
+            <h3 class="d-flex justify-content-center">Equation</h3>
+        </div>
+        \begin{gather} Q = mc\Delta T \ \notag \end{gather}
+    </section>
+    <form id="SubmissionForm" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any three variables to calculate the fourth.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>Please note that this calculator calculates the heat (Q), mass (m), specific heat capacity (c), or temperature change (ΔT) of a known substance. It uses the equation Q = mcΔT, where Q is the heat energy, m is the mass, c is the specific heat
+                capacity, and ΔT is the temperature change. All inputs are converted into SI units (J, kg, and K) for calculation. If you want to calculate mixtures, you will need to go to the <a href="[YOUR_LINK_HERE]" target="_blank" rel="noopener">mixture calculator</a>                page. For more information about specific heat capacity and the equation used in this calculator, please visit our <a href="[YOUR_LINK_HERE]" target="_blank" rel="noopener">specific heat capacity</a> page.
+            </p>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
+                    </p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="heat" id="heat" name="heat">
+                            <label class="form-check-label" for="heat">
+                                Heat (J)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="mass" id="mass" name="mass">
+                            <label class="form-check-label" for="mass">
+                                Mass (kg)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="specificHeatCapacity" id="specificHeatCapacity" name="specificHeatCapacity">
+                            <label class="form-check-label" for="specificHeatCapacity">
+                              Specific Heat Capacity (c)
+                          </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="initialTemperature" id="initialTemperature" name="initialTemperature">
+                            <label class="form-check-label" for="initialTemperature">
+                                 Initial Temperature (T<sub>i</sub>)
+                             </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="finalTemperature" id="finalTemperature" name="finalTemperature">
+                            <label class="form-check-label" for="finalTemperature">
+                                Final Temperature (T<sub>f</sub>)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Heat Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-fire fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Heat (Q)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):" data-bs-content="Enter the heat gained or lost by the substance in units of
+                                joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units
+                                (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputHeat">Heat (Q)</label><br>
+                        <!-- Do not check for step on this calculation -->
+                        <input type="number" name="inputHeat" id="inputHeat" class="reset_form formCheck maxAllow" data-input="heat" value="" min="1.6e19" max="1e13" autocomplete="off" aria-label="input value for heat in joules, calories (cal), kilojoules
+                            (kJ), kilocalories (kcal), British Thermal Units
+                            (BTU), megajoules or electronvolts (eV)" disabled>
+                        <br>
+                        <label for="unitsHeat">Units</label><br>
+                        <select name="unitsHeat" id="unitsHeat" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                            <option value="j" selected>J</option>
+                            <option value="cal">cal</option>
+                            <option value="kj">kJ</option>
+                            <option value="kcal">kcal</option>
+                            <option value="btu">BTUs</option>
+                            <option value="ev">eV</option>
+                            <option value="mj">MJ</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Mass Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-balance-scale fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Mass (m)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Mass (kg, g, mg, &mu;g, lb, oz, amu, stone, or oz t):"
+                                   data-bs-content="Enter the mass of the gas in units of kilograms, grams, milligrams, micrograms, pounds, ounces, atomic mass units, stones or troy ounces. Example:
+                                   Example: 250 g. Note: If you are solving for mass, leave this field
+                                   blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputMass">Mass (m)</label><br>
+                        <input type="number" name="inputMass" id="inputMass" class="reset_form formCheck maxAllow"
+                            data-input="mass" value="" min="0.0000000001" max="1e13" step="0.0000000001"
+                            autocomplete="off"
+                            aria-label="input value for mass in kilograms, grams, milligrams, micrograms, pounds,
+                            ounces, atomic mass units, stones or troy ounces." disabled>
+                        <br>
+                        <label for="unitsMass">Units</label><br>
+                        <select name="unitsMass" id="unitsMass" style="width:75px;" data-input="mass" disabled>
+                            <option value="kg" selected>kg</option>
+                            <option value="gm">g</option>
+                            <option value="mg">mg</option>
+                            <option value="μg">μg</option>
+                            <option value="lb">lb</option>
+                            <option value="oz">oz</option>
+                            <option value="toz">t oz</option>
+                        </select>
+                        </span>
+                    </div>
+                </div>
+                <!-- Specific Heat Capacity Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Specific Heat Capacity (c)
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Specific Heat Capacity <p>(J kg<sup>-1</sup> °C<sup>-1</sup>):</p>"
+                                data-bs-content="Enter the specific heat capacity of the substance in units of:
+                                    <p>J kg<sup>-1</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>J mol<sup>-1</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>cal g<sup>-1</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>Btu lb<sup>-1</sup> °F<sup>-1</sup>,</p>
+                                    <p class='small-line-height'>J g<sup>-1</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>kJ kg<sup>-1</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>J m<sup>-3</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>J cm<sup>-3</sup> K<sup>-1</sup></p>
+                                    <p class='small-line-height'>J g<sup>-1</sup> °C<sup>-1</sup></p>
+                                    <p class='small-line-height'>cal mol<sup>-1</sup> K<sup>-1</sup></p> or any of the
+                                    pre-determined specific
+                                    heat
+                                    capacities of common substances. If you're using the pre-determined specific heat
+                                    capacities, be sure to convert all of your units to match the units of J
+                                    g<sup>-1</sup>·K<sup>-1</sup>. If you're unsure, you should always convert to J
+                                    g<sup>-1</sup> K<sup>-1</sup> anyway to make your calculation easier. Note: If you are
+                                solving for specific heat capacity,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputSpecificHeatCapacity">Specific Heat Capacity (c)</label><br>
+                        <input type="number" name="inputSpecificHeatCapacity" id="inputSpecificHeatCapacity"
+                            class="reset_form formCheck maxAllow" data-input="specificHeatCapacity" value=""
+                            min="1e-12" max=""
+                            autocomplete="off"
+                            aria-label="input value for Specific Heat Capacity in joules per kilogram per kelvin or similar." disabled>
+                        <br>
+                        <label for="unitsSpecificHeatCapacity">Units</label><br>
+                        <select name="unitsSpecificHeatCapacity" id="unitsSpecificHeatCapacity" style="width:175px;"
+                            data-input="specificHeatCapacity" disabled>
+                            <option value="c1" selected>J kg<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c2">J g<sup>-1</sup> k<sup>-1</sup></option>
+                            <option value="c3">J mol<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c4">cal g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c5">Btu lb<sup>-1</sup> °F<sup>-1</sup></option>
+                            <option value="c6">kJ kg<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c7">cal mol<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">Water: 4.18 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c9">Ethanol: 2.44 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">Aluminum: 0.90 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c9">Copper: 0.39 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">Iron: 0.45 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c9">Lead: 0.13 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">Gold: 0.13 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c9">Mercury: 0.14 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">Air: 1.00 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c9">Nitrogen: 1.04 J g<sup>-1</sup> K<sup>-1</sup></option>
+                            <option value="c8">ice: 2.108 J g<sup>-1</sup>·K<sup>-1</sup></option>
+                            <option value="c9">Graphite: 0.71 J g<sup>-1</sup>·K<sup>-1</sup></option>
+                            <option value="c9">Diamond: 0.51 J g<sup>-1</sup>·K<sup>-1</sup></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <!-- Initial Temperature Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-temperature-low fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Initial Temperature (T<sub>i</sub>)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Initial Temperature (K, °C, °F):"
+                                data-bs-content="The initial temperature is the measure of the average kinetic energy of
+                                the substance's particles at the beginning of the process. Please enter the initial
+                                temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
+                                handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
+                                room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
+                                °F).">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputInitialTemperature">Initial Temperature (T<sub>i</sub>)</label><br>
+                        <input type="number" name="inputInitialTemperature" id="inputInitialTemperature"
+                            class="reset_form formCheck maxAllow" data-input="initialTemperature" value=""
+                            min="0.0001" max="6700" step="0.0001"
+                            autocomplete="off"
+                            aria-label="input value for Initial Temperature in either Kelvin (K), Celsius (°C), or
+                            Fahrenheit (°F)" disabled>
+                        <br>
+                        <label for="unitsInitialTemperature">Units</label><br>
+                        <select name="unitsInitialTemperature" id="unitsInitialTemperature" style="width:75px;"
+                            data-input="initialTemperature" disabled>
+                            <option value="k" selected>K</option>
+                            <option value="c">°C</option>
+                            <option value="f">°F</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Final Temperature Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-temperature-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Final Temperature (T<sub>f</sub>)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Final Temperature (K, °C, °F):" data-bs-content="The final temperature is the measure of the average kinetic energy of
+                the substance's particles at the end of the process. Please enter the final
+                temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
+                handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
+                room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
+                °F).">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputFinalTemperature">Final Temperature (T<sub>f</sub>)</label><br>
+                        <input type="number" name="inputFinalTemperature" id="inputFinalTemperature"
+                            class="reset_form formCheck maxAllow" data-input="finalTemperature" value=""
+                            min="0.0001" max="6700" step="0.0001"
+                            autocomplete="off" aria-label="input value for Final Temperature in either Kelvin (K), Celsius (°C), or
+            Fahrenheit (°F)" disabled>
+                        <br>
+                        <label for="unitsFinalTemperature">Units</label><br>
+                        <select name="unitsFinalTemperature" id="unitsFinalTemperature" style="width:75px;"
+                            data-input="finalTemperature" disabled>
+                            <option value="k" selected>K</option>
+                            <option value="c">°C</option>
+                            <option value="f">°F</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Heat (Q)</td>
+                        <td id="heatOutput">Pa</td>
+                    </tr>
+                    <tr>
+                        <td>Mass (m)</td>
+                        <td id="massOutput">m<sup>3</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Specific Heat Capacity (c)</td>
+                        <td id="specificHeatCapacityOutput">mol</td>
+                    </tr>
+                    <tr>
+                        <td>Initial Temperature (T<sub>i</sub>)</td>
+                        <td id="initialTemperatureOutput">
+                            m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Final Temperature (T<sub>f</sub>)</td>
+                        <td id="finalTemperatureOutput">K</td>
+                    </tr>
+                    <tr>
+                        <td>Change in Temperature (ΔT)</td>
+                        <td id="changeInTemperatureOutput">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output
+                    accordingly and see the
+                    common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heat (Q)</td>
+                    <td id="q1x">J</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="q2x">cal</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="q3x">kJ</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="q4x">kcal</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="q5x">BTUs</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="q6x">eV</td>
+                    </tr>
+                    <tr class="t_line">
+                        <td></td>
+                        <td id="q7x">MJ</td>
+                    </tr>
+                <tr>
+                    <td>Mass (m)</td>
+                    <td id="m1x">kg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="m2x">g</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="m3x">mg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="m4x">μg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="m5x">lb</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="m6x">oz</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="m7x">t oz</td>
+                </tr>
+                    <tr>
+                        <td>Specific Heat Capacity (c)</td>
+                        <td id="c1x">J kg<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="c2x">J g<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="c3x">J mol<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="c4x">cal g<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="c5x">Btu lb<sup>-1</sup> °F<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="c6x">kJ kg<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr class="t_line">
+                        <td></td>
+                        <td id="c7x">cal mol<sup>-1</sup> K<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Initial Temperature (T<sub>i</sub>)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="tix">K</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="tiy">°C</td>
+                    <tr class="t_line">
+                        <td></td>
+                        <td id="tiz">°F</td>
+                    </tr>
+                    <tr>
+                        <td>Final Temperature (T<sub>f</sub>)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="tfx">K</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="tfy">°C</td>
+                    </tr>
+                    <tr class="t_line">
+                        <td></td>
+                        <td id="tfz">°F</td>
+                    </tr>
+                    <tr>
+                        <td>Change in Temperature (&Delta;T)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="dtx">K</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="dty">°C</td>
+                    </tr>
+                    <tr class="t_line">
+                        <td></td>
+                        <td id="dtz">°F</td>
+                    </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available
+                with all conversions
+                completed.</em>
+        </p>
+    </section>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/ideal_gas.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

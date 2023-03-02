@@ -28,6 +28,7 @@ function validateInputs() {
     if (input.disabled) {
       continue;
     }
+    const inputName = input.name.replace('input', '').replace(/([A-Z])/g, ' $1').toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
     const min = parseFloat(input.min);
     const max = parseFloat(input.max);
     const step = parseFloat(input.step);
@@ -35,30 +36,30 @@ function validateInputs() {
     const stepDecimalPlaces = input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
     const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
     if (!isNaN(step) && value < step || valueDecimalPlaces > stepDecimalPlaces) {
-      showAlert(`Invalid input for ${input.id.replace('input','').toLowerCase()}. Please enter a value that is greater than or equal to ${step}.`, input.id);
+      showAlert(`Invalid input for ${inputName}. Please enter a value that is greater than or equal to ${step}.`, input.id);
       return false;
     }
     if (isNaN(value)) {
-      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
+      showAlert(`Invalid input for ${inputName}. Please enter a valid number.`, input.id);
       return false;
     }
     if (value < min || value > max) {
-      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a value between ${min} and ${max}.`, input.id);
+      showAlert(`Invalid input for ${inputName}. Please enter a value between ${min} and ${max}.`, input.id);
       return false;
     }
     if (input.value.trim() === '') {
-      showAlert(`Please enter a value for ${input.name.replace('input', '').toLowerCase()}.`, input.id);
+      showAlert(`Please enter a value for ${inputName}.`, input.id);
       return false;
     }
     const regex = /^-?\d*\.?\d+(e[-+]?\d+)?$/i;
     if (!regex.test(input.value)) {
-      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
+      showAlert(`Invalid input for ${inputName}. Please enter a valid number.`, input.id);
       return false;
     }
     removeCardBorder();
   }
   return true;
-}
+  }
 
 // Call the function with the file to include and a reference to the
 // element to populate with the contents

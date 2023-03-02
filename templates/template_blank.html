@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<!-- TO FIX TEMPLATE SEARCH FOR [YOUR_ AND REPLACE ACCORDINGLY -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[YOUR_TITLE_HERE]</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">[YOUR_TITLE_HERE]</h1>
+                <p class="lead">Calculate the [YOUR_TEXT_HERE]
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Equation Display -->
+    <section class="container border border-info bg_cont mb-1">
+        <div class="row">
+            <h3 class="d-flex justify-content-center">Equation</h3>
+        </div>
+        \begin{gather} [YOUR_EQUATION_HERE] pV\ =\ nRT\ \notag \end{gather}
+    </section>
+    <form id="SubmissionForm" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any [YOUR_NUMBER_HERE]three variables to calculate the [YOUR_NUMBER_HERE]fourth.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>[YOUR_TEXT_HERE] <a href="[YOUR_LINK_HERE]" target="_blank" rel="noopener">[YOUR_LAW_HERE]</a> page.
+            </p>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
+                    </p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
+                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
+                                [YOUR_VARIABLE_HERE] (X)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
+                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
+                                [YOUR_VARIABLE_HERE] (X)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
+                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
+                                [YOUR_VARIABLE_HERE] (X)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
+                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
+                                [YOUR_VARIABLE_HERE] (X)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- [YOUR_VARIABLE_HERE] Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
+                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
+                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
+                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
+                        <br>
+                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
+                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                                    <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
+                                    <option value="bar">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="atm">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="psi">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="torr">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="hpa">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="kpa">[YOUR_VARIABLE_HERE]</option>
+                                    <option value="mpa">[YOUR_VARIABLE_HERE]</option>
+                                </select>
+                    </div>
+                </div>
+                <!-- [YOUR_VARIABLE_HERE] Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
+                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
+                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
+                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
+                        <br>
+                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
+                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                                            <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
+                                            <option value="bar">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="atm">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="psi">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="torr">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="hpa">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="kpa">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="mpa">[YOUR_VARIABLE_HERE]</option>
+                                        </select>
+                    </div>
+                </div>
+                <!-- [YOUR_VARIABLE_HERE] Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
+                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
+                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
+                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
+                        <br>
+                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
+                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                                            <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
+                                            <option value="bar">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="atm">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="psi">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="torr">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="hpa">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="kpa">[YOUR_VARIABLE_HERE]</option>
+                                            <option value="mpa">[YOUR_VARIABLE_HERE]</option>
+                                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <!-- [YOUR_VARIABLE_HERE] Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
+                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
+                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
+                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
+                        <br>
+                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
+                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                                                <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
+                                                <option value="bar">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="atm">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="psi">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="torr">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="hpa">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="kpa">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="mpa">[YOUR_VARIABLE_HERE]</option>
+                                            </select>
+                    </div>
+                </div>
+                <!-- [YOUR_VARIABLE_HERE] Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
+                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
+                                leave this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
+                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
+                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
+                        <br>
+                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
+                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
+                                                <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
+                                                <option value="bar">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="atm">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="psi">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="torr">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="hpa">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="kpa">[YOUR_VARIABLE_HERE]</option>
+                                                <option value="mpa">[YOUR_VARIABLE_HERE]</option>
+                                            </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[YOUR_VARIABLE_HERE] (X)</td>
+                        <td id="[YOUR_VARIABLE_HERE]Output">Pa</td>
+                    </tr>
+                    <tr>
+                        <td>[YOUR_VARIABLE_HERE] (X)</td>
+                        <td id="[YOUR_VARIABLE_HERE]Output">m<sup>3</sup></td>
+                    </tr>
+                    <tr>
+                        <td>[YOUR_VARIABLE_HERE] (X)</td>
+                        <td id="[YOUR_VARIABLE_HERE]Output">mol</td>
+                    </tr>
+                    <tr>
+                        <td>[YOUR_VARIABLE_HERE] (X)</td>
+                        <td id="[YOUR_VARIABLE_HERE]Output">
+                            m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>[YOUR_VARIABLE_HERE] (X)</td>
+                        <td id="[YOUR_VARIABLE_HERE]Output">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output
+                                            accordingly and see the
+                                            common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>[YOUR_VARIABLE_HERE] (X)</td>
+                    <td id="p1x">Pa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p2x">bar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p3x">atm</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p4x">mmHg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p5x">PSI</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p6x">Torr</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p7x">hPa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p8x">kPa</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="p9x">MPa</td>
+                </tr>
+                <tr>
+                    <td>[YOUR_VARIABLE_HERE] (X)</td>
+                    <td id="v1x">m<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v2x">cm<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v3x">L</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="v4x">mL</td>
+                </tr>
+                <tr>
+                    <td>[YOUR_VARIABLE_HERE] (X)</td>
+                    <td id="n1x">mol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n2x">mmol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n3x">&mu;mol</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="n4x">nmol</td>
+                </tr>
+                <tr>
+                    <td>[YOUR_VARIABLE_HERE] (X)</td>
+                    <td id="t1x">K</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t2x">&deg;C</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="t3x">&deg;F</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available
+                                            with all conversions
+                                            completed.</em>
+        </p>
+    </section>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/ideal_gas.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

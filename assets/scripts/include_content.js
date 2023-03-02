@@ -21,6 +21,45 @@ function includeHTML(fileName, destination) {
     xhr.send();
 }
 
+function validateInputs() {
+  const inputs = document.querySelectorAll('.maxAllow');
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    if (input.disabled) {
+      continue;
+    }
+    const min = parseFloat(input.min);
+    const max = parseFloat(input.max);
+    const step = parseFloat(input.step);
+    const value = parseFloat(input.value);
+    const stepDecimalPlaces = input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
+    const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
+    if (!isNaN(step) && value < step || valueDecimalPlaces > stepDecimalPlaces) {
+      showAlert(`Invalid input for ${input.id.replace('input','').toLowerCase()}. Please enter a value that is greater than or equal to ${step}.`, input.id);
+      return false;
+    }
+    if (isNaN(value)) {
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
+      return false;
+    }
+    if (value < min || value > max) {
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a value between ${min} and ${max}.`, input.id);
+      return false;
+    }
+    if (input.value.trim() === '') {
+      showAlert(`Please enter a value for ${input.name.replace('input', '').toLowerCase()}.`, input.id);
+      return false;
+    }
+    const regex = /^-?\d*\.?\d+(e[-+]?\d+)?$/i;
+    if (!regex.test(input.value)) {
+      showAlert(`Invalid input for ${input.name.replace('input', '').toLowerCase()}. Please enter a valid number.`, input.id);
+      return false;
+    }
+    removeCardBorder();
+  }
+  return true;
+}
+
 // Call the function with the file to include and a reference to the
 // element to populate with the contents
 includeHTML("header.html", document.querySelector(".header"));
@@ -104,4 +143,19 @@ function removeCardBorder() {
     card.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
   }
 }
+
+// Use scientific notation for big and small numbers:
+const scientificNotation = (number) => {
+  if (number === 0) {
+    return "0";
+  } else if (number < 0) {
+    return "-" + scientificNotation(Math.abs(number));
+  } else if (number < 0.01) {
+    return number.toExponential(4).replace("e-", " x 10<sup>-") + "</sup>";
+  } else if (number >= 10000) {
+    return number.toExponential(4).replace("e+", " x 10<sup>") + "</sup>";
+  } else {
+    return number.toFixed(4);
+  }
+};
 

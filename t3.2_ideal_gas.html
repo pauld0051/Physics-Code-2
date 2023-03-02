@@ -33,7 +33,7 @@
         </div>
         \begin{gather} pV\ =\ nRT\ \notag \end{gather}
     </section>
-    <form id="SubmissionForm" class="needs-validation" novalidate>
+    <form id="SubmissionForm" novalidate>
         <!-- Equation Selection -->
         <section class="container border border-primary bg_cont mb-1">
             <h4>Select the things you know:
@@ -41,13 +41,10 @@
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>Please note that this calculator converts all inputs into SI or metric units (Pa, m<sup>3</sup>, mol and K) and uses
-                a universal gas constant (R) of <nobr>8.314462 m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></nobr>. In an exam,
-                you will need to ensure that all units are converted to match the value of R that is being used. Select the three
-                variables that you know and calculate for the fourth. You can change your selection later if you want. This will
-                help you become familiar with the processes of calculating ideal gas equations.</p>
-            <p>For more information about the Ideal Gas Law, please visit our <a
-                    href="https://example.com/ideal_gas_law" target="_blank" rel="noopener">Ideal Gas Law</a> page.
+            <p>Please note that this calculator converts all inputs into SI or metric units (Pa, m<sup>3</sup>, mol and K) and uses a universal gas constant (R) of
+                <nobr>8.314462 m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></nobr>. In an exam, you will need to ensure that all units are converted to match the value of R that is being used. Select the three variables that you know and calculate for the
+                fourth. You can change your selection later if you want. This will help you become familiar with the processes of calculating ideal gas equations.</p>
+            <p>For more information about the Ideal Gas Law, please visit our <a href="https://example.com/ideal_gas_law" target="_blank" rel="noopener">Ideal Gas Law</a> page.
             </p>
             <!-- Check Boxes -->
             <div class="row align-items-center">
@@ -57,8 +54,7 @@
                 <div class="col-9">
                     <div class="ideal-check border p-3">
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure"
-                                name="pressure">
+                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure" name="pressure">
                             <label class="form-check-label" for="pressure">
                                 Pressure (p)
                             </label>
@@ -76,8 +72,7 @@
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="temperature" id="temperature"
-                                name="temperature">
+                            <input class="form-check-input" type="checkbox" value="temperature" id="temperature" name="temperature">
                             <label class="form-check-label" for="temperature">
                                 Temperature (T)
                             </label>
@@ -96,14 +91,14 @@
                             <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Pa, bar, atm, mmHg, PSI):" data-bs-content="Enter the pressure of the gas in units of pascals (Pa), bars (bar),
                                 atmospheres (atm), millimeters of mercury (mmHg), pounds per square inch (PSI), torr,
                                 hectopascals (hPa), kilopascals (kPa), or megapascals (MPa). Example: 101325 Pa or 1 atm
-                                for standard atmospheric pressure. ote: If you are solving for volume, leave
+                                for standard atmospheric pressure. Note: If you are solving for pressure, leave
                                 this field blank.">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
                         <p class="card-text"></p>
                         <label for="inputPressure">Pressure (p)</label><br>
-                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="10000000" step="0.0001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch"
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="10000000" step="0.0001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch."
                             disabled>
                         <br>
                         <label for="unitsPressure">Units</label><br>
@@ -118,7 +113,6 @@
                             <option value="kpa">kPa</option>
                             <option value="mpa">MPa</option>
                         </select>
-                        <span role="alert" class="showError" aria-hidden="true"> Please enter a number </span>
                     </div>
                 </div>
                 <!-- Volume -->
@@ -146,7 +140,6 @@
                             <option value="L">L</option>
                             <option value="mL">mL</option>
                         </select>
-                        <span role="alert" class="showError" aria-hidden="true"> Please enter a number </span>
                     </div>
                 </div>
                 <!-- Moles -->

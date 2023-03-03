@@ -30,11 +30,11 @@ $checkboxes.on("change", function () {
     });
 
     // Disable submit button if less than 3 checkboxes are checked
-    $submitButton.prop("disabled", $checkedCheckboxes.length < 3);
+    $submitButton.prop("disabled", $checkedCheckboxes.length < 2);
 
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
-    if ($checkedCheckboxes.length === 3) {
+    if ($checkedCheckboxes.length === 2) {
         $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");

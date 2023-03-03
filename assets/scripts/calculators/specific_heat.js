@@ -30,6 +30,65 @@ $checkboxes.on("change", function () {
     }
 });
 
+const xunitsSpecificHeatCapacity = document.getElementById('unitsSpecificHeatCapacity');
+const xinputSpecificHeatCapacity = document.getElementById('inputSpecificHeatCapacity');
+
+xunitsSpecificHeatCapacity.addEventListener('change', (event) => {
+    const selectedValue = event.target.value;
+
+    switch (selectedValue) {
+        case 'c8':
+            xinputSpecificHeatCapacity.value = 4186;
+            break;
+        case 'c9':
+            xinputSpecificHeatCapacity.value = 2440;
+            break;
+        case 'c10':
+            xinputSpecificHeatCapacity.value = 897;
+            break;
+        case 'c11':
+            xinputSpecificHeatCapacity.value = 385;
+            break;
+        case 'c12':
+            xinputSpecificHeatCapacity.value = 412;
+            break;
+        case 'c13':
+        case 'c14':
+            xinputSpecificHeatCapacity.value = 129;
+            break;
+        case 'c15':
+            xinputSpecificHeatCapacity.value = 139;
+            break;
+        case 'c16':
+            xinputSpecificHeatCapacity.value = 1012;
+            break;
+        case 'c17':
+            xinputSpecificHeatCapacity.value = 1040;
+            break;
+        case 'c18':
+            xinputSpecificHeatCapacity.value = 2108;
+            break;
+        case 'c19':
+            xinputSpecificHeatCapacity.value = 790;
+            break;
+        case 'c20':
+            xinputSpecificHeatCapacity.value = 509.1;
+            break;
+        default:
+            break;
+    }
+
+    if (selectedValue === 'c1') {
+        xinputSpecificHeatCapacity.placeholder = 'J/kg/K';
+    } else {
+        xinputSpecificHeatCapacity.placeholder = '';
+    }
+
+   xinputSpecificHeatCapacity.disabled = (selectedValue !== 'c1' && selectedValue !== 'c2' && selectedValue !== 'c3' && selectedValue !== 'c4' && selectedValue !== 'c5' && selectedValue !== 'c6' && selectedValue !== 'c7');
+});
+
+
+
 //Equation Variables
 //Checkbox selection
 const q1 = document.querySelector("#heat");
@@ -436,7 +495,7 @@ unitsSpecificHeatCapacity.addEventListener('change', function () {
         case 'c18':
         case 'c19':
         case 'c20':
-            max = 10;
+            max = 5000;
             min = 0.0001;
             step = 0.0001;
             break;

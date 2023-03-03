@@ -195,10 +195,11 @@ function calculateIdealGas() {
     document.getElementById("d3x").innerHTML = scientificNotation(d / 1609.344) + " mi";
     document.getElementById("d4x").innerHTML = scientificNotation(d / 0.3048) + " ft";
     document.getElementById("d5x").innerHTML = scientificNotation(d / 0.9144) + " yd";
-    document.getElementById("d6x").innerHTML = scientificNotation(d / 1852) + " nm";
+    document.getElementById("d6x").innerHTML = scientificNotation(d / 0.000000001) + " nm";
     document.getElementById("d7x").innerHTML = scientificNotation(d / 0.001) + " mm";
     document.getElementById("d8x").innerHTML = scientificNotation(d / 0.01) + " cm";
     document.getElementById("d9x").innerHTML = scientificNotation(d / 0.0254) + " in";
+    document.getElementById("d10x").innerHTML = scientificNotation(d / 0.000001) + " μm";
 
     // Update time values
     document.getElementById("t1x").innerHTML = scientificNotation(t) + " s";

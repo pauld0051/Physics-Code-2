@@ -21,6 +21,7 @@ function includeHTML(fileName, destination) {
     xhr.send();
 }
 
+// Validate inputs
 function validateInputs() {
   const inputs = document.querySelectorAll('.maxAllow');
   for (let i = 0; i < inputs.length; i++) {
@@ -28,12 +29,12 @@ function validateInputs() {
     if (input.disabled) {
       continue;
     }
-    const inputName = input.name.replace('input', '').replace(/([A-Z])/g, ' $1').toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
+    const inputName = input.name.replace('input', '').replace(/([A-Z])/g, ' $1').replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
     const min = parseFloat(input.min);
     const max = parseFloat(input.max);
     const step = parseFloat(input.step);
     const value = parseFloat(input.value);
-    const stepDecimalPlaces = input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
+    const stepDecimalPlaces = input.getAttribute('step') && input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
     const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
     if (!isNaN(step) && value < step || valueDecimalPlaces > stepDecimalPlaces) {
       showAlert(`Invalid input for ${inputName}. Please enter a value that is greater than or equal to ${step}.`, input.id);
@@ -59,7 +60,10 @@ function validateInputs() {
     removeCardBorder();
   }
   return true;
-  }
+}
+
+// End of validate inputs
+
 
 // Call the function with the file to include and a reference to the
 // element to populate with the contents

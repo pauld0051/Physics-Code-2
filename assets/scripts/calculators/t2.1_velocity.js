@@ -178,7 +178,7 @@ function calculateIdealGas() {
     if (v1.checked && d1.checked && !t1.checked) {
         //Equation 3 t unknown
         t = d / v;
-        document.getElementById("inputDistance").value = d.toFixed(3);
+        document.getElementById("inputTime").value = t.toFixed(3);
         document.getElementById("distanceOutput").innerHTML = scientificNotation(d) + " m";
         document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
         document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " s";

@@ -197,40 +197,40 @@ function calculateIdealGas() {
         c = 4186;
     }
     if (cUnit === "c9") {
-        c = c / 2440;
+        c = 2440;
     }
     if (cUnit === "c10") {
-        c = c / 897;
+        c = 897;
     }
     if (cUnit === "c11") {
-        c = c / 385;
+        c = 385;
     }
     if (cUnit === "c12") {
-        c = c / 412;
+        c = 412;
     }
     if (cUnit === "c13") {
-        c = c / 129;
+        c = 129;
     }
     if (cUnit === "c14") {
-        c = c / 129;
+        c = 129;
     }
     if (cUnit === "c15") {
-        c = c / 139.5;
+        c = 139.5;
     }
     if (cUnit === "c16") {
-        c = c / 1012;
+        c = 1012;
     }
     if (cUnit === "c17") {
-        c = c / 1040;
+        c = 1040;
     }
     if (cUnit === "c18") {
-        c = c / 2108;
+        c = 2108;
     }
     if (cUnit === "c19") {
-        c = c / 790;
+        c = 790;
     }
     if (cUnit === "c20") {
-        c = c / 509.1;
+        c = 509.1;
     }
     if (isNaN(c)) c = 0;
 

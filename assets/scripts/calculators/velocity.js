@@ -16,14 +16,25 @@ $checkboxes.on("change", function () {
     $allInputs.prop("disabled", true);
     $checkedInputs.each(function () {
         $(this).prop("disabled", false);
+        $(this).siblings("select").prop("disabled", false);
+    });
+
+    // Disable corresponding unit select options for unchecked checkboxes
+    const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
+    $uncheckedCheckboxes.each(function () {
+        const $uncheckedInputs = $("[data-input='" + this.id + "']");
+        $uncheckedInputs.prop("disabled", true);
+        $uncheckedInputs.siblings("select").prop("disabled", true);
+        $uncheckedInputs.val(""); // clear the input box
+        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
     });
 
     // Disable submit button if less than 3 checkboxes are checked
-    $submitButton.prop("disabled", $checkedCheckboxes.length < 2);
+    $submitButton.prop("disabled", $checkedCheckboxes.length < 3);
 
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
-    if ($checkedCheckboxes.length === 2) {
+    if ($checkedCheckboxes.length === 3) {
         $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");

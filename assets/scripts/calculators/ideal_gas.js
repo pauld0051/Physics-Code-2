@@ -2,20 +2,31 @@
 const $checkboxes = $(".ideal-check input[type=checkbox]");
 const $submitButton = $("#submitButton");
 
-$checkboxes.on("change", function() {
+$checkboxes.on("change", function () {
     const $checkedCheckboxes = $checkboxes.filter(":checked");
 
     // Disable unchecked checkboxes
     $checkboxes.filter(":not(:checked)").prop("disabled", $checkedCheckboxes.length >= 3);
 
     // Enable corresponding inputs for checked checkboxes
-    const $checkedInputs = $checkedCheckboxes.map(function() {
+    const $checkedInputs = $checkedCheckboxes.map(function () {
         return $("[data-input='" + this.id + "']");
     });
     const $allInputs = $(".reset_form");
     $allInputs.prop("disabled", true);
-    $checkedInputs.each(function() {
+    $checkedInputs.each(function () {
         $(this).prop("disabled", false);
+        $(this).siblings("select").prop("disabled", false);
+    });
+
+    // Disable corresponding unit select options for unchecked checkboxes
+    const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
+    $uncheckedCheckboxes.each(function () {
+        const $uncheckedInputs = $("[data-input='" + this.id + "']");
+        $uncheckedInputs.prop("disabled", true);
+        $uncheckedInputs.siblings("select").prop("disabled", true);
+        $uncheckedInputs.val(""); // clear the input box
+        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
     });
 
     // Disable submit button if less than 3 checkboxes are checked
@@ -24,11 +35,12 @@ $checkboxes.on("change", function() {
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
     if ($checkedCheckboxes.length === 3) {
-      $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
+        $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
-      $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
+        $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
     }
 });
+
 
 
 //Equation Variables

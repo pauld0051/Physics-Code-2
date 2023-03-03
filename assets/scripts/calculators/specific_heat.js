@@ -16,6 +16,17 @@ $checkboxes.on("change", function () {
     $allInputs.prop("disabled", true);
     $checkedInputs.each(function () {
         $(this).prop("disabled", false);
+        $(this).siblings("select").prop("disabled", false);
+    });
+
+    // Disable corresponding unit select options for unchecked checkboxes
+    const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
+    $uncheckedCheckboxes.each(function () {
+        const $uncheckedInputs = $("[data-input='" + this.id + "']");
+        $uncheckedInputs.prop("disabled", true);
+        $uncheckedInputs.siblings("select").prop("disabled", true);
+        $uncheckedInputs.val(""); // clear the input box
+        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
     });
 
     // Disable submit button if less than 3 checkboxes are checked
@@ -29,6 +40,7 @@ $checkboxes.on("change", function () {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
     }
 });
+
 
 const xunitsSpecificHeatCapacity = document.getElementById('unitsSpecificHeatCapacity');
 const xinputSpecificHeatCapacity = document.getElementById('inputSpecificHeatCapacity');
@@ -108,6 +120,7 @@ function calculateIdealGas() {
     let m = parseFloat(document.getElementById("inputMass").value);
     let c = parseFloat(document.getElementById("inputSpecificHeatCapacity").value);
     let t = parseFloat(document.getElementById("inputChangeInTemperature").value);
+    console.log(c)
 
     // *************************************************************** //
     // User input units - change everything to metric for calculations //
@@ -181,43 +194,43 @@ function calculateIdealGas() {
         c = c * 1000;
     }
     if (cUnit === "c8") {
-        c = c / 4.18;
+        c = 4186;
     }
     if (cUnit === "c9") {
-        c = c / 2.44;
+        c = c / 2440;
     }
     if (cUnit === "c10") {
-        c = c / 0.90;
+        c = c / 897;
     }
     if (cUnit === "c11") {
-        c = c / 0.39;
+        c = c / 385;
     }
     if (cUnit === "c12") {
-        c = c / 0.45;
+        c = c / 412;
     }
     if (cUnit === "c13") {
-        c = c / 0.13;
+        c = c / 129;
     }
     if (cUnit === "c14") {
-        c = c / 0.13;
+        c = c / 129;
     }
     if (cUnit === "c15") {
-        c = c / 0.14;
+        c = c / 139.5;
     }
     if (cUnit === "c16") {
-        c = c / 1.00;
+        c = c / 1012;
     }
     if (cUnit === "c17") {
-        c = c / 1.04;
+        c = c / 1040;
     }
     if (cUnit === "c18") {
-        c = c / 2.108;
+        c = c / 2108;
     }
     if (cUnit === "c19") {
-        c = c / 0.71;
+        c = c / 790;
     }
     if (cUnit === "c20") {
-        c = c / 0.51;
+        c = c / 509.1;
     }
     if (isNaN(c)) c = 0;
 

@@ -24,9 +24,9 @@ $checkboxes.on("change", function() {
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
     if ($checkedCheckboxes.length === 3) {
-        $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
+      $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
-        $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
+      $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
     }
 });
 

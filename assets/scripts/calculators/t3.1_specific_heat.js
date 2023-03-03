@@ -120,7 +120,6 @@ function calculateIdealGas() {
     let m = parseFloat(document.getElementById("inputMass").value);
     let c = parseFloat(document.getElementById("inputSpecificHeatCapacity").value);
     let t = parseFloat(document.getElementById("inputChangeInTemperature").value);
-    console.log(c)
 
     // *************************************************************** //
     // User input units - change everything to metric for calculations //

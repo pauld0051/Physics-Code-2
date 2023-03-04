@@ -156,8 +156,12 @@ function calculateIdealGas() {
     if (!v1.checked && d1.checked && t1.checked) {
         //Equation 1 V unknown
         v = d / t;
-        document.getElementById("inputVelocity").value = v.toFixed(3);
-        document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " m/s";
+          if (v > 299792458) {
+              document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
+          } else {
+              document.getElementById("inputVelocity").value = v.toFixed(3);
+              document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " m/s";
+          }
         document.getElementById("distanceOutput").innerHTML = scientificNotation(d) + " m";
         document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " s";
         document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} v=\frac{d}{t} \\ \notag \end{gather}$$</span>`;
@@ -193,12 +197,21 @@ function calculateIdealGas() {
 
     // Table 2 - results all converted
     // Update velocity values
-    document.getElementById("v1x").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
-    document.getElementById("v2x").innerHTML = scientificNotation(v * 3.6) + " kmh<sup>-1</sup>";
-    document.getElementById("v3x").innerHTML = scientificNotation(v * 3.281) + " fts<sup>-1</sup>";
-    document.getElementById("v4x").innerHTML = scientificNotation(v * 1.944) + " knots";
-    document.getElementById("v5x").innerHTML = scientificNotation(v / 1000) + " kms<sup>-1</sup>";
-    document.getElementById("v6x").innerHTML = scientificNotation(v * 100) + " cms<sup>-1</sup>";
+   if (v > 299792458) {
+       document.getElementById("v1x").innerHTML = "greater than the speed of light... Impossible.";
+       document.getElementById("v2x").innerHTML = "&nbsp;";
+       document.getElementById("v3x").innerHTML = "&nbsp;";
+       document.getElementById("v4x").innerHTML = "&nbsp;";
+       document.getElementById("v5x").innerHTML = "&nbsp;";
+       document.getElementById("v6x").innerHTML = "&nbsp;";
+   } else {
+       document.getElementById("v1x").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
+       document.getElementById("v2x").innerHTML = scientificNotation(v * 3.6) + " kmh<sup>-1</sup>";
+       document.getElementById("v3x").innerHTML = scientificNotation(v * 3.281) + " fts<sup>-1</sup>";
+       document.getElementById("v4x").innerHTML = scientificNotation(v * 1.944) + " knots";
+       document.getElementById("v5x").innerHTML = scientificNotation(v / 1000) + " kms<sup>-1</sup>";
+       document.getElementById("v6x").innerHTML = scientificNotation(v * 100) + " cms<sup>-1</sup>";
+   }
 
     // Update distance values
     document.getElementById("d1x").innerHTML = scientificNotation(d) + " m";

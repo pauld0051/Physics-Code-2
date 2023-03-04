@@ -277,7 +277,7 @@ function calculateIdealGas() {
         document.getElementById("massOutput").innerHTML = scientificNotation(m) + " kg";
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
-        document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} q=mL \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} Q=mL \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -288,7 +288,7 @@ function calculateIdealGas() {
         document.getElementById("inputMass").value = m.toFixed(3);
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} q=mL \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} Q=mL \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -299,7 +299,7 @@ function calculateIdealGas() {
         document.getElementById("massOutput").innerHTML = scientificNotation(m) + " kg";
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} L=\frac{q}{m} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} L=\frac{Q}{m} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 // Scroll to the results section

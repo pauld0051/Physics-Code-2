@@ -11,6 +11,32 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* MathJax Overlap */
+.dropdown-menu {
+  z-index: 1000; /* Set the z-index value of the dropdown menu */
+}
+
+.mjx-chtml {
+  z-index: 999; /* Set the z-index value of MathJax elements */
+}
+
+.navbar {
+  z-index: 9999;
+}
+
+.dropdown-menu.show {
+  position: static;
+  float: none;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+ /* End MathJax Fix */
+
 .container-fluid {
     font-family: 'Roboto', sans-serif;
     white-space: nowrap;

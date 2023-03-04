@@ -25,10 +25,35 @@ The current site is under construction and will remain so for at least until mid
 
 ### NOTES
 
-Local Server with console alt+b or use Go Live and the Browser.
-In-editor display F1 "show..."
-<https://www.markdownguide.org/basic-syntax/>
+The site is looking for testers. If you stumble across this and like to break code, you can get in contact with me through the page's contact details.
 
 ### Known Issues
 
-Samsung Keyboard users can not enter in a negative number when using an input with the type "number". This leads to an impossible outcome for Samsung Keyboard users where a negative number could be essential. This occurs in numerous locations, but was first noticed with the [suvat calculator](https://pauld0051.github.io/Physics-Code-2/suvat.html) and corrected by allowing an input type "text" but limiting it with a pattern (-?[0-9]\d*(\.\d+)?).
+Samsung Keyboard users can not enter in a negative number when using an input with the type "number". This leads to an impossible outcome for Samsung Keyboard users where a negative number could be essential. This occurs in numerous locations, but was first noticed with the [suvat calculator](https://pauld0051.github.io/Physics-Code-2/suvat.html) and corrected by allowing an input type "text" but limiting it with a pattern (-?[0-9]\d*(\.\d+)?). A second correction will be issued allowing users to click a checkbox next to the input to make the input negative. This will be optional as other users can use a negative sign on their keyboards.
+
+The issue with MathJax equations overlapping the dropdown navigation menu has been fixed. The fix involved adding a CSS rule to the `.p_code` `.navbar-collapse` class, which sets the z-index to a higher value than the MathJax elements. This ensures that the dropdown menu is always visible above the MathJax equations.
+
+```/* MathJax Overlap */
+.dropdown-menu {
+  z-index: 1000; /* Set the z-index value of the dropdown menu */
+}
+
+.mjx-chtml {
+  z-index: 999; /* Set the z-index value of MathJax elements */
+}
+
+.navbar {
+  z-index: 9999;
+}
+
+.dropdown-menu.show {
+  position: static;
+  float: none;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}

@@ -140,30 +140,32 @@ function calculateIdealGas() {
      // User input units - change everything to metric for calculations //
      // *************************************************************** //
 
-     // Heat //
-     const heatUnit = document.getElementById("unitsHeat").value;
-     if (heatUnit === "j") {
-         heat = heat;
-     }
-     if (heatUnit === "cal") {
-         heat = heat * 4.184;
-     }
-     if (heatUnit === "kj") {
-         heat = heat / 1000;
-     }
-     if (heatUnit === "kcal") {
-         heat = heat * 4.184 / 1000;
-     }
-     if (heatUnit === "btu") {
-         heat = heat * 1055.056;
-     }
-     if (heatUnit === "ev") {
-         heat = heat * 6.24150913e+18;
-     }
-     if (heatUnit === "mj") {
-         heat = heat / 1000000;
-     }
-     if (isNaN(heat)) heat = 0;
+    // Heat //
+    const heatUnit = document.getElementById("unitsHeat").value;
+    if (heatUnit === "kj") {
+        heat = heat;
+    }
+    if (heatUnit === "cal") {
+        heat = heat * 0.004184;
+    }
+    if (heatUnit === "j") {
+        heat = heat * 0.001;
+    }
+    if (heatUnit === "kcal") {
+        heat = heat * 4.184;
+    }
+    if (heatUnit === "btu") {
+        heat = heat * 1.055056;
+    }
+    if (heatUnit === "ev") {
+        heat = heat * 6.24150913e+15 * 0.001;
+    }
+    if (heatUnit === "mj") {
+        heat = heat * 1000;
+    }
+    if (isNaN(heat)) {
+        heat = 0;
+    }
 
      // Mass //
      const mUnit = document.getElementById("unitsMass").value;
@@ -189,7 +191,7 @@ function calculateIdealGas() {
          m = m * 0.0311034768;
      }
     if (isNaN(m)) m = 0;
-    
+
     // Specific Latent Heat //
     const lUnit = document.getElementById("unitsSpecificLatentHeat").value;
     if (lUnit === "c1") {
@@ -275,7 +277,7 @@ function calculateIdealGas() {
         q = m * l;
         document.getElementById("inputHeat").value = q.toFixed(3);
         document.getElementById("massOutput").innerHTML = scientificNotation(m) + " kg";
-        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
+        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " kJ";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
         document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} Q=mL \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
@@ -286,7 +288,7 @@ function calculateIdealGas() {
         m = q / l;
         document.getElementById("massOutput").innerHTML = scientificNotation(m) + " kg";
         document.getElementById("inputMass").value = m.toFixed(3);
-        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
+        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " kJ";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
         document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} Q=mL \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
@@ -297,7 +299,7 @@ function calculateIdealGas() {
         l = q / m;
         document.getElementById("inputSpecificLatentHeat").value = l.toFixed(3);
         document.getElementById("massOutput").innerHTML = scientificNotation(m) + " kg";
-        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
+        document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " kJ";
         document.getElementById("specificLatentHeatOutput").innerHTML = scientificNotation(l) + " J kg⁻¹";
         document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} L=\frac{Q}{m} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
@@ -310,13 +312,13 @@ document.querySelector('#results_table_1').scrollIntoView({
 
 // Table 2 - results all converted
 // Update heat values
-document.getElementById("q1x").innerHTML = scientificNotation(q) + " J";
-document.getElementById("q2x").innerHTML = scientificNotation(q / 4.184) + " cal";
-document.getElementById("q3x").innerHTML = scientificNotation(q / 1000) + " kJ";
-document.getElementById("q4x").innerHTML = scientificNotation(q / 4184) + " kcal";
-document.getElementById("q5x").innerHTML = scientificNotation(q / 1055) + " BTUs";
+document.getElementById("q1x").innerHTML = scientificNotation(q) + " kJ";
+document.getElementById("q2x").innerHTML = scientificNotation(q / 4184) + " cal";
+document.getElementById("q3x").innerHTML = scientificNotation(q * 1000) + " J";
+document.getElementById("q4x").innerHTML = scientificNotation(q / 4.184) + " kcal";
+document.getElementById("q5x").innerHTML = scientificNotation(q / 0.947817) + " BTUs";
 document.getElementById("q6x").innerHTML = scientificNotation(q / 1.602e-19) + " eV";
-document.getElementById("q7x").innerHTML = scientificNotation(q / 1e6) + " MJ";
+document.getElementById("q7x").innerHTML = scientificNotation(q / 1000) + " MJ";
 
 // Update mass values
 document.getElementById("m1x").innerHTML = scientificNotation(m) + " kg";
@@ -329,10 +331,10 @@ document.getElementById("m7x").innerHTML = scientificNotation(m * 32.1507) + " t
 
 // Update specific latent heat values
 document.getElementById("c1x").innerHTML = scientificNotation(l) + " kJ kg<sup>-1</sup>";
-document.getElementById("c2x").innerHTML = scientificNotation(l * 1000) + " kJ kg<sup>-1</sup>";
-document.getElementById("c3x").innerHTML = scientificNotation(l / 4184) + " kJ kg<sup>-1</sup>";
-document.getElementById("c4x").innerHTML = scientificNotation(l * 2.326) + " kJ kg<sup>-1</sup>";
-document.getElementById("c5x").innerHTML = scientificNotation(l / 1000) + " kJ kg<sup>-1</sup>";
+document.getElementById("c2x").innerHTML = scientificNotation(l * 1000) + " J kg<sup>-1</sup>";
+document.getElementById("c3x").innerHTML = scientificNotation(l / 4184) + " cal kg<sup>-1</sup>";
+document.getElementById("c4x").innerHTML = scientificNotation(l * 0.429923) + " BTU lb<sup>-1</sup>";
+document.getElementById("c5x").innerHTML = scientificNotation(l / 1000) + " kJ g<sup>-1</sup>";
 
 }
 

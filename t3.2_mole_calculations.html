@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mole Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">Mole Calculator</h1>
+                <p class="lead">Calculate the number of molecules and particles in a substance
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Equation Display -->
+    <section class="container border border-info bg_cont mb-1">
+        <div class="row">
+            <h3 class="d-flex justify-content-center">Equation</h3>
+        </div>
+        \begin{gather} n=\frac{N}{N_A} \ \notag \end{gather}
+    </section>
+    <form id="SubmissionForm" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any three variables to calculate the fourth.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>This calculator allows you to convert between the number of moles and the number of particles in a
+                substance. It uses the formula \(n = \frac{N}{N_{\text{A}}}\), where \(n\) is the number of moles, \(N\) is
+                the
+                number of particles,
+                and \(N_{\text{A}}\) is Avogadro's number. The input can be in various units such as atoms, molecules, or
+                ions, and
+                will be automatically converted to the appropriate unit for the calculation. This calculator can be
+                useful in many fields of chemistry, such as in stoichiometry calculations or in determining the number
+                of atoms in a given sample. In this case we will be using the calculator to help determine the number of moles or particles
+                in an ideal gas.</p>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
+                    </p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="moles" id="moles" name="moles">
+                            <label class="form-check-label" for="moles">
+                                Number of moles (n)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="particles" id="particles" name="particles">
+                            <label class="form-check-label" for="particles">
+                               Number of particles (N)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="avogadros" id="avogadros"
+                                name="avogadros" checked disabled>
+                            <label class="form-check-label" for="avogadros">
+                                Avogadro's number (N<sub>A</sub>) (6.022 × 10²³ mol⁻¹)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Moles Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-atom fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Number of moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Moles (mol, mmol, μmol and nmol):"
+                                data-bs-content="Enter the number of moles present. You do not need to know the molecular formula for this. If this is the unit you're calculating, just leave it blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputMoles">Moles (n)</label><br>
+                        <input type="number" name="inputMoles" id="inputMoles" class="reset_form formCheck maxAllow" data-input="moles" value="" min="1e-45" max="1e100" step="1e-45" autocomplete="off" aria-label="input value for particles (moles)" disabled>
+                        <br>
+                        <label for="unitsHeat">Units</label><br>
+                        <select name="unitsMoles" id="unitsMoles" style="width:75px;" data-input="moles" disabled>
+                            <option value="mol" selected>mol</option>
+                            <option value="mmol">mmol</option>
+                            <option value="μmol">μmol</option>
+                            <option value="nmol">nmol</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Particles Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-spray-can-sparkles fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Particles (number):"
+                                data-bs-content="Enter the number of particles in units of atoms or ions. This value will be used to calculate the mass or volume of the gas, depending on the other input values. For example, if you are solving for mass, leave this field blank. If you are solving for volume, make sure to input the temperature, pressure, and number of particles to get an accurate result. Please note that this calculator assumes an ideal gas behavior.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputParticles">Particles (N)</label><br>
+                        <input type="number" name="inputParticles" id="inputParticles"
+                            class="reset_form formCheck maxAllow"
+                            data-input="particles" value="" min="1e-45" max="1e100" step="1e-45"
+                            autocomplete="off"
+                            aria-label="Enter the number of particles in units of atoms or ions. This value will be used
+                            to calculate the mass or volume of the gas, depending on the other input values. For
+                            example, if you are solving for mass, leave this field blank. If you are solving for volume,
+                            make sure to input the temperature, pressure, and number of particles to get an accurate
+                            result. Please note that this calculator assumes an ideal gas behavior." disabled>
+                        <br>
+                        <label for="unitsParticles">Units</label><br>
+                        <select name="unitsParticles" id="unitsParticles" style="width:75px;" data-input="particles">
+                            <option value="atoms" selected>Atoms</option>
+                            <option value="ions">Ions</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Avogadro's Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-superscript fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Avogadro's Constant (N<sub>A</sub>)
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Avogadro's Number (6.022 × 10<sup>23</sup> particles per mole):"
+                                data-bs-content="This is Avogadro's constant and therefore does not need to be altered. ">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputAvogadro">Avogadro's Number (N<sub>A</sub>)</label><br>
+                        <input type="number" name="inputAvogadro" id="inputAvogadro"
+                            class="reset_form formCheck maxAllow" data-input="Avogadro" value="6.02214076e23" min="0"
+                            max="10e27" step="0.0001" autocomplete="off" aria-label="Pre-input for Avogadro's Number."
+                            disabled>
+                        <br>
+                        <label for="unitsAvogadro">Units</label><br>
+                        <select name="unitsAvogadro" id="unitsAvogadro" style="width:175px;" data-input="Avogadro"
+                            disabled>
+                            <option value="a1" selected>Avogadro's Constant 6.022 × 10²³ mol⁻¹</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Moles (n)</td>
+                        <td id="molesOutput">mol</td>
+                    </tr>
+                    <tr>
+                        <td>Particles (N)</td>
+                        <td id="particlesOutput">Atoms</td>
+                    </tr>
+                    <tr>
+                        <td>Avogadro's Number</td>
+                        <td id="avogadrosOutput">6.022 × 10²³ mol⁻¹</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output
+                    accordingly and see the
+                    common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Moles (n)</td>
+                    <td id="n1x">mol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n2x">mmol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n3x">μmol</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="n4x">nmol</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="n5x">Atoms</td>
+                </tr>
+                <tr class="t_line">
+                    <td>Avogadro's Constant (N<sub>A</sub>)</td>
+                    <td id="a1x">mol<sup>-1</sup></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available
+                with all conversions
+                completed.</em>
+        </p>
+    </section>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/t3.2_mole_calculations.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

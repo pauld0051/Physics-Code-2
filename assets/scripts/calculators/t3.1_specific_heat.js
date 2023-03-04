@@ -256,7 +256,7 @@ function calculateIdealGas() {
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificHeatCapacityOutput").innerHTML = scientificNotation(c) + " J kg⁻¹ K⁻¹";
         document.getElementById("changeInTemperatureOutput").innerHTML = scientificNotation(t) + " K";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} q=mc\Delta T \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} Q=mc\Delta T \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -268,7 +268,7 @@ function calculateIdealGas() {
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificHeatCapacityOutput").innerHTML = scientificNotation(c) + " J kg⁻¹ K⁻¹";
         document.getElementById("changeInTemperatureOutput").innerHTML = scientificNotation(t) + " K";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} m = \frac{q}{c \cdot \Delta T} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} m = \frac{Q}{c \cdot \Delta T} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -280,7 +280,7 @@ function calculateIdealGas() {
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificHeatCapacityOutput").innerHTML = scientificNotation(c) + " J kg⁻¹ K⁻¹";
         document.getElementById("changeInTemperatureOutput").innerHTML = scientificNotation(t) + " K";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} c = \frac{q}{m \cdot \Delta T} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} c = \frac{Q}{m \cdot \Delta T} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -292,7 +292,7 @@ function calculateIdealGas() {
         document.getElementById("heatOutput").innerHTML = scientificNotation(q) + " J";
         document.getElementById("specificHeatCapacityOutput").innerHTML = scientificNotation(c) + " J kg⁻¹ K⁻¹";
         document.getElementById("changeInTemperatureOutput").innerHTML = scientificNotation(t) + " K";
-        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} \Delta T = \frac{q}{m \cdot c} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} \Delta T = \frac{Q}{m \cdot c} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 

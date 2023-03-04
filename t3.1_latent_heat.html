@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Specific Heat Capacity Calculator</title>
+    <title>Latent Heat Calculator</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -20,8 +20,8 @@
     <section class="container">
         <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
             <div class="container">
-                <h1 class="display-4 text-center text-wrap">Specific Heat Capacity Calculator</h1>
-                <p class="lead">Calculate the heat, mass, specific heat capacity or the temperature of a known substance
+                <h1 class="display-4 text-center text-wrap">Latent Heat Calculator</h1>
+                <p class="lead">Calculate the heat, mass, or the specific latent heat of a known substance
                 </p>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="row">
             <h3 class="d-flex justify-content-center">Equation</h3>
         </div>
-        \begin{gather} Q = mc\Delta T \ \notag \end{gather}
+        \begin{gather} Q = mL \ \notag \end{gather}
     </section>
     <form id="SubmissionForm" novalidate>
         <!-- Equation Selection -->
@@ -43,14 +43,14 @@
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>Please note that this calculator calculates the heat (Q), mass (m), specific heat capacity (c), or
-                temperature change (ΔT) of a known substance. It uses the equation Q = mcΔT, where Q is the heat energy,
-                m is the mass, c is the specific heat
-                capacity, and ΔT is the temperature change. All inputs are converted into SI units (J, kg, and K) for
-                calculation. If you want to calculate mixtures, you will need to go to the <a href="[YOUR_LINK_HERE]"
-                    target="_blank" rel="noopener">mixture calculator</a> page. For more information about specific heat
+            <p>Please note that this calculator calculates the heat (Q), mass (m), or
+                latent heat (L) of a known substance. It uses the equation Q = mL, where Q is the heat energy,
+                m is the mass, and L is the specific latent heat
+                capacity. All inputs are converted into SI units (J and kg) for
+                calculation. If you want to calculate mixtures with solids, liquids or gases you will need to go to the <a href="[YOUR_LINK_HERE]"
+                    target="_blank" rel="noopener">mixture calculator</a> page. For more information about specific latent heat
                 capacity and the equation used in this calculator, please visit our <a href="[YOUR_LINK_HERE]"
-                    target="_blank" rel="noopener">specific heat capacity</a> page.
+                    target="_blank" rel="noopener">specific latent heat</a> page.
             </p>
             <!-- Check Boxes -->
             <div class="row align-items-center">
@@ -74,17 +74,10 @@
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="specificHeatCapacity"
-                                id="specificHeatCapacity" name="specificHeatCapacity">
-                            <label class="form-check-label" for="specificHeatCapacity">
-                                Specific Heat Capacity (c)
-                            </label>
-                        </div>
-                        <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="changeInTemperature"
-                                id="changeInTemperature" name="changeInTemperature">
-                            <label class="form-check-label" for="changeInTemperature">
-                                Change in Temperature (ΔT)
+                            <input class="form-check-input" type="checkbox" value="specificLatentHeat"
+                                id="specificLatentHeat" name="specificLatentHeat">
+                            <label class="form-check-label" for="specificLatentHeat">
+                                Specific Latent Heat (L)
                             </label>
                         </div>
                     </div>
@@ -110,13 +103,13 @@
                         <label for="inputHeat">Heat (Q)</label><br>
 
                         <input type="number" name="inputHeat" id="inputHeat" class="reset_form formCheck maxAllow"
-                            data-input="heat" value="" min="1.6e-19" max="1e13" step="1.6e-19" autocomplete="off" aria-label="input value for heat in joules, calories (cal), kilojoules
+                            data-input="heat" value="" min="1.6e-19" max="1e13" step="1.6e-19" autocomplete="off"
+                            aria-label="input value for heat in joules, calories (cal), kilojoules
                             (kJ), kilocalories (kcal), British Thermal Units
                             (BTU), megajoules or electronvolts (eV)" disabled>
                         <br>
                         <label for="unitsHeat">Units</label><br>
-                        <select name="unitsHeat" id="unitsHeat" style="width:75px;" data-input="heat"
-                            disabled>
+                        <select name="unitsHeat" id="unitsHeat" style="width:75px;" data-input="heat" disabled>
                             <option value="j" selected>J</option>
                             <option value="cal">cal</option>
                             <option value="kj">kJ</option>
@@ -158,23 +151,20 @@
                         </select>
                     </div>
                 </div>
-                <!-- Specific Heat Capacity Card -->
+                <!-- Specific Latent Heat Card -->
                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <i class="fa-solid fa-dice-d6 fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Specific Heat Capacity (c)
+                        <h4 class="text-center">Specific Latent Heat (L)
                             <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                data-bs-title="Specific Heat Capacity <p>(J kg<sup>-1</sup> °C<sup>-1</sup>):</p>"
+                                data-bs-title="Specific Latent Heat (J kg<sup>-1</sup>:"
                                 data-bs-content="Enter the specific heat capacity of the substance in units of:
-                                    <p>J kg<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J g<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>cal g<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>Btu lb<sup>-1</sup> °F<sup>-1</sup>,</p>
-                                    <p class='small-line-height'>kJ kg<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J m<sup>-3</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J cm<sup>-3</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J g<sup>-1</sup> °C<sup>-1</sup></p> 
-                                    or any of the pre-determined specific heat
+                                    <p>J kg<sup>-1</sup></p>
+                                    <p class='small-line-height'>J g<sup>-1</sup></p>
+                                    <p class='small-line-height'>kJ kg<sup>-1</sup></p>
+                                    <p class='small-line-height'>cal g<sup>-1</sup></p>
+                                    <p class='small-line-height'>Btu lb<sup>-1</sup>,</p> or any of the
+                                    pre-determined specific heat
                                     capacities of common substances. If you're using the pre-determined specific heat
                                     capacities, be sure to convert all of your units to match the units of J
                                     g<sup>-1</sup>·K<sup>-1</sup>. If you're unsure, you should always convert to J
@@ -185,69 +175,40 @@
                             </a>
                         </h4>
                         <p class="card-text"></p>
-                        <label for="inputSpecificHeatCapacity">Specific Heat Capacity (c)</label><br>
-                        <input type="number" name="inputSpecificHeatCapacity" id="inputSpecificHeatCapacity"
-                            class="reset_form formCheck maxAllow" data-input="specificHeatCapacity" value=""
-                            min="0.000000000001"
-                            max="5000000" step="0.000000000001" autocomplete="off"
-                            aria-label="input value for Specific Heat Capacity in joules per kilogram per kelvin or similar."
+                        <label for="inputSpecificLatentHeat">Specific Latent Heat (L)</label><br>
+                        <input type="number" name="inputSpecificLatentHeat" id="inputSpecificLatentHeat"
+                            class="reset_form formCheck maxAllow" data-input="specificLatentHeat" value=""
+                            min="0.000000000001" max="5000000" step="0.000000000001" autocomplete="off"
+                            aria-label="input value for Specific Latent Heat Capacity in joules per kilogram or similar."
                             disabled>
                         <br>
-                        <label for="unitsSpecificHeatCapacity">Units</label><br>
-                            <select name="unitsSpecificHeatCapacity" id="unitsSpecificHeatCapacity" style="width:175px;"
-                                data-input="specificHeatCapacity" disabled>
-                                <option value="c1" selected>J kg⁻¹·K⁻¹</option>
-                                <option value="c2">J g⁻¹·k⁻¹</option>
-                                <option value="c4">cal g⁻¹·K⁻¹</option>
-                                <option value="c5">Btu lb⁻¹·°F⁻¹</option>
-                                <option value="c6">kJ kg⁻¹·K⁻¹</option>
-                                <option value="c8">Water: 4186 J kg⁻¹·K⁻¹</option>
-                                <option value="c9">Ethanol: 2440 J kg⁻¹·K⁻¹</option>
-                                <option value="c10">Aluminum: 897J kg⁻¹·K⁻¹</option>
-                                <option value="c11">Copper: 385 J kg⁻¹·K⁻¹</option>
-                                <option value="c20">Diamond: 509.1 J kg⁻¹·K⁻¹</option>
-                                <option value="c14">Gold: 129 J kg⁻¹·K⁻¹</option>
-                                <option value="c19">Graphite: 790 J kg⁻¹·K⁻¹</option>
-                                <option value="c18">ice: 2108 J kg⁻¹·K⁻¹</option>
-                                <option value="c12">Iron: 412 J kg⁻¹·K⁻¹</option>
-                                <option value="c13">Lead: 129 J kg⁻¹·K⁻¹</option>
-                                <option value="c15">Mercury: 139.5 J kg⁻¹·K⁻¹</option>
-                                <option value="c17">Nitrogen: 1040 J kg⁻¹·K⁻¹</option>
-                                <option value="c16">Air: 1012 J kg⁻¹·K⁻¹</option>
-                            </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <!-- Change In Temperature Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-temperature-arrow-up fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Change in Temperature (ΔT)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                data-bs-title="Change in Temperature (K, °C, °F):" data-bs-content="The change in temperature is the measure of the change in average kinetic energy of
-                                the substance's particles. Please enter the change in temperature (ΔT = T<sub>f</sub> -
-                                T<sub>i</sub>)
-                                temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
-                                handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
-                                room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
-                                °F).">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="inputChangeInTemperature">Change in Temperature (ΔT)</label><br>
-                        <input type="number" name="inputChangeInTemperature" id="inputChangeInTemperature"
-                            class="reset_form formCheck maxAllow" data-input="changeInTemperature" value="" min="0.0001"
-                            max="6700" step="0.0001" autocomplete="off" aria-label="input value for Change in Temperature in either Kelvin (K), Celsius (°C), or
-                            Fahrenheit (°F)" disabled>
-                        <br>
-                        <label for="unitsChangeInTemperature">Units</label><br>
-                        <select name="unitsChangeInTemperature" id="unitsChangeInTemperature" style="width:75px;"
-                            data-input="changeInTemperature" disabled>
-                            <option value="k" selected>K</option>
-                            <option value="c">°C</option>
-                            <option value="f">°F</option>
+                        <label for="unitsSpecificLatentHeat">Units</label><br>
+                        <select name="unitsSpecificLatentHeat" id="unitsSpecificLatentHeat" style="width:175px;"
+                            data-input="specificLatentHeat" disabled>
+                            <option value="c1" selected>kJ kg⁻¹</option>
+                            <option value="c2">J g⁻¹</option>
+                            <option value="c3">cal g⁻¹</option>
+                            <option value="c4">Btu lb⁻¹</option>
+                            <option value="c5">J kg⁻¹</option>
+                            <option value="c6">Water/Ice (melting/freezing): 334 kJ kg⁻¹</option>
+                            <option value="c7">Water (vaporization/condensation): 2,260 kJ kg⁻¹</option>
+                            <option value="c8">Carbon dioxide (sublimation/deposition): 571 kJ kg⁻¹</option>
+                            <option value="c9">Copper (melting/freezing): 206 kJ kg⁻¹</option>
+                            <option value="c10">Copper (vaporization/condensation): 4,688 kJ kg⁻¹</option>
+                            <option value="c11">Ethanol (melting/freezing): 105 kJ kg⁻¹</option>
+                            <option value="c12">Ethanol (vaporization/condensation): 846 kJ kg⁻¹</option>
+                            <option value="c13">Gold (melting/freezing): 63 kJ kg⁻¹</option>
+                            <option value="c14">Gold (vaporization/condensation): 1,595 kJ kg⁻¹</option>
+                            <option value="c15">Iron (melting/freezing): 272 kJ kg⁻¹</option>
+                            <option value="c16">Iron (vaporization/condensation): 6,868 kJ kg⁻¹</option>
+                            <option value="c17">Lead (melting/freezing): 24.5 kJ kg⁻¹</option>
+                            <option value="c18">Lead (vaporization/condensation): 871 kJ kg⁻¹</option>
+                            <option value="c19">Nitrogen (melting/freezing): 25.7 kJ kg⁻¹</option>
+                            <option value="c20">Nitrogen (vaporization/condensation): 199 kJ kg⁻¹</option>
+                            <option value="c21">Oxygen (melting/freezing): 14.7 kJ kg⁻¹</option>
+                            <option value="c22">Oxygen (vaporization/condensation): 213 kJ kg⁻¹</option>
+                            <option value="c23">Silver (melting/freezing): 88 kJ kg⁻¹</option>
+                            <option value="c24">Silver (vaporization/condensation): 2,452 kJ kg⁻¹</option>
                         </select>
                     </div>
                 </div>
@@ -289,12 +250,8 @@
                         <td id="massOutput">kg</td>
                     </tr>
                     <tr>
-                        <td>Specific Heat Capacity (c)</td>
-                        <td id="specificHeatCapacityOutput">J kg<sup>-1</sup>·k<sup>-1</sup></td>
-                    </tr>
-                    <tr>
-                        <td>Change in Temperature (ΔT)</td>
-                        <td id="changeInTemperatureOutput">K</td>
+                        <td>Specific Latent Heat Capacity (L)</td>
+                        <td id="specificLatentHeatOutput">J kg<sup>-1</sup></td>
                     </tr>
                 </tbody>
             </table>
@@ -381,40 +338,24 @@
                     <td id="m7x">t oz</td>
                 </tr>
                 <tr>
-                    <td>Specific Heat Capacity (c)</td>
-                    <td id="c1x">J kg<sup>-1</sup> K<sup>-1</sup></td>
+                    <td>Specific Latent Heat (L)</td>
+                    <td id="c1x">kJ kg<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="c2x">J g<sup>-1</sup> K<sup>-1</sup></td>
+                    <td id="c2x">J g<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="c4x">cal g<sup>-1</sup> K<sup>-1</sup></td>
+                    <td id="c3x">cal g<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="c5x">Btu lb<sup>-1</sup> °F<sup>-1</sup></td>
+                    <td id="c4x">Btu lb<sup>-1</sup></td>
                 </tr>
                 <tr class="t_line">
                     <td></td>
-                    <td id="c6x">kJ kg<sup>-1</sup> K<sup>-1</sup></td>
-                </tr>
-                <tr>
-                    <td>Change in Temperature (&Delta;T)</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="dtx">K</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="dty">°C</td>
-                </tr>
-                <tr class="t_line">
-                    <td></td>
-                    <td id="dtz">°F</td>
+                    <td id="c5x">J kg<sup>-1</sup></td>
                 </tr>
             </tbody>
         </table>
@@ -435,7 +376,7 @@
     <script src="assets/scripts/jquery-3.6.1.min.js"></script>
     <script src="assets/scripts/bootstrap.bundle.js"></script>
     <script src="assets/scripts/include_content.js"></script>
-    <script src="assets/scripts/calculators/t3.1_specific_heat.js"></script>
+    <script src="assets/scripts/calculators/t3.1_latent_heat.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>

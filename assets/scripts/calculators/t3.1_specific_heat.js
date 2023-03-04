@@ -91,7 +91,7 @@ xunitsSpecificHeatCapacity.addEventListener('change', (event) => {
     }
 
     if (selectedValue === 'c1') {
-        xinputSpecificHeatCapacity.placeholder = 'J/kg/K';
+        xinputSpecificHeatCapacity.placeholder = 'J kg⁻¹·K⁻¹';
     } else {
         xinputSpecificHeatCapacity.placeholder = '';
     }

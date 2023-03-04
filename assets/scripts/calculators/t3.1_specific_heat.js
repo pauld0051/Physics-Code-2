@@ -355,46 +355,54 @@ unitsHeat.addEventListener('change', function () {
     const selectedValue = unitsHeat.value;
     let max = 1e13;
     let min = 1.6e-19;
+    let step = min;
     switch (selectedValue) {
         case 'j':
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'cal':
             max = max / 4.184;
             min = min / 4.184;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'kj':
             max = max / 1000;
             min = min / 1000;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'kcal':
             max = max / 4184;
             min = min / 4184;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'btu':
             max = max / 1055.06;
             min = min / 1055.06;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'ev':
             max = max / 1.60218e-19;
             min = min / 1.60218e-19;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'mj':
             max = max / 1e6;
             min = min / 1e6;
-            inputHeat.setAttribute('max', max);
-            inputHeat.setAttribute('min', min);
+            inputHeat.setAttribute('max', max.toExponential(4));
+            inputHeat.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         default:
             console.error('Invalid heat unit');
@@ -411,57 +419,57 @@ unitsMass.addEventListener('change', function () {
     let step = 1e-10;
     switch (selectedValue) {
         case 'kg':
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'gm':
             max = max / 1000;
             min = min / 1000;
             step = step / 1000;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'mg':
             max = max / 1e6;
             min = min / 1e6;
             step = step / 1e6;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'μg':
             max = max / 1e9;
             min = min / 1e9;
             step = step / 1e9;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'lb':
             max = max / 2.20462;
             min = min / 2.20462;
             step = step / 2.20462;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'oz':
             max = max / 35.274;
             min = min / 35.274;
             step = step / 35.274;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         case 'toz':
             max = max / 32.1507;
             min = min / 32.1507;
             step = step / 32.1507;
-            inputMass.setAttribute('max', max);
-            inputMass.setAttribute('min', min);
-            inputMass.setAttribute('step', step);
+            inputMass.setAttribute('max', max.toExponential(4));
+            inputMass.setAttribute('min', min.toExponential(4));
+            inputMass.setAttribute('step', step.toExponential(4));
             break;
         default:
             console.error('Invalid mass unit');

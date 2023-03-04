@@ -323,8 +323,8 @@ unitsDistance.addEventListener('change', function () {
     };
     switch (selectedValue) {
         case 'm':
-            inputDistance.setAttribute('max', max);
-            inputDistance.setAttribute('min', min);
+            inputDistance.setAttribute('max', max.toExponential(4));
+            inputDistance.setAttribute('min', min.toExponential(4));
             inputDistance.setAttribute('step', step);
             break;
         case 'km':
@@ -339,8 +339,8 @@ unitsDistance.addEventListener('change', function () {
             max = max / meterToUnit[selectedValue];
             min = min / meterToUnit[selectedValue];
             step = step;
-            inputDistance.setAttribute('max', max);
-            inputDistance.setAttribute('min', min);
+            inputDistance.setAttribute('max', max.toExponential(4));
+            inputDistance.setAttribute('min', min.toExponential(4));
             inputDistance.setAttribute('step', step);
             break;
         default:
@@ -370,8 +370,8 @@ unitsTime.addEventListener('change', function () {
     };
     switch (selectedValue) {
         case 's':
-            inputTime.setAttribute('max', max);
-            inputTime.setAttribute('min', min);
+            inputTime.setAttribute('max', max.toExponential(4));
+            inputTime.setAttribute('min', min.toExponential(4));
             inputTime.setAttribute('step', step);
             break;
         case 'min':
@@ -383,8 +383,8 @@ unitsTime.addEventListener('change', function () {
             max = max / secToUnit[selectedValue];
             min = min / secToUnit[selectedValue];
             step = 1e-6;
-            inputTime.setAttribute('max', max);
-            inputTime.setAttribute('min', min);
+            inputTime.setAttribute('max', max.toExponential(4));
+            inputTime.setAttribute('min', min.toExponential(4));
             inputTime.setAttribute('step', step);
             break;
         case 'ms':
@@ -393,8 +393,8 @@ unitsTime.addEventListener('change', function () {
             max = max / secToUnit[selectedValue];
             min = min / secToUnit[selectedValue];
             step = 1e-12;
-            inputTime.setAttribute('max', max);
-            inputTime.setAttribute('min', min);
+            inputTime.setAttribute('max', max.toExponential(4));
+            inputTime.setAttribute('min', min.toExponential(4));
             inputTime.setAttribute('step', step);
             break;
         default:

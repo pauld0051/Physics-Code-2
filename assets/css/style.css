@@ -37,6 +37,16 @@ body {
 }
  /* End MathJax Fix */
 
+ /* Set height of input boxes */
+ .form-control.input-rounded-start {
+  height: 34px;
+}
+
+.input-group-text {
+  height: 34px;
+  padding: 0.375rem 0.75rem;
+}
+
 .container-fluid {
     font-family: 'Roboto', sans-serif;
     white-space: nowrap;

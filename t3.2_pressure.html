@@ -30,39 +30,29 @@
         <div class="row">
             <h3 class="d-flex justify-content-center">Equation</h3>
         </div>
-        \begin{equation*}
-        \Large P = \frac{F}{A}
-        \end{equation*}
+        \begin{equation*} \Large P = \frac{F}{A} \end{equation*}
     </section>
     <form id="SubmissionForm" novalidate>
         <!-- Equation Selection -->
         <section class="container border border-primary bg_cont mb-1">
             <h4>Select the things you know:
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Select known variables"
-                    data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any two variables to calculate the third.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any two variables to calculate the third.">
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>Please note that this calculator converts all inputs into SI or metric units (Nm<sup>-2</sup>). The
-                pressure exerted by an object is given by the equation \(P = \frac{F}{A}\), where \(P\) is the pressure in,
-                \(F\) is the force exerted, and \(A\) is the area of the object. Select the two variables that you know
-                and calculate for the third. You can change your selection later if you want.
-                This will help you become familiar with the processes of calculating pressure equations.</p>
-            <p>For more information about pressure and the equation \(P = \frac{F}{A}\), please visit our <a
-                    href="https://#" target="_blank" rel="noopener">pressure equation</a>
-                page.</p>
+            <p>Please note that this calculator converts all inputs into SI or metric units (Nm<sup>-2</sup>). The pressure exerted by an object is given by the equation \(P = \frac{F}{A}\), where \(P\) is the pressure in, \(F\) is the force exerted, and
+                \(A\) is the area of the object. Select the two variables that you know and calculate for the third. You can change your selection later if you want. This will help you become familiar with the processes of calculating pressure equations.</p>
+            <p>For more information about pressure and the equation \(P = \frac{F}{A}\), please visit our <a href="https://#" target="_blank" rel="noopener">pressure equation</a> page.
+            </p>
             <!-- Check Boxes -->
             <div class="row align-items-center">
                 <div class="col-3 text-center">
-                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables
-                        you know:</p>
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:</p>
                 </div>
                 <div class="col-9">
                     <div class="ideal-check border p-3">
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure"
-                                name="pressure">
+                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure" name="pressure">
                             <label class="form-check-label" for="pressure">
                                 Pressure (P)
                             </label>
@@ -83,28 +73,24 @@
                 </div>
             </div>
         </section>
-<section class="container border border-primary bg_cont">
-    <div class="row d-flex justify-content-center">
-        <!-- Pressure Card -->
-        <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-            <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-            <div class="card-body">
-                <h4 class="text-center">Pressure (P)<br>
-                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                        data-bs-title="Pressure (Nm<sup>-2</sup>, Pa, psi, atm):"
-                        data-bs-content="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm). Example: 100 N/m<sup>2</sup> or 1 atm. Note: If you are solving for force or area, you should input measurements in compatible units.">
-                        <i class="far fa-question-circle fa"></i>
-                    </a>
-                </h4>
-                <p class="card-text"></p>
-                <label for="inputPressure">Pressure (P)</label><br>
-                <input type="number" name="inputPressure" id="inputPressure" class="reset_form formCheck maxAllow"
-                    data-input="pressure" value="" min="-1.00e12" max="1.00e12" step="any" autocomplete="off"
-                    aria-label="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm)."
-                    disabled>
-                <br>
-                <label for="unitsPressure">Units</label><br>
-                <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Pressure Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Pressure (P)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Nm<sup>-2</sup>, Pa, psi, atm):" data-bs-content="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm). Example: 100 N/m<sup>2</sup> or 1 atm. Note: If you are solving for force or area, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputPressure">Pressure (P)</label><br>
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form formCheck maxAllow" data-input="pressure" value="" min="-1.00e12" max="1.00e12" step="any" autocomplete="off" aria-label="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm)."
+                            disabled>
+                        <br>
+                        <label for="unitsPressure">Units</label><br>
+                        <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
                     <option value="N/m^2" selected>Nm&#x207b;&sup2;</option>
                     <option value="atm">atm</option>
                     <option value="Pa">Pa</option>
@@ -117,28 +103,24 @@
                     <option value="mpa">MPa</option>
                     <option value="mbar">mbar</option>
                 </select>
-            </div>
-        </div>
-        <!-- Force Card -->
-        <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
-            <i class="fa-solid fa-weight-hanging fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-            <div class="card-body">
-                <h4 class="text-center">Force (F)<br>
-                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                        data-bs-title="Force (N, kN, MN, lbf, ozf):"
-                        data-bs-content="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf). Example: 500 N or 0.5 kN. Note: If you are solving for pressure or area, you should input measurements in compatible units.">
-                        <i class="far fa-question-circle fa"></i>
-                    </a>
-                </h4>
-                <p class="card-text"></p>
-                <label for="inputForce">Force (F)</label><br>
-                <input type="number" name="inputForce" id="inputForce" class="reset_form formCheck maxAllow"
-                    data-input="force" value="" min="-3.00e8" max="3.00e8" step="0.0001" autocomplete="off"
-                    aria-label="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf)."
-                    disabled>
-                <br>
-                <label for="unitsForce">Units</label><br>
-                <select name="unitsForce" id="unitsForce" style="width:75px;" data-input="force" disabled>
+                    </div>
+                </div>
+                <!-- Force Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-weight-hanging fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Force (F)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Force (N, kN, MN, lbf, ozf):" data-bs-content="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf). Example: 500 N or 0.5 kN. Note: If you are solving for pressure or area, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputForce">Force (F)</label><br>
+                        <input type="number" name="inputForce" id="inputForce" class="reset_form formCheck maxAllow" data-input="force" value="" min="-3.00e8" max="3.00e8" step="0.0001" autocomplete="off" aria-label="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf)."
+                            disabled>
+                        <br>
+                        <label for="unitsForce">Units</label><br>
+                        <select name="unitsForce" id="unitsForce" style="width:75px;" data-input="force" disabled>
                     <option value="N" selected>N</option>
                     <option value="kN">kN</option>
                     <option value="MN">MN</option>
@@ -148,59 +130,53 @@
                     <option value="lb">lb</option>
                     <option value="kgf">kgf</option>
                 </select>
-            </div>
-        </div>
-        <!-- Area Card -->
-        <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
-           <i class="fa-solid fa-layer-group fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-           <div class="card-body">
-               <h4 class="text-center">Area (A)<br>
-                   <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                       data-bs-title="Area (m<sup>2</sup>, cm<sup>2</sup>, in<sup>2</sup>, ft<sup>2</sup>):"
-                       data-bs-content="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>). Example: 10 m<sup>2</sup> or 100 cm<sup>2</sup>. Note: If you are solving for force or pressure, you should input measurements in compatible units.">
-                       <i class="far fa-question-circle fa"></i>
-                   </a>
-               </h4>
-               <p class="card-text"></p>
-               <label for="inputArea">Area (A)</label><br>
-               <input type="number" name="inputArea" id="inputArea" class="reset_form formCheck maxAllow"
-                   data-input="area" value="" min="0" max="1.00e+30" step="0.0001" autocomplete="off"
-                   aria-label="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>)." disabled>
-               <br>
-               <label for="unitsArea">Units</label><br>
-               <select name="unitsArea" id="unitsArea" style="width:75px;" data-input="area" disabled>
-                   <option value="m2" selected>m&#x207b;&sup2;</option>
-                   <option value="cm2">cm&#x207b;&sup2;</option>
-                   <option value="km2">km&#x207b;&sup2;</option>
-                   <option value="mm2">mm&#x207b;&sup2;</option>
-                   <option value="um2">um&#x207b;&sup2;</option>
-                   <option value="mi2">mi&#x207b;&sup2;</option>
-                   <option value="yd2">yd&#x207b;&sup2;</option>
-                   <option value="ft2">ft&#x207b;&sup2;</option>
-                   <option value="in2">in&#x207b;&sup2;</option>
+                    </div>
+                </div>
+                <!-- Area Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-layer-group fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Area (A)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Area (m<sup>2</sup>, cm<sup>2</sup>, in<sup>2</sup>, ft<sup>2</sup>):" data-bs-content="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>). Example: 10 m<sup>2</sup> or 100 cm<sup>2</sup>. Note: If you are solving for force or pressure, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputArea">Area (A)</label><br>
+                        <input type="number" name="inputArea" id="inputArea" class="reset_form formCheck maxAllow" data-input="area" value="" min="0" max="1.00e+30" step="0.0001" autocomplete="off" aria-label="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>)."
+                            disabled>
+                        <br>
+                        <label for="unitsArea">Units</label><br>
+                        <select name="unitsArea" id="unitsArea" style="width:75px;" data-input="area" disabled>
+                   <option value="m2" selected>m&sup2;</option>
+                   <option value="cm2">cm&sup2;</option>
+                   <option value="km2">km&sup2;</option>
+                   <option value="mm2">mm&sup2;</option>
+                   <option value="um2">µm&sup2;</option>
+                   <option value="mi2">mi&sup2;</option>
+                   <option value="yd2">yd&sup2;</option>
+                   <option value="ft2">ft&sup2;</option>
+                   <option value="in2">in&sup2;</option>
                    <option value="ac">acres</option>
                    <option value="ha">hectares</option>
                </select>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    </div>
-    <div class="col text-center">
-        <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-            data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
-            <i class="far fa-question-circle fa mb-2"></i>
-        </a>
-        <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
-        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-            data-bs-title="Calculate"
-            data-bs-content="Once you have added three variables submit the calculation for evaluation.">
-            <i class="far fa-question-circle fa mb-2"></i>
-        </a>
-        <div id="error"></div>
-    </div>
-    <br>
-</section>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
         <!-- TABLE ONE - RESULTS -->
         <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
             <h5>Table 1: Results in SI units</h5>
@@ -230,9 +206,7 @@
             <p id="equation"></p>
             <p id="substitutedNumbers"></p>
             <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
-            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                data-bs-title="Reset Form"
-                data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
                 <i class="far fa-question-circle fa mb-2"></i>
             </a>
             <br>
@@ -251,50 +225,50 @@
                 </tr>
             </thead>
             <tbody>
-                 <tr>
-                     <td>Pressure (P)</td>
-                     <td id="p1x">Nm&#x207b;&sup2;</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p2x">Pa</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p3x">kPa</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p4x">MPa</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p5x">GPa</td>
-                 </tr>
-                 <tr class="t_line">
-                     <td></td>
-                     <td id="p6x">bar</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p7x">mbar</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p8x">hPa</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p9x">mmHg</td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td id="p10x">inHg</td>
-                 </tr>
-                 <tr class="t_line">
-                     <td></td>
-                     <td id="p11x">psi</td>
-                 </tr>
+                <tr>
+                    <td>Pressure (P)</td>
+                    <td id="p1x">Nm&#x207b;&sup2;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p2x">Pa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p3x">kPa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p4x">MPa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p5x">GPa</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="p6x">bar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p7x">mbar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p8x">hPa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p9x">mmHg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p10x">inHg</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="p11x">psi</td>
+                </tr>
                 <tr>
                     <td>Force (F)</td>
                     <td id="f1x">N</td>

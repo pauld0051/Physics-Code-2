@@ -256,7 +256,7 @@ const unitsPressure = document.getElementById('unitsPressure');
 
 unitsPressure.addEventListener('change', function () {
             const selectedValue = unitsPressure.value;
-            let max = 1.00e12;
+            let max = 1.00e24;
             let min = -1.00e12;
             let step = "any";
                 switch (selectedValue) {
@@ -266,80 +266,80 @@ unitsPressure.addEventListener('change', function () {
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'atm':
-                        max = 1000;
-                        min = -1000;
+                        max = max / 101324.99766353;
+                        min = min / 101324.99766353;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'Pa':
-                        max = 100000000;
-                        min = -100000000;
+                        max = max;
+                        min = min;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'bar':
-                        max = 100000;
-                        min = -100000;
+                        max = max / 1000;
+                        min = min / -1000;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'psi':
-                        max = 1000000;
-                        min = -1000000;
+                        max = max * 0.0001450377;
+                        min = min * 0.0001450377;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'mmHg':
-                        max = 760000;
-                        min = -760000;
+                        max = max / 133.32236534674;
+                        min = max / 133.32236534674;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'torr':
-                        max = 760000;
-                        min = -760000;
+                         max = max / 133.32236534674;
+                         min = max / 133.32236534674;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'hpa':
-                        max = 1000000;
-                        min = -1000000;
+                        max = max * 0.01;
+                        min = max * 0.01;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'kpa':
-                        max = 100000;
-                        min = -100000;
+                        max = max * 0.001 ;
+                        min = max * 0.001;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'mpa':
-                        max = 100;
-                        min = -100;
+                        max = max * 0.000001;
+                        min = min * 0.000001;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);
                         inputPressure.setAttribute('step', step);
                         break;
                     case 'mbar':
-                        max = 1000000;
-                        min = -1000000;
+                        max = max / 100;
+                        min = min / 100;
                         step = step;
                         inputPressure.setAttribute('max', max);
                         inputPressure.setAttribute('min', min);

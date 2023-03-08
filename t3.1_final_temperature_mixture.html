@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Final Temperature of a Mixture Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">Final Temperature Calculator for Mixtures</h1>
+                <p class="lead">Calculate the final temperature of a mixture of two liquids given their masses, specific
+                    heat capacities, and initial temperatures.</p>
+                <p>Start by selecting the known variables below and entering their values.</p>
+            </div>
+        </div>
+    </section>
+ <section class="container border border-info bg_cont mb-1">
+     <div class="row">
+         <h3 class="d-flex justify-content-center">Equation</h3>
+     </div>
+     <div class="row">
+         <div class="col-md-12 col-lg-12 col-xl-12">
+             <p class="d-flex justify-content-center">\[ T_{f} = \frac{m_1 c_1 T_{i1} + m_2 c_2 T_{i2}}{m_1 c_1 + m_2 c_2}\]</p>
+         </div>
+     </div>
+ </section>
+    <form id="SubmissionForm" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the known variables:</h4>
+            <p>Please select the known variables from the options below and enter their values to calculate the final
+                temperature of a mixture of two liquids. You can select any two variables to calculate the third. This
+                calculator assumes that the two liquids are well-mixed and that there is no heat loss to the
+                surroundings.</p>
+            <p>The above equation is used to calculate the final temperature of the mixture with:</p>
+            <p class="d-flex justify-content-center">
+            </p>
+            <ul>
+                <li>\(T_f\) is the final temperature of the mixture</li>
+                <li>\(m_1\) and \(m_2\) are the masses of the two liquids</li>
+                <li>\(c_1\) and \(c_2\) are the specific heat capacities of the two liquids</li>
+                <li>\(T_{i1}\) and \(T_{i2}\) are the initial temperatures of the two liquids</li>
+            </ul>
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-success fa-check-square me-2"></i>Select the variables you
+                        know:</p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-check form-switch border-bottom">
+                                    <input class="form-check-input" type="checkbox" value="same_liquid" id="same_liquid"
+                                        name="same_liquid">
+                                    <label class="form-check-label" for="same_liquid">
+                                        Both liquids are the same
+                                    </label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus" data-bs-title="Mixture 1 and Mixture 2:"
+                                        data-bs-content="If both mixtures are the same liquids, you do not need to enter in the specific heat capacity. Click this checkbox and the specific heat capacity inputs won't be required.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 26rem;">
+                    <i class="fa-solid fa-vial fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Mixture 1<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Mixture 1 (m<sub>1</sub>, c<sub>1</sub>, T<sub>i1</sub>):"
+                                data-bs-content="Enter the mass, specific heat capacity and the initial temperature of the 1st liquid in the mixture.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                      <!-- Input 1 Mass 1 -->
+                      <div class="form-group">
+                          <div class="row">
+                              <div class="col">
+                                  <label for="inputMass1" class="form-label">Mass (m<sub>1</sub>)</label>
+                                  <input type="number" name="inputMass1" id="inputMass1"
+                                      class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                      aria-label="Enter the mass of the first liquid in the mixture. Check your units."
+                                      data-input="mass1" required>
+                              </div>
+                              <div class="col">
+                                  <label for="unitsMass1" class="form-label">Units</label>
+                                  <select class="form-select" name="unitsMass1" id="unitsMass1" style="width:75px;"
+                                      data-input="mass" >
+                                      <option value="kg" selected>kg</option>
+                                      <option value="gm">g</option>
+                                      <option value="mg">mg</option>
+                                      <option value="μg">μg</option>
+                                      <option value="lb">lb</option>
+                                      <option value="oz">oz</option>
+                                      <option value="toz">t oz</option>
+                                  </select>
+                              </div>
+                          </div>
+                      </div>
+                        <!-- Input 2 - Specific Heat Capacity 1 -->
+                       <div class="form-group">
+                           <div class="row">
+                               <div class="col">
+                                   <label for="inputSpecificHeatCapacity1" class="form-label">Specific Heat
+                                       (c<sub>1</sub>)</label>
+                                   <input type="number" name="inputSpecificHeatCapacity1"
+                                       id="inputSpecificHeatCapacity1"
+                                       class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                       aria-label="Enter the specific heat capacity of the first liquid in the mixture. Check your units. If you know the liquid being used, check the preset values available here."
+                                       data-input="temperature1" >
+                               </div>
+                               <div class="col">
+                                   <label for="unitsSpecificHeatCapacity1" class="form-label">Units</label>
+                                   <select class="form-select" name="unitsSpecificHeatCapacity1"
+                                       id="unitsSpecificHeatCapacity1"
+                                       data-input="specificHeatCapacity1" >
+                                        <option value="c1" selected>J kg⁻¹·K⁻¹</option>
+                                        <option value="c2">J g⁻¹·k⁻¹</option>
+                                        <option value="c4">cal g⁻¹·K⁻¹</option>
+                                        <option value="c5">Btu lb⁻¹·°F⁻¹</option>
+                                        <option value="c6">kJ kg⁻¹·K⁻¹</option>
+                                        <option value="c8">Water: 4186 J kg⁻¹·K⁻¹</option>
+                                        <option value="c9">Ethanol: 2440 J kg⁻¹·K⁻¹</option>
+                                        <option value="c10">Aluminum: 897J kg⁻¹·K⁻¹</option>
+                                        <option value="c11">Copper: 385 J kg⁻¹·K⁻¹</option>
+                                        <option value="c20">Diamond: 509.1 J kg⁻¹·K⁻¹</option>
+                                        <option value="c14">Gold: 129 J kg⁻¹·K⁻¹</option>
+                                        <option value="c19">Graphite: 790 J kg⁻¹·K⁻¹</option>
+                                        <option value="c18">ice: 2108 J kg⁻¹·K⁻¹</option>
+                                        <option value="c12">Iron: 412 J kg⁻¹·K⁻¹</option>
+                                        <option value="c13">Lead: 129 J kg⁻¹·K⁻¹</option>
+                                        <option value="c15">Mercury: 139.5 J kg⁻¹·K⁻¹</option>
+                                        <option value="c17">Nitrogen: 1040 J kg⁻¹·K⁻¹</option>
+                                        <option value="c16">Air: 1012 J kg⁻¹·K⁻¹</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 3 Temperature i1 -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="inputTemperature1" class="form-label">Temperature
+                                        (T<sub>i1</sub>)</label>
+                                    <input type="number" name="inputTemperature1" id="inputTemperature1"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="Enter the temperature of the first liquid in the mixture. Check your units."
+                                        data-input="temperature1" required>
+                                </div>
+                                <div class="col">
+                                    <label for="unitsTemperature1" class="form-label">Units</label>
+                                    <select class="form-select" name="unitsTemperature1" id="unitsTemperature1"
+                                        style="width:75px;" data-input="temperature" >
+                                        <option value="K" selected>K</option>
+                                        <option value="°C">°C</option>
+                                        <option value="°F">°F</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Input 3 -->
+                    </div>
+                </div>
+                <!-- Second Card -->
+                 <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 26rem;">
+                     <i class="fa-solid fa-vials fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                     <div class="card-body">
+                         <h4 class="text-center">Mixture 2<br>
+                             <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                 data-bs-title="Mixture 2 (m<sub>2</sub>, c<sub>2</sub>, T<sub>i2</sub>):"
+                                 data-bs-content="Enter the mass, specific heat capacity and the initial temperature of the 2nd liquid in the mixture.">
+                                 <i class="far fa-question-circle fa"></i>
+                             </a>
+                         </h4>
+                          <!-- Input 1 Mass 2 -->
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col">
+                                      <label for="inputMass2" class="form-label">Mass (m<sub>2</sub>)</label>
+                                      <input type="number" name="inputMass2" id="inputMass2"
+                                          class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                          aria-label="Enter the mass of the first liquid in the mixture. Check your units."
+                                          data-input="mass2" required>
+                                  </div>
+                                  <div class="col">
+                                      <label for="unitsMass2" class="form-label">Units</label>
+                                      <select class="form-select" name="unitsMass2" id="unitsMass2" style="width:75px;"
+                                          data-input="mass" >
+                                          <option value="kg2" selected>kg</option>
+                                          <option value="gm2">g</option>
+                                          <option value="mg2">mg</option>
+                                          <option value="μg2">μg</option>
+                                          <option value="lb2">lb</option>
+                                          <option value="oz2">oz</option>
+                                          <option value="toz2">t oz</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Input 2 - Specific Heat Capacity 2 -->
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col">
+                                      <label for="inputSpecificHeatCapacity2" class="form-label">Specific Heat
+                                          (c<sub>2</sub>)</label>
+                                      <input type="number" name="inputSpecificHeatCapacity2"
+                                          id="inputSpecificHeatCapacity2"
+                                          class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                          aria-label="Enter the specific heat capacity of the first liquid in the
+                                          mixture. Check your units. If you know the liquid being used, check the preset
+                                          values available here."
+                                          data-input="temperature1" >
+                                  </div>
+                                  <div class="col">
+                                      <label for="unitsSpecificHeatCapacity2" class="form-label">Units</label>
+                                      <select class="form-select" name="unitsSpecificHeatCapacity2"
+                                          id="unitsSpecificHeatCapacity2" data-input="specificHeatCapacity2" >
+                                          <option value="c12" selected>J kg⁻¹·K⁻¹</option>
+                                          <option value="c22">J g⁻¹·k⁻¹</option>
+                                          <option value="c42">cal g⁻¹·K⁻¹</option>
+                                          <option value="c52">Btu lb⁻¹·°F⁻¹</option>
+                                          <option value="c62">kJ kg⁻¹·K⁻¹</option>
+                                          <option value="c82">Water: 4186 J kg⁻¹·K⁻¹</option>
+                                          <option value="c92">Ethanol: 2440 J kg⁻¹·K⁻¹</option>
+                                          <option value="c102">Aluminum: 897J kg⁻¹·K⁻¹</option>
+                                          <option value="c112">Copper: 385 J kg⁻¹·K⁻¹</option>
+                                          <option value="c202">Diamond: 509.1 J kg⁻¹·K⁻¹</option>
+                                          <option value="c142">Gold: 129 J kg⁻¹·K⁻¹</option>
+                                          <option value="c192">Graphite: 790 J kg⁻¹·K⁻¹</option>
+                                          <option value="c182">ice: 2108 J kg⁻¹·K⁻¹</option>
+                                          <option value="c122">Iron: 412 J kg⁻¹·K⁻¹</option>
+                                          <option value="c132">Lead: 129 J kg⁻¹·K⁻¹</option>
+                                          <option value="c152">Mercury: 139.5 J kg⁻¹·K⁻¹</option>
+                                          <option value="c172">Nitrogen: 1040 J kg⁻¹·K⁻¹</option>
+                                          <option value="c162">Air: 1012 J kg⁻¹·K⁻¹</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- Input 3 Temperature 2 -->
+                          <div class="form-group">
+                              <div class="row">
+                                  <div class="col">
+                                      <label for="inputTemperature2" class="form-label">Temperature
+                                          (T<sub>i2</sub>)</label>
+                                      <input type="number" name="inputTemperature2" id="inputTemperature2"
+                                          class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                          aria-label="Enter the temperature of the first liquid in the mixture. Check your units."
+                                          data-input="temperature2" required>
+                                  </div>
+                                  <div class="col">
+                                      <label for="unitsTemperature2" class="form-label">Units</label>
+                                      <select class="form-select" name="unitsTemperature2" id="unitsTemperature2"
+                                          style="width:75px;" data-input="temperature" >
+                                          <option value="K2" selected>K</option>
+                                          <option value="C2">°C</option>
+                                          <option value="F2">°F</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End Input 3 -->
+                     </div>
+                 </div>
+                 </div>
+            </div>
+       </div>
+       <div class="col text-center">
+           <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+           <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+               data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+               <i class="far fa-question-circle fa mb-2"></i>
+           </a>
+           <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
+               disabled>Calculate</button>
+           <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+               data-bs-title="Calculate"
+               data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+               <i class="far fa-question-circle fa mb-2"></i>
+           </a>
+           <div id="error"></div>
+       </div>
+       <br>
+       </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>Final Temperature (T<sub>f</sub>)</td>
+                        <td id="temperatureOutput">K</td>
+                    </tr>
+                    <tr>
+                        <td>Mass (m<sub>1</sub> + m<sub>2</sub>)</td>
+                        <td id="massOutput">kg</td>
+                    </tr>
+                    <tr>
+                        <td>Change in Temperature (ΔT)</td>
+                        <td id="changeInTemperatureOutput">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                data-bs-title="Reset Form"
+                data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output accordingly and see the
+                    common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+       <table class="table table-sm">
+           <thead>
+               <tr class="t_line">
+                   <th scope="col" class="w50">Variable</th>
+                   <th scope="col" class="w50">Amount</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr>
+                   <td>Mass (m<sub>1</sub>)</td>
+                   <td id="m1x">kg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m2x">g</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m3x">mg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m4x">μg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m5x">lb</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m6x">oz</td>
+               </tr>
+               <tr class="t_line">
+                   <td></td>
+                   <td id="m7x">t oz</td>
+               </tr>
+               <tr>
+                   <td>Mass (m<sub>2</sub>)</td>
+                   <td id="m1x2">kg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m2x2">g</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m3x2">mg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m4x2">μg</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m5x2">lb</td>
+               </tr>
+               <tr>
+                   <td></td>
+                   <td id="m6x2">oz</td>
+               </tr>
+               <tr class="t_line">
+                   <td></td>
+                   <td id="m7x2">t oz</td>
+               </tr>
+               <tr>
+                   <td>Heat Capacity (c<sub>1</sub>)</td>
+                   <td id="c1x">J kg⁻¹·K⁻¹</td>
+               </tr>
+                 <tr>
+                    <td></td>
+                     <td id="c3x">J g⁻¹·k⁻¹</td>
+                 </tr>
+                 <tr>
+                    <td></td>
+                     <td id="c4x">cal g⁻¹·K⁻¹</td>
+                 </tr>
+                 <tr>
+                    <td></td>
+                     <td id="c5x">Btu lb⁻¹·°F⁻¹</td>
+                 </tr>
+                 <tr class="t_line">
+                    <td></td>
+                     <td id="c6x">kJ kg⁻¹·K⁻¹</td>
+                 </tr>
+                  <tr>
+                      <td>Heat Capacity (c<sub>2</sub>)</td>
+                      <td id="c1x2">J kg⁻¹·K⁻¹</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td id="c3x2">J g⁻¹·k⁻¹</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td id="c4x2">cal g⁻¹·K⁻¹</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td id="c5x2">Btu lb⁻¹·°F⁻¹</td>
+                  </tr>
+                  <tr class="t_line">
+                    <td></td>
+                      <td id="c6x2">kJ kg⁻¹·K⁻¹</td>
+                  </tr>
+                  <tr>
+                      <td>Initial Temperature 1 (T<sub>i1</sub>)</td>
+                      <td id="t1x">K</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td id="t2x">°C</td>
+                  </tr>
+                  <tr class="t_line">
+                      <td></td>
+                      <td id="t3x">°F</td>
+                  </tr>
+                  <tr>
+                      <td>Initial Temperature 2 (T<sub>i2</sub>)</td>
+                      <td id="t1x2">K</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td id="t2x2">°C</td>
+                  </tr>
+                  <tr class="t_line">
+                      <td></td>
+                      <td id="t3x2">°F</td>
+                  </tr>
+                  <tr>
+                      <td>Final Temperature (T<sub>f</sub>)</td>
+                      <td id="tf1x">K</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td id="tf2x">°C</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td id="tf3x">°F</td>
+                  </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
+                completed.</em>
+        </p>
+    </section>
+    </div>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/t3.1_final_temperature_mixture.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

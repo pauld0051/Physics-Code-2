@@ -1,24 +1,24 @@
 function includeHTML(fileName, destination) {
-    let xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
 
-    // Establish the callback:
-    xhr.onreadystatechange = function() {
-        // Is the response ready?
-        if (this.readyState == 4) {
-            // Was the response successful?
-            if (this.status == 200) {
-                destination.innerHTML = this.responseText;
-            } else {
-                console.log("Response was received but not successful.");
-            }
-        } else {
-            console.log("Response is not ready.");
-        }
-    };
+  // Establish the callback:
+  xhr.onreadystatechange = function () {
+    // Is the response ready?
+    if (this.readyState == 4) {
+      // Was the response successful?
+      if (this.status == 200) {
+        destination.innerHTML = this.responseText;
+      } else {
+        console.log("Response was received but not successful.");
+      }
+    } else {
+      console.log("Response is not ready.");
+    }
+  };
 
-    // Initiate the request:
-    xhr.open("GET", fileName, true);
-    xhr.send();
+  // Initiate the request:
+  xhr.open("GET", fileName, true);
+  xhr.send();
 }
 
 // Validate inputs
@@ -98,13 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // disable mousewheel on an input number field when in focus
 // (Prevents an accidental change in input values when scrolling on the page)
-$("form").on("focus", "input[type=number]", function(e) {
-    $(this).on("wheel.disableScroll", function(e) {
-        e.preventDefault();
-    });
+$("form").on("focus", "input[type=number]", function (e) {
+  $(this).on("wheel.disableScroll", function (e) {
+    e.preventDefault();
+  });
 });
-$("form").on("blur", "input[type=number]", function(e) {
-    $(this).off("wheel.disableScroll");
+$("form").on("blur", "input[type=number]", function (e) {
+  $(this).off("wheel.disableScroll");
 });
 
 // Show Alert Boxes
@@ -120,24 +120,25 @@ function showAlert(message, inputId) {
   alertBox.setAttribute('aria-label', `Alert: ${message}`);
   alertContainer.style.display = 'flex';
 
-alertClose.addEventListener('click', () => {
-  alertContainer.style.display = 'none';
-  if (inputId) {
-    const inputField = document.getElementById(inputId);
-    inputField.focus();
-    const newInvalidCard = inputField.closest('.card');
-    if (lastInvalidCard !== null) {
-      lastInvalidCard.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
+  alertClose.addEventListener('click', () => {
+    alertContainer.style.display = 'none';
+    if (inputId) {
+      const inputField = document.getElementById(inputId);
+      inputField.focus();
+      const newInvalidCard = inputField.closest('.card');
+      if (lastInvalidCard !== null) {
+        lastInvalidCard.classList.remove('border', 'border-danger', 'border-3', 'shadow-lg');
+      }
+      newInvalidCard.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
+      lastInvalidCard = newInvalidCard;
     }
-    newInvalidCard.classList.add('border', 'border-3', 'border-danger', 'shadow-lg');
-    lastInvalidCard = newInvalidCard;
-  }
-  // Scroll to the invalid input field
-  const invalidInputField = document.getElementById(inputId);
-  invalidInputField.scrollIntoView({
-    behavior: 'smooth', block: 'center'
+    // Scroll to the invalid input field
+    const invalidInputField = document.getElementById(inputId);
+    invalidInputField.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
   });
-});
 }
 
 // Remove any borders from cards
@@ -164,3 +165,7 @@ const scientificNotation = (number) => {
   }
 };
 
+// Select the units for the buttons on the dropdowns for inputs
+// const defaultUnit = document.querySelector('.dropdown-item');
+//  const dropdownBtn = document.querySelector('.unitDropdownBtn');
+// dropdownBtn.textContent = defaultUnit.value;

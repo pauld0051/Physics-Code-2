@@ -205,3 +205,59 @@ input:valid {
     color: #000;
     font-weight: bold;
 }
+
+/* Input Placeholder and Select Text Size */
+input[type="number"]::-webkit-input-placeholder {
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+input[type="number"]::-moz-placeholder {
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+input[type="number"]:-moz-placeholder {
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+input[type="number"]:-ms-input-placeholder {
+  font-size: 75%;
+  line-height: 1.5;
+}
+
+select.form-select {
+  font-size: 75%;
+}
+
+select.form-select,
+input.reset_form {
+  height: calc(1.5em + 0.75rem + 2px);
+}
+
+.form-group .row .col:first-child {
+  padding-right: 0;
+}
+
+.form-group .row .col:last-child {
+  width: auto;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+}
+.form-group .row {
+  flex: 1;
+}
+.form-group .row .col:first-child {
+  flex: 1;
+}
+
+label.form-label {
+  padding-top: 6px;
+}
+
+
+

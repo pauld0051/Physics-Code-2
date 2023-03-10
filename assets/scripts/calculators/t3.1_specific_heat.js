@@ -12,21 +12,25 @@ $checkboxes.on("change", function () {
     const $checkedInputs = $checkedCheckboxes.map(function () {
         return $("[data-input='" + this.id + "']");
     });
-    const $allInputs = $(".reset_form");
-    $allInputs.prop("disabled", true);
+    const $uncheckedInputs = $("[data-input]").not($checkedInputs);
+    $uncheckedInputs.prop("disabled", true);
     $checkedInputs.each(function () {
         $(this).prop("disabled", false);
         $(this).siblings("select").prop("disabled", false);
     });
 
-    // Disable corresponding unit select options for unchecked checkboxes
+    // Reset inputs and select options for unchecked checkboxes
     const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
     $uncheckedCheckboxes.each(function () {
         const $uncheckedInputs = $("[data-input='" + this.id + "']");
-        $uncheckedInputs.prop("disabled", true);
-        $uncheckedInputs.siblings("select").prop("disabled", true);
-        $uncheckedInputs.val(""); // clear the input box
-        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
+        if ($uncheckedInputs.is(":input")) {
+            $uncheckedInputs.val("").attr("placeholder", $uncheckedInputs.attr("placeholder"));
+        }
+        if ($uncheckedInputs.is("select")) {
+            $uncheckedInputs.prop('selectedIndex', 0); // reset to default selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").prop("selected", true); // reset the selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").siblings().show(); // show the placeholder
+        }
     });
 
     // Disable submit button if less than 3 checkboxes are checked
@@ -40,7 +44,6 @@ $checkboxes.on("change", function () {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
     }
 });
-
 
 const xunitsSpecificHeatCapacity = document.getElementById('unitsSpecificHeatCapacity');
 const xinputSpecificHeatCapacity = document.getElementById('inputSpecificHeatCapacity');
@@ -93,7 +96,7 @@ xunitsSpecificHeatCapacity.addEventListener('change', (event) => {
     if (selectedValue === 'c1') {
         xinputSpecificHeatCapacity.placeholder = 'J kg⁻¹·K⁻¹';
     } else {
-        xinputSpecificHeatCapacity.placeholder = '';
+        xinputSpecificHeatCapacity.placeholder = 'Specific Heat (c)';
     }
 
    xinputSpecificHeatCapacity.disabled = (selectedValue !== 'c1' && selectedValue !== 'c2' && selectedValue !== 'c3' && selectedValue !== 'c4' && selectedValue !== 'c5' && selectedValue !== 'c6' && selectedValue !== 'c7');
@@ -128,27 +131,27 @@ function calculateIdealGas() {
     // Heat //
     const heatUnit = document.getElementById("unitsHeat").value;
     if (heatUnit === "j") {
-        heat = heat;
+        q = q;
     }
     if (heatUnit === "cal") {
-        heat = heat * 4.184;
+        q = q * 4.184;
     }
     if (heatUnit === "kj") {
-        heat = heat / 1000;
+        q = q / 1000;
     }
     if (heatUnit === "kcal") {
-        heat = heat * 4.184 / 1000;
+        q = q * 4.184 / 1000;
     }
     if (heatUnit === "btu") {
-        heat = heat * 1055.056;
+        q = q * 1055.056;
     }
     if (heatUnit === "ev") {
-        heat = heat * 6.24150913e+18;
+        q = q * 6.24150913e+18;
     }
     if (heatUnit === "mj") {
-        heat = heat / 1000000;
+        q = q / 1000000;
     }
-    if (isNaN(heat)) heat = 0;
+    if (isNaN(q)) q = 0;
 
     // Mass //
     const mUnit = document.getElementById("unitsMass").value;
@@ -330,8 +333,8 @@ function calculateIdealGas() {
 
     // Update temperature values
     document.getElementById("dtx").innerHTML = scientificNotation(t) + " K";
-    document.getElementById("dty").innerHTML = scientificNotation(t - 273.15) + " °C";
-    document.getElementById("dtz").innerHTML = scientificNotation((t - 273.15) * 9 / 5 + 32) + " °F";
+    document.getElementById("dty").innerHTML = scientificNotation(t) + " °C";
+    document.getElementById("dtz").innerHTML = scientificNotation((t) * 9 / 5) + " °F";
 }
 
 document.getElementById("resetButton1").addEventListener("click", resetForm);

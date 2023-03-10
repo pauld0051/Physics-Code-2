@@ -165,7 +165,21 @@ const scientificNotation = (number) => {
   }
 };
 
-// Select the units for the buttons on the dropdowns for inputs
-// const defaultUnit = document.querySelector('.dropdown-item');
-//  const dropdownBtn = document.querySelector('.unitDropdownBtn');
-// dropdownBtn.textContent = defaultUnit.value;
+// Form Reset
+document.getElementById("resetButton1").addEventListener("click", resetForm);
+document.getElementById("resetButton2").addEventListener("click", resetForm);
+
+function resetForm() {
+  document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.checked = false;
+    checkbox.disabled = false;
+  });
+  document.querySelectorAll('.maxAllow').forEach((input) => {
+    input.value = '';
+    input.disabled = true;
+  });
+  document.querySelectorAll('select').forEach((select) => {
+    select.selectedIndex = 0; // reset to default selected option
+    select.disabled = true;
+  });
+}

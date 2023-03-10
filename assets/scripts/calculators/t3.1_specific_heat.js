@@ -99,7 +99,7 @@ xunitsSpecificHeatCapacity.addEventListener('change', (event) => {
         xinputSpecificHeatCapacity.placeholder = 'Specific Heat (c)';
     }
 
-   xinputSpecificHeatCapacity.disabled = (selectedValue !== 'c1' && selectedValue !== 'c2' && selectedValue !== 'c3' && selectedValue !== 'c4' && selectedValue !== 'c5' && selectedValue !== 'c6' && selectedValue !== 'c7');
+    xinputSpecificHeatCapacity.disabled = (selectedValue !== 'c1' && selectedValue !== 'c2' && selectedValue !== 'c3' && selectedValue !== 'c4' && selectedValue !== 'c5' && selectedValue !== 'c6' && selectedValue !== 'c7');
 });
 
 
@@ -335,232 +335,217 @@ function calculateIdealGas() {
     document.getElementById("dtx").innerHTML = scientificNotation(t) + " K";
     document.getElementById("dty").innerHTML = scientificNotation(t) + " °C";
     document.getElementById("dtz").innerHTML = scientificNotation((t) * 9 / 5) + " °F";
-}
 
-document.getElementById("resetButton1").addEventListener("click", resetForm);
-document.getElementById("resetButton2").addEventListener("click", resetForm);
+    const inputHeat = document.getElementById('inputHeat');
+    const unitsHeat = document.getElementById('unitsHeat');
 
-function resetForm() {
-    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-        checkbox.checked = false;
-        checkbox.disabled = false;
+    unitsHeat.addEventListener('change', function () {
+        const selectedValue = unitsHeat.value;
+        let max = 1e13;
+        let min = 1.6e-19;
+        let step = min;
+        switch (selectedValue) {
+            case 'j':
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'cal':
+                max = max / 4.184;
+                min = min / 4.184;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'kj':
+                max = max / 1000;
+                min = min / 1000;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'kcal':
+                max = max / 4184;
+                min = min / 4184;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'btu':
+                max = max / 1055.06;
+                min = min / 1055.06;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'ev':
+                max = max / 1.60218e-19;
+                min = min / 1.60218e-19;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'mj':
+                max = max / 1e6;
+                min = min / 1e6;
+                inputHeat.setAttribute('max', max.toExponential(4));
+                inputHeat.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            default:
+                console.error('Invalid heat unit');
+        }
     });
-    document.querySelectorAll('.maxAllow').forEach((input) => {
-        input.value = '';
-        input.disabled = true;
+
+    const inputMass = document.getElementById('inputMass');
+    const unitsMass = document.getElementById('unitsMass');
+
+    unitsMass.addEventListener('change', function () {
+        const selectedValue = unitsMass.value;
+        let max = 1e13;
+        let min = 1e-10;
+        let step = 1e-10;
+        switch (selectedValue) {
+            case 'kg':
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'gm':
+                max = max / 1000;
+                min = min / 1000;
+                step = step / 1000;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'mg':
+                max = max / 1e6;
+                min = min / 1e6;
+                step = step / 1e6;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'μg':
+                max = max / 1e9;
+                min = min / 1e9;
+                step = step / 1e9;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'lb':
+                max = max / 2.20462;
+                min = min / 2.20462;
+                step = step / 2.20462;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'oz':
+                max = max / 35.274;
+                min = min / 35.274;
+                step = step / 35.274;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            case 'toz':
+                max = max / 32.1507;
+                min = min / 32.1507;
+                step = step / 32.1507;
+                inputMass.setAttribute('max', max.toExponential(4));
+                inputMass.setAttribute('min', min.toExponential(4));
+                inputMass.setAttribute('step', step.toExponential(4));
+                break;
+            default:
+                console.error('Invalid mass unit');
+        }
     });
-}
 
-const inputHeat = document.getElementById('inputHeat');
-const unitsHeat = document.getElementById('unitsHeat');
+    const inputSpecificHeatCapacity = document.getElementById('inputSpecificHeatCapacity');
+    const unitsSpecificHeatCapacity = document.getElementById('unitsSpecificHeatCapacity');
 
-unitsHeat.addEventListener('change', function () {
-    const selectedValue = unitsHeat.value;
-    let max = 1e13;
-    let min = 1.6e-19;
-    let step = min;
-    switch (selectedValue) {
-        case 'j':
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'cal':
-            max = max / 4.184;
-            min = min / 4.184;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'kj':
-            max = max / 1000;
-            min = min / 1000;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'kcal':
-            max = max / 4184;
-            min = min / 4184;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'btu':
-            max = max / 1055.06;
-            min = min / 1055.06;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'ev':
-            max = max / 1.60218e-19;
-            min = min / 1.60218e-19;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'mj':
-            max = max / 1e6;
-            min = min / 1e6;
-            inputHeat.setAttribute('max', max.toExponential(4));
-            inputHeat.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        default:
-            console.error('Invalid heat unit');
-    }
-});
+    unitsSpecificHeatCapacity.addEventListener('change', function () {
+        const selectedValue = unitsSpecificHeatCapacity.value;
+        let max = 5000000;
+        let min = 0.000000000001;
+        let step = 0.000000000001;
 
-const inputMass = document.getElementById('inputMass');
-const unitsMass = document.getElementById('unitsMass');
+        switch (selectedValue) {
+            case 'c2':
+            case 'c4':
+                max = 5000;
+                min = 0.0001;
+                step = 0.0001;
+                break;
+            case 'c5':
+                max = 10000;
+                min = 0.001;
+                step = 0.001;
+                break;
+            case 'c6':
+                max = 5000;
+                min = 0.0001;
+                step = 0.0001;
+                break;
+            case 'c8':
+            case 'c9':
+            case 'c10':
+            case 'c11':
+            case 'c12':
+            case 'c13':
+            case 'c14':
+            case 'c15':
+            case 'c16':
+            case 'c17':
+            case 'c18':
+            case 'c19':
+            case 'c20':
+                max = 5000;
+                min = 0.0001;
+                step = 0.0001;
+                break;
+            default:
+                console.error('Invalid specific heat capacity unit');
+                break;
+        }
 
-unitsMass.addEventListener('change', function () {
-    const selectedValue = unitsMass.value;
-    let max = 1e13;
-    let min = 1e-10;
-    let step = 1e-10;
-    switch (selectedValue) {
-        case 'kg':
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'gm':
-            max = max / 1000;
-            min = min / 1000;
-            step = step / 1000;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'mg':
-            max = max / 1e6;
-            min = min / 1e6;
-            step = step / 1e6;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'μg':
-            max = max / 1e9;
-            min = min / 1e9;
-            step = step / 1e9;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'lb':
-            max = max / 2.20462;
-            min = min / 2.20462;
-            step = step / 2.20462;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'oz':
-            max = max / 35.274;
-            min = min / 35.274;
-            step = step / 35.274;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        case 'toz':
-            max = max / 32.1507;
-            min = min / 32.1507;
-            step = step / 32.1507;
-            inputMass.setAttribute('max', max.toExponential(4));
-            inputMass.setAttribute('min', min.toExponential(4));
-            inputMass.setAttribute('step', step.toExponential(4));
-            break;
-        default:
-            console.error('Invalid mass unit');
-    }
-});
+        inputSpecificHeatCapacity.setAttribute('max', max);
+        inputSpecificHeatCapacity.setAttribute('min', min);
+        inputSpecificHeatCapacity.setAttribute('step', step);
+    });
 
-const inputSpecificHeatCapacity = document.getElementById('inputSpecificHeatCapacity');
-const unitsSpecificHeatCapacity = document.getElementById('unitsSpecificHeatCapacity');
+    // Set step, min and max for Change in Temperature
+    const inputChangeInTemperature = document.getElementById('inputChangeInTemperature');
+    const unitsChangeInTemperature = document.getElementById('unitsChangeInTemperature');
 
-unitsSpecificHeatCapacity.addEventListener('change', function () {
-    const selectedValue = unitsSpecificHeatCapacity.value;
-    let max = 5000000;
-    let min = 0.000000000001;
-    let step = 0.000000000001;
-
-    switch (selectedValue) {
-        case 'c2':
-        case 'c4':
-            max = 5000;
-            min = 0.0001;
-            step = 0.0001;
-            break;
-        case 'c5':
-            max = 10000;
-            min = 0.001;
-            step = 0.001;
-            break;
-        case 'c6':
-            max = 5000;
-            min = 0.0001;
-            step = 0.0001;
-            break;
-        case 'c8':
-        case 'c9':
-        case 'c10':
-        case 'c11':
-        case 'c12':
-        case 'c13':
-        case 'c14':
-        case 'c15':
-        case 'c16':
-        case 'c17':
-        case 'c18':
-        case 'c19':
-        case 'c20':
-            max = 5000;
-            min = 0.0001;
-            step = 0.0001;
-            break;
-        default:
-            console.error('Invalid specific heat capacity unit');
-            break;
-    }
-
-    inputSpecificHeatCapacity.setAttribute('max', max);
-    inputSpecificHeatCapacity.setAttribute('min', min);
-    inputSpecificHeatCapacity.setAttribute('step', step);
-});
-
-// Set step, min and max for Change in Temperature
-const inputChangeInTemperature = document.getElementById('inputChangeInTemperature');
-const unitsChangeInTemperature = document.getElementById('unitsChangeInTemperature');
-
-unitsChangeInTemperature.addEventListener('change', function () {
-    const selectedValue = unitsChangeInTemperature.value;
-    let max = 6700;
-    let step = 0.0001;
-    switch (selectedValue) {
-        case 'k':
-            inputChangeInTemperature.setAttribute('max', max);
-            inputChangeInTemperature.setAttribute('min', step);
-            inputChangeInTemperature.setAttribute('step', step);
-            break;
-        case 'c':
-            max = max - 273.15;
-            step = 0.0001;
-            inputChangeInTemperature.setAttribute('max', max);
-            inputChangeInTemperature.setAttribute('min', step);
-            inputChangeInTemperature.setAttribute('step', step);
-            break;
-        case 'f':
-            max = (max - 273.15) * 1.8 + 32;
-            step = 0.0001;
-            inputChangeInTemperature.setAttribute('max', max);
-            inputChangeInTemperature.setAttribute('min', step);
-            inputChangeInTemperature.setAttribute('step', step);
-            break;
-        default:
-            console.error('Invalid temperature unit');
-    }
-});
+    unitsChangeInTemperature.addEventListener('change', function () {
+        const selectedValue = unitsChangeInTemperature.value;
+        let max = 6700;
+        let step = 0.0001;
+        switch (selectedValue) {
+            case 'k':
+                inputChangeInTemperature.setAttribute('max', max);
+                inputChangeInTemperature.setAttribute('min', step);
+                inputChangeInTemperature.setAttribute('step', step);
+                break;
+            case 'c':
+                max = max - 273.15;
+                step = 0.0001;
+                inputChangeInTemperature.setAttribute('max', max);
+                inputChangeInTemperature.setAttribute('min', step);
+                inputChangeInTemperature.setAttribute('step', step);
+                break;
+            case 'f':
+                max = (max - 273.15) * 1.8 + 32;
+                step = 0.0001;
+                inputChangeInTemperature.setAttribute('max', max);
+                inputChangeInTemperature.setAttribute('min', step);
+                inputChangeInTemperature.setAttribute('step', step);
+                break;
+            default:
+                console.error('Invalid temperature unit');
+        }
+    });

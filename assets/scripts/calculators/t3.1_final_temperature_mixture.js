@@ -13,11 +13,17 @@ sameLiquidCheckbox.addEventListener("change", function () {
         // Clear c1 and c2 inputs
         c1Input.value = "";
         c2Input.value = "";
+        // Set units select options to default
+        unitsC1Select.selectedIndex = 0;
+        unitsC2Select.selectedIndex = 0;
     } else {
         c1Input.disabled = false;
         c2Input.disabled = false;
         unitsC1Select.disabled = false;
         unitsC2Select.disabled = false;
+        // Set units select options to default
+        unitsC1Select.selectedIndex = 0;
+        unitsC2Select.selectedIndex = 0;
     }
 });
 
@@ -26,6 +32,9 @@ window.addEventListener("reset", function () {
     c2Input.disabled = false;
     unitsC1Select.disabled = false;
     unitsC2Select.disabled = false;
+    // Set units select options to default
+    unitsC1Select.selectedIndex = 0;
+    unitsC2Select.selectedIndex = 0;
 });
 
 // Get all input fields
@@ -89,36 +98,41 @@ xunitsSpecificHeatCapacity.addEventListener('change', (event) => {
         case 'c9':
             xinputSpecificHeatCapacity.value = 2440;
             break;
-        case 'c10':
-            xinputSpecificHeatCapacity.value = 897;
-            break;
-        case 'c11':
-            xinputSpecificHeatCapacity.value = 385;
-            break;
-        case 'c12':
-            xinputSpecificHeatCapacity.value = 412;
-            break;
         case 'c13':
+            xinputSpecificHeatCapacity.value = 1750;
+            break;
         case 'c14':
-            xinputSpecificHeatCapacity.value = 129;
+            xinputSpecificHeatCapacity.value = 1170;
             break;
         case 'c15':
-            xinputSpecificHeatCapacity.value = 139;
+            xinputSpecificHeatCapacity.value = 1720;
             break;
         case 'c16':
-            xinputSpecificHeatCapacity.value = 1012;
+            xinputSpecificHeatCapacity.value = 2400;
             break;
         case 'c17':
-            xinputSpecificHeatCapacity.value = 1040;
+            xinputSpecificHeatCapacity.value = 2220;
             break;
         case 'c18':
-            xinputSpecificHeatCapacity.value = 2108;
+            xinputSpecificHeatCapacity.value = 2500;
             break;
         case 'c19':
-            xinputSpecificHeatCapacity.value = 790;
+            xinputSpecificHeatCapacity.value = 1460;
             break;
         case 'c20':
-            xinputSpecificHeatCapacity.value = 509.1;
+            xinputSpecificHeatCapacity.value = 1420;
+            break;
+        case 'c21':
+            xinputSpecificHeatCapacity.value = 1280;
+            break;
+        case 'c22':
+            xinputSpecificHeatCapacity.value = 1530;
+            break;
+        case 'c23':
+            xinputSpecificHeatCapacity.value = 1240;
+            break;
+        case 'c24':
+            xinputSpecificHeatCapacity.value = 1130;
             break;
         default:
             break;
@@ -147,36 +161,41 @@ xunitsSpecificHeatCapacity2.addEventListener('change', (event) => {
         case 'c92':
             xinputSpecificHeatCapacity2.value = 2440;
             break;
-        case 'c102':
-            xinputSpecificHeatCapacity2.value = 897;
-            break;
-        case 'c112':
-            xinputSpecificHeatCapacity2.value = 385;
-            break;
-        case 'c122':
-            xinputSpecificHeatCapacity2.value = 412;
-            break;
         case 'c132':
+            xinputSpecificHeatCapacity2.value = 1750;
+            break;
         case 'c142':
-            xinputSpecificHeatCapacity2.value = 129;
+            xinputSpecificHeatCapacity2.value = 1170;
             break;
         case 'c152':
-            xinputSpecificHeatCapacity2.value = 139;
+            xinputSpecificHeatCapacity2.value = 1720;
             break;
         case 'c162':
-            xinputSpecificHeatCapacity2.value = 1012;
+            xinputSpecificHeatCapacity2.value = 2400;
             break;
         case 'c172':
-            xinputSpecificHeatCapacity2.value = 1040;
+            xinputSpecificHeatCapacity2.value = 2220;
             break;
         case 'c182':
-            xinputSpecificHeatCapacity2.value = 2108;
+            xinputSpecificHeatCapacity2.value = 2500;
             break;
         case 'c192':
-            xinputSpecificHeatCapacity2.value = 790;
+            xinputSpecificHeatCapacity2.value = 1460;
             break;
         case 'c202':
-            xinputSpecificHeatCapacity2.value = 509.1;
+            xinputSpecificHeatCapacity2.value = 1420;
+            break;
+        case 'c212':
+            xinputSpecificHeatCapacity2.value = 1280;
+            break;
+        case 'c222':
+            xinputSpecificHeatCapacity2.value = 1530;
+            break;
+        case 'c232':
+            xinputSpecificHeatCapacity2.value = 1240;
+            break;
+        case 'c242':
+            xinputSpecificHeatCapacity2.value = 1130;
             break;
         default:
             break;
@@ -270,10 +289,10 @@ function calculateFinalTemperature() {
         c1 = c1 / 1000;
     }
     if (cUnit === "c4") {
-        c1 = c1 * 4184;
+        c1 = c1 * 4.184;
     }
     if (cUnit === "c5") {
-        c1 = c1 * 4184 / 1.8;
+        c1 = c1 * 1055.056;
     }
     if (cUnit === "c6") {
         c1 = c1 * 1000;
@@ -284,38 +303,41 @@ function calculateFinalTemperature() {
     if (cUnit === "c9") {
         c1 = 2440;
     }
-    if (cUnit === "c10") {
-        c1 = 897;
-    }
-    if (cUnit === "c11") {
-        c1 = 385;
-    }
-    if (cUnit === "c12") {
-        c1 = 412;
-    }
     if (cUnit === "c13") {
-        c1 = 129;
+        c1 = 1750;
     }
     if (cUnit === "c14") {
-        c1 = 129;
+        c1 = 1170;
     }
     if (cUnit === "c15") {
-        c1 = 139.5;
+        c1 = 1720;
     }
     if (cUnit === "c16") {
-        c1 = 1012;
+        c1 = 2400;
     }
     if (cUnit === "c17") {
-        c1 = 1040;
+        c1 = 2220;
     }
     if (cUnit === "c18") {
-        c1 = 2108;
+        c1 = 2500;
     }
     if (cUnit === "c19") {
-        c1 = 790;
+        c1 = 1460;
     }
     if (cUnit === "c20") {
-        c1 = 509.1;
+        c1 = 1420;
+    }
+    if (cUnit === "c21") {
+        c1 = 1280;
+    }
+    if (cUnit === "c22") {
+        c1 = 1530;
+    }
+    if (cUnit === "c23") {
+        c1 = 1240;
+    }
+    if (cUnit === "c24") {
+        c1 = 1130;
     }
     if (isNaN(c1)) c1 = 0;
 
@@ -328,10 +350,10 @@ function calculateFinalTemperature() {
         c2 = c2 / 1000;
     }
     if (c2Unit === "c42") {
-        c2 = c2 * 4184;
+        c2 = c2 * 4.184;
     }
     if (c2Unit === "c52") {
-        c2 = c2 * 4184 / 1.8;
+        c2 = c2 * 1055.056;
     }
     if (c2Unit === "c62") {
         c2 = c2 * 1000;
@@ -342,62 +364,65 @@ function calculateFinalTemperature() {
     if (c2Unit === "c92") {
         c2 = 2440;
     }
-    if (c2Unit === "c102") {
-        c2 = 897;
-    }
-    if (c2Unit === "c112") {
-        c2 = 385;
-    }
-    if (c2Unit === "c122") {
-        c2 = 412;
-    }
     if (c2Unit === "c132") {
-        c2 = 129;
+        c2 = 1750;
     }
     if (c2Unit === "c142") {
-        c2 = 129;
+        c2 = 1170;
     }
     if (c2Unit === "c152") {
-        c2 = 139.5;
+        c2 = 1720;
     }
     if (c2Unit === "c162") {
-        c2 = 1012;
+        c2 = 2400;
     }
     if (c2Unit === "c172") {
-        c2 = 1040;
+        c2 = 2220;
     }
     if (c2Unit === "c182") {
-        c2 = 2108;
+        c2 = 2500;
     }
     if (c2Unit === "c192") {
-        c2 = 790;
+        c2 = 1460;
     }
     if (c2Unit === "c202") {
-        c2 = 509.1;
+        c2 = 1420;
+    }
+    if (c2Unit === "c212") {
+        c2 = 1280;
+    }
+    if (c2Unit === "c222") {
+        c2 = 1530;
+    }
+    if (c2Unit === "c232") {
+        c2 = 1240;
+    }
+    if (c2Unit === "c242") {
+        c2 = 1130;
     }
     if (isNaN(c2)) c2 = 0;
 
     // Temperature 1
     const tUnit = document.getElementById("unitsTemperature1").value;
-    if (tUnit === "k") {
+    if (tUnit === "K") {
         // no conversion necessary as the input is already in kelvin
     }
-    if (tUnit === "c") {
+    if (tUnit === "C") {
         t1 = t1 + 273.15; // converting Celsius to Kelvin
     }
-    if (tUnit === "f") {
+    if (tUnit === "F") {
         t1 = (t1 + 459.67) * (5 / 9); // converting Fahrenheit to Kelvin
     }
 
     // Temperature 2
     const t2Unit = document.getElementById("unitsTemperature2").value;
-    if (t2Unit === "k2") {
+    if (t2Unit === "K2") {
         // no conversion necessary as the input is already in kelvin
     }
-    if (t2Unit === "c2") {
+    if (t2Unit === "C2") {
         t2 = t2 + 273.15; // converting Celsius to Kelvin
     }
-    if (t2Unit === "f2") {
+    if (t2Unit === "F2") {
         t2 = (t2 + 459.67) * (5 / 9); // converting Fahrenheit to Kelvin
     }
 
@@ -414,7 +439,8 @@ function calculateFinalTemperature() {
 
     // Output
     document.getElementById("massOutput").innerHTML = scientificNotation(m1 + m2) + " kg";
-    document.getElementById("changeInTemperatureOutput").innerHTML = scientificNotation(tf - ((t1 + t2) / 2)) + " K";
+    document.getElementById("changeInTemperatureOutput1").innerHTML = scientificNotation(tf - t1) + " K";
+    document.getElementById("changeInTemperatureOutput2").innerHTML = scientificNotation(tf - t2) + " K";
     document.getElementById("temperatureOutput").innerHTML = scientificNotation(tf) + " K";
     document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} T_f = \frac{m_1c_1T_1 + m_2c_2T_2}{m_1c_1 + m_2c_2} \\ \notag \end{gather}$$</span>`;
     MathJax.typeset();
@@ -467,4 +493,3 @@ function calculateFinalTemperature() {
     document.getElementById("tf3x").innerHTML = (tf * 9 / 5 - 459.67).toFixed(2) + " °F";
 
 };
-

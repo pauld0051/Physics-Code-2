@@ -91,39 +91,42 @@
                 </div>
             </div>
         </section>
-        <section class="container border border-primary bg_cont">
-            <div class="row d-flex justify-content-center">
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 26rem;">
-                    <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Specific Heat Capacity<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):" data-bs-content="Enter the heat gained or lost by the substance in units of
-                                joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units
-                                (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat,
-                                leave this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
+       <section class="container border border-primary bg_cont">
+           <div class="row d-flex justify-content-center">
+               <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
+                   <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                   <div class="card-body">
+                       <h4 class="text-center">Specific Heat Capacity<br>
+                           <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                               data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):" data-bs-content="Enter the heat gained or lost by the substance in units of
+                        joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units
+                        (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat,
+                        leave this field blank.">
+                               <i class="far fa-question-circle fa"></i>
+                           </a>
+                       </h4>
                        <!-- Input 1 Heat -->
                        <div class="form-group">
                            <div class="row">
-                               <div class="col">
-                                   <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                       data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):"
-                                       data-bs-content="Enter the heat gained or lost by the substance in units of joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat, leave this field blank.">
-                                       <i class="far fa-question-circle fa"></i>
-                                   </a>
+                               <div class="col-7">
+                                   <label for="inputMass" class="form-label d-none d-sm-inline">Heat
+                                       (Q)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus"
+                                        data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):"
+                                        data-bs-content="Enter the heat gained or lost by the substance in units of joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat, leave this field blank.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
                                    <input type="number" name="inputHeat" id="inputHeat"
                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
                                        aria-label="Enter the heat of the object. Check your units." data-input="heat"
                                        value="" min="1.6e-19" max="1e13" step="1.6e-19" autocomplete="off" disabled
                                        placeholder="Heat (Q)">
                                </div>
-                               <div class="col">
+                               <div class="col-5">
                                    <label for="unitsHeat" class="form-label">Units</label>
                                    <select class="form-select form-control" name="unitsHeat" id="unitsHeat"
-                                       style="width:75px;" data-input="heat" disabled>
+                                       data-input="heat" disabled>
                                        <option value="j" selected>J</option>
                                        <option value="cal">cal</option>
                                        <option value="kj">kJ</option>
@@ -138,26 +141,27 @@
                         <!-- Input 2 - Mass  -->
                         <div class="form-group">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-7">
+                                    <label for="inputMass" class="form-label d-none d-sm-inline">Mass
+                                        (m)</label>
                                     <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
                                         data-bs-trigger="focus"
                                         data-bs-title="Mass (kg, g, mg, &mu;g, lb, oz, amu, stone, or oz t):"
                                         data-bs-content="Enter the mass of the gas in units of kilograms, grams, milligrams, micrograms, pounds, ounces, atomic mass units, stones or troy ounces. Example:
-                                   Example: 250 g. Note: If you are solving for mass, leave this field
-                                   blank.">
+                                        Example: 250 g. Note: If you are solving for mass, leave this field
+                                        blank.">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
-                                    <input type="number" name="inputMass"
-                                        id="inputMass"
+                                    <input type="number" name="inputMass" id="inputMass"
                                         class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                        aria-label="Enter the mass of the object. Check your units."
-                                        data-input="mass" value="" min="0.000000001" max="1e13" step="0.000000001"
-                                        autocomplete="off" disabled placeholder="Mass (m)">
+                                        aria-label="Enter the mass of the object. Check your units." data-input="mass"
+                                        value="" min="0.000000001" max="1e13" step="0.000000001" autocomplete="off"
+                                        disabled placeholder="Mass (m)">
                                 </div>
-                                <div class="col">
+                                <div class="col-5">
                                     <label for="unitsMass" class="form-label">Units</label>
-                                    <select class="form-select" name="unitsMass"
-                                        id="unitsMass" style="width:75px;" data-input="mass" disabled>
+                                    <select class="form-select form-control" name="unitsMass" id="unitsMass"
+                                        data-input="mass" disabled>
                                         <option value="kg" selected>kg</option>
                                         <option value="gm">g</option>
                                         <option value="mg">mg</option>
@@ -169,45 +173,45 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Input 3 specific Heat -->
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col">
+                       <!-- Input 3 specific Heat -->
+                       <div class="form-group">
+                           <div class="row">
+                               <div class="col-7">
+                                   <label for="inputSpecificHeatCapacity" class="form-label d-none d-sm-inline">Specific
+                                       Heat
+                                       (c)</label>
                                     <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
                                         data-bs-trigger="focus"
                                         data-bs-title="Specific Heat Capacity <p>(J kg<sup>-1</sup> °C<sup>-1</sup>):</p>"
                                         data-bs-content="Enter the specific heat capacity of the substance in units of:
-                                    <p>J kg<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J g<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>cal g<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>Btu lb<sup>-1</sup> °F<sup>-1</sup>,</p>
-                                    <p class='small-line-height'>kJ kg<sup>-1</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J m<sup>-3</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J cm<sup>-3</sup> K<sup>-1</sup></p>
-                                    <p class='small-line-height'>J g<sup>-1</sup> °C<sup>-1</sup></p> 
-                                    or any of the pre-determined specific heat
-                                    capacities of common substances. If you're using the pre-determined specific heat
-                                    capacities, be sure to convert all of your units to match the units of J
-                                    g<sup>-1</sup>·K<sup>-1</sup>. If you're unsure, you should always convert to J
-                                    g<sup>-1</sup> K<sup>-1</sup> anyway to make your calculation easier. Note: If you are
-                                solving for specific heat capacity,
-                                leave this field blank.">
+                                        <p>J kg<sup>-1</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>J g<sup>-1</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>cal g<sup>-1</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>Btu lb<sup>-1</sup> °F<sup>-1</sup>,</p>
+                                        <p class='small-line-height'>kJ kg<sup>-1</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>J m<sup>-3</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>J cm<sup>-3</sup> K<sup>-1</sup></p>
+                                        <p class='small-line-height'>J g<sup>-1</sup> °C<sup>-1</sup></p> 
+                                        or any of the pre-determined specific heat
+                                        capacities of common substances. If you're using the pre-determined specific heat
+                                        capacities, be sure to convert all of your units to match the units of J
+                                        g<sup>-1</sup>·K<sup>-1</sup>. If you're unsure, you should always convert to J
+                                        g<sup>-1</sup> K<sup>-1</sup> anyway to make your calculation easier. Note: If you are
+                                        solving for specific heat capacity,
+                                        leave this field blank.">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
-                                    <input type="number" name="inputSpecificHeatCapacity" id="inputSpecificHeatCapacity"
-                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                        aria-label="input value for Specific Heat Capacity in joules per kilogram per
-                                        kelvin or similar."
-                                        data-input="specificHeatCapacity" value=""
-                                        min="0.000000000001"
-                                        max="5000000" step="0.000000000001" autocomplete="off" disabled
-                                        placeholder="Specific Heat (c)">
-                                </div>
-                                <div class="col">
-                                    <label for="unitsSpecificHeatCapacity" class="form-label">Units</label>
-                                    <select class="form-select" name="unitsSpecificHeatCapacity"
-                                        id="unitsSpecificHeatCapacity"
-                                        style="width:125px;" data-input="specificHeatCapacity" disabled>
+                                   <input type="number" name="inputSpecificHeatCapacity" id="inputSpecificHeatCapacity"
+                                       class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                       aria-label="input value for Specific Heat Capacity in joules per kilogram per
+                kelvin or similar." data-input="specificHeatCapacity" value="" min="0.000000000001" max="5000000"
+                                       step="0.000000000001" autocomplete="off" disabled
+                                       placeholder="Specific Heat (c)">
+                               </div>
+                               <div class="col-5">
+                                   <label for="unitsSpecificHeatCapacity" class="form-label">Units</label>
+                                   <select class="form-select form-control" name="unitsSpecificHeatCapacity"
+                                       id="unitsSpecificHeatCapacity" data-input="specificHeatCapacity" disabled>
                                         <option value="c1" selected>J kg⁻¹·K⁻¹</option>
                                         <option value="c2">J g⁻¹·k⁻¹</option>
                                         <option value="c4">cal g⁻¹·K⁻¹</option>
@@ -233,31 +237,33 @@
                         <!-- Input 4 Temperature -->
                         <div class="form-group">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-7">
+                                     <label for="inputChangeInTemperature"
+                                         class="form-label d-none d-sm-inline">Temperature
+                                         (ΔT)</label>
                                     <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
                                         data-bs-trigger="focus" data-bs-title="Change in Temperature (K, °C, °F):"
                                         data-bs-content="The change in temperature is the measure of the change in average kinetic energy of
-                                the substance's particles. Please enter the change in temperature (ΔT = T<sub>f</sub> -
-                                T<sub>i</sub>)
-                                temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
-                                handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
-                                room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
-                                °F).">
+                                        the substance's particles. Please enter the change in temperature (ΔT = T<sub>f</sub> -
+                                        T<sub>i</sub>)
+                                        temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
+                                        handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
+                                        room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
+                                        °F).">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
                                     <input type="number" name="inputChangeInTemperature" id="inputChangeInTemperature"
                                         class="reset_form formCheck maxAllow form-control input-rounded-start"
                                         aria-label="input value for Change in Temperature in either Kelvin (K), Celsius
                                         (°C), or
-                                        Fahrenheit (°F)"
-                                        data-input="changeInTemperature" value="" min="0.0001"
-                                        max="6700" step="0.0001" autocomplete="off" disabled placeholder="Temperature (ΔT)">
+                                        Fahrenheit (°F)" data-input="changeInTemperature" value="" min="0.0001" max="6700" step="0.0001"
+                                        autocomplete="off" disabled placeholder="Temperature (ΔT)">
                                 </div>
-                                <div class="col">
+                                <div class="col-5">
                                     <label for="unitsChangeInTemperature" class="form-label">Units</label>
                                     <select class="form-select" name="unitsChangeInTemperature"
                                         id="unitsChangeInTemperature"
-                                        style="width:75px;" data-input="changeInTemperature" disabled>
+                                        data-input="changeInTemperature" disabled>
                                         <option value="k" selected>K</option>
                                         <option value="c">°C</option>
                                         <option value="f">°F</option>
@@ -268,8 +274,7 @@
                         <!-- End Input 4 -->
                     </div>
                 </div>
-
-                    </div>
+            </div>
             <div class="col text-center">
                 <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
                 <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"

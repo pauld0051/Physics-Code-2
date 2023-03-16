@@ -113,11 +113,6 @@ body {
     color: green;
 }
 
-/* All input widths */
-input[type="number"] {
-  width: 155px;
-}
-
 /* 2 column table set widths */
 
 .w50 {

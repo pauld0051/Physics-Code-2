@@ -137,7 +137,7 @@ function calculateIdealGas() {
         q = q * 4.184;
     }
     if (heatUnit === "kj") {
-        q = q / 1000;
+        q = q * 1000;
     }
     if (heatUnit === "kcal") {
         q = q * 4.184 / 1000;
@@ -149,7 +149,7 @@ function calculateIdealGas() {
         q = q * 6.24150913e+18;
     }
     if (heatUnit === "mj") {
-        q = q / 1000000;
+        q = q * 1000000;
     }
     if (isNaN(q)) q = 0;
 

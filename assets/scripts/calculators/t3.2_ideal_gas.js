@@ -12,21 +12,25 @@ $checkboxes.on("change", function () {
     const $checkedInputs = $checkedCheckboxes.map(function () {
         return $("[data-input='" + this.id + "']");
     });
-    const $allInputs = $(".reset_form");
-    $allInputs.prop("disabled", true);
+    const $uncheckedInputs = $("[data-input]").not($checkedInputs);
+    $uncheckedInputs.prop("disabled", true);
     $checkedInputs.each(function () {
         $(this).prop("disabled", false);
         $(this).siblings("select").prop("disabled", false);
     });
 
-    // Disable corresponding unit select options for unchecked checkboxes
+    // Reset inputs and select options for unchecked checkboxes
     const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
     $uncheckedCheckboxes.each(function () {
         const $uncheckedInputs = $("[data-input='" + this.id + "']");
-        $uncheckedInputs.prop("disabled", true);
-        $uncheckedInputs.siblings("select").prop("disabled", true);
-        $uncheckedInputs.val(""); // clear the input box
-        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
+        if ($uncheckedInputs.is(":input")) {
+            $uncheckedInputs.val("").attr("placeholder", $uncheckedInputs.attr("placeholder"));
+        }
+        if ($uncheckedInputs.is("select")) {
+            $uncheckedInputs.prop('selectedIndex', 0); // reset to default selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").prop("selected", true); // reset the selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").siblings().show(); // show the placeholder
+        }
     });
 
     // Disable submit button if less than 3 checkboxes are checked
@@ -40,8 +44,6 @@ $checkboxes.on("change", function () {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
     }
 });
-
-
 
 //Equation Variables
 //Checkbox selection
@@ -60,7 +62,7 @@ function calculateIdealGas() {
     //User input values
     let p = parseFloat(document.getElementById("inputPressure").value);
     let v = parseFloat(document.getElementById("inputVolume").value);
-    let n = parseFloat(document.getElementById("inputMole").value);
+    let n = parseFloat(document.getElementById("inputMoles").value);
     let r = parseFloat(document.getElementById("inputGasConstant").value);
     let t = parseFloat(document.getElementById("inputTemperature").value);
 
@@ -129,7 +131,7 @@ function calculateIdealGas() {
     if (isNaN(t)) t = 0;
 
     // Moles //
-    const nUnit = document.getElementById("unitsMole").value;
+    const nUnit = document.getElementById("unitsMoles").value;
     if (nUnit === "mol") {
         n = n;
     }
@@ -161,7 +163,7 @@ function calculateIdealGas() {
     } else if (p1.checked && v1.checked && !n1.checked && t1.checked) {
         // Equation 2 n unknown
         n = p * v / (r * t);
-        document.getElementById("inputMole").value = p.toFixed(3);
+        document.getElementById("inputMoles").value = p.toFixed(3);
         document.getElementById("pressureOutput").innerHTML = scientificNotation(p) + " Pa";
         document.getElementById("volumeOutput").innerHTML = scientificNotation(v) + " m<sup>3</sup>";
         document.getElementById("molOutput").innerHTML = scientificNotation(n) + " mol";
@@ -341,8 +343,8 @@ volumeUnits.addEventListener('change', function() {
 });
 
 // Set step, min and max for Moles
-const inputMoles = document.getElementById('inputMole');
-const moleUnits = document.getElementById('unitsMole');
+const inputMoles = document.getElementById('inputMoles');
+const moleUnits = document.getElementById('unitsMoles');
 
 moleUnits.addEventListener('change', function() {
     switch (moleUnits.value) {

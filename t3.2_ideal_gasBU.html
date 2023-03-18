@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ideal Gas Calculator</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/solid.css">
+</head>
+
+<body class="bg-pcode">
+    <header>
+        <div class="header"></div>
+    </header>
+    <section class="container">
+        <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
+            <div class="container">
+                <h1 class="display-4 text-center text-wrap">Ideal Gas Calculator</h1>
+                <p class="lead">Calculate the pressure, volume, number of moles or temperature of an ideal gas
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Equation Display -->
+    <section class="container border border-info bg_cont mb-1">
+        <div class="row">
+            <h3 class="d-flex justify-content-center">Equation</h3>
+        </div>
+        \begin{gather} pV\ =\ nRT\ \notag \end{gather}
+    </section>
+    <form id="SubmissionForm" novalidate>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any three variables to calculate the fourth.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>Please note that this calculator converts all inputs into SI or metric units (Pa, m<sup>3</sup>, mol and K) and uses a universal gas constant (R) of
+                <nobr>8.314462 m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></nobr>. In an exam, you will need to ensure that all units are converted to match the value of R that is being used. Select the three variables that you know and calculate for the
+                fourth. You can change your selection later if you want. This will help you become familiar with the processes of calculating ideal gas equations.</p>
+            <p>For more information about the Ideal Gas Law, please visit our <a href="https://example.com/ideal_gas_law" target="_blank" rel="noopener">Ideal Gas Law</a> page.
+            </p>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:</p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="pressure" id="pressure" name="pressure">
+                            <label class="form-check-label" for="pressure">
+                                Pressure (p)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="volume" id="volume" name="volume">
+                            <label class="form-check-label" for="volume">
+                                Volume (V)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="moles" id="moles" name="moles">
+                            <label class="form-check-label" for="moles">
+                                Moles (n)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="temperature" id="temperature" name="temperature">
+                            <label class="form-check-label" for="temperature">
+                                Temperature (T)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Pressure Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Pressure (p)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Pa, bar, atm, mmHg, PSI):" data-bs-content="Enter the pressure of the gas in units of pascals (Pa), bars (bar),
+                                atmospheres (atm), millimeters of mercury (mmHg), pounds per square inch (PSI), torr,
+                                hectopascals (hPa), kilopascals (kPa), or megapascals (MPa). Example: 101325 Pa or 1 atm
+                                for standard atmospheric pressure. Note: If you are solving for pressure, leave
+                                this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputPressure">Pressure (p)</label><br>
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="10000000" step="0.0001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch."
+                            disabled>
+                        <br>
+                        <label for="unitsPressure">Units</label><br>
+                        <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
+                            <option value="pa" selected>Pa</option>
+                            <option value="bar">bar</option>
+                            <option value="atm">atm</option>
+                            <option value="mmHg">mmHg</option>
+                            <option value="psi">PSI</option>
+                            <option value="torr">Torr</option>
+                            <option value="hpa">hPa</option>
+                            <option value="kpa">kPa</option>
+                            <option value="mpa">MPa</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Volume -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-flask fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Volume (V)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Volume (m<sup>3</sup>, cm<sup>3</sup>, L or mL)" data-bs-content="Enter the volume of the gas in units of cubic meters (m<sup>3</sup>),
+                                cubic centimeters (cm<sup>3</sup>), liters (L), or milliliters (mL). Example: 0.01
+                                m<sup>3</sup> or 1000 mL for a liter of gas. Note: If you are solving for volume, leave
+                                this field blank.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputVolume">Volume (V)</label><br>
+                        <input type="number" name="inputVolume" id="inputVolume" class="reset_form checkVolume maxAllow" data-input="volume" value="" min="0" max="1e11" step="0.001" autocomplete="off" aria-label="input value for the volume of the ideal gas, metres cubed, centimeters cubed, litres, or milliliters."
+                            disabled>
+                        <br>
+                        <label for="unitsVolume">Units</label>
+                        <br>
+                        <select name="unitsVolume" id="unitsVolume" data-input="volume" style="width:67px;" disabled>
+                            <option value="m3" selected>m&sup3;</option>
+                            <option value="cm3">cm&sup3;</option>
+                            <option value="L">L</option>
+                            <option value="mL">mL</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Moles -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-atom fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Moles (number of molecules)" data-bs-content="Enter the number of moles of gas in units of moles (mol), millimoles
+                            (mmol), micromoles (μmol), or nanomoles (nmol). Example: 0.5 mol for half a mole of gas.
+                            Note: To convert from the number of atoms to the number of moles, use the equation
+                            N<sub>mole</sub> = N<sub>atoms</sub> / N<sub>A</sub>, where N<sub>mole</sub> is the number
+                            of moles, N<sub>atoms</sub> is the number of atoms, and N<sub>A</sub> is Avogadro's constant
+                            (6.022 x 10<sup>23</sup>). For help with this conversion, visit the <a
+                                href='#' target='_blank'>mole converter</a>.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputMole">Moles (n)</label><br>
+                        <input type="number" name="inputMole" id="inputMole" class="reset_form checkMole maxAllow" data-input="moles" value="" max="100000" min="0.00001" step="0.00001" autocomplete="off" aria-label="input value for the number of moles in the ideal gas." disabled>
+                        <br>
+                        <label for="unitsMole">Units</label>
+                        <br>
+                        <select name="unitsMole" id="unitsMole" data-input="moles" style="width:67px;" disabled>
+                            <option value="mole" selected>mol</option>
+                            <option value="mmol">mmol</option>
+                            <option value="μmol">μmol</option>
+                            <option value="nmol">nmol</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <!-- Gas Constant -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-magnifying-glass fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Gas Constant (R)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Gas Constant" data-bs-content="The gas constant (R) is a fundamental physical constant that cannot be changed. It has a value of 8.314462 joules per mole per kelvin (J/mol/K), or equivalently, 8.314462 cubic meters times pascals per mole times kelvin (m<sup>3</sup>⋅Pa⋅K<sup>−1</sup>⋅mol<sup>−1</sup>). Please enter your values in appropriate units and the calculator will handle the necessary conversions.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputGasConstant">Gas Constant (R)</label><br>
+                        <!-- User Input - note pattern and input type to allow for Samsung Keyboards -->
+                        <input type="number" name="inputGasConstant" id="inputGasConstant" class="reset_form checkGasConstant maxAllow" value="8.314462" autocomplete="off" aria-label="ideal gas constant 8.314462." disabled>
+                        <br>
+                        <label for="unitsGasConstant">Units</label>
+                        <br>
+                        <select name="unitsGasConstant" id="unitsGasConstant" style="width:165px;" disabled>
+                            <option value="R" selected>m&sup3;⋅Pa⋅K&#x207b;&sup1;⋅mol&#x207b;&sup1;</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Temperature Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-temperature-full fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Temperature (T)<br>
+                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Temperature (K, °C, °F)" data-bs-content="Temperature is the measure of the average kinetic energy of the gas
+                                particles. Please enter the temperature in either Kelvin (K), Celsius (°C), or
+                                Fahrenheit (°F). The calculator will handle the necessary conversions for you. Example:
+                                298 K, 25 °C, or 77 °F for standard room temperature. The standard temperature is
+                                typically defined as 273.15 K (0 °C, 32 °F).">
+                                <i class="far fa-question-circle fa mb-1"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputTemperature">Temperature (T)</label><br>
+                        <input type="number" name="inputTemperature" id="inputTemperature" class="reset_form checkTemperature maxAllow" data-input="temperature" value="" min="0" max="5778" step="0.0001" autocomplete="off" aria-label="input value for time in kelvin, degrees celsius, degrees fahrenheit"
+                            disabled>
+                        <br>
+                        <label for="unitsTemperature">Units</label><br>
+                        <select name="unitsTemperature" id="unitsTemperature" data-input="temperature" style="width:60px;" disabled>
+                            <option value="k" selected>K</option>
+                            <option value="c">°C</option>
+                            <option value="f">°F</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pressure (p)</td>
+                        <td id="pressureOutput">Pa</td>
+                    </tr>
+                    <tr>
+                        <td>Volume (V)</td>
+                        <td id="volumeOutput">m<sup>3</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Moles (n)</td>
+                        <td id="molOutput">mol</td>
+                    </tr>
+                    <tr>
+                        <td>Gas Constant (R)</td>
+                        <td id="gasConstOut">m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Temperature (T)</td>
+                        <td id="temperatureOutput">K</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output accordingly and see the
+                    common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pressure (p)</td>
+                    <td id="p1x">Pa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p2x">bar</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p3x">atm</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p4x">mmHg</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p5x">PSI</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p6x">Torr</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p7x">hPa</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="p8x">kPa</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="p9x">MPa</td>
+                </tr>
+                <tr>
+                    <td>Volume (V)</td>
+                    <td id="v1x">m<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v2x">cm<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v3x">L</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="v4x">mL</td>
+                </tr>
+                <tr>
+                    <td>Moles (n)</td>
+                    <td id="n1x">mol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n2x">mmol</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="n3x">&mu;mol</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="n4x">nmol</td>
+                </tr>
+                <tr>
+                    <td>Temperature (T)</td>
+                    <td id="t1x">K</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t2x">&deg;C</td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="t3x">&deg;F</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
+                completed.</em>
+        </p>
+    </section>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/t3.2_ideal_gas.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+</body>
+
+</html>

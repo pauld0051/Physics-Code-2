@@ -83,141 +83,177 @@
         </section>
         <section class="container border border-primary bg_cont">
             <div class="row d-flex justify-content-center">
-                <!-- Pressure Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
+                    <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Pressure (p)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Pa, bar, atm, mmHg, PSI):" data-bs-content="Enter the pressure of the gas in units of pascals (Pa), bars (bar),
-                                atmospheres (atm), millimeters of mercury (mmHg), pounds per square inch (PSI), torr,
-                                hectopascals (hPa), kilopascals (kPa), or megapascals (MPa). Example: 101325 Pa or 1 atm
-                                for standard atmospheric pressure. Note: If you are solving for pressure, leave
-                                this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
+                        <h4 class="text-center">Ideal Gas Law<br>
                         </h4>
-                        <p class="card-text"></p>
-                        <label for="inputPressure">Pressure (p)</label><br>
-                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form checkPressure formCheck maxAllow" data-input="pressure" value="" min="0" max="10000000" step="0.0001" autocomplete="off" aria-label="input value for pressure in pascals, bar, atmospheres, millimeters of mercury or pounds per square inch."
-                            disabled>
-                        <br>
-                        <label for="unitsPressure">Units</label><br>
-                        <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
-                            <option value="pa" selected>Pa</option>
-                            <option value="bar">bar</option>
-                            <option value="atm">atm</option>
-                            <option value="mmHg">mmHg</option>
-                            <option value="psi">PSI</option>
-                            <option value="torr">Torr</option>
-                            <option value="hpa">hPa</option>
-                            <option value="kpa">kPa</option>
-                            <option value="mpa">MPa</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Volume -->
-                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
-                    <i class="fa-solid fa-flask fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Volume (V)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Volume (m<sup>3</sup>, cm<sup>3</sup>, L or mL)" data-bs-content="Enter the volume of the gas in units of cubic meters (m<sup>3</sup>),
-                                cubic centimeters (cm<sup>3</sup>), liters (L), or milliliters (mL). Example: 0.01
-                                m<sup>3</sup> or 1000 mL for a liter of gas. Note: If you are solving for volume, leave
-                                this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="inputVolume">Volume (V)</label><br>
-                        <input type="number" name="inputVolume" id="inputVolume" class="reset_form checkVolume maxAllow" data-input="volume" value="" min="0" max="1e11" step="0.001" autocomplete="off" aria-label="input value for the volume of the ideal gas, metres cubed, centimeters cubed, litres, or milliliters."
-                            disabled>
-                        <br>
-                        <label for="unitsVolume">Units</label>
-                        <br>
-                        <select name="unitsVolume" id="unitsVolume" data-input="volume" style="width:67px;" disabled>
-                            <option value="m3" selected>m&sup3;</option>
-                            <option value="cm3">cm&sup3;</option>
-                            <option value="L">L</option>
-                            <option value="mL">mL</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Moles -->
-                <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
-                    <i class="fa-solid fa-atom fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Moles (n)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Moles (number of molecules)" data-bs-content="Enter the number of moles of gas in units of moles (mol), millimoles
-                            (mmol), micromoles (μmol), or nanomoles (nmol). Example: 0.5 mol for half a mole of gas.
-                            Note: To convert from the number of atoms to the number of moles, use the equation
-                            N<sub>mole</sub> = N<sub>atoms</sub> / N<sub>A</sub>, where N<sub>mole</sub> is the number
-                            of moles, N<sub>atoms</sub> is the number of atoms, and N<sub>A</sub> is Avogadro's constant
-                            (6.022 x 10<sup>23</sup>). For help with this conversion, visit the <a
-                                href='#' target='_blank'>mole converter</a>.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="inputMole">Moles (n)</label><br>
-                        <input type="number" name="inputMole" id="inputMole" class="reset_form checkMole maxAllow" data-input="moles" value="" max="100000" min="0.00001" step="0.00001" autocomplete="off" aria-label="input value for the number of moles in the ideal gas." disabled>
-                        <br>
-                        <label for="unitsMole">Units</label>
-                        <br>
-                        <select name="unitsMole" id="unitsMole" data-input="moles" style="width:67px;" disabled>
-                            <option value="mole" selected>mol</option>
-                            <option value="mmol">mmol</option>
-                            <option value="μmol">μmol</option>
-                            <option value="nmol">nmol</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <!-- Gas Constant -->
-                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
-                    <i class="fa-solid fa-magnifying-glass fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Gas Constant (R)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Gas Constant" data-bs-content="The gas constant (R) is a fundamental physical constant that cannot be changed. It has a value of 8.314462 joules per mole per kelvin (J/mol/K), or equivalently, 8.314462 cubic meters times pascals per mole times kelvin (m<sup>3</sup>⋅Pa⋅K<sup>−1</sup>⋅mol<sup>−1</sup>). Please enter your values in appropriate units and the calculator will handle the necessary conversions.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="inputGasConstant">Gas Constant (R)</label><br>
-                        <!-- User Input - note pattern and input type to allow for Samsung Keyboards -->
-                        <input type="number" name="inputGasConstant" id="inputGasConstant" class="reset_form checkGasConstant maxAllow" value="8.314462" autocomplete="off" aria-label="ideal gas constant 8.314462." disabled>
-                        <br>
-                        <label for="unitsGasConstant">Units</label>
-                        <br>
-                        <select name="unitsGasConstant" id="unitsGasConstant" style="width:165px;" disabled>
-                            <option value="R" selected>m&sup3;⋅Pa⋅K&#x207b;&sup1;⋅mol&#x207b;&sup1;</option>
-                        </select>
-                    </div>
-                </div>
-                <!-- Temperature Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
-                    <i class="fa-solid fa-temperature-full fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">Temperature (T)<br>
-                            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Temperature (K, °C, °F)" data-bs-content="Temperature is the measure of the average kinetic energy of the gas
-                                particles. Please enter the temperature in either Kelvin (K), Celsius (°C), or
-                                Fahrenheit (°F). The calculator will handle the necessary conversions for you. Example:
-                                298 K, 25 °C, or 77 °F for standard room temperature. The standard temperature is
-                                typically defined as 273.15 K (0 °C, 32 °F).">
-                                <i class="far fa-question-circle fa mb-1"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="inputTemperature">Temperature (T)</label><br>
-                        <input type="number" name="inputTemperature" id="inputTemperature" class="reset_form checkTemperature maxAllow" data-input="temperature" value="" min="0" max="5778" step="0.0001" autocomplete="off" aria-label="input value for time in kelvin, degrees celsius, degrees fahrenheit"
-                            disabled>
-                        <br>
-                        <label for="unitsTemperature">Units</label><br>
-                        <select name="unitsTemperature" id="unitsTemperature" data-input="temperature" style="width:60px;" disabled>
-                            <option value="k" selected>K</option>
-                            <option value="c">°C</option>
-                            <option value="f">°F</option>
-                        </select>
+                        <!-- Input 1 Pressure -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputPressure" class="form-label d-none d-sm-inline">Pressure
+                                        (p)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Nm<sup>-2</sup>, Pa, psi, atm):" data-bs-content="Enter the pressure exerted by the object in units of newtons per
+                                       square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or
+                                       atmospheres (atm). Example: 100 N/m<sup>2</sup> or 1 atm. Note: If you are
+                                       solving for force or area, you should input measurements in compatible units.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputPressure" id="inputPressure" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the pressure exerted by the object in units of newtons per
+                                       square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or
+                                       atmospheres (atm)." data-input="pressure" value="" min="-1.00e12" max="1.00e12" step="any" autocomplete="off" disabled placeholder="Pressure (p)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsPressure" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsPressure" id="unitsPressure" data-input="pressure" disabled>
+                                        <option value="N/m^2" selected>Nm&#x207b;&sup2;</option>
+                                        <option value="atm">atm</option>
+                                        <option value="Pa">Pa</option>
+                                        <option value="bar">bar</option>
+                                        <option value="psi">psi</option>
+                                        <option value="mmHg">mmHg</option>
+                                        <option value="torr">Torr</option>
+                                        <option value="hpa">hPa</option>
+                                        <option value="kpa">kPa</option>
+                                        <option value="mpa">MPa</option>
+                                        <option value="mbar">mbar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 2 - Volume -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputVolume" class="form-label d-none d-sm-inline">Volume (V)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" 
+                                    data-bs-title="Volume (m<sup>3</sup>, cm<sup>3</sup>, L or mL):"
+                                    data-bs-content="Enter the volume of the gas in units of cubic meters
+                                    (m<sup>3</sup>),
+                                    cubic centimeters (cm<sup>3</sup>), liters (L), or milliliters (mL). Example: 0.01
+                                    m<sup>3</sup> or 1000 mL for a liter of gas. Note: If you are solving for volume,
+                                    leave
+                                    this field blank.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputVolume" id="inputVolume"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="input value for the volume of the ideal gas, metres cubed,
+                                        centimeters cubed, litres, or milliliters." data-input="volume"
+                                        value="" min="0" max="1e11" step="0.001"
+                                        autocomplete="off" disabled placeholder="Volume (V)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsVolume" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsVolume" id="unitsVolume"
+                                        data-input="volume" disabled>
+                                        <option value="m3" selected>m&sup3;</option>
+                                        <option value="cm3">cm&sup3;</option>
+                                        <option value="L">L</option>
+                                        <option value="mL">mL</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 3 specific moles -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputMoles" class="form-label d-none d-sm-inline">Number of moles
+                                        (n)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus" data-bs-title="Moles (mol, mmol, μmol and nmol):"
+                                        data-bs-content="Enter the number of moles present. You do not need to know the
+                                        molecular formula for this. If this is the unit you're calculating, just leave
+                                        it blank.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputMoles" id="inputMoles"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="Enter the number of moles, n." data-input="moles" value=""
+                                        min="1e-45" max="1e100" step="any" autocomplete="off" disabled
+                                        placeholder="Number of Moles (n)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsMoles" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsMoles" id="unitsMoles"
+                                        data-input="moles" disabled>
+                                        <option value="mol" selected>mol</option>
+                                        <option value="mmol">mmol</option>
+                                        <option value="μmol">μmol</option>
+                                        <option value="nmol">nmol</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 4 Gas Constant -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputGasConstant" class="form-label d-none d-sm-inline">Gas Constant (R)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" 
+                                    data-bs-title="Gas Constant:" 
+                                    data-bs-content="The gas constant (R) is a fundamental physical constant that cannot
+                                    be changed. It has a value of 8.314462 joules per mole per kelvin (J/mol/K), or
+                                    equivalently, 8.314462 cubic meters times pascals per mole times kelvin
+                                    (m<sup>3</sup>⋅Pa⋅K<sup>−1</sup>⋅mol<sup>−1</sup>). Please enter your values in
+                                    appropriate units and the calculator will handle the necessary conversions.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputGasConstant" id="inputGasConstant"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="input value for Change in Temperature in either Kelvin (K), Celsius
+                                        (°C), or
+                                        Fahrenheit (°F)" data-input="gasConstant" value="8.314462" autocomplete="off" disabled placeholder="8.314462">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsGasConstant" class="form-label">Units</label>
+                                    <select class="form-select" name="unitsGasConstant" id="unitsGasConstant"
+                                        data-input="gasConstant" disabled>
+                                        <option value="R" selected>m&sup3;⋅Pa⋅K&#x207b;&sup1;⋅mol&#x207b;&sup1;</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 5 Temperature -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputTemperature"
+                                        class="form-label d-none d-sm-inline">Temperature
+                                        (T)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus" data-bs-title="Change in Temperature (K, °C, °F):"
+                                        data-bs-content="The change in temperature is the measure of the change in average kinetic energy of
+                                        the substance's particles. Please enter the change in temperature (ΔT = T<sub>f</sub> -
+                                        T<sub>i</sub>)
+                                        temperature in either Kelvin (K), Celsius (°C), or Fahrenheit (°F). The calculator will
+                                        handle the necessary conversions for you. Example: 298 K, 25 °C, or 77 °F for standard
+                                        room temperature. The standard temperature is typically defined as 273.15 K (0 °C, 32
+                                        °F).">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputTemperature" id="inputTemperature"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="input value for Change in Temperature in either Kelvin (K), Celsius
+                                        (°C), or
+                                        Fahrenheit (°F)" data-input="temperature" value="" min="0.0001"
+                                        max="6700" step="0.0001" autocomplete="off" disabled
+                                        placeholder="Temperature (ΔT)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsTemperature" class="form-label">Units</label>
+                                    <select class="form-select" name="unitsTemperature"
+                                        id="unitsTemperature" data-input="temperature" disabled>
+                                        <option value="k" selected>K</option>
+                                        <option value="c">°C</option>
+                                        <option value="f">°F</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Input 5 -->
                     </div>
                 </div>
             </div>

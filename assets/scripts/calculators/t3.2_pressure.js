@@ -12,21 +12,25 @@ $checkboxes.on("change", function () {
     const $checkedInputs = $checkedCheckboxes.map(function () {
         return $("[data-input='" + this.id + "']");
     });
-    const $allInputs = $(".reset_form");
-    $allInputs.prop("disabled", true);
+    const $uncheckedInputs = $("[data-input]").not($checkedInputs);
+    $uncheckedInputs.prop("disabled", true);
     $checkedInputs.each(function () {
         $(this).prop("disabled", false);
         $(this).siblings("select").prop("disabled", false);
     });
 
-    // Disable corresponding unit select options for unchecked checkboxes
+    // Reset inputs and select options for unchecked checkboxes
     const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
     $uncheckedCheckboxes.each(function () {
         const $uncheckedInputs = $("[data-input='" + this.id + "']");
-        $uncheckedInputs.prop("disabled", true);
-        $uncheckedInputs.siblings("select").prop("disabled", true);
-        $uncheckedInputs.val(""); // clear the input box
-        $uncheckedInputs.siblings("select").prop("selectedIndex", 0); // reset the select option to default
+        if ($uncheckedInputs.is(":input")) {
+            $uncheckedInputs.val("").attr("placeholder", $uncheckedInputs.attr("placeholder"));
+        }
+        if ($uncheckedInputs.is("select")) {
+            $uncheckedInputs.prop('selectedIndex', 0); // reset to default selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").prop("selected", true); // reset the selected option
+            $uncheckedInputs.siblings(".form-select").find("option[selected]").siblings().show(); // show the placeholder
+        }
     });
 
     // Disable submit button if less than 3 checkboxes are checked
@@ -34,7 +38,7 @@ $checkboxes.on("change", function () {
 
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
-    if ($checkedCheckboxes.length === 2) {
+    if ($checkedCheckboxes.length === 3) {
         $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
@@ -190,7 +194,7 @@ function calculatePressure() {
     if (p1.checked && !f1.checked && a1.checked) {
         //Equation 3: F unknown
         f = p * a;
-        document.getElementById("inputForce").value = F.toFixed(3);
+        document.getElementById("inputForce").value = f.toFixed(3);
         document.getElementById("forceOutput").innerHTML = scientificNotation(f) + " N";
         document.getElementById("pressureOutput").innerHTML = scientificNotation(p) + " Nm<sup>-2</sup>";
         document.getElementById("areaOutput").innerHTML = scientificNotation(a) + " m<sup>2</sup>";
@@ -234,20 +238,6 @@ function calculatePressure() {
     document.getElementById("a10x").innerHTML = scientificNotation(a * 0.00024710538146717) + " acres";
     document.getElementById("a11x").innerHTML = scientificNotation(a * 0.0001) + " hectares";
 
-}
-
-document.getElementById("resetButton1").addEventListener("click", resetForm);
-document.getElementById("resetButton2").addEventListener("click", resetForm);
-
-function resetForm() {
-    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-        checkbox.checked = false;
-        checkbox.disabled = false;
-    });
-    document.querySelectorAll('.maxAllow').forEach((input) => {
-        input.value = '';
-        input.disabled = true;
-    });
 }
 
 // Set Min - Max - Step //

@@ -73,148 +73,110 @@
                 </div>
             </div>
         </section>
-       <section class="container border border-primary bg_cont">
-           <div class="row d-flex justify-content-center">
-               <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
-                   <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                   <div class="card-body">
-                       <h4 class="text-center">Pressure<br>
-                       </h4>
-                       <!-- Input 1 Pressure -->
-                       <div class="form-group">
-                           <div class="row">
-                               <div class="col-7">
-                                   <label for="inputPressure" class="form-label d-none d-sm-inline">Pressure (P)</label>
-                                   <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                       data-bs-title="Pressure (Nm<sup>-2</sup>, Pa, psi, atm):"
-                                       data-bs-content="Enter the pressure exerted by the object in units of newtons per
-                                       square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or
-                                       atmospheres (atm). Example: 100 N/m<sup>2</sup> or 1 atm. Note: If you are
-                                       solving for force or area, you should input measurements in compatible units.">
-                                       <i class="far fa-question-circle fa"></i>
-                                   </a>
-                                   <input type="number" name="inputPressure" id="inputPressure"
-                                       class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                       aria-label="Enter the pressure exerted by the object in units of newtons per
-                                       square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or
-                                       atmospheres (atm)." data-input="pressure"
-                                       value="" min="-1.00e12" max="1.00e12" step="any" autocomplete="off" disabled
-                                       placeholder="Pressure (P)">
-                               </div>
-                               <div class="col-5">
-                                   <label for="unitsPressure" class="form-label">Units</label>
-                                   <select class="form-select form-control" name="unitsPressure" id="unitsPressure"
-                                       data-input="pressure" disabled>
-                                       <option value="N/m^2" selected>Nm&#x207b;&sup2;</option>
-                                       <option value="atm">atm</option>
-                                       <option value="Pa">Pa</option>
-                                       <option value="bar">bar</option>
-                                       <option value="psi">psi</option>
-                                       <option value="mmHg">mmHg</option>
-                                       <option value="torr">Torr</option>
-                                       <option value="hpa">hPa</option>
-                                       <option value="kpa">kPa</option>
-                                       <option value="mpa">MPa</option>
-                                       <option value="mbar">mbar</option>
-                                   </select>
-                               </div>
-                           </div>
-                       </div>
-                       <!-- Input 2 - Force  -->
-                       <div class="form-group">
-                           <div class="row">
-                               <div class="col-7">
-                                   <label for="inputForce" class="form-label d-none d-sm-inline">Force (F)</label>
-                                   <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                       data-bs-title="Force (N, kN, MN, lbf, ozf):"
-                                       data-bs-content="Enter the force acting on an object in units of newtons (N),
-                                       kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf).
-                                       Example: 500 N or 0.5 kN. Note: If you are solving for pressure or area, you
-                                       should input measurements in compatible units."">
-                                       <i class="far fa-question-circle fa"></i>
-                                   </a>
-                                   <input type="number" name="inputForce" id="inputForce"
-                                       class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                       aria-label="Enter the mass of the object. Check your units." data-input="force"
-                                       value="" min="-3.00e8" max="3.00e8" step="any" autocomplete="off"
-                                       disabled placeholder="Force (F)">
-                               </div>
-                               <div class="col-5">
-                                   <label for="unitsForce" class="form-label">Units</label>
-                                   <select class="form-select form-control" name="unitsForce" id="unitsForce"
-                                       data-input="mass" disabled>
-                                       <option value="kg" selected>kg</option>
-                                       <option value="gm">g</option>
-                                       <option value="mg">mg</option>
-                                       <option value="μg">μg</option>
-                                       <option value="lb">lb</option>
-                                       <option value="oz">oz</option>
-                                       <option value="toz">t oz</option>
-                                   </select>
-                               </div>
-                           </div>
-                       </div>
-                       <!-- Input 3 - Area -->
-                       <div class="form-group">
-                           <div class="row">
-                               <div class="col-7">
-                                   <label for="inputArea" class="form-label d-none d-sm-inline">Area (A)</label>
-                                   <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
-                                       data-bs-title="Area (m<sup>2</sup>, cm<sup>2</sup>, in<sup>2</sup>,
-                                       ft<sup>2</sup>):"
-                                       data-bs-content="Enter the area in units of square meters (m<sup>2</sup>), square
-                                       centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet
-                                       (ft<sup>2</sup>). Example: 10 m<sup>2</sup> or 100 cm<sup>2</sup>. Note: If you
-                                       are solving for force or pressure, you should input measurements in compatible
-                                       units.">
-                                       <i class="far fa-question-circle fa"></i>
-                                   </a>
-                                   <input type="number" name="inputArea" id="inputArea"
-                                       class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                       aria-label="input value for Specific Heat Capacity in joules per kilogram per
-                                        kelvin or similar." 
-                                        data-input="area" value="" min="0" max="1.00e+30" step="any" autocomplete="off"
-                                        disabled placeholder="Area (A)">
-                               </div>
-                               <div class="col-5">
-                                   <label for="unitsArea" class="form-label">Units</label>
-                                   <select class="form-select form-control" name="unitsArea"
-                                       id="unitsArea" data-input="area" disabled>
-                                       <option value="m2" selected>m&sup2;</option>
-                                       <option value="cm2">cm&sup2;</option>
-                                       <option value="km2">km&sup2;</option>
-                                       <option value="mm2">mm&sup2;</option>
-                                       <option value="um2">µm&sup2;</option>
-                                       <option value="mi2">mi&sup2;</option>
-                                       <option value="yd2">yd&sup2;</option>
-                                       <option value="ft2">ft&sup2;</option>
-                                       <option value="in2">in&sup2;</option>
-                                       <option value="ac">acres</option>
-                                       <option value="ha">hectares</option>
-                                   </select>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <div class="col text-center">
-               <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-               <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                   data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
-                   <i class="far fa-question-circle fa mb-2"></i>
-               </a>
-               <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
-                   disabled>Calculate</button>
-               <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                   data-bs-title="Calculate"
-                   data-bs-content="Once you have added three variables submit the calculation for evaluation.">
-                   <i class="far fa-question-circle fa mb-2"></i>
-               </a>
-               <div id="error"></div>
-           </div>
-           <br>
-       </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <!-- Pressure Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Pressure (P)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Pressure (Nm<sup>-2</sup>, Pa, psi, atm):" data-bs-content="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm). Example: 100 N/m<sup>2</sup> or 1 atm. Note: If you are solving for force or area, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputPressure">Pressure (P)</label><br>
+                        <input type="number" name="inputPressure" id="inputPressure" class="reset_form formCheck maxAllow" data-input="pressure" value="" min="-1.00e12" max="1.00e12" step="any" autocomplete="off" aria-label="Enter the pressure exerted by the object in units of newtons per square meter (Nm<sup>-2</sup>), pascals (Pa), pounds per square inch (psi), or atmospheres (atm)."
+                            disabled>
+                        <br>
+                        <label for="unitsPressure">Units</label><br>
+                        <select name="unitsPressure" id="unitsPressure" style="width:75px;" data-input="pressure" disabled>
+                    <option value="N/m^2" selected>Nm&#x207b;&sup2;</option>
+                    <option value="atm">atm</option>
+                    <option value="Pa">Pa</option>
+                    <option value="bar">bar</option>
+                    <option value="psi">psi</option>
+                    <option value="mmHg">mmHg</option>
+                    <option value="torr">Torr</option>
+                    <option value="hpa">hPa</option>
+                    <option value="kpa">kPa</option>
+                    <option value="mpa">MPa</option>
+                    <option value="mbar">mbar</option>
+                </select>
+                    </div>
+                </div>
+                <!-- Force Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-weight-hanging fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Force (F)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Force (N, kN, MN, lbf, ozf):" data-bs-content="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf). Example: 500 N or 0.5 kN. Note: If you are solving for pressure or area, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputForce">Force (F)</label><br>
+                        <input type="number" name="inputForce" id="inputForce" class="reset_form formCheck maxAllow" data-input="force" value="" min="-3.00e8" max="3.00e8" step="0.0001" autocomplete="off" aria-label="Enter the force acting on an object in units of newtons (N), kilonewtons (kN), meganewtons (MN), pounds-force (lbf), or ounces-force (ozf)."
+                            disabled>
+                        <br>
+                        <label for="unitsForce">Units</label><br>
+                        <select name="unitsForce" id="unitsForce" style="width:75px;" data-input="force" disabled>
+                    <option value="N" selected>N</option>
+                    <option value="kN">kN</option>
+                    <option value="MN">MN</option>
+                    <option value="dyn">dyn</option>
+                    <option value="lbf">lbf</option>
+                    <option value="ozf">ozf</option>
+                    <option value="lb">lb</option>
+                    <option value="kgf">kgf</option>
+                </select>
+                    </div>
+                </div>
+                <!-- Area Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1 cardBodyVelocity form-check" style="width: 18rem;">
+                    <i class="fa-solid fa-layer-group fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Area (A)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Area (m<sup>2</sup>, cm<sup>2</sup>, in<sup>2</sup>, ft<sup>2</sup>):" data-bs-content="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>). Example: 10 m<sup>2</sup> or 100 cm<sup>2</sup>. Note: If you are solving for force or pressure, you should input measurements in compatible units.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputArea">Area (A)</label><br>
+                        <input type="number" name="inputArea" id="inputArea" class="reset_form formCheck maxAllow" data-input="area" value="" min="0" max="1.00e+30" step="0.0001" autocomplete="off" aria-label="Enter the area in units of square meters (m<sup>2</sup>), square centimeters (cm<sup>2</sup>), square inches (in<sup>2</sup>), or square feet (ft<sup>2</sup>)."
+                            disabled>
+                        <br>
+                        <label for="unitsArea">Units</label><br>
+                        <select name="unitsArea" id="unitsArea" style="width:75px;" data-input="area" disabled>
+                   <option value="m2" selected>m&sup2;</option>
+                   <option value="cm2">cm&sup2;</option>
+                   <option value="km2">km&sup2;</option>
+                   <option value="mm2">mm&sup2;</option>
+                   <option value="um2">µm&sup2;</option>
+                   <option value="mi2">mi&sup2;</option>
+                   <option value="yd2">yd&sup2;</option>
+                   <option value="ft2">ft&sup2;</option>
+                   <option value="in2">in&sup2;</option>
+                   <option value="ac">acres</option>
+                   <option value="ha">hectares</option>
+               </select>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
         <!-- TABLE ONE - RESULTS -->
         <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
             <h5>Table 1: Results in SI units</h5>

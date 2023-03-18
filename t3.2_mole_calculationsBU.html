@@ -76,89 +76,69 @@
         </section>
         <section class="container border border-primary bg_cont">
             <div class="row d-flex justify-content-center">
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
-                    <i class="fa-solid fa-fire-flame-simple fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                <!-- Moles Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-atom fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">Moles<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Heat (J, cal, kJ, kcal, BTUs, MJ, or eV):" data-bs-content="Enter the heat gained or lost by the substance in units of
-                        joules (J), calories (cal), kilojoules (kJ), kilocalories (kcal), British Thermal Units
-                        (BTU), megajoules (MJ) or electronvolts (eV). Example: 500 J. Note: If you are solving for heat,
-                        leave this field blank.">
+                        <h4 class="text-center">Number of moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Moles (mol, mmol, μmol and nmol):" data-bs-content="Enter the number of moles present. You do not need to know the molecular formula for this. If this is the unit you're calculating, just leave it blank.">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
-                        <!-- Input 1 Moles -->
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-7">
-                                    <label for="inputMoles" class="form-label d-none d-sm-inline">Number of moles
-                                        (n)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Moles (mol, mmol, μmol and nmol):" data-bs-content="Enter the number of moles present. You do not need to know the
-                                        molecular formula for this. If this is the unit you're calculating, just leave
-                                        it blank.">
-                                        <i class="far fa-question-circle fa"></i>
-                                    </a>
-                                    <input type="number" name="inputMoles" id="inputMoles" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the number of moles, n." data-input="moles" value="" min="1e-45" max="1e100" step="any" autocomplete="off"
-                                        disabled placeholder="Number of Moles (n)">
-                                </div>
-                                <div class="col-5">
-                                    <label for="unitsMoles" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsMoles" id="unitsMoles" data-input="moles" disabled>
-                                        <option value="mol" selected>mol</option>
-                                        <option value="mmol">mmol</option>
-                                        <option value="μmol">μmol</option>
-                                        <option value="nmol">nmol</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Input 2 - Particles  -->
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-7">
-                                    <label for="inputParticles" class="form-label d-none d-sm-inline">Particles
-                                        (N)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Particles (number):" data-bs-content="Enter the number of particles in units of atoms or ions. This
-                                        value will be used to calculate the mass or volume of the gas, depending on the
-                                        other input values. For example, if you are solving for mass, leave this field
-                                        blank. If you are solving for volume, make sure to input the temperature,
-                                        pressure, and number of particles to get an accurate result. Please note that
-                                        this calculator assumes an ideal gas behavior.">
-                                        <i class="far fa-question-circle fa"></i>
-                                    </a>
-                                    <input type="number" name="inputParticles" id="inputParticles" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the mass of the object. Check your units." data-input="particles" value="" min="1e-45" max="1e100"
-                                        step="any" autocomplete="off" disabled placeholder="Particles (N)">
-                                </div>
-                                <div class="col-5">
-                                    <label for="unitsParticles" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsParticles" id="unitsParticles" data-input="particles" disabled>
-                                        <option value="atoms" selected>Atoms</option>
-                                        <option value="ions">Ions</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Input 3 Avogadro's -->
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-7">
-                                    <label for="inputSpecificHeatCapacity" class="form-label d-none d-sm-inline">Avogadro's Constant
-                                        (N<sub>A</sub>)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Avogadro's Number (6.022 × 10<sup>23</sup> particles per mole):" data-bs-content="This is Avogadro's constant and therefore does not need to be
-                                        altered.">
-                                        <i class="far fa-question-circle fa"></i>
-                                    </a>
-                                    <input type="number" name="inputAvogadro" id="inputAvogadro" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Preset constant, Avogadro's number." data-input="Avogadro" autocomplete="off" value="6.02214076e23" autocomplete="off"
-                                        disabled placeholder="6.02214076e23">
-                                </div>
-                                <div class="col-5">
-                                    <label for="unitsAvogadro" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsAvogadro" id="unitsAvogadro" data-input="Avogadro" disabled>
-                                        <option value="a1" selected>Avogadro's Constant 6.022 × 10²³ mol⁻¹</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="card-text"></p>
+                        <label for="inputMoles">Moles (n)</label><br>
+                        <input type="number" name="inputMoles" id="inputMoles" class="reset_form formCheck maxAllow" data-input="moles" value="" min="1e-45" max="1e100" step="1e-45" autocomplete="off" aria-label="input value for particles (moles)" disabled>
+                        <br>
+                        <label for="unitsHeat">Units</label><br>
+                        <select name="unitsMoles" id="unitsMoles" style="width:75px;" data-input="moles" disabled>
+                            <option value="mol" selected>mol</option>
+                            <option value="mmol">mmol</option>
+                            <option value="μmol">μmol</option>
+                            <option value="nmol">nmol</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Particles Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-spray-can-sparkles fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Moles (n)<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Particles (number):" data-bs-content="Enter the number of particles in units of atoms or ions. This value will be used to calculate the mass or volume of the gas, depending on the other input values. For example, if you are solving for mass, leave this field blank. If you are solving for volume, make sure to input the temperature, pressure, and number of particles to get an accurate result. Please note that this calculator assumes an ideal gas behavior.">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputParticles">Particles (N)</label><br>
+                        <input type="number" name="inputParticles" id="inputParticles" class="reset_form formCheck maxAllow" data-input="particles" value="" min="1e-45" max="1e100" step="1e-45" autocomplete="off" aria-label="Enter the number of particles in units of atoms or ions. This value will be used
+                            to calculate the mass or volume of the gas, depending on the other input values. For
+                            example, if you are solving for mass, leave this field blank. If you are solving for volume,
+                            make sure to input the temperature, pressure, and number of particles to get an accurate
+                            result. Please note that this calculator assumes an ideal gas behavior." disabled>
+                        <br>
+                        <label for="unitsParticles">Units</label><br>
+                        <select name="unitsParticles" id="unitsParticles" style="width:75px;" data-input="particles">
+                            <option value="atoms" selected>Atoms</option>
+                            <option value="ions">Ions</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Avogadro's Card -->
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
+                    <i class="fa-solid fa-superscript fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Avogadro's Constant (N<sub>A</sub>)
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Avogadro's Number (6.022 × 10<sup>23</sup> particles per mole):" data-bs-content="This is Avogadro's constant and therefore does not need to be altered. ">
+                                <i class="far fa-question-circle fa"></i>
+                            </a>
+                        </h4>
+                        <p class="card-text"></p>
+                        <label for="inputAvogadro">Avogadro's Number (N<sub>A</sub>)</label><br>
+                        <input type="number" name="inputAvogadro" id="inputAvogadro" class="reset_form formCheck maxAllow" data-input="Avogadro" value="6.02214076e23" min="0" max="10e27" step="0.0001" autocomplete="off" aria-label="Pre-input for Avogadro's Number." disabled>
+                        <br>
+                        <label for="unitsAvogadro">Units</label><br>
+                        <select name="unitsAvogadro" id="unitsAvogadro" style="width:175px;" data-input="Avogadro" disabled>
+                            <option value="a1" selected>Avogadro's Constant 6.022 × 10²³ mol⁻¹</option>
+                        </select>
                     </div>
                 </div>
             </div>

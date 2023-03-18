@@ -245,7 +245,7 @@ function calculateIdealGas() {
         t = t + 273.15; // converting Celsius to Kelvin
     }
     if (tUnit === "f") {
-        t = (t + 459.67) * (5 / 9); // converting Fahrenheit to Kelvin
+        t = t * (9 / 5); // converting Fahrenheit to Kelvin
     }
 
     //**************//

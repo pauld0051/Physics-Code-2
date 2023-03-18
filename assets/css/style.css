@@ -11,6 +11,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.dropdown-item-text {
+   font-style: italic;
+    color: #007bff;
+}
+
 /* MathJax Overlap */
 .dropdown-menu {
   z-index: 1000; /* Set the z-index value of the dropdown menu */

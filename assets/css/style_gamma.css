@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
+.gamma-icon {
+    font-family: 'Nunito Sans', serif; /* Use Nunito Sans font */
+    font-size: 48px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
+    color: #333; /* Set the color */
+}
+
+.invisible {
+    display: none;
+}
+
+.gamma-symbol {
+    font-family: 'Nunito Sans', sans-serif;
+  }

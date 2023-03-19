@@ -53,11 +53,11 @@ const t1 = document.querySelector("#time");
 
 document.getElementById("submitButton").addEventListener("click", function () {
     if (validateInputs()) {
-        calculateIdealGas();
+        calculateVelocity();
     }
 });
 
-function calculateIdealGas() {
+function calculateVelocity() {
     //User input values
     let v = parseFloat(document.getElementById("inputVelocity").value);
     let d = parseFloat(document.getElementById("inputDistance").value);

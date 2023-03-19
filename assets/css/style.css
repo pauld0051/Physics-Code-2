@@ -12,44 +12,52 @@ body {
 }
 
 .dropdown-item-text {
-   font-style: italic;
+    font-style: italic;
     color: #007bff;
 }
 
+
 /* MathJax Overlap */
+
 .dropdown-menu {
-  z-index: 1000; /* Set the z-index value of the dropdown menu */
+    z-index: 1000;
+    /* Set the z-index value of the dropdown menu */
 }
 
 .mjx-chtml {
-  z-index: 999; /* Set the z-index value of MathJax elements */
+    z-index: 999;
+    /* Set the z-index value of MathJax elements */
 }
 
 .navbar {
-  z-index: 9999;
+    z-index: 9999;
 }
 
 .dropdown-menu.show {
-  position: static;
-  float: none;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
+    position: static;
+    float: none;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
- /* End MathJax Fix */
 
- /* Set height of input boxes */
- .form-control.input-rounded-start {
-  height: 34px;
+
+/* End MathJax Fix */
+
+
+/* Set height of input boxes */
+
+.form-control.input-rounded-start {
+    height: 34px;
 }
 
 .input-group-text {
-  height: 34px;
-  padding: 0.375rem 0.75rem;
+    height: 34px;
+    padding: 0.375rem 0.75rem;
 }
 
 .container-fluid {
@@ -108,6 +116,7 @@ body {
     height: 200px;
 }
 
+
 /* Color of h6 element for equation and answers */
 
 .answer_color {
@@ -117,6 +126,7 @@ body {
 .equation_color {
     color: green;
 }
+
 
 /* 2 column table set widths */
 
@@ -131,11 +141,13 @@ body {
     width: 33%;
 }
 
+
 /* 5 column table set widths */
 
 .w20 {
     width: 20%;
 }
+
 
 /* Thick line break for tables */
 
@@ -144,11 +156,13 @@ body {
     border-bottom-width: medium;
 }
 
+
 /* smaller line separation where needed */
 
 .small-line-height {
-  line-height: 0.75;
+    line-height: 0.75;
 }
+
 
 /* Form Validation */
 
@@ -206,58 +220,59 @@ input:valid {
     font-weight: bold;
 }
 
+
 /* Input Placeholder and Select Text Size */
+
 input[type="number"]::-webkit-input-placeholder {
-  font-size: 75%;
-  line-height: 1.5;
+    font-size: 75%;
+    line-height: 1.5;
 }
 
 input[type="number"]::-moz-placeholder {
-  font-size: 75%;
-  line-height: 1.5;
+    font-size: 75%;
+    line-height: 1.5;
 }
 
 input[type="number"]:-moz-placeholder {
-  font-size: 75%;
-  line-height: 1.5;
+    font-size: 75%;
+    line-height: 1.5;
 }
 
 input[type="number"]:-ms-input-placeholder {
-  font-size: 75%;
-  line-height: 1.5;
+    font-size: 75%;
+    line-height: 1.5;
 }
 
 select.form-select {
-  font-size: 75%;
+    font-size: 75%;
 }
 
 select.form-select,
 input.reset_form {
-  height: calc(1.5em + 0.75rem + 2px);
+    height: calc(1.5em + 0.75rem + 2px);
 }
 
 .form-group .row .col:first-child {
-  padding-right: 0;
+    padding-right: 0;
 }
 
 .form-group .row .col:last-child {
-  width: auto;
+    width: auto;
 }
 
 .form-group {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
+
 .form-group .row {
-  flex: 1;
+    flex: 1;
 }
+
 .form-group .row .col:first-child {
-  flex: 1;
+    flex: 1;
 }
 
 label.form-label {
-  padding-top: 6px;
+    padding-top: 6px;
 }
-
-
-

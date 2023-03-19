@@ -52,7 +52,7 @@ function validateInputs() {
       showAlert(`Please enter a value for ${inputName}.`, input.id);
       return false;
     }
-    const regex = /^-?\d*\.?\d+(e[-+]?\d+)?$/i;
+    const regex = /^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$/i;
     if (!regex.test(input.value)) {
       showAlert(`Invalid input for ${inputName}. Please enter a valid number.`, input.id);
       return false;
@@ -181,5 +181,8 @@ function resetForm() {
   document.querySelectorAll('select').forEach((select) => {
     select.selectedIndex = 0; // reset to default selected option
     select.disabled = true;
+  });
+  document.querySelectorAll('.col-3.text-center i.fa-check-square').forEach((icon) => {
+    icon.classList.add('text-warning');
   });
 }

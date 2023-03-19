@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
-<!-- TO FIX TEMPLATE SEARCH FOR [YOUR_ AND REPLACE ACCORDINGLY -->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>[YOUR_TITLE_HERE]</title>
+    <title>Velocity Calculator</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
@@ -21,9 +20,11 @@
     <section class="container">
         <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
             <div class="container">
-                <h1 class="display-4 text-center text-wrap">[YOUR_TITLE_HERE]</h1>
-                <p class="lead">Calculate the [YOUR_TEXT_HERE]
+                <h1 class="display-4 text-center text-wrap">Velocity and Speed Calculator</h1>
+                <p class="lead">Calculate the velocity or speed an object is travelling, the distance it travelled or
+                    the time it took to travel.
                 </p>
+                <p>Start by adding two of the known variables to calculate the third.</p>
             </div>
         </div>
     </section>
@@ -32,48 +33,54 @@
         <div class="row">
             <h3 class="d-flex justify-content-center">Equation</h3>
         </div>
-        \begin{gather} [YOUR_EQUATION_HERE] pV\ =\ nRT\ \notag \end{gather}
+        \begin{equation*} \Large v = \frac{d}{t} \end{equation*}
     </section>
     <form id="SubmissionForm" novalidate>
         <!-- Equation Selection -->
         <section class="container border border-primary bg_cont mb-1">
             <h4>Select the things you know:
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any [YOUR_NUMBER_HERE]three variables to calculate the [YOUR_NUMBER_HERE]fourth.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                    data-bs-title="Select known variables"
+                    data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any three variables to calculate the fourth.">
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>[YOUR_TEXT_HERE] <a href="[YOUR_LINK_HERE]" target="_blank" rel="noopener">[YOUR_LAW_HERE]</a> page.
+            <p>Please note that this calculator converts all inputs into SI or metric units (ms<sup>-1</sup>, m and s).
+                The velocity of an object is given by the equation \(v = \frac{d}{t}\), where \(v\) is the velocity,
+                \(d\) is the distance traveled, and
+                \(t\) is the time it takes to travel that distance. Select the two variables that you know and calculate
+                for the third. You can change your selection later if you want. This will help you become familiar with
+                the processes of calculating
+                velocity equations.</p>
+            <p>For more information about velocity and the equation \(v = \frac{d}{t}\), please visit our <a
+                    href="https://#" target="_blank" rel="noopener">velocity equation</a> page.
             </p>
             <!-- Check Boxes -->
             <div class="row align-items-center">
                 <div class="col-3 text-center">
-                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
-                    </p>
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you
+                        know:</p>
                 </div>
                 <div class="col-9">
                     <div class="ideal-check border p-3">
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
-                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
-                                [YOUR_VARIABLE_HERE] (X)
+                            <input class="form-check-input" type="checkbox" value="velocity" id="velocity"
+                                name="velocity">
+                            <label class="form-check-label" for="velocity">
+                                Velocity (v)
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
-                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
-                                [YOUR_VARIABLE_HERE] (X)
+                            <input class="form-check-input" type="checkbox" value="distance" id="distance"
+                                name="distance">
+                            <label class="form-check-label" for="distance">
+                                Distance (d)
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
-                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
-                                [YOUR_VARIABLE_HERE] (X)
-                            </label>
-                        </div>
-                        <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="[YOUR_VARIABLE_HERE]" id="[YOUR_VARIABLE_HERE]" name="[YOUR_VARIABLE_HERE]">
-                            <label class="form-check-label" for="[YOUR_VARIABLE_HERE]">
-                                [YOUR_VARIABLE_HERE] (X)
+                            <input class="form-check-input" type="checkbox" value="time" id="time" name="time">
+                            <label class="form-check-label" for="time">
+                                Time (t)
                             </label>
                         </div>
                     </div>
@@ -82,166 +89,162 @@
         </section>
         <section class="container border border-primary bg_cont">
             <div class="row d-flex justify-content-center">
-                <!-- [YOUR_VARIABLE_HERE] Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
+                    <i class="fa-solid fa-gauge-high fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
                     <div class="card-body">
-                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
-                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
-                                leave this field blank.">
+                        <h4 class="text-center">Velocity<br>
+                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus"
+                                data-bs-title="Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph, fts<sup>-1</sup>, knots):"
+                                data-bs-content="Enter
+                            the velocity
+                            of the object in units of meters per second (ms<sup>-1</sup>), kilometers per hour
+                            (kmh<sup>-1</sup>),
+                            miles per hour (mph), feet per second (fts<sup>-1</sup>), or knots (nautical miles per
+                            hour).
+                            Example: 10 ms<sup>-1</sup> or 36 kmh<sup>-1</sup>. Note: If you are solving for distance or
+                            time, you should input measurements in compatible units.">
                                 <i class="far fa-question-circle fa"></i>
                             </a>
                         </h4>
-                        <p class="card-text"></p>
-                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
-                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
-                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
-                        <br>
-                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
-                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
-                                    <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
-                                    <option value="bar">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="atm">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="psi">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="torr">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="hpa">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="kpa">[YOUR_VARIABLE_HERE]</option>
-                                    <option value="mpa">[YOUR_VARIABLE_HERE]</option>
-                                </select>
-                    </div>
-                </div>
-                <!-- [YOUR_VARIABLE_HERE] Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
-                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
-                                leave this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
-                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
-                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
-                        <br>
-                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
-                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
-                                            <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
-                                            <option value="bar">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="atm">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="psi">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="torr">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="hpa">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="kpa">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="mpa">[YOUR_VARIABLE_HERE]</option>
-                                        </select>
-                    </div>
-                </div>
-                <!-- [YOUR_VARIABLE_HERE] Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
-                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
-                                leave this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
-                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
-                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
-                        <br>
-                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
-                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
-                                            <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
-                                            <option value="bar">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="atm">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="psi">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="torr">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="hpa">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="kpa">[YOUR_VARIABLE_HERE]</option>
-                                            <option value="mpa">[YOUR_VARIABLE_HERE]</option>
-                                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <!-- [YOUR_VARIABLE_HERE] Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
-                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
-                                leave this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
-                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
-                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
-                        <br>
-                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
-                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
-                                                <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
-                                                <option value="bar">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="atm">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="psi">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="torr">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="hpa">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="kpa">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="mpa">[YOUR_VARIABLE_HERE]</option>
-                                            </select>
-                    </div>
-                </div>
-                <!-- [YOUR_VARIABLE_HERE] Card -->
-                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 18rem;">
-                    <i class="fa-solid fa-angles-down fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
-                    <div class="card-body">
-                        <h4 class="text-center">[YOUR_VARIABLE_HERE] (X)<br>
-                            <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="[YOUR_VARIABLE_HERE] ([YOUR_UNITS_HERE]):" data-bs-content="Enter the [YOUR_VARIABLE_HERE] of the gas in units of
-                                [YOUR_UNITS_HERE]. Example: [YOUR_EXAMPLE_HERE]. Note: If you are solving for volume,
-                                leave this field blank.">
-                                <i class="far fa-question-circle fa"></i>
-                            </a>
-                        </h4>
-                        <p class="card-text"></p>
-                        <label for="input[YOUR_VARIABLE_HERE]">[YOUR_VARIABLE_HERE] (X)</label><br>
-                        <input type="number" name="input[YOUR_VARIABLE_HERE]" id="input[YOUR_VARIABLE_HERE]" class="reset_form formCheck maxAllow" data-input="[YOUR_VARIABLE_HERE]" value="" min="[YOUR_DEFAULT_MIN]" max="[YOUR_DEFAULT_MAX]" step="[YOUR_DEFAULT_STEP]" autocomplete="off"
-                            aria-label="input value for [YOUR_VARIABLE_HERE] in [YOUR_UNITS_HERE], ." disabled>
-                        <br>
-                        <label for="units[YOUR_VARIABLE_HERE]">Units</label><br>
-                        <select name="units[YOUR_VARIABLE_HERE]" id="units[YOUR_VARIABLE_HERE]" style="width:75px;" data-input="[YOUR_VARIABLE_HERE]" disabled>
-                                                <option value="pa" selected>[YOUR_VARIABLE_HERE]</option>
-                                                <option value="bar">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="atm">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="mmHg">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="psi">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="torr">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="hpa">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="kpa">[YOUR_VARIABLE_HERE]</option>
-                                                <option value="mpa">[YOUR_VARIABLE_HERE]</option>
-                                            </select>
+                        <!-- Input 1 Velocity -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputVelocity" class="form-label d-none d-sm-inline">Velocity
+                                        (v)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus" data-bs-title="Velocity (ms<sup>-1</sup>, kmh<sup>-1</sup>, mph, fts<sup>-1</sup>,
+                                    knots):" data-bs-content="Enter
+                                    the velocity
+                                    of the object in units of meters per second (ms<sup>-1</sup>), kilometers per hour
+                                    (kmh<sup>-1</sup>),
+                                    miles per hour (mph), feet per second (fts<sup>-1</sup>), or knots (nautical miles
+                                    per
+                                    hour).
+                                    Example: 10 ms<sup>-1</sup> or 36 kmh<sup>-1</sup>. Note: If you are solving for
+                                    distance or
+                                    time, you should input measurements in compatible units.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputVelocity" id="inputVelocity"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="Enter the velocity of the object in units of meters per second
+                                        (ms<sup>-1</sup>), kilometers per hour
+                                        (kmh<sup>-1</sup>), miles per hour (mph), feet per second (fts<sup>-1</sup>), or
+                                        knots (nautical miles per
+                                        hour)." data-input="velocity" value="" min="-3.00e8" max="3.00e8" step="0.0001"
+                                        autocomplete="off" disabled placeholder="Velocity (v)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsVelocity" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsVelocity" id="unitsVelocity"
+                                        data-input="velocity" disabled>
+                                        <option value="ms" selected>ms&sup1;</option>
+                                        <option value="kmh">kmh&sup1;</option>
+                                        <option value="mph">mph</option>
+                                        <option value="fts">fts&sup1;</option>
+                                        <option value="knots">knots</option>
+                                        <option value="kms">kms&sup1;</option>
+                                        <option value="cms">cms&sup1;</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 2 - Distance  -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputDistance" class="form-label d-none d-sm-inline">Distance
+                                        (d)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus"
+                                        data-bs-title="Distance (m, km, mi, ft, yd, nm, mm, cm, in):" data-bs-content="Enter the distance traveled in units of meters (m), kilometers
+                                    (km), miles
+                                    (mi), feet (ft), yards (yd), nautical miles (nm), millimeters (mm), centimeters
+                                    (cm),
+                                    or inches (in). Example: 1000 m or 1 km for a distance of 1 kilometer.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputDistance" id="inputDistance"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="Enter the distance traveled in units of meters (m), kilometers (km),
+                                        miles
+                                        (mi), feet (ft), yards (yd), nautical miles (nm), millimeters (mm), centimeters
+                                        (cm),
+                                        or inches (in)" data-input="distance" value="" min="0" max="8.8e26" step="1e-9"
+                                        autocomplete="off" disabled placeholder="Distance (d)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsDistance" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsDistance" id="unitsDistance"
+                                        data-input="distance" disabled>
+                                        <option value="m" selected>m</option>
+                                        <option value="km">km</option>
+                                        <option value="mi">mi</option>
+                                        <option value="ft">ft</option>
+                                        <option value="yd">yd</option>
+                                        <option value="μm">μm</option>
+                                        <option value="nm">nm</option>
+                                        <option value="mm">mm</option>
+                                        <option value="cm">cm</option>
+                                        <option value="in">in</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 3 - Time -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputTime" class="form-label d-none d-sm-inline">Time (t)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                        data-bs-trigger="focus" data-bs-title="Time (s, min, h, d, wk, mo, yr):"
+                                        data-bs-content="Enter the time in units of seconds (s), minutes (min), hours (h),
+                                    days
+                                    (d), weeks (wk), months (mo), or years (yr). Example: 3600 s or 1 h for a time of 1
+                                    hour.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputTime" id="inputTime"
+                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                        aria-label="Enter the time in units of seconds (s), minutes (min), hours (h),
+                                        days
+                                        (d), weeks (wk), months (mo), or years (yr)." data-input="time" value=""
+                                        max="1e15" min="1e-9" step="1e-9" autocomplete="off" disabled
+                                        placeholder="Time (t)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsTime" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsTime" id="unitsTime"
+                                        data-input="time" disabled>
+                                        <option value="s" selected>s</option>
+                                        <option value="min">min</option>
+                                        <option value="h">h</option>
+                                        <option value="d">d</option>
+                                        <option value="wk">wk</option>
+                                        <option value="mo">mo</option>
+                                        <option value="yr">yr</option>
+                                        <option value="ms">ms</option>
+                                        <option value="μs">μs</option>
+                                        <option value="ns">ns</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col text-center">
                 <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                    data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
-                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
+                    disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                    data-bs-title="Calculate"
+                    data-bs-content="Once you have added three variables submit the calculation for evaluation.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
                 <div id="error"></div>
@@ -260,26 +263,16 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>[YOUR_VARIABLE_HERE] (X)</td>
-                        <td id="[YOUR_VARIABLE_HERE]Output">Pa</td>
+                        <td>Velocity (v)</td>
+                        <td id="velocityOutput">ms<sup>-1</sup></td>
                     </tr>
                     <tr>
-                        <td>[YOUR_VARIABLE_HERE] (X)</td>
-                        <td id="[YOUR_VARIABLE_HERE]Output">m<sup>3</sup></td>
+                        <td>Distance (d)</td>
+                        <td id="distanceOutput">m</td>
                     </tr>
                     <tr>
-                        <td>[YOUR_VARIABLE_HERE] (X)</td>
-                        <td id="[YOUR_VARIABLE_HERE]Output">mol</td>
-                    </tr>
-                    <tr>
-                        <td>[YOUR_VARIABLE_HERE] (X)</td>
-                        <td id="[YOUR_VARIABLE_HERE]Output">
-                            m<sup>3</sup>⋅Pa⋅K<sup>-1</sup>⋅mol<sup>-1</sup>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>[YOUR_VARIABLE_HERE] (X)</td>
-                        <td id="[YOUR_VARIABLE_HERE]Output">K</td>
+                        <td>Time (t)</td>
+                        <td id="timeOutput">s</td>
                     </tr>
                 </tbody>
             </table>
@@ -287,13 +280,14 @@
             <p id="equation"></p>
             <p id="substitutedNumbers"></p>
             <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
-            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                data-bs-title="Reset Form"
+                data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
                 <i class="far fa-question-circle fa mb-2"></i>
             </a>
             <br>
-            <p><em>Table 1 provides the SI unit for each variable. You can change the output
-                                            accordingly and see the
-                                            common unit conversions in Table 2.</em></p>
+            <p><em>Table 1 provides the SI unit for each variable. You can change the output accordingly and see the
+                    common unit conversions in Table 2.</em></p>
         </section>
     </form>
     <!-- Table 2 Results Table -->
@@ -308,92 +302,117 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>[YOUR_VARIABLE_HERE] (X)</td>
-                    <td id="p1x">Pa</td>
+                    <td>Velocity (v)</td>
+                    <td id="v1x">ms<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="p2x">bar</td>
+                    <td id="v2x">kmh<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="p3x">atm</td>
+                    <td id="v3x">fts<sup>-1</sup></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="p4x">mmHg</td>
+                    <td id="v4x">knots</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="p5x">PSI</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="p6x">Torr</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="p7x">hPa</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="p8x">kPa</td>
+                    <td id="v5x">kms<sup>-1</sup></td>
                 </tr>
                 <tr class="t_line">
                     <td></td>
-                    <td id="p9x">MPa</td>
+                    <td id="v6x">cms<sup>-1</sup></td>
                 </tr>
                 <tr>
-                    <td>[YOUR_VARIABLE_HERE] (X)</td>
-                    <td id="v1x">m<sup>3</sup></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="v2x">cm<sup>3</sup></td>
+                    <td>Distance (d)</td>
+                    <td id="d1x">m</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="v3x">L</td>
+                    <td id="d2x">km</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d3x">mi</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d4x">ft</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d5x">yd</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d8x">cm</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d7x">mm</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d10x">μm</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="d6x">nm</td>
                 </tr>
                 <tr class="t_line">
                     <td></td>
-                    <td id="v4x">mL</td>
+                    <td id="d9x">in</td>
                 </tr>
                 <tr>
-                    <td>[YOUR_VARIABLE_HERE] (X)</td>
-                    <td id="n1x">mol</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="n2x">mmol</td>
+                    <td>Time (t)</td>
+                    <td id="t1x">s</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td id="n3x">&mu;mol</td>
+                    <td id="t3x">min</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t4x">hr</td>
+                </tr>
+                <tr>
+                <tr>
+                    <td></td>
+                    <td id="t5x">days</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t6x">weeks</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t7x">months</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t8x">years</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t9x">ms</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="t10x">&mu;s</td>
                 </tr>
                 <tr class="t_line">
                     <td></td>
-                    <td id="n4x">nmol</td>
-                </tr>
-                <tr>
-                    <td>[YOUR_VARIABLE_HERE] (X)</td>
-                    <td id="t1x">K</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t2x">&deg;C</td>
-                </tr>
-                <tr class="t_line">
-                    <td></td>
-                    <td id="t3x">&deg;F</td>
+                    <td id="t11x">ns</td>
                 </tr>
             </tbody>
         </table>
-        <p><em>Table 2 shows the results of all the calculations and various units available
-                                            with all conversions
-                                            completed.</em>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
+                completed.</em>
         </p>
     </section>
+    </div>
     <div id="alert-container">
         <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
             <span id="alert-message">Invalid input.</span>
@@ -406,7 +425,7 @@
     <script src="assets/scripts/jquery-3.6.1.min.js"></script>
     <script src="assets/scripts/bootstrap.bundle.js"></script>
     <script src="assets/scripts/include_content.js"></script>
-    <script src="assets/scripts/calculators/ideal_gas.js"></script>
+    <script src="assets/scripts/calculators/t2.1_velocity.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>

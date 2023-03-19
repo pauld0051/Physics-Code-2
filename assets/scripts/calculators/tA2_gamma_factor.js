@@ -76,7 +76,7 @@ function updateMinMax() {
         max = 2997.92458;
     } else if (vUnit === 'c') {
         min = 0;
-        max = 1;
+        max = 0.9999999999999999;
     }
 
     inputVelocity.setAttribute('min', min);

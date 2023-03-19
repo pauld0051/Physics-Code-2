@@ -38,25 +38,20 @@
         \begin{equation*} \Large \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \end{equation*}
     </section>
     <form id="SubmissionForm" novalidate>
-        <section class="container border border-primary bg_cont mb-3">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 mx-auto">
-                    <div class="card shadow-sm p-3 mt-1 mb-1">
-                        <span class="gamma-icon fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3">&#947;</span>
-                        <div class="card-body">
-                            <div class="row">
-                                <!-- Velocity card content -->
-                                <div class="col-lg-6">
-                                    <!-- Velocity card content goes here -->
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <label for="inputVelocity"
-                                                    class="form-label d-none d-sm-inline">Velocity
-                                                    (v)</label>
-                                                <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
-                                                    data-bs-trigger="focus" data-bs-title="Velocity (c, ms<sup>-1</sup>, kmh<sup>-1</sup>, mph, fts<sup>-1</sup>,
-                                    knots):" data-bs-content="Enter
+            <section class="container border border-primary bg_cont mb-3">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 mx-auto">
+                        <div class="card shadow-sm p-3 mt-1 mb-1">
+                            <span class="gamma-icon fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3">&#947;</span>
+                            <div class="card-body">
+                                <div class="row mb-3 row-input">
+                                    <div class="col-md-12">
+                                        <label for="inputVelocity" class="form-label d-none d-sm-inline">Velocity
+                                            (v)</label>
+                                        <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
+                                            data-bs-trigger="focus" data-bs-title="Velocity (c, ms<sup>-1</sup>, kmh<sup>-1</sup>, mph, fts<sup>-1</sup>,
+                                    knots):"
+                                            data-bs-content="Enter
                                     the velocity
                                     of the object in a decimals of 'c' (for instance, half the speed of light is 0.5), units of meters per second (ms<sup>-1</sup>), kilometers per hour
                                     (kmh<sup>-1</sup>),
@@ -64,82 +59,83 @@
                                     per
                                     hour).
                                     Example: 75% the speed of light is 0.75 c or approximately 224776910 ms<sup>-1</sup>.">
-                                                    <i class="far fa-question-circle fa"></i>
-                                                </a>
-                                                <input type="number" name="inputVelocity" id="inputVelocity"
-                                                    class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                                    aria-label="Enter the velocity of the object in units of c (a decimal of the speed of light, for half the speed of light add 0.5) meters per second (ms<sup>-1</sup>), kilometers per hour (kmh<sup>-1</sup>), miles per hour (mph), feet per second (fts<sup>-1</sup>), or
+                                            <i class="far fa-question-circle fa"></i>
+                                        </a>
+                                        <div class="input-group p-1">
+                                            <input type="number" name="inputVelocity" id="inputVelocity"
+                                                class="reset_form formCheck maxAllow form-control input-rounded-start"
+                                                aria-label="Enter the velocity of the object in units of c (a decimal of the speed of light, for half the speed of light add 0.5) meters per second (ms<sup>-1</sup>), kilometers per hour (kmh<sup>-1</sup>), miles per hour (mph), feet per second (fts<sup>-1</sup>), or
                                         knots (nautical miles per
-                                        hour)." data-input="velocity" value="" min="1e-99"
-                                                    max="0.9999999999999999"
-                                                    step="any" autocomplete="off" placeholder="Velocity (v)">
-                                            </div>
-                                            <div class="col-5">
-                                                <label for="unitsVelocity" class="form-label">Units</label>
-                                                <select class="form-select form-control" name="unitsVelocity"
-                                                    id="unitsVelocity" data-input="velocity">
-                                                    <option value="c" selected>c</option>
-                                                    <option value="ms">ms⁻¹</option>
-                                                    <option value="kmh">kmh⁻¹</option>
-                                                    <option value="mph">mph</option>
-                                                    <option value="fts">fts⁻¹</option>
-                                                    <option value="knots">knots</option>
-                                                    <option value="kms">kms⁻¹</option>
-                                                    <option value="cms">cms⁻¹</option>
-                                                </select>
-                                            </div>
+                                        hour)." data-input="velocity" value="" min="1e-99" max="0.9999999999999999"
+                                                step="any" autocomplete="off" placeholder="Velocity (v)">
+                                            <select class="form-select select-input" name="unitsVelocity"
+                                                id="unitsVelocity" data-input="velocity">
+                                                <option value="c" selected>c</option>
+                                                <option value="ms">ms⁻¹</option>
+                                                <option value="kmh">kmh⁻¹</option>
+                                                <option value="mph">mph</option>
+                                                <option value="fts">fts⁻¹</option>
+                                                <option value="knots">knots</option>
+                                                <option value="kms">kms⁻¹</option>
+                                                <option value="cms">cms⁻¹</option>
+                                            </select>
+                                            <div class="form-control output-group" id="gammaFactorValue"
+                                                aria-label="Gamma Factor (&#947;)">
+                                                Gamma Factor (&#947;)</div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Vertical separator -->
-                                <div class="col-lg-1 d-none d-lg-block">
-                                    <div class="border-left"></div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <h2>Gamma Factor (<span class="gamma-symbol"><em>&#947;</em></span>):</h2>
-                                    <h4 id="gammaFactorValue">
-                                        <!-- Insert gamma factor value here -->
-                                    </h4>
+
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <input type="text" class="form-control mb-2" placeholder="Input 2">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <input class="mt-2 d-block" placeholder="Output 2">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col text-center">
+                        <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover"
+                            data-bs-trigger="focus" data-bs-title="Reset Form"
+                            data-bs-content="Reset the form to add new variables to calculate.">
+                            <i class="far fa-question-circle fa mb-2"></i>
+                        </a>
+                        <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
+                            disabled>Calculate</button>
+                        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover"
+                            data-bs-trigger="focus" data-bs-title="Calculate"
+                            data-bs-content="Once you have added the velocity variable submit the calculation for evaluation.">
+                            <i class="far fa-question-circle fa mb-2"></i>
+                        </a>
+                        <div id="error"></div>
+                    </div>
                 </div>
+            </section>
+
+        <!-- Invisible reset button for global JS code -->
+        <button type="reset" class="invisible" id="resetButton2">Reset</button>
+        <div id="alert-container">
+            <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+                <span id="alert-message">Invalid input.</span>
+                <button id="alert-close" aria-label="Close alert">X</button>
             </div>
-            <div class="col text-center">
-                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
-                    <i class="far fa-question-circle fa mb-2"></i>
-                </a>
-                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
-                    disabled>Calculate</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Calculate"
-                    data-bs-content="Once you have added the velocity variable submit the calculation for evaluation.">
-                    <i class="far fa-question-circle fa mb-2"></i>
-                </a>
-                <div id="error"></div>
-            </div>
-        </section>
-    </div>
-    <!-- Invisible reset button for global JS code -->
-    <button type="reset" class="invisible" id="resetButton2">Reset</button>
-    <div id="alert-container">
-        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
-            <span id="alert-message">Invalid input.</span>
-            <button id="alert-close" aria-label="Close alert">X</button>
         </div>
-    </div>
-    <footer>
-        <div class="footer"></div>
-    </footer>
-    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
-    <script src="assets/scripts/bootstrap.bundle.js"></script>
-    <script src="assets/scripts/include_content.js"></script>
-    <script src="assets/scripts/calculators/tA2_gamma_factor.js"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <footer>
+            <div class="footer"></div>
+        </footer>
+        <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+        <script src="assets/scripts/bootstrap.bundle.js"></script>
+        <script src="assets/scripts/include_content.js"></script>
+        <script src="assets/scripts/calculators/tA2_gamma_factor.js"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>
 
 </html>

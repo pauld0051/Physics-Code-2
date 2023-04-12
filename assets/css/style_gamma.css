@@ -106,5 +106,14 @@ td.form-group label.form-label {
   font-style: italic;
 }
 
+.input-label-container {
+        position: relative;
+    }
 
+    .label-above {
+        position: absolute;
+        top: -1.3em;
+        font-size: 0.8em;
+        opacity: 0.7;
+    }
 

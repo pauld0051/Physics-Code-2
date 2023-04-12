@@ -22,15 +22,12 @@
         <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
             <div class="container">
                 <h1 class="display-4 text-center text-wrap">Gamma Factor Calculator</h1>
-                <p class="lead">Calculate the relativistic gamma factor (<em>γ</em>) for an object in motion, accounting
-                    for its
-                    velocity and the speed of light.
+                <p class="lead">Calculate the relativistic gamma factor (<em>γ</em>) for an object in motion, accounting for its velocity and the speed of light. Or calculate how fast an object would be travelling at a certain gamma factor.
                 </p>
-                <p>Start by adding the velocity the object is travelling at.</p>
+                <p>Start by selecting what you know to calculate the unknown variable.</p>
             </div>
         </div>
     </section>
-    <!-- Equation Display -->
     <section class="container border border-info bg_cont mb-1">
         <div class="row">
             <h3 class="d-flex justify-content-center">Equation</h3>
@@ -38,104 +35,221 @@
         \begin{equation*} \Large \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} \end{equation*}
     </section>
     <form id="SubmissionForm" novalidate>
-            <section class="container border border-primary bg_cont mb-3">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="card shadow-sm p-3 mt-1 mb-1">
-                            <span class="gamma-icon fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3">&#947;</span>
-                            <div class="card-body">
-                                <div class="row mb-3 row-input">
-                                    <div class="col-md-12">
-                                        <label for="inputVelocity" class="form-label d-none d-sm-inline">Velocity
-                                            (v)</label>
-                                        <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
-                                            data-bs-trigger="focus" data-bs-title="Velocity (c, ms<sup>-1</sup>, kmh<sup>-1</sup>, mph, fts<sup>-1</sup>,
-                                    knots):"
-                                            data-bs-content="Enter
-                                    the velocity
-                                    of the object in a decimals of 'c' (for instance, half the speed of light is 0.5), units of meters per second (ms<sup>-1</sup>), kilometers per hour
-                                    (kmh<sup>-1</sup>),
-                                    miles per hour (mph), feet per second (fts<sup>-1</sup>), or knots (nautical miles
-                                    per
-                                    hour).
-                                    Example: 75% the speed of light is 0.75 c or approximately 224776910 ms<sup>-1</sup>.">
-                                            <i class="far fa-question-circle fa"></i>
-                                        </a>
-                                        <div class="input-group p-1">
-                                            <input type="number" name="inputVelocity" id="inputVelocity"
-                                                class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                                aria-label="Enter the velocity of the object in units of c (a decimal of the speed of light, for half the speed of light add 0.5) meters per second (ms<sup>-1</sup>), kilometers per hour (kmh<sup>-1</sup>), miles per hour (mph), feet per second (fts<sup>-1</sup>), or
-                                        knots (nautical miles per
-                                        hour)." data-input="velocity" value="" min="1e-99" max="0.9999999999999999"
-                                                step="any" autocomplete="off" placeholder="Velocity (v)">
-                                            <select class="form-select select-input" name="unitsVelocity"
-                                                id="unitsVelocity" data-input="velocity">
-                                                <option value="c" selected>c</option>
-                                                <option value="ms">ms⁻¹</option>
-                                                <option value="kmh">kmh⁻¹</option>
-                                                <option value="mph">mph</option>
-                                                <option value="fts">fts⁻¹</option>
-                                                <option value="knots">knots</option>
-                                                <option value="kms">kms⁻¹</option>
-                                                <option value="cms">cms⁻¹</option>
-                                            </select>
-                                            <div class="form-control output-group" id="gammaFactorValue"
-                                                aria-label="Gamma Factor (&#947;)">
-                                                Gamma Factor (&#947;)</div>
-                                        </div>
-                                        </div>
-                                    </div>
+        <!-- Equation Selection -->
+        <section class="container border border-primary bg_cont mb-1">
+            <h4>Select the things you know:
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any two variables to calculate the third.">
+                    <small><i class="far fa-question-circle fa"></i></small>
+                </a>
+            </h4>
+            <p>Please note that this calculator converts all inputs into SI or metric units (ms<sup>-1</sup>). Select the variable that you know and calculate for the other. You can change your selection later if you want. This will help you become familiar
+                with the processes of calculating pressure equations.</p>
+            <p>For more information about the gamma factor, please visit our <a href="https://#" target="_blank" rel="noopener">gamma factor</a> page.
+            </p>
+            <!-- Check Boxes -->
+            <div class="row align-items-center">
+                <div class="col-3 text-center">
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
+                    </p>
+                </div>
+                <div class="col-9">
+                    <div class="ideal-check border p-3">
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="gamma" id="gamma" name="gamma">
+                            <label class="form-check-label" for="gamma">
+                                Gamma (γ)
+                            </label>
+                        </div>
+                        <div class="form-check form-switch border-bottom">
+                            <input class="form-check-input" type="checkbox" value="velocity" id="velocity" name="velocity">
+                            <label class="form-check-label" for="velocity">
+                                Velocity (v)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container border border-primary bg_cont">
+            <div class="row d-flex justify-content-center">
+                <div class="card shadow-sm p-3 mt-1 mb-1" style="width: 32rem;">
+                    <i class="fa-solid fa-tachograph-digital fa-10x rounded mx-auto d-block mt-1 shadow-sm p-3"></i>
+                    <div class="card-body">
+                        <h4 class="text-center">Gamma<br>
+                        </h4>
+                        <!-- Input 1 Gamma -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputGamma" class="form-label d-none d-sm-inline">Gamma
+                                        (γ)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Gamma Factor (γ):" data-bs-content="Enter
+                                        the Enter the gamma factor of the object, which represents the degree of time
+                                        dilation and length contraction that occurs as an object approaches the speed of
+                                        light. It is a dimensionless quantity and is calculated as the reciprocal of the
+                                        square root of one minus the velocity squared divided by the speed of light
+                                        squared. Example: If the velocity is 0.5c, then the gamma factor is 1.155.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputGamma" id="inputGamma" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the gamma factor of the object, which represents the degree of
+                                        time dilation and length contraction that occurs as an object approaches the
+                                        speed of light. It is a dimensionless quantity and is calculated as the
+                                        reciprocal of the square root of one minus the velocity squared divided by the
+                                        speed of light squared. Example: If the velocity is 0.5c, then the gamma factor
+                                        is 1.155." data-input="gamma" value="" min="1e-99" max="750000" step="any" autocomplete="off" disabled placeholder="gamma (γ)">
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-4 mb-3">
-                                        <input type="text" class="form-control mb-2" placeholder="Input 2">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <input class="mt-2 d-block" placeholder="Output 2">
-                                    </div>
+                                <div class="col-5">
+                                    <label for="unitsGamma" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsGamma" id="unitsGamma" data-input="gamma" disabled>
+                                        <option value="g" selected>No units</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Input 2 - Velocity  -->
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-7">
+                                    <label for="inputVelocity" class="form-label d-none d-sm-inline">Velocity
+                                        (v)</label>
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Velocity (c):" data-bs-content="Enter
+                                        the velocity of the object in a
+                                        decimal of the speed of light (c), and the calculator will automatically compute
+                                        the corresponding gamma factor. The gamma factor is a key component of the
+                                        Lorentz equations that describe the effects of relativity on time, space, and
+                                        energy. Example: 0.5 for half the speed of light, or 0.866 for 86.6% the speed of
+                                        light.">
+                                        <i class="far fa-question-circle fa"></i>
+                                    </a>
+                                    <input type="number" name="inputVelocity" id="inputVelocity" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the velocity of the object in a decimal of the speed of light
+                                        (c), and the calculator will automatically compute the corresponding gamma
+                                        factor. The gamma factor is a key component of the Lorentz equations that
+                                        describe the effects of relativity on time, space, and energy. Example: 0.5 for
+                                        half the speed of light, or 0.866 for 80% the speed of light." data-input="velocity" value="" min="0" max="1" step="any" autocomplete="off" disabled placeholder="Velocity (v)">
+                                </div>
+                                <div class="col-5">
+                                    <label for="unitsVelocity" class="form-label">Units</label>
+                                    <select class="form-select form-control" name="unitsVelocity" id="unitsVelocity" data-input="velocity" disabled>
+                                        <option value="c" selected>c</option>
+                                        <option value="ms">ms⁻¹</option>
+                                        <option value="kmh">kmh⁻¹</option>
+                                        <option value="mph">mph</option>
+                                        <option value="kms">kms⁻¹</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col text-center">
-                        <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-                        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover"
-                            data-bs-trigger="focus" data-bs-title="Reset Form"
-                            data-bs-content="Reset the form to add new variables to calculate.">
-                            <i class="far fa-question-circle fa mb-2"></i>
-                        </a>
-                        <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
-                            disabled>Calculate</button>
-                        <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover"
-                            data-bs-trigger="focus" data-bs-title="Calculate"
-                            data-bs-content="Once you have added the velocity variable submit the calculation for evaluation.">
-                            <i class="far fa-question-circle fa mb-2"></i>
-                        </a>
-                        <div id="error"></div>
-                    </div>
                 </div>
-            </section>
-
-        <!-- Invisible reset button for global JS code -->
-        <button type="reset" class="invisible" id="resetButton2">Reset</button>
-        <div id="alert-container">
-            <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
-                <span id="alert-message">Invalid input.</span>
-                <button id="alert-close" aria-label="Close alert">X</button>
             </div>
+            <div class="col text-center">
+                <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                    <i class="far fa-question-circle fa mb-2"></i>
+                </a>
+                <div id="error"></div>
+            </div>
+            <br>
+        </section>
+        <!-- TABLE ONE - RESULTS -->
+        <section id="results_table_1" class="container border border-success mt-1 mb-1 bg_cont">
+            <h5>Table 1: Results in SI units</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col" class="w50">Variable</th>
+                        <th scope="col" class="w50">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gamma (γ)</td>
+                        <td id="gammaOutput">(dimensionless)</td>
+                    </tr>
+                    <tr>
+                        <td>Velocity (v)</td>
+                        <td id="velocityOutput">c</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="equation_color">Equation Used:</h6>
+            <p id="equation"></p>
+            <p id="substitutedNumbers"></p>
+            <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+                <i class="far fa-question-circle fa mb-2"></i>
+            </a>
+            <br>
+            <p><em>Table 1 provides the SI unit for each variable. Note that the gamma factor (γ) is a dimensionless unit. You can change the
+                    output accordingly and see the
+                    common unit conversions in Table 2.</em></p>
+        </section>
+    </form>
+    <!-- Table 2 Results Table -->
+    <section class="container border border-success mt-1 mb-2 bg_cont">
+        <h5>Table 2: Results with common units displayed</h5>
+        <table class="table table-sm">
+            <thead>
+                <tr class="t_line">
+                    <th scope="col" class="w50">Variable</th>
+                    <th scope="col" class="w50">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Velocity (v)</td>
+                    <td id="v1x">ms<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v0x">c</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v2x">kmh<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v3x">fts<sup>-1</sup></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v4x">knots</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="v5x">kms<sup>-1</sup></td>
+                </tr>
+                <tr class="t_line">
+                    <td></td>
+                    <td id="v6x">cms<sup>-1</sup></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>Table 2 shows the results of all the calculations and various units available with all conversions
+                completed.</em>
+        </p>
+    </section>
+    </div>
+    <div id="alert-container">
+        <div id="alert-box" role="alert" aria-label="Alert: Invalid input.">
+            <span id="alert-message">Invalid input.</span>
+            <button id="alert-close" aria-label="Close alert">X</button>
         </div>
-        <footer>
-            <div class="footer"></div>
-        </footer>
-        <script src="assets/scripts/jquery-3.6.1.min.js"></script>
-        <script src="assets/scripts/bootstrap.bundle.js"></script>
-        <script src="assets/scripts/include_content.js"></script>
-        <script src="assets/scripts/calculators/tA2_gamma_factor.js"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    </div>
+    <footer>
+        <div class="footer"></div>
+    </footer>
+    <script src="assets/scripts/jquery-3.6.1.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.js"></script>
+    <script src="assets/scripts/include_content.js"></script>
+    <script src="assets/scripts/calculators/tA2_gamma_factor.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </body>
 
 </html>

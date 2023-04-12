@@ -2,26 +2,26 @@
 const $checkboxes = $(".ideal-check input[type=checkbox]");
 const $submitButton = $("#submitButton");
 
-$checkboxes.on("change", function () {
+$checkboxes.on("change", function() {
     const $checkedCheckboxes = $checkboxes.filter(":checked");
 
     // Disable unchecked checkboxes
     $checkboxes.filter(":not(:checked)").prop("disabled", $checkedCheckboxes.length >= 2);
 
     // Enable corresponding inputs for checked checkboxes
-    const $checkedInputs = $checkedCheckboxes.map(function () {
+    const $checkedInputs = $checkedCheckboxes.map(function() {
         return $("[data-input='" + this.id + "']");
     });
     const $uncheckedInputs = $("[data-input]").not($checkedInputs);
     $uncheckedInputs.prop("disabled", true);
-    $checkedInputs.each(function () {
+    $checkedInputs.each(function() {
         $(this).prop("disabled", false);
         $(this).siblings("select").prop("disabled", false);
     });
 
     // Reset inputs and select options for unchecked checkboxes
     const $uncheckedCheckboxes = $checkboxes.filter(":not(:checked)");
-    $uncheckedCheckboxes.each(function () {
+    $uncheckedCheckboxes.each(function() {
         const $uncheckedInputs = $("[data-input='" + this.id + "']");
         if ($uncheckedInputs.is(":input")) {
             $uncheckedInputs.val("").attr("placeholder", $uncheckedInputs.attr("placeholder"));
@@ -51,7 +51,7 @@ const v1 = document.querySelector("#velocity");
 const d1 = document.querySelector("#distance");
 const t1 = document.querySelector("#time");
 
-document.getElementById("submitButton").addEventListener("click", function () {
+document.getElementById("submitButton").addEventListener("click", function() {
     if (validateInputs()) {
         calculateVelocity();
     }
@@ -158,17 +158,17 @@ function calculateVelocity() {
     if (isNaN(t)) t = 0;
 
     if (!v1.checked && d1.checked && t1.checked) {
-        //Equation 1 V unknown
+        //Equation 1 v unknown
         v = d / t;
-          if (v > 299792458) {
-              document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
-          } else {
-              document.getElementById("inputVelocity").value = v.toFixed(3);
-              document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " m/s";
-          }
+        if (v > 299792458) {
+            document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
+        } else {
+            document.getElementById("inputVelocity").value = v.toFixed(3);
+            document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " m/s";
+        }
         document.getElementById("distanceOutput").innerHTML = scientificNotation(d) + " m";
         document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " s";
-        document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} v=\frac{d}{t} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} v=\frac{d}{t} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -179,7 +179,7 @@ function calculateVelocity() {
         document.getElementById("distanceOutput").innerHTML = scientificNotation(d) + " m";
         document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
         document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " s";
-        document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} d=vt \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} d=vt \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
 
@@ -190,7 +190,7 @@ function calculateVelocity() {
         document.getElementById("distanceOutput").innerHTML = scientificNotation(d) + " m";
         document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
         document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " s";
-        document.getElementById("equation").innerHTML = String.raw`<span>$$\begin{gather} t=\frac{d}{v} \\ \notag \end{gather}$$</span>`;
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\begin{gather} t=\frac{d}{v} \\ \notag \end{gather}$$</span>`;
         MathJax.typeset();
     }
     // Scroll to the results section
@@ -201,21 +201,21 @@ function calculateVelocity() {
 
     // Table 2 - results all converted
     // Update velocity values
-   if (v > 299792458) {
-       document.getElementById("v1x").innerHTML = "greater than the speed of light... Impossible.";
-       document.getElementById("v2x").innerHTML = "&nbsp;";
-       document.getElementById("v3x").innerHTML = "&nbsp;";
-       document.getElementById("v4x").innerHTML = "&nbsp;";
-       document.getElementById("v5x").innerHTML = "&nbsp;";
-       document.getElementById("v6x").innerHTML = "&nbsp;";
-   } else {
-       document.getElementById("v1x").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
-       document.getElementById("v2x").innerHTML = scientificNotation(v * 3.6) + " kmh<sup>-1</sup>";
-       document.getElementById("v3x").innerHTML = scientificNotation(v * 3.281) + " fts<sup>-1</sup>";
-       document.getElementById("v4x").innerHTML = scientificNotation(v * 1.944) + " knots";
-       document.getElementById("v5x").innerHTML = scientificNotation(v / 1000) + " kms<sup>-1</sup>";
-       document.getElementById("v6x").innerHTML = scientificNotation(v * 100) + " cms<sup>-1</sup>";
-   }
+    if (v > 299792458) {
+        document.getElementById("v1x").innerHTML = "greater than the speed of light... Impossible.";
+        document.getElementById("v2x").innerHTML = "&nbsp;";
+        document.getElementById("v3x").innerHTML = "&nbsp;";
+        document.getElementById("v4x").innerHTML = "&nbsp;";
+        document.getElementById("v5x").innerHTML = "&nbsp;";
+        document.getElementById("v6x").innerHTML = "&nbsp;";
+    } else {
+        document.getElementById("v1x").innerHTML = scientificNotation(v) + " ms<sup>-1</sup>";
+        document.getElementById("v2x").innerHTML = scientificNotation(v * 3.6) + " kmh<sup>-1</sup>";
+        document.getElementById("v3x").innerHTML = scientificNotation(v * 3.281) + " fts<sup>-1</sup>";
+        document.getElementById("v4x").innerHTML = scientificNotation(v * 1.944) + " knots";
+        document.getElementById("v5x").innerHTML = scientificNotation(v / 1000) + " kms<sup>-1</sup>";
+        document.getElementById("v6x").innerHTML = scientificNotation(v * 100) + " cms<sup>-1</sup>";
+    }
 
     // Update distance values
     document.getElementById("d1x").innerHTML = scientificNotation(d) + " m";
@@ -248,7 +248,7 @@ function calculateVelocity() {
 const inputVelocity = document.getElementById('inputVelocity');
 const unitsVelocity = document.getElementById('unitsVelocity');
 
-unitsVelocity.addEventListener('change', function () {
+unitsVelocity.addEventListener('change', function() {
     const selectedValue = unitsVelocity.value;
     let max = 300000000;
     let min = -300000000;
@@ -307,7 +307,7 @@ unitsVelocity.addEventListener('change', function () {
 const inputDistance = document.getElementById('inputDistance');
 const unitsDistance = document.getElementById('unitsDistance');
 
-unitsDistance.addEventListener('change', function () {
+unitsDistance.addEventListener('change', function() {
     const selectedValue = unitsDistance.value;
     let max = 8.8e26; // 1 billion meters
     let min = -8.8e26; // -1 billion meters
@@ -354,7 +354,7 @@ unitsDistance.addEventListener('change', function () {
 const inputTime = document.getElementById('inputTime');
 const unitsTime = document.getElementById('unitsTime');
 
-unitsTime.addEventListener('change', function () {
+unitsTime.addEventListener('change', function() {
     const selectedValue = unitsTime.value;
     let max = 1e15; // 1 quadrillion seconds
     let min = 1e-9; // 1 nanosecond

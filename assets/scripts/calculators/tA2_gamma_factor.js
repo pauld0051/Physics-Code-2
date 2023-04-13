@@ -156,40 +156,40 @@ unitsVelocity.addEventListener('change', function () {
             const selectedValue = unitsVelocity.value;
             let max = 299792458;
             let min = 0;
-            let step = 'any';
+            let step = 1e-16;
             switch (selectedValue) {
                 case 'c':
-                    max = 1;
+                    max = 0.999999999999999;
                     min = 0;
-                    step = 'any';
+                    step = step;
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
                     inputVelocity.setAttribute('step', step);
                     break;
                 case 'ms':
                     max = max;
-                    step = 'any';
+                    step = step;
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
                     inputVelocity.setAttribute('step', step);
                     break;
                 case 'kms':
                     max = max / 1000;
-                    step = 'any';
+                    step = step;
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
                     inputVelocity.setAttribute('step', step);
                     break;
                 case 'mph':
                     max = max / 447.04;
-                    step = 'any';
+                    step = step;
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
                     inputVelocity.setAttribute('step', step);
                     break;
                 case 'kmh':
                     max = 1079252848.8;
-                    step = 'any';
+                    step = step;
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
                     inputVelocity.setAttribute('step', step);

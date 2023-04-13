@@ -32,17 +32,22 @@ function validateInputs() {
         const inputName = input.name.replace('input', '').replace(/([A-Z])/g, ' $1').replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase().replace(/^\w/, (c) => c.toUpperCase());
         const min = parseFloat(input.min);
         const max = parseFloat(input.max);
-        const step = parseFloat(input.step);
+        const step = input.getAttribute('step');
+        const stepValue = parseFloat(step);
+        const stepDecimalPlaces = step && step.split('.')[1] ? step.split('.')[1].length : 0;
         const value = parseFloat(input.value);
-        const stepDecimalPlaces = input.getAttribute('step') && input.getAttribute('step').split('.')[1] ? input.getAttribute('step').split('.')[1].length : 0;
         const valueDecimalPlaces = value.toString().split('.')[1] ? value.toString().split('.')[1].length : 0;
-        if (!isNaN(step) && step !== "any" && (value < step || valueDecimalPlaces > stepDecimalPlaces)) {
-          showAlert(`Invalid input for ${inputName}. Please enter a value that is greater than or equal to ${step}.`, input.id);
-          console.log("Invalid input for step, value is:", value);
-          console.log("Step is:", step);
-          console.log("Value decimal places is:", valueDecimalPlaces);
-          console.log("Step decimal places is:", stepDecimalPlaces);
-          return false;
+
+        // Check if the value is an acceptable multiple of the step
+        const isStepMultiple = Math.abs(Math.round(value / stepValue) * stepValue - value) < Math.pow(10, -stepDecimalPlaces);
+
+        if (!isNaN(stepValue) && step !== "any" && (value < stepValue || !isStepMultiple)) {
+            showAlert(`Invalid input for ${inputName}. Please enter a value that is greater than or equal to ${step} and follows the required step.`, input.id);
+            console.log("Invalid input for step, value is:", value);
+            console.log("Step is:", step);
+            console.log("Value decimal places is:", valueDecimalPlaces);
+            console.log("Step decimal places is:", stepDecimalPlaces);
+            return false;
         }
         if (isNaN(value)) {
             showAlert(`Invalid input for ${inputName}. Please enter a valid number.`, input.id);
@@ -66,14 +71,13 @@ function validateInputs() {
         const regex = /^[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?$/i;
         if (!regex.test(input.value)) {
             showAlert(`Invalid input for ${inputName}. Please enter a valid number.`, input.id);
-             console.log("Invalid input for regex, input name is:", inputName);
+            console.log("Invalid input for regex, input name is:", inputName);
             return false;
         }
         removeCardBorder();
     }
     return true;
 }
-
 // End of validate inputs
 
 

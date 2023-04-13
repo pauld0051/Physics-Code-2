@@ -477,24 +477,24 @@ unitsSpecificLatentHeat.addEventListener('change', function () {
     const selectedValue = unitsSpecificLatentHeat.value;
     let max = 5000000;
     let min = 0.000000000001;
-    let step = 0.000000000001;
+    let step = any;
 
     switch (selectedValue) {
         case 'c2':
         case 'c3':
-            max = 5000;
-            min = 0.0001;
-            step = 0.0001;
+            max = max;
+            min = min;
+            step = step;
             break;
         case 'c4':
-            max = 10000;
-            min = 0.001;
-            step = 0.001;
+            max = max;
+            min = min;
+            step = step;
             break;
         case 'c5':
-            max = 5000;
-            min = 0.0001;
-            step = 0.0001;
+            max = max;
+            min = min;
+            step = step;
             break;
         case 'c6':
         case 'c7':
@@ -515,9 +515,9 @@ unitsSpecificLatentHeat.addEventListener('change', function () {
         case 'c22':
         case 'c23':
         case 'c24':
-            max = 15000;
-            min = 0.0001;
-            step = 0.0001;
+            max = max;
+            min = min;
+            step = step;
             break;
         default:
             console.error('Invalid specific heat capacity unit');

@@ -252,7 +252,7 @@ unitsVelocity.addEventListener('change', function() {
     const selectedValue = unitsVelocity.value;
     let max = 300000000;
     let min = -300000000;
-    let step = 0.0001;
+    let step = "any";
     switch (selectedValue) {
         case 'ms':
             inputVelocity.setAttribute('max', max);
@@ -262,7 +262,7 @@ unitsVelocity.addEventListener('change', function() {
         case 'kms':
             max = max / 1000;
             min = min / 1000;
-            step = 0.0001;
+            step = step;
             inputVelocity.setAttribute('max', max);
             inputVelocity.setAttribute('min', min);
             inputVelocity.setAttribute('step', step);
@@ -270,7 +270,7 @@ unitsVelocity.addEventListener('change', function() {
         case 'fts':
             max = max * 3.280839895;
             min = min * 3.280839895;
-            step = 0.0001;
+            step = step;
             inputVelocity.setAttribute('max', max);
             inputVelocity.setAttribute('min', min);
             inputVelocity.setAttribute('step', step);
@@ -278,7 +278,7 @@ unitsVelocity.addEventListener('change', function() {
         case 'mph':
             max = max * 2.236936292;
             min = min * 2.236936292;
-            step = 0.0001;
+            step = step;
             inputVelocity.setAttribute('max', max);
             inputVelocity.setAttribute('min', min);
             inputVelocity.setAttribute('step', step);
@@ -286,7 +286,7 @@ unitsVelocity.addEventListener('change', function() {
         case 'kmh':
             max = max * 3.6;
             min = min * 3.6;
-            step = 0.0001;
+            step = step;
             inputVelocity.setAttribute('max', max);
             inputVelocity.setAttribute('min', min);
             inputVelocity.setAttribute('step', step);
@@ -294,7 +294,7 @@ unitsVelocity.addEventListener('change', function() {
         case 'cms':
             max = max / 100;
             min = min / 100;
-            step = 0.01;
+            step = step;
             inputVelocity.setAttribute('max', max);
             inputVelocity.setAttribute('min', min);
             inputVelocity.setAttribute('step', step);

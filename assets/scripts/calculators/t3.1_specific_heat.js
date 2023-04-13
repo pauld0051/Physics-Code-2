@@ -471,24 +471,24 @@ function calculateIdealGas() {
         const selectedValue = unitsSpecificHeatCapacity.value;
         let max = 5000000;
         let min = 0.000000000001;
-        let step = 0.000000000001;
+        let step = any;
 
         switch (selectedValue) {
             case 'c2':
             case 'c4':
-                max = 5000;
-                min = 0.0001;
-                step = 0.0001;
+                max = max;
+                min = min;
+                step = step;
                 break;
             case 'c5':
-                max = 10000;
-                min = 0.001;
-                step = 0.001;
+                max = max;
+                min = min;
+                step = step;
                 break;
             case 'c6':
-                max = 5000;
-                min = 0.0001;
-                step = 0.0001;
+                max = max;
+                min = min;
+                step = step;
                 break;
             case 'c8':
             case 'c9':
@@ -503,9 +503,9 @@ function calculateIdealGas() {
             case 'c18':
             case 'c19':
             case 'c20':
-                max = 5000;
-                min = 0.0001;
-                step = 0.0001;
+                max = max;
+                min = min;
+                step = step;
                 break;
             default:
                 console.error('Invalid specific heat capacity unit');

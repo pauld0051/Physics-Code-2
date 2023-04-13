@@ -38,7 +38,7 @@ $checkboxes.on("change", function () {
 
     // Change colour of checkbox icon when valid
     const $fontawesomeIcon = $(".fas.fa-check-square");
-    if ($checkedCheckboxes.length === 1) {
+    if ($checkedCheckboxes.length === 2) {
         $fontawesomeIcon.removeClass("text-warning").addClass("text-success");
     } else {
         $fontawesomeIcon.removeClass("text-success").addClass("text-warning");
@@ -159,20 +159,30 @@ function calculateGamma() {
     if (isNaN(pt)) pt = 0;
 
     if (!v1.checked && t1.checked && pt1.checked) {
-        //Equation 1 v unknown
-        v = Math.sqrt(1 - Math.pow(pt / t, 2));
-        g = 1 / Math.sqrt(1 - Math.pow(v, 2));
-        if (v > 1) {
-            document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
+        if (t < pt) {
+            document.getElementById("velocityOutput").innerHTML = "Dilated time (Δt) cannot be less than the proper time (Δt₀). Please check your input values.";
+            document.getElementById("inputVelocity").value = "";
+            document.getElementById("timeOutput").innerHTML = "";
+            document.getElementById("properTimeOutput").innerHTML = "";
+            document.getElementById("gammaOutput").innerHTML = "";
+            document.getElementById("equation").innerHTML = "";
+            MathJax.typeset();
         } else {
-            document.getElementById("inputVelocity").value = v.toFixed(3);
-            document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
-            document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
-            document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
-            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            // Equation 1 v unknown
+            v = Math.sqrt(1 - Math.pow(pt / t, 2));
+            g = 1 / Math.sqrt(1 - Math.pow(v, 2));
+            if (v > 1) {
+                document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
+            } else {
+                document.getElementById("inputVelocity").value = v.toFixed(3);
+                document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
+                document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
+                document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
+                document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            }
+            document.getElementById("equation").innerHTML = String.raw `<span>$$v = \sqrt{1 - \left(\frac{\Delta t_0}{\Delta t}\right)^2}$$</span>`;
+            MathJax.typeset();
         }
-        document.getElementById("equation").innerHTML = String.raw `<span>$$v = \sqrt{1 - \left(\frac{\Delta t_0}{\Delta t}\right)^2}$$</span>`;
-        MathJax.typeset();
     }
     if (v1.checked && !t1.checked && pt1.checked) {
         // Equation 2 t unknown

@@ -178,7 +178,7 @@ function calculateGamma() {
                 document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
                 document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
                 document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
-                document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+                document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
             }
             document.getElementById("equation").innerHTML = String.raw `<span>$$v = \sqrt{1 - \left(\frac{\Delta t_0}{\Delta t}\right)^2}$$</span>`;
             MathJax.typeset();
@@ -196,7 +196,7 @@ function calculateGamma() {
             document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
             document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
             document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
-            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
         }
         document.getElementById("equation").innerHTML = String.raw `<span>$$\Delta t = \frac{\Delta t_0}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}$$</span>`;
         MathJax.typeset();
@@ -213,7 +213,7 @@ function calculateGamma() {
             document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
             document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
             document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
-            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
         }
         document.getElementById("equation").innerHTML = String.raw `<span>$$\Delta t_0 = \Delta t \cdot \sqrt{1 - \left(\frac{v}{c}\right)^2}$$</span>`;
         MathJax.typeset();
@@ -275,7 +275,7 @@ function calculateGamma() {
     }
 
     // Update gamma values
-    document.getElementById("g1x").innerHTML = g;
+    document.getElementById("g1x").innerHTML = g.toFixed(8);
 }
 
 const unitsVelocity = document.getElementById('unitsVelocity');

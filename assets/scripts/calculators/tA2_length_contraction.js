@@ -214,7 +214,7 @@ function calculateGamma() {
                 document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
                 document.getElementById("lengthOutput").innerHTML = scientificNotation(l) + " m";
                 document.getElementById("properLengthOutput").innerHTML = scientificNotation(pl) + " m";
-                document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+                document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
             }
             document.getElementById("equation").innerHTML = String.raw `<span>$$v = \sqrt{1 - \left(\frac{L}{L_0}\right)^2}$$</span>`;
             MathJax.typeset();
@@ -232,7 +232,7 @@ function calculateGamma() {
             document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
             document.getElementById("lengthOutput").innerHTML = scientificNotation(l) + " m";
             document.getElementById("properLengthOutput").innerHTML = scientificNotation(pl) + " m";
-            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
         }
         document.getElementById("equation").innerHTML = String.raw `<span>$$L = L_0 \cdot \sqrt{1 - \left(\frac{v}{c}\right)^2}$$</span>`;
         MathJax.typeset();
@@ -249,7 +249,7 @@ function calculateGamma() {
             document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
             document.getElementById("lengthOutput").innerHTML = scientificNotation(l) + " m";
             document.getElementById("properLengthOutput").innerHTML = scientificNotation(pl) + " m";
-            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+            document.getElementById("gammaOutput").innerHTML = g.toFixed(6);
         }
         document.getElementById("equation").innerHTML = String.raw `<span>$$L_0 = \frac{L}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}$$</span>`;
         MathJax.typeset();
@@ -296,34 +296,34 @@ function calculateGamma() {
     document.getElementById("pl15x").innerHTML = scientificNotation(pl / 3.086e+22) + " Mpc";
     document.getElementById("pl16x").innerHTML = scientificNotation(pl / 3.086e+25) + " Gpc";
 
- // Update velocity values
- if (v > 1) {
-     document.getElementById("v0x").innerHTML = "greater than the speed of light... Impossible.";
-     document.getElementById("v1x").innerHTML = "&nbsp;";
-     document.getElementById("v2x").innerHTML = "&nbsp;";
-     document.getElementById("v3x").innerHTML = "&nbsp;";
-     document.getElementById("v4x").innerHTML = "&nbsp;";
-     document.getElementById("v5x").innerHTML = "&nbsp;";
-     document.getElementById("v6x").innerHTML = "&nbsp;";
- } else {
-     const v_ms = v * 299792458;
-     const v_kmh = v_ms * 3.6;
-     const v_fts = v_ms * 3.281;
-     const v_knots = v_ms * 1.944;
-     const v_kms = v_ms / 1000;
-     const v_cms = v_ms * 100;
+    // Update velocity values
+    if (v > 1) {
+        document.getElementById("v0x").innerHTML = "greater than the speed of light... Impossible.";
+        document.getElementById("v1x").innerHTML = "&nbsp;";
+        document.getElementById("v2x").innerHTML = "&nbsp;";
+        document.getElementById("v3x").innerHTML = "&nbsp;";
+        document.getElementById("v4x").innerHTML = "&nbsp;";
+        document.getElementById("v5x").innerHTML = "&nbsp;";
+        document.getElementById("v6x").innerHTML = "&nbsp;";
+    } else {
+        const v_ms = v * 299792458;
+        const v_kmh = v_ms * 3.6;
+        const v_fts = v_ms * 3.281;
+        const v_knots = v_ms * 1.944;
+        const v_kms = v_ms / 1000;
+        const v_cms = v_ms * 100;
 
-     document.getElementById("v0x").innerHTML = scientificNotation(v) + " c";
-     document.getElementById("v1x").innerHTML = scientificNotation(v_ms) + " ms<sup>-1</sup>";
-     document.getElementById("v2x").innerHTML = scientificNotation(v_kmh) + " kmh<sup>-1</sup>";
-     document.getElementById("v3x").innerHTML = scientificNotation(v_fts) + " fts<sup>-1</sup>";
-     document.getElementById("v4x").innerHTML = scientificNotation(v_knots) + " knots";
-     document.getElementById("v5x").innerHTML = scientificNotation(v_kms) + " kms<sup>-1</sup>";
-     document.getElementById("v6x").innerHTML = scientificNotation(v_cms) + " cms<sup>-1</sup>";
- }
+        document.getElementById("v0x").innerHTML = scientificNotation(v) + " c";
+        document.getElementById("v1x").innerHTML = scientificNotation(v_ms) + " ms<sup>-1</sup>";
+        document.getElementById("v2x").innerHTML = scientificNotation(v_kmh) + " kmh<sup>-1</sup>";
+        document.getElementById("v3x").innerHTML = scientificNotation(v_fts) + " fts<sup>-1</sup>";
+        document.getElementById("v4x").innerHTML = scientificNotation(v_knots) + " knots";
+        document.getElementById("v5x").innerHTML = scientificNotation(v_kms) + " kms<sup>-1</sup>";
+        document.getElementById("v6x").innerHTML = scientificNotation(v_cms) + " cms<sup>-1</sup>";
+    }
 
- // Update gamma values
- document.getElementById("g1x").innerHTML = g;
+    // Update gamma values
+    document.getElementById("g1x").innerHTML = g.toFixed(8);
 
 }
 

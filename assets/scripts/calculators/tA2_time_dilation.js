@@ -71,20 +71,22 @@ function calculateGamma() {
 
     // Velocity //
     const vUnit = document.getElementById("unitsVelocity").value;
+    const c1 = 299792458; // Speed of light in meters per second
+
     if (vUnit === "c") {
         v = v;
     }
     if (vUnit === "ms") {
-        v = v / 299792458;
+        v = v / c1;
     }
     if (vUnit === "kmh") {
-        v = v * 0.00000092656;
+        v = (v * 1000 / 3600) / c1;
     }
     if (vUnit === "mph") {
-        v = v * 0.00000044704;
+        v = (v * 1609.34 / 3600) / c1;
     }
     if (vUnit === "kms") {
-        v = v * 0.00333564;
+        v = (v * 1000) / c1;
     }
     if (isNaN(v)) v = 0;
 
@@ -239,20 +241,27 @@ function calculateGamma() {
     // Update velocity values
     if (v > 1) {
         document.getElementById("v0x").innerHTML = "greater than the speed of light... Impossible.";
-        document.getElementById("v1x").innerHTML = "greater than the speed of light... Impossible.";
+        document.getElementById("v1x").innerHTML = "&nbsp;";
         document.getElementById("v2x").innerHTML = "&nbsp;";
         document.getElementById("v3x").innerHTML = "&nbsp;";
         document.getElementById("v4x").innerHTML = "&nbsp;";
         document.getElementById("v5x").innerHTML = "&nbsp;";
         document.getElementById("v6x").innerHTML = "&nbsp;";
     } else {
+        const v_ms = v * 299792458;
+        const v_kmh = v_ms * 3.6;
+        const v_fts = v_ms * 3.281;
+        const v_knots = v_ms * 1.944;
+        const v_kms = v_ms / 1000;
+        const v_cms = v_ms * 100;
+
         document.getElementById("v0x").innerHTML = scientificNotation(v) + " c";
-        document.getElementById("v1x").innerHTML = scientificNotation(v * 299792458) + " ms<sup>-1</sup>";
-        document.getElementById("v2x").innerHTML = scientificNotation(v * 299792458 * 3.6 / 1000) + " kmh<sup>-1</sup>";
-        document.getElementById("v3x").innerHTML = scientificNotation(v * 299792458 * 3.281 / 1000) + " fts<sup>-1</sup>";
-        document.getElementById("v4x").innerHTML = scientificNotation(v * 299792458 * 1.944 / 1000) + " knots";
-        document.getElementById("v5x").innerHTML = scientificNotation(v * 299792.458) + " kms<sup>-1</sup>";
-        document.getElementById("v6x").innerHTML = scientificNotation(v * 29979245800) + " cms<sup>-1</sup>";
+        document.getElementById("v1x").innerHTML = scientificNotation(v_ms) + " ms<sup>-1</sup>";
+        document.getElementById("v2x").innerHTML = scientificNotation(v_kmh) + " kmh<sup>-1</sup>";
+        document.getElementById("v3x").innerHTML = scientificNotation(v_fts) + " fts<sup>-1</sup>";
+        document.getElementById("v4x").innerHTML = scientificNotation(v_knots) + " knots";
+        document.getElementById("v5x").innerHTML = scientificNotation(v_kms) + " kms<sup>-1</sup>";
+        document.getElementById("v6x").innerHTML = scientificNotation(v_cms) + " cms<sup>-1</sup>";
     }
 
     // Update gamma values

@@ -189,22 +189,22 @@ function calculateGamma() {
         document.getElementById("equation").innerHTML = String.raw `<span>$$\Delta t = \frac{\Delta t_0}{\sqrt{1 - \left(\frac{v}{c}\right)^2}}$$</span>`;
         MathJax.typeset();
     }
-   if (v1.checked && t1.checked && !pt1.checked) {
-       // Equation 3 pt unknown
-       g = 1 / Math.sqrt(1 - Math.pow(v, 2));
-       pt = t * Math.sqrt(1 - Math.pow(v, 2));
+    if (v1.checked && t1.checked && !pt1.checked) {
+        // Equation 3 pt unknown
+        g = 1 / Math.sqrt(1 - Math.pow(v, 2));
+        pt = t * Math.sqrt(1 - Math.pow(v, 2));
 
-       if (v > 1) {
-           document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
-       } else {
-           document.getElementById("inputProperTime").value = pt.toFixed(3);
-           document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
-           document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
-           document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
-           document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
-       }
-       document.getElementById("equation").innerHTML = String.raw `<span>$$\Delta t_0 = \Delta t \cdot \sqrt{1 - \left(\frac{v}{c}\right)^2}$$</span>`;
-       MathJax.typeset();
+        if (v > 1) {
+            document.getElementById("velocityOutput").innerHTML = "greater than the speed of light... Impossible.";
+        } else {
+            document.getElementById("inputProperTime").value = pt.toFixed(3);
+            document.getElementById("velocityOutput").innerHTML = scientificNotation(v) + " c";
+            document.getElementById("timeOutput").innerHTML = scientificNotation(t) + " yr";
+            document.getElementById("properTimeOutput").innerHTML = scientificNotation(pt) + " yr";
+            document.getElementById("gammaOutput").innerHTML = scientificNotation(g);
+        }
+        document.getElementById("equation").innerHTML = String.raw `<span>$$\Delta t_0 = \Delta t \cdot \sqrt{1 - \left(\frac{v}{c}\right)^2}$$</span>`;
+        MathJax.typeset();
     }
     // Scroll to the results section
     document.querySelector('#results_table_1').scrollIntoView({
@@ -257,5 +257,163 @@ function calculateGamma() {
 
     // Update gamma values
     document.getElementById("g1x").innerHTML = g;
+}
 
-} //closing } //
+const unitsVelocity = document.getElementById('unitsVelocity');
+
+unitsVelocity.addEventListener('change', function () {
+    const selectedValue = unitsVelocity.value;
+    let max = 299792458;
+    let min = 0;
+    let step = 'any';
+    switch (selectedValue) {
+        case 'c':
+            max = 1;
+            min = 0;
+            step = 'any';
+            inputVelocity.setAttribute('max', max);
+            inputVelocity.setAttribute('min', min);
+            inputVelocity.setAttribute('step', step);
+            break;
+        case 'ms':
+            max = max;
+            step = 'any';
+            inputVelocity.setAttribute('max', max);
+            inputVelocity.setAttribute('min', min);
+            inputVelocity.setAttribute('step', step);
+            break;
+        case 'kms':
+            max = max / 1000;
+            step = 'any';
+            inputVelocity.setAttribute('max', max);
+            inputVelocity.setAttribute('min', min);
+            inputVelocity.setAttribute('step', step);
+            break;
+        case 'mph':
+            max = max / 447.04;
+            step = 'any';
+            inputVelocity.setAttribute('max', max);
+            inputVelocity.setAttribute('min', min);
+            inputVelocity.setAttribute('step', step);
+            break;
+        case 'kmh':
+            max = 1079252848.8;
+            step = 'any';
+            inputVelocity.setAttribute('max', max);
+            inputVelocity.setAttribute('min', min);
+            inputVelocity.setAttribute('step', step);
+            break;
+        default:
+            console.error('Invalid velocity unit');
+    }
+});
+
+const inputTime = document.getElementById('inputTime');
+const unitsTime = document.getElementById('unitsTime');
+
+unitsTime.addEventListener('change', function () {
+    const selectedValue = unitsTime.value;
+    let max = 1e15; // Maximum time in years
+    let min = 1e-24; // Minimum time in years
+    let step = 'any'; // Default step size
+
+    // Conversion factors for different time units
+    const secToUnit = {
+        s: 1,
+        min: 60,
+        h: 3600,
+        d: 86400,
+        wk: 604800,
+        mo: 2.628e+6, // average number of seconds in a month
+        yr: 3.154e+7, // average number of seconds in a year,
+        ps: 1e-12, // picoseconds
+        ns: 1e-9, // nanoseconds
+        μs: 1e-6, // microseconds
+        ms: 0.001, // milliseconds
+    };
+
+    // Set the max, min, and step attributes based on the selected unit
+    switch (selectedValue) {
+        case 's':
+        case 'min':
+        case 'h':
+        case 'd':
+        case 'wk':
+        case 'mo':
+        case 'yr':
+            max = max / secToUnit.yr * secToUnit[selectedValue];
+            min = min / secToUnit.yr * secToUnit[selectedValue];
+            inputTime.setAttribute('max', max);
+            inputTime.setAttribute('min', min);
+            inputTime.setAttribute('step', step);
+            break;
+        case 'ms':
+        case 'μs':
+        case 'ns':
+        case 'ps':
+            max = max / secToUnit.yr / secToUnit[selectedValue];
+            min = min / secToUnit.yr / secToUnit[selectedValue];
+            step = 'any';
+            inputTime.setAttribute('max', max);
+            inputTime.setAttribute('min', min);
+            inputTime.setAttribute('step', step);
+            break;
+        default:
+            console.error('Invalid time unit');
+    }
+});
+
+const inputProperTime = document.getElementById('inputProperTime');
+const unitsProperTime = document.getElementById('unitsProperTime');
+
+unitsProperTime.addEventListener('change', function () {
+    const selectedValueP = unitsProperTime.value;
+    let max = 1e15; // Maximum time in years
+    let min = 1e-24; // Minimum time in years
+    let step = 'any'; // Default step size
+
+    // Conversion factors for different time units
+    const secToUnitP = {
+        sp: 1,
+        minp: 60,
+        hp: 3600,
+        dp: 86400,
+        wkp: 604800,
+        mop: 2.628e+6, // average number of seconds in a month
+        yrp: 3.154e+7, // average number of seconds in a year,
+        psp: 1e-12, // picoseconds
+        nsp: 1e-9, // nanoseconds
+        μsp: 1e-6, // microseconds
+        msp: 0.001, // milliseconds
+    };
+
+    // Set the max, min, and step attributes based on the selected unit
+    switch (selectedValueP) {
+        case 'sp':
+        case 'minp':
+        case 'hp':
+        case 'dp':
+        case 'wkp':
+        case 'mop':
+        case 'yrp':
+            max = max / secToUnitP.yrp * secToUnitP[selectedValueP];
+            min = min / secToUnitP.yrp * secToUnitP[selectedValueP];
+            inputProperTime.setAttribute('max', max);
+            inputProperTime.setAttribute('min', min);
+            inputProperTime.setAttribute('step', step);
+            break;
+        case 'msp':
+        case 'μsp':
+        case 'nsp':
+        case 'psp':
+            max = max / secToUnitP.yrp / secToUnitP[selectedValueP];
+            min = min / secToUnitP.yrp / secToUnitP[selectedValueP];
+            step = 'any';
+            inputProperTime.setAttribute('max', max);
+            inputProperTime.setAttribute('min', min);
+            inputProperTime.setAttribute('step', step);
+            break;
+        default:
+            console.error('Invalid time unit');
+    }
+});

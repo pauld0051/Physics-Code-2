@@ -22,13 +22,8 @@
         <div class="jumbotron jumbotron-fluid mt-1 mb-1 shadow p-3 jumbo-bg">
             <div class="container">
                 <h1 class="display-4 text-center text-wrap">Time Dilation Calculator</h1>
-                <p class="lead">Calculate the time dilation effect, where time appears to pass slower for objects moving
-                    at high velocities
-                    compared to those at rest, according to the theory of special relativity. The calculator allows you
-                    to determine the amount
-                    of time dilation experienced by an object moving at a certain velocity relative to an observer, or
-                    the velocity required
-                    to achieve a certain amount of time dilation.</p>
+                <p class="lead">Calculate the time dilation effect, where time appears to pass slower for objects moving at high velocities compared to those at rest, according to the theory of special relativity. The calculator allows you to determine the amount of
+                    time dilation experienced by an object moving at a certain velocity relative to an observer, or the velocity required to achieve a certain amount of time dilation.</p>
                 <p>Begin by selecting the known variables to calculate the unknown quantity.</p>
             </div>
         </div>
@@ -43,24 +38,18 @@
         <!-- Equation Selection -->
         <section class="container border border-primary bg_cont mb-1">
             <h4>Select the things you know:
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Select known variables"
-                    data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any two variables to calculate the third.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Select known variables" data-bs-content="By getting you to select the known variables you can start to become more familiar with the equations. You can select any two variables to calculate the third.">
                     <small><i class="far fa-question-circle fa"></i></small>
                 </a>
             </h4>
-            <p>Please note that this calculator converts all inputs into SI or metric units. Select
-                the variables that you know and calculate for the remaining variable. You can change your selection later if you want.
-                This will help you become familiar
+            <p>Please note that this calculator converts all inputs into SI or metric units. Select the variables that you know and calculate for the remaining variable. You can change your selection later if you want. This will help you become familiar
                 with the processes of calculating pressure equations.</p>
-            <p>For more information about the time dilation calculator, please visit our <a href="https://#" target="_blank"
-                    rel="noopener">time dilation</a> page.
+            <p>For more information about the time dilation calculator, please visit our <a href="https://#" target="_blank" rel="noopener">time dilation</a> page.
             </p>
             <!-- Check Boxes -->
             <div class="row align-items-center">
                 <div class="col-3 text-center">
-                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you
-                        know:
+                    <p class="fs-5 mb-0"><i class="fas text-warning fa-check-square me-2"></i>Select the variables you know:
                     </p>
                 </div>
                 <div class="col-9">
@@ -72,15 +61,13 @@
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="properTime" id="properTime"
-                                name="properTime">
+                            <input class="form-check-input" type="checkbox" value="properTime" id="properTime" name="properTime">
                             <label class="form-check-label" for="properTime">
                                 Proper Time (∆t₀)
                             </label>
                         </div>
                         <div class="form-check form-switch border-bottom">
-                            <input class="form-check-input" type="checkbox" value="velocity" id="velocity"
-                                name="velocity">
+                            <input class="form-check-input" type="checkbox" value="velocity" id="velocity" name="velocity">
                             <label class="form-check-label" for="velocity">
                                 Velocity (v)
                             </label>
@@ -102,9 +89,7 @@
                                 <div class="col-7">
                                     <label for="inputTime" class="form-label d-none d-sm-inline">Dilated Time
                                         (∆t)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
-                                        data-bs-trigger="focus" data-bs-title="Dilated Time (∆t):"
-                                        data-bs-content="Enter the time in units of seconds (s), minutes (min), hours
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Dilated Time (∆t):" data-bs-content="Enter the time in units of seconds (s), minutes (min), hours
                                         (h), days (d), weeks (wk), months (mo), or years (yr). Example: 3600 s or 1 h
                                         for a time
                                         of 1 hour.<br>
@@ -123,18 +108,13 @@
                                         who is at rest relative to the object.">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
-                                    <input type="number" name="inputTime" id="inputTime"
-                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                        aria-label="Enter the time in units of seconds (s), minutes (min), hours (h),
+                                    <input type="number" name="inputTime" id="inputTime" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the time in units of seconds (s), minutes (min), hours (h),
                                         days
-                                        (d), weeks (wk), months (mo), or years (yr)." data-input="time" value=""
-                                        max="1e15" min="1e-9" step="any"
-                                        autocomplete="off" disabled placeholder="Dilated Time (∆t)">
+                                        (d), weeks (wk), months (mo), or years (yr)." data-input="time" value="" max="1e15" min="1e-24" step="any" autocomplete="off" disabled placeholder="Dilated Time (∆t)">
                                 </div>
                                 <div class="col-5">
                                     <label for="unitsTime" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsTime" id="unitsTime"
-                                        data-input="time" disabled>
+                                    <select class="form-select form-control" name="unitsTime" id="unitsTime" data-input="time" disabled>
                                          <option value="yr" selected>yr</option>
                                          <option value="s">s</option>
                                          <option value="min">min</option>
@@ -155,9 +135,7 @@
                                 <div class="col-7">
                                     <label for="inputProperTime" class="form-label d-none d-sm-inline">Proper Time
                                         (∆t₀)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
-                                        data-bs-trigger="focus" data-bs-title="Proper Time (∆t₀):"
-                                        data-bs-content="Enter the time in units of seconds (s), minutes (min), hours
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Proper Time (∆t₀):" data-bs-content="Enter the time in units of seconds (s), minutes (min), hours
                                         (h), days (d), weeks (wk), months (mo), or years (yr). Example: 3600 s or 1 h for a time
                                         of 1 hour.<br>
                                         Dilated time is the difference in the passage of time between two observers in
@@ -175,18 +153,13 @@
                                         who is at rest relative to the object.">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
-                                    <input type="number" name="inputProperTime" id="inputProperTime"
-                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                        aria-label="Enter the time in units of seconds (s), minutes (min), hours (h),
+                                    <input type="number" name="inputProperTime" id="inputProperTime" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the time in units of seconds (s), minutes (min), hours (h),
                                         days
-                                        (d), weeks (wk), months (mo), or years (yr)." data-input="properTime" value=""
-                                        max="1e15" min="1e-9" step="any"
-                                        autocomplete="off" disabled placeholder="Proper Time (∆t₀)">
+                                        (d), weeks (wk), months (mo), or years (yr)." data-input="properTime" value="" max="1e15" min="1e-24" step="any" autocomplete="off" disabled placeholder="Proper Time (∆t₀)">
                                 </div>
                                 <div class="col-5">
                                     <label for="unitsProperTime" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsProperTime" id="unitsProperTime"
-                                        data-input="properTime" disabled>
+                                    <select class="form-select form-control" name="unitsProperTime" id="unitsProperTime" data-input="properTime" disabled>
                                          <option value="yrp" selected>yr</option>
                                          <option value="sp">s</option>
                                          <option value="minp">min</option>
@@ -207,8 +180,7 @@
                                 <div class="col-7">
                                     <label for="inputVelocity" class="form-label d-none d-sm-inline">Velocity
                                         (v)</label>
-                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover"
-                                        data-bs-trigger="focus" data-bs-title="Velocity (c):" data-bs-content="Enter
+                                    <a tabindex="0" class="btn btn-link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Velocity (c):" data-bs-content="Enter
                                         the velocity of the object in a
                                         decimal of the speed of light (c), and the calculator will automatically compute
                                         the corresponding gamma factor. The gamma factor is a key component of the
@@ -217,20 +189,15 @@
                                         light.">
                                         <i class="far fa-question-circle fa"></i>
                                     </a>
-                                    <input type="number" name="inputVelocity" id="inputVelocity"
-                                        class="reset_form formCheck maxAllow form-control input-rounded-start"
-                                        aria-label="Enter the velocity of the object in a decimal of the speed of light
+                                    <input type="number" name="inputVelocity" id="inputVelocity" class="reset_form formCheck maxAllow form-control input-rounded-start" aria-label="Enter the velocity of the object in a decimal of the speed of light
                                         (c), and the calculator will automatically compute the corresponding gamma
                                         factor. The gamma factor is a key component of the Lorentz equations that
                                         describe the effects of relativity on time, space, and energy. Example: 0.5 for
-                                        half the speed of light, or 0.866 for 80% the speed of light."
-                                        data-input="velocity" value="" min="0" max="1" step="any" autocomplete="off"
-                                        disabled placeholder="Velocity (v)">
+                                        half the speed of light, or 0.866 for 80% the speed of light." data-input="velocity" value="" min="0" max="1" step="any" autocomplete="off" disabled placeholder="Velocity (v)">
                                 </div>
                                 <div class="col-5">
                                     <label for="unitsVelocity" class="form-label">Units</label>
-                                    <select class="form-select form-control" name="unitsVelocity" id="unitsVelocity"
-                                        data-input="velocity" disabled>
+                                    <select class="form-select form-control" name="unitsVelocity" id="unitsVelocity" data-input="velocity" disabled>
                                         <option value="c" selected>c</option>
                                         <option value="ms">ms⁻¹</option>
                                         <option value="kmh">kmh⁻¹</option>
@@ -245,15 +212,11 @@
             </div>
             <div class="col text-center">
                 <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton1">Reset</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
-                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton"
-                    disabled>Calculate</button>
-                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                    data-bs-title="Calculate"
-                    data-bs-content="Once you have added three variables submit the calculation for evaluation.">
+                <button type="button" class="btn-sm btn btn-outline-success mb-2" id="submitButton" disabled>Calculate</button>
+                <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Calculate" data-bs-content="Once you have added three variables submit the calculation for evaluation.">
                     <i class="far fa-question-circle fa mb-2"></i>
                 </a>
                 <div id="error"></div>
@@ -293,9 +256,7 @@
             <p id="equation"></p>
             <p id="substitutedNumbers"></p>
             <button type="reset" class="btn-sm btn-outline-danger btn mb-2" id="resetButton2">Reset</button>
-            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-                data-bs-title="Reset Form"
-                data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
+            <a tabindex="0" class="btn btn-link" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="Reset Form" data-bs-content="Reset the form to add new variables to calculate. The answer will remain here until you calculate a new set of variables.">
                 <i class="far fa-question-circle fa mb-2"></i>
             </a>
             <br>
@@ -361,77 +322,77 @@
                     <td id="t4x">hr</td>
                 </tr>
                 <tr>
-                <tr>
-                    <td></td>
-                    <td id="t5x">days</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t6x">weeks</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t7x">months</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t8x">years</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t9x">ms</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t10x">&mu;s</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td id="t11x">ns</td>
-                </tr>
-                <tr class="t_line">
                     <tr>
-                        <td>Proper Time (∆t₀)</td>
-                        <td id="pt1x">s</td>
+                        <td></td>
+                        <td id="t5x">days</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt3x">min</td>
+                        <td id="t6x">weeks</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt4x">hr</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                        <td></td>
-                        <td id="pt5x">days</td>
+                        <td id="t7x">months</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt6x">weeks</td>
+                        <td id="t8x">years</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt7x">months</td>
+                        <td id="t9x">ms</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt8x">years</td>
+                        <td id="t10x">&mu;s</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td id="pt9x">ms</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td id="pt10x">&mu;s</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td id="pt11x">ns</td>
+                        <td id="t11x">ns</td>
                     </tr>
                     <tr class="t_line">
+                        <tr>
+                            <td>Proper Time (∆t₀)</td>
+                            <td id="pt1x">s</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="pt3x">min</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td id="pt4x">hr</td>
+                        </tr>
+                        <tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt5x">days</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt6x">weeks</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt7x">months</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt8x">years</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt9x">ms</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt10x">&mu;s</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td id="pt11x">ns</td>
+                            </tr>
+                            <tr class="t_line">
             </tbody>
         </table>
         <p><em>Table 2 shows the results of all the calculations and various units available with all conversions

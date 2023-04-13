@@ -165,7 +165,7 @@ unitsVelocity.addEventListener('change', function () {
                     inputVelocity.setAttribute('step', step);
                     break;
                 case 'kms':
-                    max = max / 299792.458;
+                    max = max / 1000;
                     step = 'any';
                     inputVelocity.setAttribute('max', max);
                     inputVelocity.setAttribute('min', min);
